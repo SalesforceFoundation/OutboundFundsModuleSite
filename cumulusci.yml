@@ -1,0 +1,30 @@
+minimum_cumulusci_version: '3.27.0'
+project:
+    name: OutboundFundsCommunity
+    package:
+        name: Outbound Funds Community
+        namespace: outfunds_comm
+        api_version: '50.0'
+    dependencies:
+        - namespace: sfdobase
+          version: 1.0
+        - github: 'https://github.com/SalesforceFoundation/OutboundFunds'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/OutboundFundsCommunity/tests
+            options:
+                outputdir: robot/OutboundFundsCommunity/results
+
+    robot_testdoc:
+        options:
+            path: robot/OutboundFundsCommunity/tests
+            output: robot/OutboundFundsCommunity/doc/OutboundFundsCommunity_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 100
