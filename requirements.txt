@@ -1,0 +1,7 @@
+beautifulsoup4==4.8.1
+esprima==4.0.1
+soupsieve==1.9.5
+click==7.1.2
+black==20.8b1
+flake8==3.8.3
+pytest==5.4.3
