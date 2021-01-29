@@ -1,6 +1,7 @@
 {
   "orgName": "Outbound Funds Community - Beta Test Org",
   "edition": "Developer",
+  "instance": "cs46",
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
