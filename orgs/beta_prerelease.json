@@ -1,0 +1,22 @@
+{
+  "orgName": "Outbound Funds Community - Beta Test Org",
+  "edition": "Developer",
+  "instance": "cs46",
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "chatterSettings": {
+      "enableChatter": true
+    },
+    "userManagementSettings": {
+      "enableNewProfileUI": true
+    },
+    "securitySettings": {
+      "enableAdminLoginAsAnyUser": true,
+      "sessionSettings": {
+        "forceRelogin": false
+      }
+    }
+  }
+}
