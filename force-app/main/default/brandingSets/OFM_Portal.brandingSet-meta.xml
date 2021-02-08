@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrandingSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brandingSetProperty>
+        <propertyName>TextTransformStyle</propertyName>
+        <propertyValue>none</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>DetailTextColor</propertyName>
+        <propertyValue>rgba(0, 0, 0, 0.6)</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>BorderColor</propertyName>
+        <propertyValue>#D4D4D4</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>_OverlayTextColorShadow</propertyName>
+        <propertyValue>#000000</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>HeaderFonts</propertyName>
+        <propertyValue>Montserrat</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>CardBackgroundColor</propertyName>
+        <propertyValue>rgba(255, 255, 255, 0)</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>LoginBackgroundColor</propertyName>
+        <propertyValue>#F4F4F4</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>ActionColor</propertyName>
+        <propertyValue>#0A32C6</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>_ActionColorTrans</propertyName>
+        <propertyValue>rgba(10, 50, 198, 0.9)</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>CompanyLogo</propertyName>
+        <propertyValue>/sfsites/assets/themes/jepson-logo.png</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>LoginBackgroundImage</propertyName>
+        <propertyValue>../../../../sfsites/picasso/core/external/salesforceIdentity/images/background.jpg?v=1</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>PageBackgroundColor</propertyName>
+        <propertyValue>#FFFFFF</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>_LinkColorDarker</propertyName>
+        <propertyValue>#000000</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>_ActionColorDarker</propertyName>
+        <propertyValue>#082695</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>_HoverColor</propertyName>
+        <propertyValue>rgba(10, 50, 198, 0.05)</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>ErrorFontColor</propertyName>
+        <propertyValue>#ff9e9e</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>TextColor</propertyName>
+        <propertyValue>rgba(0, 0, 0, 0.8)</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>OverlayTextColor</propertyName>
+        <propertyValue>#FFFFFF</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>PrimaryFont</propertyName>
+        <propertyValue>Lato</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>LinkColor</propertyName>
+        <propertyValue>#111111</propertyValue>
+    </brandingSetProperty>
+    <masterLabel>OFM_Portal</masterLabel>
+    <type>jepson:branding-jepson</type>
+</BrandingSet>
