@@ -36,7 +36,7 @@ tasks:
         class_path: dev.tasks.community_templates.ExportCommunityTemplateTask
         options:
             template_name: OFM_Portal
-            suffix: "2"
+            suffix: "4"
             export_template: True
             export_theme: True
             export_branding_set: True

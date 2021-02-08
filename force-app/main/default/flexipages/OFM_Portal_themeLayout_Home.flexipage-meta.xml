@@ -34,7 +34,6 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>customizableUserProfileMenuEditor</name>
-                    <value>Default_User_Profile_Menu</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>menuStyleSettings</name>
@@ -43,7 +42,34 @@
                 <componentName>forceCommunity:customizableUserProfileMenu</componentName>
             </componentInstance>
         </itemInstances>
-        <name>c46ead22-1ddc-486b-a83c-aa6a11c232a2</name>
+        <name>0c6c464e-e574-4a2f-b69f-86bddd9bf8d5</name>
+        <prependable>disabled</prependable>
+        <replaceable>disabled</replaceable>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <appendable>disabled</appendable>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>commThemeGroupId</name>
+                    <value>jepsonHomeHeader</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>navAlignment</name>
+                    <value>left</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>navItemThreshold</name>
+                    <value>4</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>navigationMenuEditorRefresh</name>
+                </componentInstanceProperties>
+                <componentName>forceCommunity:themeNav</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>8f88c401-bab0-4a87-af31-87255ba3fda9</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -112,41 +138,7 @@
                 <componentName>forceCommunity:themeSearch</componentName>
             </componentInstance>
         </itemInstances>
-        <name>1759dd43-4d5b-40fd-b009-97782745bf3b</name>
-        <prependable>disabled</prependable>
-        <replaceable>disabled</replaceable>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <appendable>disabled</appendable>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>commThemeGroupId</name>
-                    <value>jepsonHomeHeader</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>navAlignment</name>
-                    <value>left</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>navItemThreshold</name>
-                    <value>4</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>navigationMenuEditorRefresh</name>
-                </componentInstanceProperties>
-                <componentName>forceCommunity:themeNav</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>869d243c-b975-4dea-9e76-c7d490b0eb2a</name>
-        <prependable>disabled</prependable>
-        <replaceable>disabled</replaceable>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <appendable>disabled</appendable>
-        <name>da26747b-ae7e-4617-86e1-fad387939b7a</name>
+        <name>b61a4fb1-2c00-4e1b-91d5-98dc3c5f53d1</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -229,11 +221,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>nav</name>
-                    <value>869d243c-b975-4dea-9e76-c7d490b0eb2a</value>
+                    <value>8f88c401-bab0-4a87-af31-87255ba3fda9</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>1759dd43-4d5b-40fd-b009-97782745bf3b</value>
+                    <value>b61a4fb1-2c00-4e1b-91d5-98dc3c5f53d1</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>searchStyle</name>
@@ -261,7 +253,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>themeHeaderProfileMenu</name>
-                    <value>c46ead22-1ddc-486b-a83c-aa6a11c232a2</value>
+                    <value>0c6c464e-e574-4a2f-b69f-86bddd9bf8d5</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:themeHeaderCompact</componentName>
             </componentInstance>
@@ -352,7 +344,7 @@
                 <componentName>forceCommunity:themeSearchHero</componentName>
             </componentInstance>
         </itemInstances>
-        <name>4a3980a4-3a52-4ff0-86a0-b93a4954cc4c</name>
+        <name>0503a6e5-9774-4bc2-b379-025e7babc838</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -363,11 +355,11 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>bgImage</name>
-                    <value>background: #FFFFFF url(/sfsites/assets/themes/jepson-background.jpg) top center /cover</value>
+                    <value>background: rgb(32,92,160) url(/sfsites/c/file-asset/HIVE_Foundation_hero) center center /cover</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>bgOverlayColor</name>
-                    <value>rgba(255, 255, 255, 0.20)</value>
+                    <value>rgba(31, 31, 34, 0.8)</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>captionText</name>
@@ -383,7 +375,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>contentAlignment</name>
-                    <value>right</value>
+                    <value>left</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>contentWidth</name>
@@ -405,7 +397,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaBtnOneText</name>
-                    <value>Our Projects</value>
+                    <value>Our Programs</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaBtnOneTextColor</name>
@@ -422,7 +414,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaBtnTwoBgColor</name>
-                    <value>rgba(255, 255, 255, 0)</value>
+                    <value>rgba(96, 96, 100, 0)</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaBtnTwoBgHoverColor</name>
@@ -442,7 +434,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaBtnTwoTextColor</name>
-                    <value>rgba(0, 0, 0, 0.8)</value>
+                    <value>rgb(255, 255, 255)</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaBtnTwoTextHoverColor</name>
@@ -473,11 +465,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>4a3980a4-3a52-4ff0-86a0-b93a4954cc4c</value>
+                    <value>0503a6e5-9774-4bc2-b379-025e7babc838</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showCaption</name>
-                    <value>true</value>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showSubtitle</name>
@@ -489,11 +481,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>subtitleText</name>
-                    <value>We specialize in the construction of unique and exclusive properties.  We deliver outstanding quality and design for leading architects and private clients around the world.</value>
+                    <value>We&apos;ve been supporting our community since 1965.</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>subtitleTextColor</name>
-                    <value>rgba(0, 0, 0, 0.8)</value>
+                    <value>rgb(255, 255, 255)</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>subtitleTextShadowColor</name>
@@ -505,11 +497,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>titleTextColor</name>
-                    <value>rgba(0, 0, 0, 0.8)</value>
+                    <value>rgb(255, 255, 255)</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>titleTextShadowColor</name>
-                    <value>rgba(0, 0, 0, 0)</value>
+                    <value>rgb(0, 0, 0)</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>type</name>
@@ -560,15 +552,6 @@
         <properties>
             <name>showHero</name>
             <value>true</value>
-        </properties>
-        <properties>
-            <name>themeFooter</name>
-        </properties>
-        <properties>
-            <name>themeHeader</name>
-        </properties>
-        <properties>
-            <name>themeHero</name>
         </properties>
     </template>
     <type>CommThemeLayoutPage</type>
