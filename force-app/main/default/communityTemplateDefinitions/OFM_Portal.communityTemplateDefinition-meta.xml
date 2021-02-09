@@ -2,25 +2,25 @@
 <CommunityTemplateDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseTemplate>c</baseTemplate>
     <bundlesInfo>
-        <description>Create a single place to share all of your funding opportunities with grantseekers. They’ll also have the ability to create accounts so they can personalize their experience with you and speed up the process.</description>
+        <description>Create a single place to share all of your funding opportunities with fundseekers. They’ll also have the ability to create accounts so they can personalize their experience with you and speed up the process.</description>
         <order>1</order>
         <title>Self-Service</title>
         <type>Highlight</type>
     </bundlesInfo>
     <bundlesInfo>
-        <description>Customize your applications with applicable requirements to each of your funding programs. Once grantseekers find the right opportunities, they can submit applications with ease.</description>
+        <description>Customize your applications with applicable requirements to each of your funding programs. Once fundseekers find the right opportunities, they can submit applications with ease.</description>
         <order>2</order>
         <title>Funding Applications</title>
         <type>Highlight</type>
     </bundlesInfo>
     <bundlesInfo>
-        <description>No need for guess work here. Grantseekers can log in anytime, on any device, to monitor the status of their applications. Once awarded, they can also use the portal to see disbursement schedules and amounts.</description>
+        <description>No need for guess work here. Fundseekers can log in anytime, on any device, to monitor the status of their applications. Once awarded, they can also use the portal to see disbursement schedules and amounts.</description>
         <order>3</order>
         <title>Status Updates</title>
         <type>Highlight</type>
     </bundlesInfo>
     <bundlesInfo>
-        <description>Grantees can provide important information related to their awards by submitting status reports and other updates through the portal.</description>
+        <description>Fundees can provide important information related to their awards by submitting status reports and other updates through the portal.</description>
         <order>4</order>
         <title>Submit Updates</title>
         <type>Highlight</type>
