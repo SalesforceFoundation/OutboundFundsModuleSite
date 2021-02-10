@@ -29,7 +29,9 @@ def _is_project_package_installed(self: BaseTask):
     """
     namespace = self.project_config.project__package__namespace
     for package in GetInstalledPackages(
-        self.project_config, TaskConfig({}), self.org_config,
+        self.project_config,
+        TaskConfig({}),
+        self.org_config,
     )().items():
         installed_package_namespace = package[0]
         if namespace == installed_package_namespace:
@@ -77,10 +79,17 @@ class InjectNamespaceBaseTask(BaseTask):
         return directory.startswith((".", "_"))
 
     def _ignore_inject_namespace_for_file(self, file_name):
-        return file_name.startswith((".", "sfdx-project.json",))
+        return file_name.startswith(
+            (
+                ".",
+                "sfdx-project.json",
+            )
+        )
 
     def _inject_namespace(
-        self, source_path: str, managed=False,
+        self,
+        source_path: str,
+        managed=False,
     ):
         """
         Walks through source_path and calls inject_namespace on files whose:

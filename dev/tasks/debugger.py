@@ -9,7 +9,12 @@ def _debug(self, value, title=None, show_list_index=True):
 
 
 def debug(
-    value, title=None, indent=0, tab="  ", show_list_index=True, logger=print,
+    value,
+    title=None,
+    indent=0,
+    tab="  ",
+    show_list_index=True,
+    logger=print,
 ):
     indentation = tab * (indent)
     prefix = "" if title is None else str(title) + " : "
@@ -82,7 +87,8 @@ def _get_padded_log_columns(column_max_lengths, column_range, row):
 
 
 def _get_log_column_separators(
-    columnBorders=True, padColumns=True,
+    columnBorders=True,
+    padColumns=True,
 ):
     column_separators = {
         "value": "{}",
@@ -107,7 +113,9 @@ def _get_log_column_separators(
 
 
 def _get_table_borders(
-    column_max_lengths, columnBorders=True, padColumns=True,
+    column_max_lengths,
+    columnBorders=True,
+    padColumns=True,
 ):
     table_borders = {}
     table_borders["borders"] = []
@@ -254,7 +262,9 @@ def log_table(
         column_range = range(0, len(column_max_lengths))
 
         table_borders = _get_table_borders(
-            column_max_lengths, columnBorders, padColumns,
+            column_max_lengths,
+            columnBorders,
+            padColumns,
         )
 
         logger(table_borders.get("header"))

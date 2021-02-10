@@ -130,7 +130,8 @@ class ExportCommunityTemplateTask(SfdxEtlWithNamespaceInjectionTask):
         # - copy but do not process temporary metadata
         self.template_name = self.options.get("template_name")
         self.temporary_template_name = "{}{}".format(
-            self.template_name, self.options.get("suffix"),
+            self.template_name,
+            self.options.get("suffix"),
         )
         self._copy_temporary_metadata = process_bool_arg(
             self.options.get("copy_temporary_metadata")
@@ -471,7 +472,8 @@ class ExportCommunityTemplateTask(SfdxEtlWithNamespaceInjectionTask):
                     rename_file_rows.append([dir_entry.name, packaged_file_name])
 
                     with open(
-                        os.path.join(metadata_directory, packaged_file_name), "w",
+                        os.path.join(metadata_directory, packaged_file_name),
+                        "w",
                     ) as f:
                         f.write(
                             self._inject_namespace_token_into_content_asset_references(
@@ -533,7 +535,10 @@ class ExportCommunityTemplateTask(SfdxEtlWithNamespaceInjectionTask):
         deep with tags in tag_property_names.
         """
         metadata_directory = os.path.join(
-            self._default_package_directory, "main", "default", directory,
+            self._default_package_directory,
+            "main",
+            "default",
+            directory,
         )
         absolute_metadata_directory = os.path.join(
             self._temporary_directory, metadata_directory
@@ -571,7 +576,11 @@ class ExportCommunityTemplateTask(SfdxEtlWithNamespaceInjectionTask):
 
         # Set packaged file's ElementTree.
         with open(
-            os.path.join(absolute_metadata_directory, packaged_file_name,), "r"
+            os.path.join(
+                absolute_metadata_directory,
+                packaged_file_name,
+            ),
+            "r",
         ) as f:
             packaged_file_tree = et.parse(f)
 
@@ -586,7 +595,11 @@ class ExportCommunityTemplateTask(SfdxEtlWithNamespaceInjectionTask):
 
         # Overwrite packaged file with tags replaced from temporary file.
         with open(
-            os.path.join(absolute_metadata_directory, packaged_file_name,), "w"
+            os.path.join(
+                absolute_metadata_directory,
+                packaged_file_name,
+            ),
+            "w",
         ) as f:
             f.write(
                 self._replace_template_name_references(

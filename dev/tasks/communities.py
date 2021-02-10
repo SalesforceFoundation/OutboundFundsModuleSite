@@ -133,7 +133,9 @@ class ReplaceThemeLayoutNavigationMenuTask(SfdxEtlWithNamespaceInjectionTask):
                 )
                 for line in old_file:
                     updated_line = re.sub(
-                        r'("navigationMenuEditorRefresh" ?: ?.*$)', substitution, line,
+                        r'("navigationMenuEditorRefresh" ?: ?.*$)',
+                        substitution,
+                        line,
                     )
                     new_file.write(updated_line)
                     if updated_line != line:
