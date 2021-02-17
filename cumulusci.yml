@@ -13,6 +13,17 @@ project:
         default_branch: "main"
     source_format: sfdx
 
+sources:
+    outbound_funds:
+        github: https://github.com/SalesforceFoundation/OutboundFunds
+        release: latest_beta
+
+orgs:
+    scratch:
+        2gp:
+            config_file: orgs/dev.json
+            days: 7
+
 tasks:
     robot:
         options:
@@ -29,6 +40,47 @@ tasks:
         options:
             required_org_code_coverage_percent: 100
 
+    # Customer Enablement
+    create_fundseeker_community:
+        group: "OFM-Site: Customer enablement"
+        description: "Creates a site with the OFM Experience Template."
+        class_path: cumulusci.tasks.salesforce.CreateCommunity
+        options:
+            template: OFM-Portal
+            name: Outbound Funds Portal
+            url_path_prefix: outboundfunds
+            timeout: 60000
+
+    # Internal configuration
+    dev_secure_owds_by_default:
+        group: "OFM-Site: Internal configuration"
+        description: Sets organization-wide default (OWD) sharing configuration as private both internally and externally.
+        class_path: cumulusci.tasks.metadata_etl.SetOrgWideDefaults
+        options:
+            org_wide_defaults:
+                - api_name: Account
+                  internal_sharing_model: Private
+                  external_sharing_model: Private
+                # Opportunity + Case must have a sharing model ≤ Account's sharing model.
+                - api_name: Opportunity
+                  internal_sharing_model: Private
+                  external_sharing_model: Private
+                - api_name: Case
+                  internal_sharing_model: Private
+                  external_sharing_model: Private
+                - api_name: User
+                  internal_sharing_model: Private
+                  external_sharing_model: Private
+                - api_name: outfunds__Funding_Program__c
+                  internal_sharing_model: Private
+                  external_sharing_model: Private
+                - api_name: outfunds__Funding_Request__c
+                  internal_sharing_model: Private
+                  external_sharing_model: Private
+                - api_name: outfunds__Requirement__c
+                  internal_sharing_model: Private
+                  external_sharing_model: Private
+
     # Internal development automation
     dev_export_ofm_community_template:
         group: "OFM: Internal dev automation"
@@ -36,9 +88,57 @@ tasks:
         class_path: dev.tasks.community_templates.ExportCommunityTemplateTask
         options:
             template_name: OFM_Portal
-            suffix: "4"
+            suffix: "3"
             export_template: True
             export_theme: True
             export_branding_set: True
             export_flexipages: True
-            copy_temporary_metadata: True
+            copy_temporary_metadata: False
+
+flows:
+    config_dev:
+        steps:
+            # 1) task: deploy_post [from current folder]
+            # 2) task: update_admin_profile
+            3:
+                flow: customer_enablement
+            4:
+                task: outbound_funds:load_dataset
+            5:
+                task: dev_secure_owds_by_default
+
+    config_qa:
+        steps:
+            # 1) task: deploy_post [from current folder]
+            # 2) task: update_admin_profile
+            3:
+                flow: customer_enablement
+            4:
+                task: outbound_funds:load_dataset
+            5:
+                task: dev_secure_owds_by_default
+
+    config_managed:
+        steps:
+            # 1) task: deploy_post [from current folder]
+            # 2) task: update_admin_profile
+            3:
+                flow: customer_enablement
+            4:
+                task: outbound_funds:load_dataset
+            5:
+                task: dev_secure_owds_by_default
+
+    2gp_org:
+        steps:
+            1:
+                flow: install_2gp_commit
+            2:
+                flow: config_managed
+            3:
+                task: snapshot_changes
+
+    customer_enablement:
+        steps:
+            3:
+                task: create_fundseeker_community
