@@ -31,9 +31,6 @@
                     <value>Email</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>extraFieldsFieldSet</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>firstnameLabel</name>
                     <value>First Name</value>
                 </componentInstanceProperties>
@@ -54,9 +51,6 @@
                     <value>./CheckPasswordResetEmail</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>startUrl</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>submitButtonLabel</name>
                     <value>Sign Up</value>
                 </componentInstanceProperties>
@@ -65,9 +59,6 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>headerText</name>
-                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showHeader</name>
                     <value>false</value>

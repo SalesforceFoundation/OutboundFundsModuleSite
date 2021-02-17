@@ -34,6 +34,10 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>customizableUserProfileMenuEditor</name>
+<<<<<<< HEAD
+=======
+                    <value>Default_User_Profile_Menu</value>
+>>>>>>> 38c9b016cf7f0a20aab9cb37d58d7b000b0fe85a
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>menuStyleSettings</name>
@@ -42,7 +46,11 @@
                 <componentName>forceCommunity:customizableUserProfileMenu</componentName>
             </componentInstance>
         </itemInstances>
+<<<<<<< HEAD
         <name>14fca453-4817-4d96-8973-a735528d40b6</name>
+=======
+        <name>cacd857c-55c7-4f4b-901c-4f42e31c00b8</name>
+>>>>>>> 38c9b016cf7f0a20aab9cb37d58d7b000b0fe85a
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -111,7 +119,7 @@
                 <componentName>forceCommunity:themeSearch</componentName>
             </componentInstance>
         </itemInstances>
-        <name>8163d4b0-04e0-46bc-8780-df0ec40c327a</name>
+        <name>743a89f2-30a2-4ff2-8a98-c013f126b4ab</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -134,12 +142,18 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>navigationMenuEditorRefresh</name>
-                    <value>%%%NAMESPACE%%OFM_Portal_Navigation</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:themeNav</componentName>
             </componentInstance>
         </itemInstances>
-        <name>182b765e-cc88-40ea-b5cd-8a5109d113f6</name>
+        <name>b0552a7e-9a5e-44e6-8506-f35d84dc0886</name>
+        <prependable>disabled</prependable>
+        <replaceable>disabled</replaceable>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <appendable>disabled</appendable>
+        <name>cca34b57-773a-4246-9fdd-f0bd16fe4d21</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -222,11 +236,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>nav</name>
-                    <value>182b765e-cc88-40ea-b5cd-8a5109d113f6</value>
+                    <value>b0552a7e-9a5e-44e6-8506-f35d84dc0886</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>8163d4b0-04e0-46bc-8780-df0ec40c327a</value>
+                    <value>743a89f2-30a2-4ff2-8a98-c013f126b4ab</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>searchStyle</name>
@@ -254,7 +268,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>themeHeaderProfileMenu</name>
-                    <value>14fca453-4817-4d96-8973-a735528d40b6</value>
+                    <value>cacd857c-55c7-4f4b-901c-4f42e31c00b8</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:themeHeaderCompact</componentName>
             </componentInstance>
@@ -345,7 +359,7 @@
                 <componentName>forceCommunity:themeSearchHero</componentName>
             </componentInstance>
         </itemInstances>
-        <name>f74704a1-a379-412b-acdb-3aa1c63ec078</name>
+        <name>181eb2b9-7b14-4b64-ab2b-adaf274a9ca9</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -466,7 +480,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>f74704a1-a379-412b-acdb-3aa1c63ec078</value>
+                    <value>181eb2b9-7b14-4b64-ab2b-adaf274a9ca9</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showCaption</name>
@@ -553,6 +567,15 @@
         <properties>
             <name>showHero</name>
             <value>false</value>
+        </properties>
+        <properties>
+            <name>themeFooter</name>
+        </properties>
+        <properties>
+            <name>themeHeader</name>
+        </properties>
+        <properties>
+            <name>themeHero</name>
         </properties>
     </template>
     <type>CommThemeLayoutPage</type>

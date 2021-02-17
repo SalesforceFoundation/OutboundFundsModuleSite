@@ -56,9 +56,6 @@
                     <value>/SelfRegister</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>startUrl</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>usernameLabel</name>
                     <value>Username</value>
                 </componentInstanceProperties>
@@ -67,9 +64,6 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>headerText</name>
-                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showHeader</name>
                     <value>false</value>
