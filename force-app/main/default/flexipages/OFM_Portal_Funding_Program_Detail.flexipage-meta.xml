@@ -12,26 +12,51 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>scopes</name>
-                    <value>[{&quot;name&quot;:&quot;FeedPost&quot;,&quot;isPublic&quot;:true},{&quot;name&quot;:&quot;KnowledgeArticleVersion&quot;,&quot;isPublic&quot;:true},{&quot;name&quot;:&quot;Case&quot;,&quot;isPublic&quot;:false}, {&quot;name&quot;:&quot;CollaborationGroup&quot;,&quot;isPublic&quot;:true}]</value>
+                    <name>recordId</name>
+                    <value>{!recordId}</value>
+                </componentInstanceProperties>
+                <componentName>forceCommunity:recordHeadline</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>detailsTabLabel</name>
+                    <value>Details</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>searchResultFiltering</name>
-                    <value>true</value>
+                    <name>discussionsTabLabel</name>
+                    <value>Feed</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>searchTerm</name>
-                    <value>{!term}</value>
+                    <name>recordId</name>
+                    <value>{!recordId}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>showTopResults</name>
-                    <value>true</value>
+                    <name>relatedTabLabel</name>
+                    <value>Related</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>topicId</name>
-                    <value>{!topicId}</value>
+                    <name>tab1Type</name>
+                    <value>details</value>
                 </componentInstanceProperties>
-                <componentName>forceCommunity:search</componentName>
+                <componentInstanceProperties>
+                    <name>tab2Type</name>
+                    <value>related</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>tab3Type</name>
+                    <value>chatter</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>tab4Type</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>timelineTabLabel</name>
+                    <value>Activity</value>
+                </componentInstanceProperties>
+                <componentName>forceCommunity:recordHomeTabs</componentName>
             </componentInstance>
         </itemInstances>
         <name>content</name>
@@ -58,6 +83,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
+                    <value>{!Record._Object}: {!Record._Title}</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:seoAssistant</componentName>
             </componentInstance>
@@ -67,9 +93,10 @@
         <replaceable>enabled</replaceable>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Search</masterLabel>
+    <masterLabel>Funding Program Detail</masterLabel>
+    <sobjectType>outfunds__Funding_Program__c</sobjectType>
     <template>
         <name>siteforce:sldsOneColLayout</name>
     </template>
-    <type>CommGlobalSearchResultPage</type>
+    <type>CommRecordPage</type>
 </FlexiPage>
