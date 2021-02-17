@@ -28,3 +28,17 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 100
+
+    # Internal development automation
+    dev_export_ofm_community_template:
+        group: "OFM: Internal dev automation"
+        description: 'Exports specified temporary Community Template metadata. Change the options to export changes you are interested in. Remember, the temporary Community Template API Name must start with "template_name" option, and the "suffix" is everything after the "template_name" option in temporary Community Template API Name.'
+        class_path: dev.tasks.community_templates.ExportCommunityTemplateTask
+        options:
+            template_name: OFM_Portal
+            suffix: "4"
+            export_template: True
+            export_theme: True
+            export_branding_set: True
+            export_flexipages: True
+            copy_temporary_metadata: True
