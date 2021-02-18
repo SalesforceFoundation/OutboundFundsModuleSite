@@ -19,6 +19,11 @@ sources:
         release: latest_beta
 
 tasks:
+    # Automerge Major Release Branches
+    github_automerge_feature:
+        options:
+            update_future_releases: True
+
     robot:
         options:
             suites: robot/OutboundFundsCommunity/tests
