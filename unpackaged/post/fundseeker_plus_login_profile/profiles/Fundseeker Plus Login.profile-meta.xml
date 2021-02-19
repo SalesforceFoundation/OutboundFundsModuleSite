@@ -294,12 +294,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Program__c.outfunds__Funding_Program_Manager__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Program__c.outfunds__Parent_Funding_Program__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -309,17 +309,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Program__c.outfunds__Status__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Program__c.outfunds__Top_Level__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Program__c.outfunds__Total_Program_Amount__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -327,12 +327,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Applying_Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Applying_Employee__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -352,32 +352,32 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Close_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Closed_reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__FundingProgram__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Geographical_Area_Served__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Population_Served__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Recommended_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -392,22 +392,22 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Term_End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Term_Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Terms__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -424,7 +424,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Request__c.outfunds__Total_Remaining__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -434,7 +434,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Requirement__c.outfunds__Assigned__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
