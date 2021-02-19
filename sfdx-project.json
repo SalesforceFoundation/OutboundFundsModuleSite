@@ -1,8 +1,5 @@
 {
-  "packageDirectories": [{ "path": "force-app", "default": true },
-  {
-    "path": "unpackaged/post/fundseeker_plus_login_profile"
-  }],
+  "packageDirectories": [{ "path": "force-app", "default": true }],
   "namespace": "outfunds_comm",
   "sourceApiVersion": "50.0"
 }
