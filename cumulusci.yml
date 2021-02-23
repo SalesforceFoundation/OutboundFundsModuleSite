@@ -187,8 +187,7 @@ tasks:
         description: Grants read sharing-access to an account's Portal Role And Subordinates for all Funding Programs where the account has a Funding Request.
         class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
         options:
-            path: stories/dev/scripts/reorder_app_menu.apex
-            param1: "Outbound_Funds,outbound funds portal,Community"
+            path: stories/dev/scripts/share_funding_programs_with_requests.apex
 
     # qa story
     qa_reorder_app_menu:
