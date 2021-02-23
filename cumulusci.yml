@@ -13,11 +13,6 @@ project:
         default_branch: "main"
     source_format: sfdx
 
-sources:
-    outbound_funds:
-        github: https://github.com/SalesforceFoundation/OutboundFunds
-        release: latest_beta
-
 orgs:
     scratch:
         2gp:
