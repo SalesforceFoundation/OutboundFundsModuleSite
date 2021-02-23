@@ -82,6 +82,13 @@ tasks:
             profile_names:
                 - Fundseeker Plus Login
 
+    fundseeker_deploy_sharing_set:
+        group: "OFM-Site: Fundseeker customer enablement"
+        description: Deploys our recommended Sharing Set for the Fundseeker Plus Login Profile.
+        class_path: cumulusci.tasks.salesforce.Deploy
+        options:
+            path: unpackaged/fundseeker_customer_enablement/sharing_set
+
     # All stories
     secure_owds_by_default:
         group: "OFM-Site: stories"
@@ -160,6 +167,29 @@ tasks:
             path: stories/dev/scripts/reorder_app_menu.apex
             param1: "Outbound_Funds,outbound funds portal,Community"
 
+    dev_upload_photo_for_admin_aileen_davis:
+        group: "OFM-Site: stories/dev"
+        description: Uploads a profile photo for admin Aileen Davis.
+        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
+        options:
+            photo: stories/dev/images/photos/AileenDavis.png
+
+    dev_upload_photo_for_fundseeker_grace_walker:
+        group: "OFM-Site: stories/dev"
+        description: Uploads a profile photo for fundseeker Grace Walker.
+        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
+        options:
+            photo: stories/dev/images/photos/GraceWalker.png
+            where: Contact.Email = 'grace.walker@steps.example.com'
+
+    dev_share_funding_programs_with_accounts_with_funding_requests:
+        group: "OFM-Site: stories/dev"
+        description: Grants read sharing-access to an account's Portal Role And Subordinates for all Funding Programs where the account has a Funding Request.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/dev/scripts/reorder_app_menu.apex
+            param1: "Outbound_Funds,outbound funds portal,Community"
+
     # qa story
     qa_reorder_app_menu:
         group: "OFM-Site: stories/dev"
@@ -201,6 +231,12 @@ flows:
                 task: dev_update_default_scratch_org_user
             7:
                 task: dev_create_site_users
+            8:
+                task: dev_upload_photo_for_admin_aileen_davis
+            9:
+                task: dev_upload_photo_for_fundseeker_grace_walker
+            10:
+                task: dev_share_funding_programs_with_accounts_with_funding_requests
 
     config_dev:
         steps:
@@ -257,3 +293,5 @@ flows:
                 task: fundseeker_deploy_navigation_menu
             5:
                 task: fundseeker_configure_guest_user_profile
+            6:
+                task: fundseeker_deploy_sharing_set
