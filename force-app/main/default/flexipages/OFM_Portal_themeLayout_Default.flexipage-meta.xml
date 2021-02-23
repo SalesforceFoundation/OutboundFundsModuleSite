@@ -34,7 +34,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>customizableUserProfileMenuEditor</name>
-                    <value>OFM_Portal_User_Profile_Menu</value>
+                    <value>Default_User_Profile_Menu</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>menuStyleSettings</name>
