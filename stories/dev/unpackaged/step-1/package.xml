@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <name>SharingRules</name>
+    <members>outfunds__Funding_Program__c</members>
+  </types>
+  <types>
+    <name>SharingGuestRule</name>
+    <members>*</members>
+  </types>
+  <version>50.0</version>
+</Package>

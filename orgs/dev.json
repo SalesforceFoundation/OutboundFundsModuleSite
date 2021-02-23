@@ -1,7 +1,6 @@
 {
   "orgName": "Outbound Funds Community - Dev Org",
   "edition": "Developer",
-  "features": ["Communities"],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
@@ -17,11 +16,6 @@
       "sessionSettings": {
         "forceRelogin": false
       }
-    },
-    "communitiesSettings": {
-      "enableNetworksEnabled": true,
-      "enableGuestRecordReassignOrgPref": true,
-      "enableOotbProfExtUserOpsEnable": true
     },
     "languageSettings": {
       "enableTranslationWorkbench": true

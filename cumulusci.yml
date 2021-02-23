@@ -30,6 +30,7 @@ tasks:
         options:
             update_future_releases: True
 
+    # Robot test configuration
     robot:
         options:
             suites: robot/OutboundFundsCommunity/tests
@@ -46,9 +47,9 @@ tasks:
             required_org_code_coverage_percent: 100
 
     # Customer Enablement
-    create_fundseeker_community:
+    create_fundseeker_site:
         group: "OFM-Site: Customer enablement"
-        description: "Creates a site with the OFM Experience Template."
+        description: Creates a site with the OFM Experience Template.
         class_path: cumulusci.tasks.salesforce.CreateCommunity
         options:
             template: OFM-Portal
@@ -56,9 +57,16 @@ tasks:
             url_path_prefix: outboundfunds
             timeout: 60000
 
-    # Internal configuration
+    deploy_navigation_menu:
+        group: "OFM-Site: Customer enablement"
+        description: Deploys our recommended Navigation Menu for the Fundseeker Site
+        class_path: cumulusci.tasks.salesforce.Deploy
+        options:
+            path: unpackaged/customer_enablement/navigation_menu/
+
+    # dev story
     dev_secure_owds_by_default:
-        group: "OFM-Site: Internal configuration"
+        group: "OFM-Site: stories/dev"
         description: Sets organization-wide default (OWD) sharing configuration as private both internally and externally.
         class_path: cumulusci.tasks.metadata_etl.SetOrgWideDefaults
         options:
@@ -86,6 +94,38 @@ tasks:
                   internal_sharing_model: Private
                   external_sharing_model: Private
 
+    dev_deploy_unpackaged:
+        group: "OFM-Site: stories/dev"
+        description: Deploys the bundle of unpackaged for the dev story.
+        class_path: cumulusci.tasks.salesforce.DeployBundles
+        options:
+            path: stories/dev/unpackaged
+
+    dev_load_storytelling_data:
+        group: "OFM-Site: stories/dev"
+        description: Load dev storytelling data when person accounts is enabled.
+        class_path: cumulusci.tasks.bulkdata.LoadData
+        options:
+            mapping: stories/dev/dataset/mapping.yml
+            sql_path: stories/dev/dataset/data.sql
+
+    dev_reorder_app_menu:
+        group: "OFM-Site: stories/dev"
+        description: Re-orders the app menu for the dev story.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/dev/scripts/reorder_app_menu.apex
+            param1: "Outbound_Funds,outbound funds portal,Community"
+
+    # qa story
+    qa_reorder_app_menu:
+        group: "OFM-Site: stories/dev"
+        description: Re-orders the app menu for the qa story.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/qa/scripts/reorder_app_menu.apex
+            param1: "Outbound_Funds,outbound funds portal,Community"
+
     # Internal development automation
     dev_export_ofm_community_template:
         group: "OFM: Internal dev automation"
@@ -108,9 +148,13 @@ flows:
             3:
                 flow: customer_enablement
             4:
-                task: outbound_funds:load_dataset
-            5:
                 task: dev_secure_owds_by_default
+            5:
+                task: dev_deploy_unpackaged
+            6:
+                task: dev_load_storytelling_data
+            7:
+                task: dev_reorder_app_menu
 
     config_qa:
         steps:
@@ -119,9 +163,9 @@ flows:
             3:
                 flow: customer_enablement
             4:
-                task: outbound_funds:load_dataset
-            5:
                 task: dev_secure_owds_by_default
+            5:
+                task: qa_reorder_app_menu
 
     config_managed:
         steps:
@@ -130,9 +174,13 @@ flows:
             3:
                 flow: customer_enablement
             4:
-                task: outbound_funds:load_dataset
-            5:
                 task: dev_secure_owds_by_default
+            5:
+                task: dev_deploy_unpackaged
+            6:
+                task: dev_load_storytelling_data
+            7:
+                task: dev_reorder_app_menu
 
     2gp_org:
         steps:
@@ -145,5 +193,7 @@ flows:
 
     customer_enablement:
         steps:
-            3:
-                task: create_fundseeker_community
+            1:
+                task: create_fundseeker_site
+            2:
+                task: deploy_navigation_menu
