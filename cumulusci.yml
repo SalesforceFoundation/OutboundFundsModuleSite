@@ -68,7 +68,7 @@ tasks:
 
     fundseeker_configure_guest_user_profile:
         group: "OFM-Site: Fundseeker customer enablement"
-        description: Deploys our recommended configuration of the Site Guest User Profile.
+        description: Deploys our recommended configuration of the Site Guest User Profile, e.g. assigns Layouts.
         class_path: cumulusci.tasks.salesforce.Deploy
         options:
             path: unpackaged/fundseeker_customer_enablement/guest_user_profile
@@ -184,7 +184,7 @@ tasks:
 
     dev_share_funding_programs_with_accounts_with_funding_requests:
         group: "OFM-Site: stories/dev"
-        description: Grants read sharing-access to an account's Portal Role And Subordinates for all Funding Programs where the account has a Funding Request.
+        description: If an acccount has a Funding Request, that site users for that account should be able to view the Funding Program record.
         class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
         options:
             path: stories/dev/scripts/share_funding_programs_with_requests.apex
