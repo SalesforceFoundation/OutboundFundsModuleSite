@@ -20,7 +20,7 @@ The following unpackaged metadata is deployed to configure the org to tell the d
 
 -   Adds `PubliclyAccessible__c` checkbox that grants sharing access to the Funding Program record via Sharing Rules.
 -   Updated search layouts so `PubliclyAccessible__c` is shown on the **Recently Viewed** List View.
--   Adds `PubliclyAccessible__c` to the `outfunds__Funding_Program__c.outfunds__Funding Program Layout` Layout.
+-   Adds `PubliclyAccessible__c` to the `outfunds__Funding_Program__c.outfunds__Funding Program Layout` Layout so internal users can see access this field.
 -   Grants the **System Administrator** Profile field-level security to `PubliclyAccessible__c`.
 -   Adds Sharing Rules to grant access to the following for Funding Programs records whose `PubliclyAccessible__c` is checked:
     -   **Outbound Funds Portal** Site Guest User (i.e. unauthenticated site users)
@@ -38,7 +38,7 @@ Loads storytelling data to tell the dev story.
 
 ### Updates the default scratch org user
 
-To tell the admin part of the dev story, updates the default scratch org user as "Aileen Davis".
+To tell the admin part of the dev story, updates the default scratch org user as **Aileen Davis**.
 
 ### Create site users
 
@@ -50,3 +50,9 @@ Uploads photos for the following users:
 
 -   Admin **Aileen Davis**
 -   Fundseeker **Grace Walker**
+
+### Shares Funding Programs to Accounts with Funding Requests
+
+If an acccount has a Funding Request, that site users for that account should be able to view the Funding Program record.
+
+This is accomplished by creating manual Funding Program share records to an account's Portal User and Subordinates for all Funding Programs where the account has a Funding Request (via `outfunds__Funding_Request__c.outfunds__Applying_Organization__c`).
