@@ -30,7 +30,7 @@ The following unpackaged metadata is deployed to configure the org to tell the d
 
 To save clicks, reorders the App Menu to place Outbound Funds and Community apps first.
 
-![Image showing the App Menu after reordering](images/readme/AppMenuAfterReordering.png)
+![Image showing the App Menu after reordering](./images/readme/AppMenuAfterReordering.png)
 
 ### Loads storytelling data
 
