@@ -38,7 +38,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CompanyLogo</propertyName>
-        <propertyValue>/file-asset/%%%NAMESPACE%%%HIVE_Foundation_logo?v=1</propertyValue>
+        <propertyValue>/file-asset/HIVE_Foundation_logo?v=1</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LoginBackgroundImage</propertyName>
