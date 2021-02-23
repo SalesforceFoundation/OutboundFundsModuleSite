@@ -13,6 +13,11 @@ project:
         default_branch: "main"
     source_format: sfdx
 
+sources:
+    outbound_funds:
+        github: https://github.com/SalesforceFoundation/OutboundFunds
+        release: latest_beta
+
 tasks:
     # Automerge Major Release Branches
     github_automerge_feature:
@@ -47,3 +52,25 @@ tasks:
             export_branding_set: True
             export_flexipages: True
             copy_temporary_metadata: True
+
+flows:
+    config_dev:
+        steps:
+            # 1) task: deploy_post [from current folder]
+            # 2) task: update_admin_profile
+            3:
+                task: outbound_funds:load_dataset
+
+    config_qa:
+        steps:
+            # 1) task: deploy_post [from current folder]
+            # 2) task: update_admin_profile
+            3:
+                task: outbound_funds:load_dataset
+
+    config_managed:
+        steps:
+            # 1) task: deploy_post [from current folder]
+            # 2) task: update_admin_profile
+            3:
+                task: outbound_funds:load_dataset
