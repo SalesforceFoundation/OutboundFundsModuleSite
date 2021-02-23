@@ -42,7 +42,7 @@
                 <componentName>forceCommunity:customizableUserProfileMenu</componentName>
             </componentInstance>
         </itemInstances>
-        <name>91c03aeb-ea8c-4368-86ab-10f7cf29853c</name>
+        <name>0c6c464e-e574-4a2f-b69f-86bddd9bf8d5</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -65,12 +65,12 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>navigationMenuEditorRefresh</name>
-                    <value>Default_Navigation</value>
+                    <value>OFM_Portal_Navigation</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:themeNav</componentName>
             </componentInstance>
         </itemInstances>
-        <name>4620fd52-ace6-4454-8178-ab3d82a88aba</name>
+        <name>8f88c401-bab0-4a87-af31-87255ba3fda9</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -139,7 +139,7 @@
                 <componentName>forceCommunity:themeSearch</componentName>
             </componentInstance>
         </itemInstances>
-        <name>dd97d1b0-5a57-43c5-bac4-8bded0ecd559</name>
+        <name>b61a4fb1-2c00-4e1b-91d5-98dc3c5f53d1</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -222,11 +222,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>nav</name>
-                    <value>4620fd52-ace6-4454-8178-ab3d82a88aba</value>
+                    <value>8f88c401-bab0-4a87-af31-87255ba3fda9</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>dd97d1b0-5a57-43c5-bac4-8bded0ecd559</value>
+                    <value>b61a4fb1-2c00-4e1b-91d5-98dc3c5f53d1</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>searchStyle</name>
@@ -254,7 +254,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>themeHeaderProfileMenu</name>
-                    <value>91c03aeb-ea8c-4368-86ab-10f7cf29853c</value>
+                    <value>0c6c464e-e574-4a2f-b69f-86bddd9bf8d5</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:themeHeaderCompact</componentName>
             </componentInstance>
@@ -345,7 +345,7 @@
                 <componentName>forceCommunity:themeSearchHero</componentName>
             </componentInstance>
         </itemInstances>
-        <name>2a4732b1-fbba-4a52-a3b1-ece7c6c9b421</name>
+        <name>0503a6e5-9774-4bc2-b379-025e7babc838</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -466,7 +466,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>2a4732b1-fbba-4a52-a3b1-ece7c6c9b421</value>
+                    <value>0503a6e5-9774-4bc2-b379-025e7babc838</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showCaption</name>
