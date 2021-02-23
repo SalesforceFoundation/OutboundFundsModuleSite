@@ -15,9 +15,12 @@ project:
 
 orgs:
     scratch:
-        2gp:
+        dev_2gp:
             config_file: orgs/dev.json
             days: 7
+        qa_2gp:
+            config_file: orgs/dev.json
+            days: 1
 
 tasks:
     # Automerge Major Release Branches
