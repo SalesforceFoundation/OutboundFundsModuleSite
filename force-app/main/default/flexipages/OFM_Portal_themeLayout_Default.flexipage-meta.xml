@@ -34,7 +34,6 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>customizableUserProfileMenuEditor</name>
-                    <value>Default_User_Profile_Menu</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>menuStyleSettings</name>
@@ -43,7 +42,7 @@
                 <componentName>forceCommunity:customizableUserProfileMenu</componentName>
             </componentInstance>
         </itemInstances>
-        <name>cacd857c-55c7-4f4b-901c-4f42e31c00b8</name>
+        <name>dcceb439-5ba5-462c-ab50-233834653947</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -112,7 +111,7 @@
                 <componentName>forceCommunity:themeSearch</componentName>
             </componentInstance>
         </itemInstances>
-        <name>743a89f2-30a2-4ff2-8a98-c013f126b4ab</name>
+        <name>34935fb5-efef-431f-9d80-b6fbb3cdb30a</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -139,14 +138,7 @@
                 <componentName>forceCommunity:themeNav</componentName>
             </componentInstance>
         </itemInstances>
-        <name>b0552a7e-9a5e-44e6-8506-f35d84dc0886</name>
-        <prependable>disabled</prependable>
-        <replaceable>disabled</replaceable>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <appendable>disabled</appendable>
-        <name>cca34b57-773a-4246-9fdd-f0bd16fe4d21</name>
+        <name>95d5f2bc-fa2f-4ff3-bd4a-6dd54568ceb5</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -229,11 +221,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>nav</name>
-                    <value>b0552a7e-9a5e-44e6-8506-f35d84dc0886</value>
+                    <value>95d5f2bc-fa2f-4ff3-bd4a-6dd54568ceb5</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>743a89f2-30a2-4ff2-8a98-c013f126b4ab</value>
+                    <value>34935fb5-efef-431f-9d80-b6fbb3cdb30a</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>searchStyle</name>
@@ -261,7 +253,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>themeHeaderProfileMenu</name>
-                    <value>cacd857c-55c7-4f4b-901c-4f42e31c00b8</value>
+                    <value>dcceb439-5ba5-462c-ab50-233834653947</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:themeHeaderCompact</componentName>
             </componentInstance>
@@ -352,7 +344,7 @@
                 <componentName>forceCommunity:themeSearchHero</componentName>
             </componentInstance>
         </itemInstances>
-        <name>181eb2b9-7b14-4b64-ab2b-adaf274a9ca9</name>
+        <name>bf92b914-efd6-4b20-bbe8-b47b9843fbfa</name>
         <prependable>disabled</prependable>
         <replaceable>disabled</replaceable>
         <type>Facet</type>
@@ -473,7 +465,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>search</name>
-                    <value>181eb2b9-7b14-4b64-ab2b-adaf274a9ca9</value>
+                    <value>bf92b914-efd6-4b20-bbe8-b47b9843fbfa</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showCaption</name>
@@ -560,15 +552,6 @@
         <properties>
             <name>showHero</name>
             <value>false</value>
-        </properties>
-        <properties>
-            <name>themeFooter</name>
-        </properties>
-        <properties>
-            <name>themeHeader</name>
-        </properties>
-        <properties>
-            <name>themeHero</name>
         </properties>
     </template>
     <type>CommThemeLayoutPage</type>

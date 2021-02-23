@@ -12,6 +12,9 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>customTitle</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>parentRecordId</name>
                     <value>{!recordId}</value>
                 </componentInstanceProperties>
@@ -54,6 +57,15 @@
         <appendable>enabled</appendable>
         <itemInstances>
             <componentInstance>
+                <componentInstanceProperties>
+                    <name>description</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>metaTags</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                </componentInstanceProperties>
                 <componentName>forceCommunity:seoAssistant</componentName>
             </componentInstance>
         </itemInstances>

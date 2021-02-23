@@ -8,19 +8,42 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <appendable>enabled</appendable>
+        <appendable>disabled</appendable>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>actionApiName</name>
-                    <value>{!actionApiName}</value>
+                    <name>customTitle</name>
                 </componentInstanceProperties>
-                <componentName>forceCommunity:createRecordForm</componentName>
+                <componentInstanceProperties>
+                    <name>parentRecordId</name>
+                    <value>{!recordId}</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListName</name>
+                    <value>{!relationshipApiName}</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showBreadCrumbs</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showCustomTitle</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showManualRefreshButton</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showRowNumbers</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>forceCommunity:relatedList</componentName>
             </componentInstance>
         </itemInstances>
         <name>content</name>
-        <prependable>enabled</prependable>
-        <replaceable>enabled</replaceable>
+        <prependable>disabled</prependable>
+        <replaceable>disabled</replaceable>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -51,9 +74,10 @@
         <replaceable>enabled</replaceable>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Create Record</masterLabel>
+    <masterLabel>Funding Request Related List</masterLabel>
+    <sobjectType>outfunds__Funding_Request__c</sobjectType>
     <template>
         <name>siteforce:sldsOneColLayout</name>
     </template>
-    <type>CommQuickActionCreatePage</type>
+    <type>CommRelatedListPage</type>
 </FlexiPage>
