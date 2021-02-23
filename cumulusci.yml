@@ -73,6 +73,13 @@ tasks:
         options:
             path: unpackaged/fundseeker_customer_enablement/guest_user_profile
 
+    fundseeker_deploy_fundseeker_sharing_set:
+        group: "OFM-Site: Fundseeker sharing set"
+        description: Deploys the "Fundseeker" Sharing Set for site users. Must be deployed after deploying the "Fundseeker Plus Login" Profile.
+        class_path: cumulusci.tasks.salesforce.Deploy
+        options:
+            path: unpackaged/fundseeker_customer_enablement/fundseeker_sharing_set
+
     fundseeker_create_network_members:
         group: "OFM-Site: Fundseeker customer enablement"
         description: Create a NetworkMemberGroup records.
@@ -183,6 +190,14 @@ tasks:
             export_flexipages: True
             copy_temporary_metadata: False
 
+    dev_replace_theme_layout_navigation_menu:
+        group: "SFDO-Grants: Internal config and storytelling"
+        description: Replaces the Navigation Menu in the community for all pages using the Grants Community theme
+        class_path: dev.tasks.communities.ReplaceThemeLayoutNavigationMenuTask
+        options:
+            network_name: Outbound Funds Portal
+            navigation_menu: OFM_Portal_Navigation
+
 flows:
     # dev story
     dev_story:
@@ -201,6 +216,8 @@ flows:
                 task: dev_update_default_scratch_org_user
             7:
                 task: dev_create_site_users
+            8:
+                flow: internal_config
 
     config_dev:
         steps:
@@ -227,6 +244,8 @@ flows:
                 task: secure_owds_by_default
             3:
                 task: qa_reorder_app_menu
+            4:
+                flow: internal_config
 
     config_qa:
         steps:
@@ -257,3 +276,16 @@ flows:
                 task: fundseeker_deploy_navigation_menu
             5:
                 task: fundseeker_configure_guest_user_profile
+            6:
+                task: fundseeker_deploy_fundseeker_sharing_set
+
+    # Internal flows
+    internal_config:
+        description: Configuration of our package for internal only orgs assumed to be called after the fundseeker_customer_enablement flow.  All tasks must be safe to deploy to a Government Cloud instance (e.g. only uses Metadata, Tooling, Bulk, or REST APIs).
+        steps:
+            1:
+                task: dev_replace_theme_layout_navigation_menu
+                # SFDX: (Unsafe for Government Cloud)
+            2:
+                task: fundseeker_publish_site
+                # Connect API
