@@ -79,6 +79,8 @@ outfunds__Funding_Program__c:
     - outfunds__Status__c
     - outfunds__Top_Level__c
     - outfunds__Total_Program_Amount__c
+    # From stories/dev/unpackaged
+    - PubliclyAccessible__c
   lookups:
     outfunds__Parent_Funding_Program__c:
       table: outfunds__Funding_Program__c

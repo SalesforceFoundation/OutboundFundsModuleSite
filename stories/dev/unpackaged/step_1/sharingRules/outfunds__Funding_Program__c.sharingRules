@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>PubliclyAccessible_AuthenticatedUsers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share publicly accessible Funding Programs with all authenticated external users.</description>
+        <label>Publicly Accessible: Authenticated Users</label>
+        <sharedTo>
+            <allCustomerPortalUsers/>
+        </sharedTo>
+        <criteriaItems>
+            <field>PubliclyAccessible__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>PubliclyAccessible_NonAuthenticatedUsers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share publicly accessible Funding Programs with the site guest user.</description>
+        <label>Publicly Accessible: Non-authenticated Users</label>
+        <sharedTo>
+            <guestUser>Outbound_Funds_Portal</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>PubliclyAccessible__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingGuestRules>
+</SharingRules>
