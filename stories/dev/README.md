@@ -6,7 +6,7 @@ This is the story we tell for developers building the Outbound Funds Site packag
 
 ### Fundseeker Customer Enablement
 
-We want to develop in orgs that mirror the installers as much as possible, so the first customization in the dev story is to fun the `fundseeker_customer_enablement` flow that is used by our MetaDeploy installers.
+We want to develop in orgs that mirror the installers as much as possible, so the first customization in the dev story is to run the `fundseeker_customer_enablement` flow that is used by our MetaDeploy installers.
 
 ### Secure OWDs by default
 
