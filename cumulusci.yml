@@ -15,9 +15,12 @@ project:
 
 orgs:
     scratch:
-        2gp:
+        dev_2gp:
             config_file: orgs/dev.json
             days: 7
+        qa_2gp:
+            config_file: orgs/dev.json
+            days: 1
 
 tasks:
     # Automerge Major Release Branches
@@ -68,17 +71,10 @@ tasks:
 
     fundseeker_configure_guest_user_profile:
         group: "OFM-Site: Fundseeker customer enablement"
-        description: Deploys our recommended configuration of the Site Guest User Profile.
+        description: Deploys our recommended configuration of the Site Guest User Profile, e.g. assigns Layouts.
         class_path: cumulusci.tasks.salesforce.Deploy
         options:
             path: unpackaged/fundseeker_customer_enablement/guest_user_profile
-
-    fundseeker_deploy_fundseeker_sharing_set:
-        group: "OFM-Site: Fundseeker sharing set"
-        description: Deploys the "Fundseeker" Sharing Set for site users. Must be deployed after deploying the "Fundseeker Plus Login" Profile.
-        class_path: cumulusci.tasks.salesforce.Deploy
-        options:
-            path: unpackaged/fundseeker_customer_enablement/fundseeker_sharing_set
 
     fundseeker_create_network_members:
         group: "OFM-Site: Fundseeker customer enablement"
@@ -88,6 +84,13 @@ tasks:
             network_name: Outbound Funds Portal
             profile_names:
                 - Fundseeker Plus Login
+
+    fundseeker_deploy_sharing_set:
+        group: "OFM-Site: Fundseeker customer enablement"
+        description: Deploys our recommended Sharing Set for the Fundseeker Plus Login Profile.
+        class_path: cumulusci.tasks.salesforce.Deploy
+        options:
+            path: unpackaged/fundseeker_customer_enablement/sharing_set
 
     # All stories
     secure_owds_by_default:
@@ -167,6 +170,28 @@ tasks:
             path: stories/dev/scripts/reorder_app_menu.apex
             param1: "Outbound_Funds,outbound funds portal,Community"
 
+    dev_upload_photo_for_admin_aileen_davis:
+        group: "OFM-Site: stories/dev"
+        description: Uploads a profile photo for admin Aileen Davis.
+        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
+        options:
+            photo: stories/dev/images/photos/AileenDavis.png
+
+    dev_upload_photo_for_fundseeker_grace_walker:
+        group: "OFM-Site: stories/dev"
+        description: Uploads a profile photo for fundseeker Grace Walker.
+        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
+        options:
+            photo: stories/dev/images/photos/GraceWalker.png
+            where: Contact.Email = 'grace.walker@steps.example.com'
+
+    dev_share_funding_programs_with_accounts_with_funding_requests:
+        group: "OFM-Site: stories/dev"
+        description: If an acccount has a Funding Request, that site users for that account should be able to view the Funding Program record.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/dev/scripts/share_funding_programs_with_requests.apex
+
     # qa story
     qa_reorder_app_menu:
         group: "OFM-Site: stories/dev"
@@ -217,6 +242,12 @@ flows:
             7:
                 task: dev_create_site_users
             8:
+                task: dev_upload_photo_for_admin_aileen_davis
+            9:
+                task: dev_upload_photo_for_fundseeker_grace_walker
+            10:
+                task: dev_share_funding_programs_with_accounts_with_funding_requests
+	        11:
                 flow: internal_config
 
     config_dev:
@@ -277,7 +308,7 @@ flows:
             5:
                 task: fundseeker_configure_guest_user_profile
             6:
-                task: fundseeker_deploy_fundseeker_sharing_set
+                task: fundseeker_deploy_sharing_set
 
     # Internal flows
     internal_config:
@@ -285,7 +316,5 @@ flows:
         steps:
             1:
                 task: dev_replace_theme_layout_navigation_menu
-                # SFDX: (Unsafe for Government Cloud)
             2:
                 task: fundseeker_publish_site
-                # Connect API

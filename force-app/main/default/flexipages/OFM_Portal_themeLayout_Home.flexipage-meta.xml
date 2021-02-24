@@ -356,7 +356,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>bgImage</name>
-                    <value>background: rgb(32,92,160) url(/sfsites/c/file-asset/%%%NAMESPACE%%%HIVE_Foundation_hero) center center /cover</value>
+                    <value>background: rgb(32,92,160) url(/sfsites/c/file-asset/HIVE_Foundation_hero) center center /cover</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>bgOverlayColor</name>
