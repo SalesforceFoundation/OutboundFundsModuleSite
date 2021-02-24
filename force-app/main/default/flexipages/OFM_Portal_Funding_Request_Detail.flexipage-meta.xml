@@ -21,42 +21,10 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>detailsTabLabel</name>
-                    <value>Details</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>discussionsTabLabel</name>
-                    <value>Feed</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>recordId</name>
                     <value>{!recordId}</value>
                 </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedTabLabel</name>
-                    <value>Related</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>tab1Type</name>
-                    <value>details</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>tab2Type</name>
-                    <value>related</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>tab3Type</name>
-                    <value>chatter</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>tab4Type</name>
-                    <value>none</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>timelineTabLabel</name>
-                    <value>Activity</value>
-                </componentInstanceProperties>
-                <componentName>forceCommunity:recordHomeTabs</componentName>
+                <componentName>forceCommunity:recordDetail</componentName>
             </componentInstance>
         </itemInstances>
         <name>content</name>
