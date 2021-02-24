@@ -4,7 +4,7 @@
     <containerType>CommunityTemplateDefinition</containerType>
     <label>OFM-Portal Navigation</label>
     <navigationMenuItem>
-        <defaultListViewId>outfunds__All</defaultListViewId>
+        <defaultListViewId>All</defaultListViewId>
         <label>Funding Programs</label>
         <position>1</position>
         <publiclyAvailable>true</publiclyAvailable>
