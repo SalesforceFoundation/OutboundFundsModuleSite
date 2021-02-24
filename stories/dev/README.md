@@ -18,6 +18,8 @@ The following unpackaged metadata is deployed to configure the org to tell the d
 
 #### Funding Programs
 
+The following are unpackaged configuration of the org to easily develop the unauthenticated/site guest user experience.
+
 -   Adds `PubliclyAccessible__c` checkbox that grants sharing access to the Funding Program record via Sharing Rules.
 -   Updated search layouts so `PubliclyAccessible__c` is shown on the **Recently Viewed** List View.
 -   Adds `PubliclyAccessible__c` to the `outfunds__Funding_Program__c.outfunds__Funding Program Layout` Layout so internal users can see access this field.
@@ -56,3 +58,5 @@ Uploads photos for the following users:
 If an acccount has a Funding Request, that site users for that account should be able to view the Funding Program record.
 
 This is accomplished by creating manual Funding Program share records to an account's Portal User and Subordinates for all Funding Programs where the account has a Funding Request (via `outfunds__Funding_Request__c.outfunds__Applying_Organization__c`).
+
+The manual sharing is only applied to Funding Programs and Funding Requests storytelling data inserted in to the org. Manual share records will **not** automatically be created for new records.
