@@ -230,7 +230,7 @@ tasks:
         options:
             path: stories/qa/scripts/create_site_users.apex
             # Comma-delimited list of Contact.Email to create site users.
-            param1: meiko.takagawa@takagawa-institute.example.com,qaon.berger@hillside-elementary.example.com,ellen.perez@steps.example.com,grace.walker@steps.example.com
+            param1: meiko.takagawa@takagawa-institute.example.com,devon.berger@hillside-elementary.example.com,ellen.perez@steps.example.com,grace.walker@steps.example.com
 
     qa_reorder_app_menu:
         group: "OFM-Site: stories/qa"
