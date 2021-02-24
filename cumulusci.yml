@@ -291,8 +291,8 @@ flows:
                 task: fundseeker_publish_site
             3:
                 task: fundseeker_create_network_members
-            4:
-                task: fundseeker_deploy_navigation_menu
+            #4:
+            #    task: fundseeker_deploy_navigation_menu
             5:
                 task: fundseeker_configure_guest_user_profile
             6:
