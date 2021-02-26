@@ -13,15 +13,6 @@ project:
         default_branch: "main"
     source_format: sfdx
 
-orgs:
-    scratch:
-        dev_2gp:
-            config_file: orgs/dev.json
-            days: 7
-        qa_2gp:
-            config_file: orgs/dev.json
-            days: 1
-
 tasks:
     # Automerge Major Release Branches
     github_automerge_feature:
