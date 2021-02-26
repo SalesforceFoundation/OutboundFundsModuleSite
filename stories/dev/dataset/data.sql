@@ -30,10 +30,9 @@ CREATE TABLE "Account" (
 INSERT INTO "Account" VALUES(1,'Sample Account for Entitlements','','','','','','','','','','','','','','','','','','','','','','','');
 INSERT INTO "Account" VALUES(2,'Grantwood City Council','','','Customer - Direct','Government','','','970-555-9633','','','','','','445 North Peak Road','Grantwood','Colorado','80522','United States','','','','','','');
 INSERT INTO "Account" VALUES(3,'Takagawa Institute','','','Customer - Direct','Not For Profit','','','602-555-3542','','','','','','9833 Plateau Street','Phoenix','Arizona','85310','United States','','','','','','');
-INSERT INTO "Account" VALUES(4,'Grantseeker Community: Self-Registered','','','','','','','','','','','','','','','','','','','','','','','Account initially assigned to self-registered users for the Grantseeker Community');
+INSERT INTO "Account" VALUES(4,'Outbound Funds Portal: Self-Registered','','','','','','','','','','','','','','','','','','','','','','','Account initially assigned to self-registered users for the Outbound Funds Portal Experiences Site');
 INSERT INTO "Account" VALUES(5,'Hillside Elementary','','','Customer - Direct','Education','','','719-555-9914','','','','','','713 S. 8th Street','Englewood','Colorado','80110','United States','','','','','','');
 INSERT INTO "Account" VALUES(6,'STEPS','','','Customer - Direct','Not For Profit','','','303-555-7541','','','','','','2920 Juniper Drive','Denver','Colorado','80230','United States','','','','','','');
-INSERT INTO "Account" VALUES(7,'Grantseeker Community: Self-Registered','','','','','','','','','','','','','','','','','','','','','','','Account initially assigned to self-registered users for the Grantseeker Community');
 CREATE TABLE "Contact" (
 	id INTEGER NOT NULL, 
 	"Salutation" VARCHAR(255), 
