@@ -24,12 +24,6 @@
     <masterLabel>Login</masterLabel>
     <template>
         <name>salesforceIdentity:loginBody2</name>
-        <properties>
-            <name>footer</name>
-        </properties>
-        <properties>
-            <name>header</name>
-        </properties>
     </template>
     <type>CommThemeLayoutPage</type>
 </FlexiPage>
