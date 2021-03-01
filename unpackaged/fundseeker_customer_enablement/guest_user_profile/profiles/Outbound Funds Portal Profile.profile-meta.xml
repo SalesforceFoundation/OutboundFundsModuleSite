@@ -4,8 +4,7 @@
     <custom>true</custom>
     <layoutAssignments>
         <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%External Fundseeker</layout>
-    </layoutAssignments>
-    <layoutAssignments>
+        <layout>outfunds__Funding_Request__c-%%%NAMESPACE%%%Funding Request Community Default</layout>
         <layout>outfunds__Requirement__c-%%%NAMESPACE%%%External Fundseeker</layout>
     </layoutAssignments>
     <fieldPermissions>
