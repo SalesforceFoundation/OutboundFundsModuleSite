@@ -9,11 +9,7 @@
     <aura:attribute name="recordLoadError" type="String" default="None" />
     <aura:attribute name="applicationFormApiName" type="String" />
     <aura:attribute name="fields" type="String[]" />
-    <aura:attribute
-        name="hasGrantsManagementStandardPermission"
-        type="boolean"
-        default="false"
-    />
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <aura:if isTrue="{! !empty(v.fields)}">
