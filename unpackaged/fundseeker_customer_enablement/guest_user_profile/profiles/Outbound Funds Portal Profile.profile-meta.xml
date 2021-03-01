@@ -5,6 +5,9 @@
     <layoutAssignments>
         <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%External Fundseeker</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>outfunds__Requirement__c-%%%NAMESPACE%%%External Fundseeker</layout>
+    </layoutAssignments>
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Program__c.outfunds__Description__c</field>
