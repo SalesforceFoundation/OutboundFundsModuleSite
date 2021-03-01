@@ -296,5 +296,9 @@
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    <classAccesses>
+        <apexClass>%%%NAMESPACE%%%FundingProgramApplyButtonController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <userLicense>Customer Community Plus Login</userLicense>
 </Profile>

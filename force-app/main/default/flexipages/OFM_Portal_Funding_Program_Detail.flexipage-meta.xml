@@ -29,6 +29,11 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
+                <componentName>FundingProgramApplicationLaunchButton</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>relatedListApiName</name>
                     <value>outfunds__FundingRequests__r</value>

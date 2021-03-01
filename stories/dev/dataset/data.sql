@@ -97,21 +97,22 @@ CREATE TABLE "outfunds__Funding_Program__c" (
 	"outfunds__Status__c" VARCHAR(255), 
 	"outfunds__Top_Level__c" VARCHAR(255), 
 	"outfunds__Total_Program_Amount__c" VARCHAR(255), 
-	"PubliclyAccessible__c" VARCHAR(255), 
+	"PubliclyAccessible__c" VARCHAR(255),
+	"ApplicationForm__c" VARCHAR(255), 
 	"outfunds__Parent_Funding_Program__c" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "outfunds__Funding_Program__c" VALUES(1,'Kumar Endowment Scholarship','The Kumar family graciously sponsors the Kumar Endowment Scholarship Fund for high school students who have made a positive impact in their local community. This fund awards $2,000 scholarships every 4 years to ten students seeking higher education. Eligible expenses include tuition, room and board, fees, and books during the academic year.','2020-07-30','2020-01-14','In progress','False','200000.0','True','3');
-INSERT INTO "outfunds__Funding_Program__c" VALUES(2,'Successful Scholars Grant','The Successful Scholars Grant provides funding to select non-profits and education institutes to enable students to excel in their academics. Past initiatives created by previous grantees include after-school tutoring, early literacy programs, and college preparation courses.','2020-08-13','2019-08-14','In progress','False','250000.0','True','3');
-INSERT INTO "outfunds__Funding_Program__c" VALUES(3,'Education','','','','In progress','True','','False','');
-INSERT INTO "outfunds__Funding_Program__c" VALUES(4,'Community Impact','','','','In progress','True','','False','');
+INSERT INTO "outfunds__Funding_Program__c" VALUES(1,'Kumar Endowment Scholarship','The Kumar family graciously sponsors the Kumar Endowment Scholarship Fund for high school students who have made a positive impact in their local community. This fund awards $2,000 scholarships every 4 years to ten students seeking higher education. Eligible expenses include tuition, room and board, fees, and books during the academic year.','2020-07-30','2020-01-14','In progress','False','200000.0','True','OutboundFundsCreateApplication','3');
+INSERT INTO "outfunds__Funding_Program__c" VALUES(2,'Successful Scholars Grant','The Successful Scholars Grant provides funding to select non-profits and education institutes to enable students to excel in their academics. Past initiatives created by previous grantees include after-school tutoring, early literacy programs, and college preparation courses.','2020-08-13','2019-08-14','In progress','False','250000.0','True','OutboundFundsCreateApplication','3');
+INSERT INTO "outfunds__Funding_Program__c" VALUES(3,'Education','','','','In progress','True','','False','OutboundFundsCreateApplication','');
+INSERT INTO "outfunds__Funding_Program__c" VALUES(4,'Community Impact','','','','In progress','True','','False','OutboundFundsCreateApplication','');
 INSERT INTO "outfunds__Funding_Program__c" VALUES(5,'Relief and Reinvestment Grant','The Relief and Reinvestment Grant provides financial assistance in the form of grants to small businesses experiencing temporary revenue loss due to unforeseen circumstances, such as a natural disaster or economic crisis. Grants of up to $10,000 are awarded to select small businesses to help offset lost revenue. This fund can be used for:
         * Rent and utilities
         * Payroll
         * Outstanding debt
         * Technology upgrades
-        * Immediate operation costs','2021-01-30','2020-01-31','In progress','False','300000.0','True','4');
-INSERT INTO "outfunds__Funding_Program__c" VALUES(6,'Strategic Nonprofit Development','','','','Planned','True','','False','');
+        * Immediate operation costs','2021-01-30','2020-01-31','In progress','False','300000.0','True','OutboundFundsCreateApplication','4');
+INSERT INTO "outfunds__Funding_Program__c" VALUES(6,'Strategic Nonprofit Development','','','','Planned','True','','False','OutboundFundsCreateApplication','');
 CREATE TABLE "outfunds__Funding_Request_Role__c" (
 	id INTEGER NOT NULL, 
 	"outfunds__Role__c" VARCHAR(255), 
