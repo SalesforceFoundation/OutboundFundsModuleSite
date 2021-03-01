@@ -14,7 +14,6 @@
         let flowInputVariables = [{ name: "recordId", type: "String", value: recordId }];
 
         if (fundingProgramFlowAPIName && !recordLoadError) {
-            console.log("Entered");
             component.set("v.isModalOpen", true);
             let flow = component.find("applyFlow");
             flow.startFlow(fundingProgramFlowAPIName, flowInputVariables);

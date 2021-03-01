@@ -15,14 +15,9 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Create Application</fullName>
+                <fullName>OutboundFundsCreateApplication</fullName>
                 <default>false</default>
                 <label>Create Application</label>
-            </value>
-            <value>
-                <fullName>Grants Management: Enhanced Application (Sample)</fullName>
-                <default>false</default>
-                <label>Grants Management: Enhanced Application (Sample)</label>
             </value>
         </valueSetDefinition>
     </valueSet>

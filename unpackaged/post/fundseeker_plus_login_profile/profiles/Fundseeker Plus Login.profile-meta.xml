@@ -75,6 +75,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <readable>true</readable>
+        <field>outfunds__Funding_Program__c.%%%NAMESPACE%%%ApplicationForm__c</field>
+    </fieldPermissions>  
+    <fieldPermissions>
         <editable>true</editable>
         <field>outfunds__Funding_Request__c.outfunds__Application_Date__c</field>
         <readable>true</readable>
