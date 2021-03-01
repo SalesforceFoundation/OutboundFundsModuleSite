@@ -341,7 +341,7 @@ The decision is based on Status and Start/End Dates</description>
         <allowPause>false</allowPause>
         <fields>
             <name>NavigateToApplication</name>
-            <extensionName>c:flowNavigateToRecord</extensionName>
+            <extensionName>%%%NAMESPACE_OR_C%%%:flowNavigateToRecord</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>recordId</name>
