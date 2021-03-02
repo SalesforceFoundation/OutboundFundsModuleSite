@@ -220,6 +220,14 @@ tasks:
             export_flexipages: True
             copy_temporary_metadata: False
 
+    dev_replace_theme_layout_navigation_menu:
+        group: "SFDO-Grants: Internal config and storytelling"
+        description: Replaces the Navigation Menu in the community for all pages using the Grants Community theme
+        class_path: dev.tasks.communities.ReplaceThemeLayoutNavigationMenuTask
+        options:
+            network_name: Outbound Funds Portal
+            navigation_menu: OFM_Portal_Navigation
+
 flows:
     # dev story
     dev_story:
@@ -248,6 +256,8 @@ flows:
                 task: common_upload_photo_for_fundseeker_grace_walker
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
+            11:
+                flow: internal_config
 
     config_dev:
         steps:
@@ -292,6 +302,8 @@ flows:
                 task: common_upload_photo_for_fundseeker_grace_walker
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
+            11:
+                flow: internal_config
 
     config_qa:
         steps:
@@ -326,3 +338,12 @@ flows:
                 task: fundseeker_configure_guest_user_profile
             7:
                 task: fundseeker_deploy_sharing_set
+
+    # Internal flows
+    internal_config:
+        description: Configuration of our package for internal only orgs assumed to be called after the fundseeker_customer_enablement flow.  All tasks must be safe to deploy to a Government Cloud instance (e.g. only uses Metadata, Tooling, Bulk, or REST APIs).
+        steps:
+            1:
+                task: dev_replace_theme_layout_navigation_menu
+            2:
+                task: fundseeker_publish_site
