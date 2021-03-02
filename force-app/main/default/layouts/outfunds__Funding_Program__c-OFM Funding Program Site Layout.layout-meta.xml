@@ -82,9 +82,6 @@
     </platformActionList>
     <quickActionList/>
     <relatedLists>
-        <relatedList>RelatedFileList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>outfunds__Applying_Contact__c</fields>
         <fields>outfunds__Applying_Employee__c</fields>
@@ -101,9 +98,9 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h1k000001nNVI</masterLabel>
+        <masterLabel>00h54000003Nujz</masterLabel>
         <sizeX>4</sizeX>
-        <sizeY>2</sizeY>
+        <sizeY>1</sizeY>
         <summaryLayoutItems>
             <field>outfunds__Status__c</field>
             <posX>0</posX>
