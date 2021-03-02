@@ -14,9 +14,6 @@
     <layoutAssignments>
         <layout>outfunds__Disbursement__c-%%%NAMESPACE%%%OFM Disbursement Site Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>outfunds__Funding_Request__c-%%%NAMESPACE%%%OFM Funding Request Site Layout</layout>
-    </layoutAssignments>
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Funding_Program__c.outfunds__Description__c</field>
