@@ -321,4 +321,8 @@ flows:
             4:
                 task: fundseeker_configure_guest_user_profile
             5:
+                task: fundseeker_deploy_navigation_menu
+            6:
+                task: fundseeker_configure_guest_user_profile
+            7:
                 task: fundseeker_deploy_sharing_set
