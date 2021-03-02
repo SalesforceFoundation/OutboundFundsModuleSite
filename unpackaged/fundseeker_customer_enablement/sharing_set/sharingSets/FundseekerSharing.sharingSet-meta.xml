@@ -7,11 +7,11 @@
         <userField>Contact</userField>
     </accessMappings>
     <accessMappings>
-        <accessLevel>Edit</accessLevel>
+        <accessLevel>Read</accessLevel>
         <object>outfunds__Requirement__c</object>
-        <objectField>outfunds__Assigned__c.Contact</objectField>
+        <objectField>outfunds__Primary_Contact__c</objectField>
         <userField>Contact</userField>
     </accessMappings>
-    <name>FundseekerSharing</name>
-    <profiles>Fundseeker Plus Login</profiles>
+    <name>Fundseeker Sharing</name>
+    <profiles>fundseeker plus login</profiles>
 </SharingSet>
