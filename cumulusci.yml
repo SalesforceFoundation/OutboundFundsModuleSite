@@ -256,7 +256,7 @@ flows:
                 task: common_upload_photo_for_fundseeker_grace_walker
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
-11:
+            11:
                 flow: internal_config
 
     config_dev:
@@ -302,7 +302,7 @@ flows:
                 task: common_upload_photo_for_fundseeker_grace_walker
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
-11:
+            11:
                 flow: internal_config
 
     config_qa:
@@ -332,7 +332,7 @@ flows:
                 task: fundseeker_create_network_members
             4:
                 task: fundseeker_configure_guest_user_profile
-5:
+            5:
                 task: fundseeker_deploy_navigation_menu
             6:
                 task: fundseeker_configure_guest_user_profile
