@@ -6,7 +6,7 @@
         <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%OFM Funding Program Site Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>outfunds__Funding_Request__c-%%%NAMESPACE%%%Funding Request Community Default</layout>
+        <layout>outfunds__Funding_Request__c-%%%NAMESPACE%%%OFM Funding Request Site Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>outfunds__Requirement__c-%%%NAMESPACE%%%OFM Requirement Site Layout</layout>
