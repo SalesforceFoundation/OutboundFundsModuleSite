@@ -12,6 +12,21 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>richTextValue</name>
+                    <value>&lt;div class=&quot;slds-p-around_medium slds-m-around_medium slds-box&quot;&gt;
+    &lt;h2&gt;&lt;span class=&quot;slds-text-heading_small&quot;&gt;Instructions for Applying&lt;/span&gt;&lt;/h2&gt;
+    &lt;br/&gt;&lt;p&gt;Take a moment to complete your application.
+	&lt;br/&gt;&lt;br/&gt;Click &lt;strong&gt;Edit&lt;/strong&gt; to enter or update your application information. Click &lt;strong&gt;Add Files&lt;/strong&gt; to include any supporting documentation, if necessary.
+	&lt;br/&gt;&lt;br/&gt;When you’re finished, click &lt;strong&gt;Submit Application&lt;/strong&gt;. You won&apos;t be able to edit your application once it&apos;s submitted.
+	&lt;/p&gt;
+&lt;/div&gt;</value>
+                </componentInstanceProperties>
+                <componentName>forceCommunity:htmlBlock</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>recordId</name>
                     <value>{!recordId}</value>
                 </componentInstanceProperties>
