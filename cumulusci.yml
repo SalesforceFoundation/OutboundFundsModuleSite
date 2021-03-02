@@ -13,15 +13,6 @@ project:
         default_branch: "main"
     source_format: sfdx
 
-orgs:
-    scratch:
-        dev_2gp:
-            config_file: orgs/dev.json
-            days: 7
-        qa_2gp:
-            config_file: orgs/dev.json
-            days: 1
-
 tasks:
     # Automerge Major Release Branches
     github_automerge_feature:
@@ -93,7 +84,7 @@ tasks:
             path: unpackaged/fundseeker_customer_enablement/sharing_set
 
     # All stories
-    secure_owds_by_default:
+    common_secure_owds_by_default:
         group: "OFM-Site: stories"
         description: Sets organization-wide default (OWD) sharing configuration as private both internally and externally.
         class_path: cumulusci.tasks.metadata_etl.SetOrgWideDefaults
@@ -122,6 +113,51 @@ tasks:
                   internal_sharing_model: Private
                   external_sharing_model: Private
 
+    common_update_default_scratch_org_user:
+        group: "OFM-Site: stories/common"
+        description: Updates the default scratch org user to be Aileen Davis, and assigns her a role so her accounts can have community users.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/common/scripts/update_scratch_org_user.apex
+
+    common_create_site_users:
+        group: "OFM-Site: stories/common"
+        description: Creates site users for the Outbound Funds Portal.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/common/scripts/create_site_users.apex
+            # param1 is a comma-delimited list of Contact.Email to create site users.
+
+    common_reorder_app_menu:
+        group: "OFM-Site: stories/common"
+        description: Re-orders the app menu for the common story.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/common/scripts/reorder_app_menu.apex
+            # param1 is a comma-delimited list of Application Names.
+
+    common_upload_photo_for_admin_aileen_davis:
+        group: "OFM-Site: stories/common"
+        description: Uploads a profile photo for admin Aileen Davis.
+        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
+        options:
+            photo: stories/common/images/photos/AileenDavis.png
+
+    common_upload_photo_for_fundseeker_grace_walker:
+        group: "OFM-Site: stories/common"
+        description: Uploads a profile photo for fundseeker Grace Walker.
+        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
+        options:
+            photo: stories/common/images/photos/GraceWalker.png
+            where: Contact.Email = 'grace.walker@steps.example.com'
+
+    common_share_funding_programs_with_accounts_with_funding_requests:
+        group: "OFM-Site: stories/common"
+        description: If an account has a Funding Request, that site users for that account should be able to view the Funding Program record.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/common/scripts/share_funding_programs_with_requests.apex
+
     # dev story
     dev_deploy_unpackaged:
         group: "OFM-Site: stories/dev"
@@ -146,60 +182,29 @@ tasks:
             mapping: stories/dev/dataset/mapping.yml
             sql_path: stories/dev/dataset/data.sql
 
-    dev_update_default_scratch_org_user:
-        group: "OFM-Site: stories/dev"
-        description: Updates the default scratch org user to be Aileen Davis, and assigns her a role so her accounts can have community users.
-        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
-        options:
-            path: stories/dev/scripts/update_scratch_org_user.apex
-
-    dev_create_site_users:
-        group: "OFM-Site: stories/dev"
-        description: Creates site users for the Outbound Funds Portal.
-        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
-        options:
-            path: stories/dev/scripts/create_site_users.apex
-            # Comma-delimited list of Contact.Email to create site users.
-            param1: meiko.takagawa@takagawa-institute.example.com,devon.berger@hillside-elementary.example.com,ellen.perez@steps.example.com,grace.walker@steps.example.com
-
-    dev_reorder_app_menu:
-        group: "OFM-Site: stories/dev"
-        description: Re-orders the app menu for the dev story.
-        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
-        options:
-            path: stories/dev/scripts/reorder_app_menu.apex
-            param1: "Outbound_Funds,outbound funds portal,Community"
-
-    dev_upload_photo_for_admin_aileen_davis:
-        group: "OFM-Site: stories/dev"
-        description: Uploads a profile photo for admin Aileen Davis.
-        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
-        options:
-            photo: stories/dev/images/photos/AileenDavis.png
-
-    dev_upload_photo_for_fundseeker_grace_walker:
-        group: "OFM-Site: stories/dev"
-        description: Uploads a profile photo for fundseeker Grace Walker.
-        class_path: cumulusci.tasks.salesforce.users.photos.UploadProfilePhoto
-        options:
-            photo: stories/dev/images/photos/GraceWalker.png
-            where: Contact.Email = 'grace.walker@steps.example.com'
-
-    dev_share_funding_programs_with_accounts_with_funding_requests:
-        group: "OFM-Site: stories/dev"
-        description: If an acccount has a Funding Request, that site users for that account should be able to view the Funding Program record.
-        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
-        options:
-            path: stories/dev/scripts/share_funding_programs_with_requests.apex
-
     # qa story
-    qa_reorder_app_menu:
-        group: "OFM-Site: stories/dev"
-        description: Re-orders the app menu for the qa story.
-        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+    qa_deploy_unpackaged:
+        group: "OFM-Site: stories/qa"
+        description: Deploys the bundle of unpackaged for the qa story.
+        class_path: cumulusci.tasks.salesforce.DeployBundles
         options:
-            path: stories/qa/scripts/reorder_app_menu.apex
-            param1: "Outbound_Funds,outbound funds portal,Community"
+            path: stories/qa/unpackaged
+
+    qa_load_storytelling_data:
+        group: "OFM-Site: stories/qa"
+        description: Load storytelling data for the qa story.   Note, this dataset depends on the unpackaged metadata in the qa story.
+        class_path: cumulusci.tasks.bulkdata.LoadData
+        options:
+            mapping: stories/qa/dataset/mapping.yml
+            sql_path: stories/qa/dataset/data.sql
+
+    qa_extract_storytelling_data:
+        group: "OFM-Site: stories/qa"
+        description: Extract storytelling data for the qa story.
+        class_path: cumulusci.tasks.bulkdata.ExtractData
+        options:
+            mapping: stories/qa/dataset/mapping.yml
+            sql_path: stories/qa/dataset/data.sql
 
     # Internal development automation
     dev_export_ofm_community_template:
@@ -230,24 +235,28 @@ flows:
             1:
                 flow: fundseeker_customer_enablement
             2:
-                task: secure_owds_by_default
+                task: common_secure_owds_by_default
             3:
                 task: dev_deploy_unpackaged
             4:
-                task: dev_reorder_app_menu
+                task: common_reorder_app_menu
+                options:
+                    param1: "Outbound_Funds,outbound funds portal,Community"
             5:
                 task: dev_load_storytelling_data
             6:
-                task: dev_update_default_scratch_org_user
+                task: common_update_default_scratch_org_user
             7:
-                task: dev_create_site_users
+                task: common_create_site_users
+                options:
+                    param1: meiko.takagawa@takagawa-institute.example.com,devon.berger@hillside-elementary.example.com,ellen.perez@steps.example.com,grace.walker@steps.example.com
             8:
-                task: dev_upload_photo_for_admin_aileen_davis
+                task: common_upload_photo_for_admin_aileen_davis
             9:
-                task: dev_upload_photo_for_fundseeker_grace_walker
+                task: common_upload_photo_for_fundseeker_grace_walker
             10:
-                task: dev_share_funding_programs_with_accounts_with_funding_requests
-            11:
+                task: common_share_funding_programs_with_accounts_with_funding_requests
+11:
                 flow: internal_config
 
     config_dev:
@@ -272,10 +281,28 @@ flows:
             1:
                 flow: fundseeker_customer_enablement
             2:
-                task: secure_owds_by_default
+                task: common_secure_owds_by_default
             3:
-                task: qa_reorder_app_menu
+                task: qa_deploy_unpackaged
             4:
+                task: common_reorder_app_menu
+                options:
+                    param1: "Outbound_Funds,outbound funds portal,Community"
+            5:
+                task: qa_load_storytelling_data
+            6:
+                task: common_update_default_scratch_org_user
+            7:
+                task: common_create_site_users
+                options:
+                    param1: meiko.takagawa@takagawa-institute.example.com,devon.berger@hillside-elementary.example.com,ellen.perez@steps.example.com,grace.walker@steps.example.com
+            8:
+                task: common_upload_photo_for_admin_aileen_davis
+            9:
+                task: common_upload_photo_for_fundseeker_grace_walker
+            10:
+                task: common_share_funding_programs_with_accounts_with_funding_requests
+11:
                 flow: internal_config
 
     config_qa:
@@ -291,7 +318,7 @@ flows:
             # 1) task: deploy_post [from current folder]
             # 2) task: update_admin_profile
             3:
-                task: secure_owds_by_default
+                task: common_secure_owds_by_default
 
     # Customer flows
     fundseeker_customer_enablement:
@@ -304,10 +331,12 @@ flows:
             3:
                 task: fundseeker_create_network_members
             4:
-                task: fundseeker_deploy_navigation_menu
-            5:
                 task: fundseeker_configure_guest_user_profile
+5:
+                task: fundseeker_deploy_navigation_menu
             6:
+                task: fundseeker_configure_guest_user_profile
+            7:
                 task: fundseeker_deploy_sharing_set
 
     # Internal flows

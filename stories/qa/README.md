@@ -1,24 +1,24 @@
-# dev story
+# qa story
 
-This is the story we tell for developers building the Outbound Funds Site package.
+This is the story we tell for test the Outbound Funds Site package for quality assurance.
 
 ## Steps
 
 ### Fundseeker Customer Enablement
 
-We want to develop in orgs that mirror the installers as much as possible, so the first customization in the dev story is to run the `fundseeker_customer_enablement` flow that is used by our MetaDeploy installers.
+We want to test orgs that mirror the installers as much as possible, so the first customization in the qa story is to run the `fundseeker_customer_enablement` flow that is used by our MetaDeploy installers.
 
 ### Secure OWDs by default
 
-Trust is our #1 value, so the dev story sets both internal and external organization-wide defaults (OWDs) to `Private` meaning we have to explicitly grant sharing access to all records through some mechanism.
+Trust is our #1 value, so the qa story sets both internal and external organization-wide defaults (OWDs) to `Private` meaning we have to explicitly grant sharing access to all records through some mechanism.
 
 ### Deploy unpackaged metadata
 
-The following unpackaged metadata is deployed to configure the org to tell the dev story.
+The following unpackaged metadata is deployed to configure the org to tell the qa story.
 
-#### Funding Programs
+#### Unauthenticated User Experience
 
-The following are unpackaged configuration of the org to easily develop the unauthenticated/site guest user experience.
+The following are unpackaged configuration of the org to easily test the unauthenticated/site guest user experience.
 
 -   Adds `PubliclyAccessible__c` checkbox that grants sharing access to the Funding Program record via Sharing Rules.
 -   Updated search layouts so `PubliclyAccessible__c` is shown on the **Recently Viewed** List View.
@@ -36,15 +36,15 @@ To save clicks, reorders the App Menu to place Outbound Funds and Community apps
 
 ### Loads storytelling data
 
-Loads storytelling data to tell the dev story.
+Loads storytelling data to tell the qa story.
 
 ### Updates the default scratch org user
 
-To tell the admin part of the dev story, updates the default scratch org user as **Aileen Davis**.
+To tell the admin part of the qa story, updates the default scratch org user as **Aileen Davis**.
 
 ### Create site users
 
-To tell the fundseeker part of the dev story, creates site users using the **Fundseeker Plus Login** profile.
+To tell the fundseeker part of the qa story, creates site users using the **Fundseeker Plus Login** profile.
 
 ### Uploads user photos
 
