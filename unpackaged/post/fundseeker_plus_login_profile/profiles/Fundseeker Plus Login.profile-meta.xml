@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
+    <layoutAssignments>
+        <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%External Fundseeker</layout>
+    </layoutAssignments>
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Disbursement__c.outfunds__Amount__c</field>
