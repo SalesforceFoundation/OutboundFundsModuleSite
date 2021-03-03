@@ -39,7 +39,7 @@ tasks:
         options:
             path: robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.py,robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.robot,robot/OutboundFundsCommunity/resources/*PageObject.py
             output: robot/OutboundFundsCommunity/doc/Keywords.html
-            
+
     # Fundseeker customer enablement
     fundseeker_create_site:
         group: "OFM-Site: Fundseeker customer enablement"
