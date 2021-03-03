@@ -213,14 +213,14 @@ tasks:
         class_path: dev.tasks.community_templates.ExportCommunityTemplateTask
         options:
             template_name: OFM_Portal
-            suffix: "3"
+            suffix: "2"
             export_template: True
             export_theme: True
             export_branding_set: True
             export_flexipages: True
             copy_temporary_metadata: False
 
-    dev_replace_theme_layout_navigation_menu:
+    common_replace_theme_layout_navigation_menu:
         group: "SFDO-Grants: Internal config and storytelling"
         description: Replaces the Navigation Menu in the community for all pages using the Grants Community theme
         class_path: dev.tasks.communities.ReplaceThemeLayoutNavigationMenuTask
@@ -257,7 +257,7 @@ flows:
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
             11:
-                flow: internal_config
+                flow: common_replace_and_publish_theme_layout_navigation_menu
 
     config_dev:
         steps:
@@ -303,7 +303,7 @@ flows:
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
             11:
-                flow: internal_config
+                flow: common_replace_and_publish_theme_layout_navigation_menu
 
     config_qa:
         steps:
@@ -340,10 +340,10 @@ flows:
                 task: fundseeker_deploy_sharing_set
 
     # Internal flows
-    internal_config:
-        description: Configuration of our package for internal only orgs assumed to be called after the fundseeker_customer_enablement flow.  All tasks must be safe to deploy to a Government Cloud instance (e.g. only uses Metadata, Tooling, Bulk, or REST APIs).
+    common_replace_and_publish_theme_layout_navigation_menu:
+        description: Configures the Outbound Funds Portal Site to use the packaged Navigation Menu instead of the default Navigation Menu.  Then, publishes the Site so the changes are committed in the org.
         steps:
             1:
-                task: dev_replace_theme_layout_navigation_menu
+                task: common_replace_theme_layout_navigation_menu
             2:
                 task: fundseeker_publish_site
