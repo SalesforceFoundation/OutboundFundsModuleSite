@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- Add PubliclyAccessible__c to give access to all site users via Sharing Rules. -->
+    <fields>
+        <fullName>PubliclyAccessible__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If checked, both non-authenticated and authenticated site users can view this Funding Program.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, both non-authenticated and authenticated site users can view this Funding Program.</inlineHelpText>
+        <label>Publicly Accessible</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <!-- Add PubliclyAccessible__c to searchLayouts. -->
+    <searchLayouts>
+        <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>outfunds__Funding_Program_Manager__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>outfunds__Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>outfunds__Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>outfunds__End_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>outfunds__Total_Program_Amount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PubliclyAccessible__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>outfunds__Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>outfunds__Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>outfunds__End_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PubliclyAccessible__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>outfunds__Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>outfunds__Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>outfunds__End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>outfunds__Total_Program_Amount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PubliclyAccessible__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <!-- Required tags to update searchLayouts. -->
+    <label>Funding Program</label>
+    <pluralLabel>Funding Programs</pluralLabel>
+    <nameField>
+        <label>Funding Program Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>Private</sharingModel>
+    <externalSharingModel>Private</externalSharingModel>
+</CustomObject>
