@@ -13,7 +13,7 @@
     <navigationMenuItem>
         <label>My Applications</label>
         <position>2</position>
-        <publiclyAvailable>true</publiclyAvailable>
+        <publiclyAvailable>false</publiclyAvailable>
         <target>outfunds__Funding_Request__c</target>
         <type>SalesforceObject</type>
     </navigationMenuItem>
