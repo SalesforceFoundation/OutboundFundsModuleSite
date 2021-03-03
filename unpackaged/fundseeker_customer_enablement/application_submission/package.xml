@@ -4,5 +4,9 @@
     <name>Flow</name>
     <members>OFMSiteSubmitApplication</members>
   </types>
+  <types>
+    <name>QuickAction</name>
+    <members>outfunds__Funding_Request__c.SubmitApplication</members>
+  </types>
   <version>50.0</version>
 </Package>

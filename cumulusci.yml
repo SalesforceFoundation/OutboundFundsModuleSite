@@ -101,8 +101,8 @@ tasks:
                   internal_sharing_model: Private
                   external_sharing_model: Private
                 - api_name: User
-                  internal_sharing_model: Private
-                  external_sharing_model: Private
+                  internal_sharing_model: Read
+                  external_sharing_model: Read
                 - api_name: outfunds__Funding_Program__c
                   internal_sharing_model: Private
                   external_sharing_model: Private
