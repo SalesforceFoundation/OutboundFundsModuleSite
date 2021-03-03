@@ -53,13 +53,6 @@ tasks:
         options:
             name: Outbound Funds Portal
 
-    fundseeker_deploy_navigation_menu:
-        group: "OFM-Site: Fundseeker customer enablement"
-        description: Deploys our recommended Navigation Menu for the Fundseeker Site.
-        class_path: cumulusci.tasks.salesforce.Deploy
-        options:
-            path: unpackaged/fundseeker_customer_enablement/navigation_menu
-
     fundseeker_configure_guest_user_profile:
         group: "OFM-Site: Fundseeker customer enablement"
         description: Deploys our recommended configuration of the Site Guest User Profile, e.g. assigns Layouts.
@@ -233,7 +226,7 @@ tasks:
         class_path: dev.tasks.communities.ReplaceThemeLayoutNavigationMenuTask
         options:
             network_name: Outbound Funds Portal
-            navigation_menu: OFM_Portal_Navigation
+            navigation_menu: OFM_Portal_Navigation1
 
 flows:
     # dev story
@@ -340,10 +333,6 @@ flows:
             4:
                 task: fundseeker_configure_guest_user_profile
             5:
-                task: fundseeker_deploy_navigation_menu
-            6:
-                task: fundseeker_configure_guest_user_profile
-            7:
                 task: fundseeker_deploy_sharing_set
             8:
                 task: fundseeker_deploy_submit_application
