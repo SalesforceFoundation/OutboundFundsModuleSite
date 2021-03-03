@@ -21,7 +21,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>layout</name>
-                    <value>FULL</value>
+                    <value>STANDARD</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>pageSize</name>
