@@ -14,4 +14,5 @@
     </accessMappings>
     <name>Fundseeker Sharing</name>
     <profiles>fundseeker plus login</profiles>
+    <description>Gives Read access to Funding Requests and Requirements if the site user&apos;s Contact is the same as the Funding Request&apos;s Applying Contact and Requirement&apos;s Primary Contact.</description>
 </SharingSet>
