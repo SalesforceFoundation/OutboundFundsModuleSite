@@ -219,7 +219,7 @@ tasks:
         class_path: dev.tasks.communities.ReplaceThemeLayoutNavigationMenuTask
         options:
             network_name: Outbound Funds Portal
-            navigation_menu: OFM_Portal_Navigation
+            navigation_menu: OFM_Portal_Navigation1
 
 flows:
     # dev story
