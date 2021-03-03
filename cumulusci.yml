@@ -39,6 +39,11 @@ tasks:
         options:
             required_org_code_coverage_percent: 100
 
+    robot_libdoc:
+        options:
+            path: robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.py,robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.robot,robot/OutboundFundsCommunity/resources/*PageObject.py
+            output: robot/OutboundFundsCommunity/doc/Keywords.html
+
     # Internal development automation
     dev_export_ofm_community_template:
         group: "OFM: Internal dev automation"
