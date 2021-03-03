@@ -64,7 +64,9 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
         if not hasattr(self.cumulusci, "_describe_result"):
             self.cumulusci._describe_result = self.cumulusci.sf.describe()
         objects = self.cumulusci._describe_result["sobjects"]
-        fundingprogram_object = [o for o in objects if o["label"] == "Funding Program"][0]
+        fundingprogram_object = [o for o in objects if o["label"] == "Funding Program"][
+            0
+        ]
         return self.get_namespace_prefix(fundingprogram_object["name"])
 
     def _check_if_element_exists(self, xpath):
