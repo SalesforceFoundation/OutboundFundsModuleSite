@@ -52,20 +52,20 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
         outboundfunds_lex_locators.update(locators)
 
     def get_namespace_prefix(self, name):
-        parts = name.split('__')
-        if parts[-1] == 'c':
+        parts = name.split("__")
+        if parts[-1] == "c":
             parts = parts[:-1]
         if len(parts) > 1:
-            return parts[0] + '__'
+            return parts[0] + "__"
         else:
-            return ''
+            return ""
 
     def get_obf_namespace_prefix(self):
-        if not hasattr(self.cumulusci, '_describe_result'):
+        if not hasattr(self.cumulusci, "_describe_result"):
             self.cumulusci._describe_result = self.cumulusci.sf.describe()
-        objects = self.cumulusci._describe_result['sobjects']
-        fundingprogram_object = [o for o in objects if o['label'] == 'Funding Program'][0]
-        return self.get_namespace_prefix(fundingprogram_object['name'])
+        objects = self.cumulusci._describe_result["sobjects"]
+        fundingprogram_object = [o for o in objects if o["label"] == "Funding Program"][0]
+        return self.get_namespace_prefix(fundingprogram_object["name"])
 
     def _check_if_element_exists(self, xpath):
         """Checks if the given xpath exists

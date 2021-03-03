@@ -6,7 +6,6 @@ from BaseObjects import BaseOutboundFundsCommunityPage
 
 @pageobject("Listing", "Funding_Request__c")
 class FundingRequestListingPage(BaseOutboundFundsCommunityPage, ListingPage):
-
     def _is_current_page(self):
         """Verify we are on the Funding Request Listing page
         by verifying that the url contains '/view'
@@ -19,7 +18,6 @@ class FundingRequestListingPage(BaseOutboundFundsCommunityPage, ListingPage):
 
 @pageobject("Details", "Funding_Request__c")
 class FundingRequestDetailPage(BaseOutboundFundsCommunityPage, DetailPage):
-
     def _is_current_page(self):
         """Verify we are on the Funding Request detail page
         by verifying that the url contains '/view'
