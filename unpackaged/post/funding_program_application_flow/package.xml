@@ -4,5 +4,9 @@
         <members>OutboundFundsCreateApplication</members>
         <name>Flow</name>
     </types>
+    <types>
+        <members>outfunds__Funding_Program__c.Apply</members>
+        <name>QuickAction</name>
+    </types>
     <version>48.0</version>
 </Package>

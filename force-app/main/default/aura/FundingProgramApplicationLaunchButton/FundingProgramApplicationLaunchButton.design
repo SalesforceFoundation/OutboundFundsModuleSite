@@ -1,5 +1,0 @@
-<design:component label="Funding Program Apply Button">
-    <sfdc:objects>
-        <sfdc:object>outfunds__Funding_Program__c</sfdc:object>
-    </sfdc:objects>
-</design:component>
