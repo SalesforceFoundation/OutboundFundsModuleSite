@@ -83,7 +83,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>richTextValue</name>
-                    <value>&lt;div style=&quot;text-align: center; &quot;&gt;&lt;a class=&quot;inverseTextColor&quot; style=&quot;color: #111111;&quot; href=&quot;./&quot;&gt;Already have an account?&lt;/a&gt;&lt;/div&gt;</value>
+                    <value>&lt;div style=&quot;text-align: center; &quot;&gt;&lt;a class=&quot;inverseTextColor&quot; href=&quot;./&quot;&gt;Already have an account?&lt;/a&gt;&lt;/div&gt;</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:richTextInline</componentName>
             </componentInstance>
