@@ -22,7 +22,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CardBackgroundColor</propertyName>
-        <propertyValue>rgba(255, 255, 255, 0)</propertyValue>
+        <propertyValue>#181A18</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LoginBackgroundColor</propertyName>
@@ -38,7 +38,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CompanyLogo</propertyName>
-        <propertyValue>/file-asset/HIVE_Foundation_logo?v=1</propertyValue>
+        <propertyValue>/file-asset/GCCS_Foundation_logo?v=1</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LoginBackgroundImage</propertyName>
