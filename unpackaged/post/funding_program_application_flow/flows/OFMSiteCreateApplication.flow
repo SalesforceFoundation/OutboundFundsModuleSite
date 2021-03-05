@@ -284,14 +284,14 @@ The decision is based on Status and Start/End Dates</description>
             <dataType>Currency</dataType>
             <fieldText>Requested Amount</fieldText>
             <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
         <fields>
             <name>RequestedFor</name>
             <fieldText>Requested For</fieldText>
             <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
