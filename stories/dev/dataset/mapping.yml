@@ -79,7 +79,6 @@ outfunds__Funding_Program__c:
     - outfunds__Status__c
     - outfunds__Top_Level__c
     - outfunds__Total_Program_Amount__c
-    - ApplicationForm__c
     # From stories/dev/unpackaged
     - PubliclyAccessible__c
   lookups:

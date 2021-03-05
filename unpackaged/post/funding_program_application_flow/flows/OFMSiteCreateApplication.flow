@@ -140,7 +140,7 @@ The decision is based on Status and Start/End Dates</description>
             <label>Active</label>
         </rules>
     </decisions>
-    <description>If the Funding Program is accepting applications, Community users can create an application with some fields automatically populated.  After creating the application, the user is redirected to the new application record.</description>
+    <description>If the Funding Program is accepting applications, site users can create an application (Funding Request) with some fields automatically populated. After creating the application, the user is redirected to the new Funding Request record.</description>
     <formulas>
         <name>CurrentUserContactId</name>
         <dataType>String</dataType>
@@ -192,7 +192,7 @@ The decision is based on Status and Start/End Dates</description>
     </recordCreates>
     <recordLookups>
         <name>Contact</name>
-        <label>Query Community User&apos;s Contact</label>
+        <label>Query Site User&apos;s Contact</label>
         <locationX>694</locationX>
         <locationY>53</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
@@ -297,7 +297,7 @@ The decision is based on Status and Start/End Dates</description>
         <showHeader>true</showHeader>
     </screens>
     <screens>
-        <description>The current user is not authenticated within the community and must do so before applying for funding.</description>
+        <description>The current user isn&apos;t authenticated in the portal and must login to apply for funding.</description>
         <name>GuestUserScreen</name>
         <label>Guest User Screen</label>
         <locationX>185</locationX>

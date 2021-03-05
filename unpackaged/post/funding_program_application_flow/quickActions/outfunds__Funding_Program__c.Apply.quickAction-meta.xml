@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Apply to Funding Request</description>
-    <flowDefinition>OutboundFundsCreateApplication</flowDefinition>
+    <description>Quick Action for site users to apply to a Funding Program</description>
+    <flowDefinition>OFMSiteCreateApplication</flowDefinition>
     <label>Apply</label>
     <optionsCreateFeedItem>false</optionsCreateFeedItem>
     <type>Flow</type>
