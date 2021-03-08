@@ -22,6 +22,9 @@
       "enableNetworksEnabled": true,
       "enableGuestRecordReassignOrgPref": true,
       "enableOotbProfExtUserOpsEnable": true
+    },
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
     }
   }
 }

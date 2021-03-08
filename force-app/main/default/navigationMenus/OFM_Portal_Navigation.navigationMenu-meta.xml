@@ -10,4 +10,11 @@
         <target>outfunds__Funding_Program__c</target>
         <type>SalesforceObject</type>
     </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Applications</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>outfunds__Funding_Request__c</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
 </NavigationMenu>
