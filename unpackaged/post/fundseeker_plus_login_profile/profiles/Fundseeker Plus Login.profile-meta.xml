@@ -4,6 +4,9 @@
     <layoutAssignments>
         <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%External Fundseeker</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>outfunds__Funding_Request__c-%%%NAMESPACE%%%OFM Funding Request Site Layout</layout>
+    </layoutAssignments>
     <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Disbursement__c.outfunds__Amount__c</field>

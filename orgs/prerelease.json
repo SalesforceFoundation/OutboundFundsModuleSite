@@ -24,6 +24,9 @@
       "enableGuestRecordReassignOrgPref": true,
       "enableOotbProfExtUserOpsEnable": true
     },
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
+    },
     "languageSettings": {
       "enableTranslationWorkbench": true
     }

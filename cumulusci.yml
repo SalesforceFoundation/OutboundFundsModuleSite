@@ -58,13 +58,6 @@ tasks:
         options:
             name: Outbound Funds Portal
 
-    fundseeker_deploy_navigation_menu:
-        group: "OFM-Site: Fundseeker customer enablement"
-        description: Deploys our recommended Navigation Menu for the Fundseeker Site.
-        class_path: cumulusci.tasks.salesforce.Deploy
-        options:
-            path: unpackaged/fundseeker_customer_enablement/navigation_menu
-
     fundseeker_configure_guest_user_profile:
         group: "OFM-Site: Fundseeker customer enablement"
         description: Deploys our recommended configuration of the Site Guest User Profile, e.g. assigns Layouts.
@@ -218,12 +211,20 @@ tasks:
         class_path: dev.tasks.community_templates.ExportCommunityTemplateTask
         options:
             template_name: OFM_Portal
-            suffix: "3"
+            suffix: "2"
             export_template: True
             export_theme: True
             export_branding_set: True
             export_flexipages: True
             copy_temporary_metadata: False
+
+    common_replace_theme_layout_navigation_menu:
+        group: "SFDO-Grants: Internal config and storytelling"
+        description: Replaces the Navigation Menu in the community for all pages using the Grants Community theme
+        class_path: dev.tasks.communities.ReplaceThemeLayoutNavigationMenuTask
+        options:
+            network_name: Outbound Funds Portal
+            navigation_menu: OFM_Portal_Navigation1
 
 flows:
     # dev story
@@ -253,6 +254,8 @@ flows:
                 task: common_upload_photo_for_fundseeker_grace_walker
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
+            11:
+                flow: common_replace_and_publish_theme_layout_navigation_menu
 
     config_dev:
         steps:
@@ -297,6 +300,8 @@ flows:
                 task: common_upload_photo_for_fundseeker_grace_walker
             10:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
+            11:
+                flow: common_replace_and_publish_theme_layout_navigation_menu
 
     config_qa:
         steps:
@@ -327,3 +332,12 @@ flows:
                 task: fundseeker_configure_guest_user_profile
             5:
                 task: fundseeker_deploy_sharing_set
+
+    # Internal flows
+    common_replace_and_publish_theme_layout_navigation_menu:
+        description: Configures the Outbound Funds Portal Site to use the packaged Navigation Menu instead of the default Navigation Menu.  Then, publishes the Site so the changes are committed in the org.
+        steps:
+            1:
+                task: common_replace_theme_layout_navigation_menu
+            2:
+                task: fundseeker_publish_site

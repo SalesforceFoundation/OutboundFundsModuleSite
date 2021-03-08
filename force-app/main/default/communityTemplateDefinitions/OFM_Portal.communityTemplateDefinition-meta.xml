@@ -1,75 +1,88 @@
 <?xml version="1.0" ?>
 <CommunityTemplateDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
-	<baseTemplate>c</baseTemplate>
-	<bundlesInfo>
-		<description>Create a single place to share all of your funding opportunities with fundseekers. They’ll also have the ability to create accounts so they can personalize their experience with you and speed up the process.</description>
-		<order>1</order>
-		<title>Self-Service</title>
-		<type>Highlight</type>
-	</bundlesInfo>
-	<bundlesInfo>
-		<description>Customize your applications with applicable requirements to each of your funding programs. Once fundseekers find the right opportunities, they can submit applications with ease.</description>
-		<order>2</order>
-		<title>Funding Applications</title>
-		<type>Highlight</type>
-	</bundlesInfo>
-	<bundlesInfo>
-		<description>No need for guess work here. Fundseekers can log in anytime, on any device, to monitor the status of their applications. Once awarded, they can also use the portal to see disbursement schedules and amounts.</description>
-		<order>3</order>
-		<title>Status Updates</title>
-		<type>Highlight</type>
-	</bundlesInfo>
-	<bundlesInfo>
-		<description>Fundees can provide important information related to their awards by submitting status reports and other updates through the portal.</description>
-		<order>4</order>
-		<title>Submit Updates</title>
-		<type>Highlight</type>
-	</bundlesInfo>
-	<bundlesInfo>
-		<image>OFMTemplatePreviewTile1</image>
-		<order>1</order>
-		<title>OFMTemplatePreviewTile1</title>
-		<type>PreviewImage</type>
-	</bundlesInfo>
-	<category>Sales</category>
-	<defaultThemeDefinition>OFM_Portal</defaultThemeDefinition>
-	<enableExtendedCleanUpOnDelete>true</enableExtendedCleanUpOnDelete>
-	<masterLabel>OFM-Portal</masterLabel>
-	<publisher>Salesforce.org</publisher>
+    <baseTemplate>c</baseTemplate>
+    <bundlesInfo>
+        <description>Create a single place to share all of your funding opportunities with fundseekers. They'll also have the ability to create accounts so they can personalize their experience with you and speed up the process.</description>
+        <order>1</order>
+        <title>Self-Service</title>
+        <type>Highlight</type>
+    </bundlesInfo>
+    <bundlesInfo>
+        <description>Customize your applications with applicable requirements to each of your funding programs. Once fundseekers find the right opportunities, they can submit applications with ease.</description>
+        <order>2</order>
+        <title>Funding Applications</title>
+        <type>Highlight</type>
+    </bundlesInfo>
+    <bundlesInfo>
+        <description>No need for guess work here. Fundseekers can log in anytime, on any device, to monitor the status of their applications. Once awarded, they can also use the portal to see disbursement schedules and amounts.</description>
+        <order>3</order>
+        <title>Status Updates</title>
+        <type>Highlight</type>
+    </bundlesInfo>
+    <bundlesInfo>
+        <description>Fundees can provide important information related to their awards by submitting status reports and other updates through the portal.</description>
+        <order>4</order>
+        <title>Submit Updates</title>
+        <type>Highlight</type>
+    </bundlesInfo>
+    <bundlesInfo>
+        <image>OFMTemplatePreviewTile1</image>
+        <order>1</order>
+        <title>OFMTemplatePreviewTile1</title>
+        <type>PreviewImage</type>
+    </bundlesInfo>
+    <category>Sales</category>
+    <defaultThemeDefinition>OFM_Portal</defaultThemeDefinition>
+    <description></description>
+    <enableExtendedCleanUpOnDelete>true</enableExtendedCleanUpOnDelete>
+    <masterLabel>OFM-Portal</masterLabel>
+    <publisher>Salesforce.org</publisher>
 	<pageSetting>
-		<page>OFM_Portal_Check_Password</page>
-		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Related_Record_List</page>
+		<page>OFM_Portal_Funding_Request_Detail</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
 	<pageSetting>
-		<page>OFM_Portal_Record_List</page>
+		<page>OFM_Portal_Funding_Request_Related_List</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Error</page>
+    <pageSetting>
+		<page>OFM_Portal_Funding_Request_List</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Login</page>
-		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Forgot_Password</page>
-		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Sfdc_Page</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Home</page>
-		<themeLayout>OFM_Portal_themeLayout_Home</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Funding_Program_Detail</page>
+    <pageSetting>
+        <page>OFM_Portal_Check_Password</page>
+        <themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Related_Record_List</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Error</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Record_List</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Login</page>
+        <themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Forgot_Password</page>
+        <themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Sfdc_Page</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Home</page>
+        <themeLayout>OFM_Portal_themeLayout_Home</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Funding_Program_Detail</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
 	<pageSetting>
@@ -77,31 +90,31 @@
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
 	<pageSetting>
-		<page>OFM_Portal_Register</page>
-		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Canvasapp_Page</page>
+        <page>OFM_Portal_Register</page>
+        <themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Canvasapp_Page</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Login_Error</page>
+        <themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Create_Record</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Record_Detail</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
+    <pageSetting>
+        <page>OFM_Portal_Funding_Program_Related_List</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
 	<pageSetting>
-		<page>OFM_Portal_Login_Error</page>
-		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Create_Record</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Record_Detail</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Funding_Program_Related_List</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Search</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
+        <page>OFM_Portal_Search</page>
+        <themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+    </pageSetting>
 </CommunityTemplateDefinition>
