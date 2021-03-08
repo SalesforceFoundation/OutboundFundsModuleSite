@@ -21,27 +21,28 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>outfunds__Requested_For__c</field>
+                <field>outfunds__Requested_Amount__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>outfunds__FundingProgram__c</field>
+                <behavior>Edit</behavior>
+                <field>outfunds__Requested_For__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>outfunds__Applying_Organization__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
+                <field>outfunds__FundingProgram__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
                 <field>Name</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
