@@ -2,10 +2,16 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
     <layoutAssignments>
-        <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%External Fundseeker</layout>
+        <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%OFM Funding Program Site Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>outfunds__Funding_Request__c-%%%NAMESPACE%%%OFM Funding Request Site Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>outfunds__Requirement__c-%%%NAMESPACE%%%OFM Requirement Site Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>outfunds__Disbursement__c-%%%NAMESPACE%%%OFM Disbursement Site Layout</layout>
     </layoutAssignments>
     <fieldPermissions>
         <editable>false</editable>
