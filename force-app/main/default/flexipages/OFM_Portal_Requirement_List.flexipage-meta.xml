@@ -103,8 +103,8 @@
         <replaceable>enabled</replaceable>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Record List</masterLabel>
-    <sobjectType>Site</sobjectType>
+    <masterLabel>Requirement List</masterLabel>
+    <sobjectType>outfunds__Requirement__c</sobjectType>
     <template>
         <name>siteforce:sldsOneColLayout</name>
     </template>
