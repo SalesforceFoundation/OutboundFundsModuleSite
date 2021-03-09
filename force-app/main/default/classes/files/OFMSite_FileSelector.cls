@@ -1,5 +1,4 @@
 public with sharing class OFMSite_FileSelector {
-
     public List<ContentDocumentLink> contentDocumentLinkByRecordIds(Set<Id> recordIds) {
         List<ContentDocumentLink> contentDocumentLinks = new List<ContentDocumentLink>();
 
@@ -29,5 +28,4 @@ public with sharing class OFMSite_FileSelector {
         return Security.stripInaccessible(AccessType.READABLE, contentDocuments)
             .getRecords();
     }
-    
 }

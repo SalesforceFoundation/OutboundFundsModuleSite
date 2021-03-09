@@ -1,5 +1,4 @@
 public with sharing class OFMSite_FileController {
-
     @TestVisible
     private static OFMSite_FileService fileService = new OFMSite_FileService();
 
