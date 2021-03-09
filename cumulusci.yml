@@ -339,7 +339,7 @@ flows:
                 task: fundseeker_configure_guest_user_profile
             5:
                 task: fundseeker_deploy_sharing_set
-            8:
+            6:
                 task: fundseeker_deploy_submit_application
 
     # Internal flows

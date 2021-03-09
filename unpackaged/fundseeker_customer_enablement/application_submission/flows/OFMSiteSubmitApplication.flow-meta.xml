@@ -24,14 +24,6 @@
             <targetReference>UpdateApplication</targetReference>
         </connector>
     </assignments>
-    <constants>
-        <description>Session-based permission set granting edit access to Funding Request records the user also has sharing edit access.</description>
-        <name>PermissionSetToEditApplications</name>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>EditFundingRequest</stringValue>
-        </value>
-    </constants>
     <decisions>
         <description>An application can be submitted if both the running user is both a Community User and the running user is the owner of the application.</description>
         <name>IsSubmittable</name>
