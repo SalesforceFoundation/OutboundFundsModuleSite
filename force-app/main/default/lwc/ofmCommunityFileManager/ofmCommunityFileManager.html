@@ -1,3 +1,101 @@
 <template>
-    
+    <div class="slds-var-p-around_large maxWidth800">
+        <lightning-card class="slds-var-p-around_medium">
+            <h1 class="slds-text-heading_medium" slot="title">
+                {labels.requirementAttachmentsHeader}
+            </h1>
+            <div class="slds-var-p-horizontal_medium">
+                <template if:false={displayFilesList}>
+                    <p>{labels.noFilesAttached}</p>
+                </template>
+                <template if:true={displayFilesList} for:each={files} for:item="file">
+                    <div
+                        key={file.Id}
+                        class="slds-box slds-var-m-bottom_small slds-box_x-small"
+                    >
+                        <div
+                            class="slds-grid slds-var-p-around_xxx-small slds-grid_vertical-align-center"
+                        >
+                            <div
+                                class="slds-col slds-size_10-of-12 slds-var-p-left_small"
+                            >
+                                <a href="#" onclick={handleFileClick}>
+                                    <span data-file-id={file.Id} class="slds-truncate"
+                                        >{file.fullName}</span
+                                    >
+                                </a>
+                            </div>
+                            <template if:true={showUpload}>
+                                <template if:true={file.canDelete}>
+                                    <div
+                                        class="slds-col slds-size_2-of-12 slds-text-align_center slds-var-p-right_small"
+                                    >
+                                        <a
+                                            href="#"
+                                            data-id="deleteAnchor"
+                                            data-file-id={file.Id}
+                                            onclick={handleDeleteClick}
+                                        >
+                                            <lightning-icon
+                                                data-file-id={file.Id}
+                                                icon-name="utility:delete"
+                                                alternative-text={labels.removeFileAction}
+                                                size="x-small"
+                                                class="slds-align-middle"
+                                            ></lightning-icon>
+                                            <span
+                                                data-file-id={file.Id}
+                                                class="slds-var-p-left_xx-small slds-align-middle"
+                                                >{labels.removeFileAction}</span
+                                            >
+                                        </a>
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                <template if:true={showUpload}>
+                    <lightning-file-upload
+                        name="fileUploader"
+                        record-id={recordId}
+                        class="slds-file-selector slds-file-selector_images"
+                        onuploadfinished={handleUploadFinished}
+                        multiple
+                    >
+                    </lightning-file-upload>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+    <c-ofm-modal header={labels.deleteFileConfirmationAction}>
+        <div slot="content">
+            <p>{labels.fileDeleteConfirmationBody}</p>
+        </div>
+        <div slot="footer" class="slds-is-relative">
+            <lightning-spinner
+                if:true={showDeleteSpinner}
+                alternative-text={labels.loading}
+                variant="brand"
+                size="small"
+            >
+            </lightning-spinner>
+            <lightning-button
+                variant="neutral"
+                data-id="cancel"
+                label={labels.cancelButton}
+                title={labels.cancelButton}
+                class="slds-var-m-left_x-small"
+                onclick={handleCancelDelete}
+            ></lightning-button>
+            <lightning-button
+                data-id="confirmDelete"
+                variant="brand"
+                label={labels.deleteFileConfirmationAction}
+                title={labels.deleteFileConfirmationAction}
+                class="slds-var-m-left_x-small"
+                onclick={handleConfirmDelete}
+            ></lightning-button>
+        </div>
+    </c-ofm-modal>
 </template>

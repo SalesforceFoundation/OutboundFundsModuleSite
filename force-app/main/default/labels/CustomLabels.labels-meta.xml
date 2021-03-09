@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Close</fullName>
+        <categories>Modal</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unknown Error</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>File_Retrieval_Error</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>File Retrieval Error</shortDescription>
+        <value>An error occurred, and we are unable to retrieve the related records. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Delete_File_Error_Header</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete File Error Header</shortDescription>
+        <value>Unable to Delete File</value>
+    </labels>    
+    <labels>
+        <fullName>Delete_File_Error_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete File Error Message</shortDescription>
+        <value>This file can't be deleted. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Level_Of_Access_Required_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have the level of access required for this process.</shortDescription>
+        <value>Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Create_Access_For_Object_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have create access to the object.</shortDescription>        
+        <value>You don’t have access to create a new object of this type. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Update_Access_For_Object_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have update access to the object.</shortDescription>        
+        <value>You don’t have edit access to update this object. Ask your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Delete_Access_For_Object_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have delete access to the object.</shortDescription>        
+        <value>You don’t have delete access to this object. Ask your Salesforce admin for help.</value>
+    </labels>    
+    <labels>
+        <fullName>Does_Not_Have_Read_Access_For_Object_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have read access to the object.</shortDescription>        
+        <value>You don’t have read access to this object. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Create_FLS_Access_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have create access to fields required for this process.</shortDescription>
+        <value>You don’t have field-level access to create this record. Contact your system administrator for help.</value>
+    </labels>    
+    <labels>
+        <fullName>Does_Not_Have_Edit_FLS_Access_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have edit or update access to required fields.</shortDescription>
+        <value>You don’t have field-level access to edit this record. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Read_FLS_Access_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have read access to fields required for this process.</shortDescription>
+        <value>You don’t have field-level access to view this record. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Transfer_Access_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have transfer access to complete this process.</shortDescription>
+        <value>You don’t have access to transfer ownership of this record. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Have_Read_Access_To_User_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have read access on the User object.</shortDescription>
+        <value>You don’t have read access to the User record you are trying to transfer this record to. Contact your system administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Does_Not_Manage_External_User_Access_Message</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The user does not have the Manage External Users permission set assigned.</shortDescription>
+        <value>You aren’t assigned the Manage External Users permission set to create a community user.  Contact your system  administrator for help.</value>
+    </labels>
+
+    <labels>
+        <fullName>Delete_File_Action</fullName>
+        <categories>Progress Report</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requirement Attachments Delete File Action</shortDescription>
+        <value>Delete File</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <categories>Error Handling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>Loading</fullName>
+        <categories>Transaction Management</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loading Alternative Text</shortDescription>
+        <value>Loading</value>
+    </labels>
+    <labels>
+        <fullName>No_Files_Attached</fullName>
+        <categories>Progress Report</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Files Attached to the Record</shortDescription>
+        <value>No Files Attached</value>
+    </labels>
+    <labels>
+        <fullName>Delete_File_Confirmation_Body</fullName>
+        <categories>Progress Report</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requirement Attachments Delete File Confirmation Body</shortDescription>
+        <value>Are you sure you want to delete this file?</value>
+    </labels>
+    <labels>
+        <fullName>Requirement_Attachments</fullName>
+        <categories>Progress Report</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requirement Attachments Header</shortDescription>
+        <value>Requirement Attachments</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <categories>Modal</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel Button</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Delete_File_Confirmation_Action</fullName>
+        <categories>Progress Report</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requirement Attachments Delete File Confirmation Button and Modal Header</shortDescription>
+        <value>Confirm Delete</value>
+    </labels>  
+
+
+
+</CustomLabels>

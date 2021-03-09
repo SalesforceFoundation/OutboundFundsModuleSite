@@ -219,6 +219,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>outfunds__Requirement__c.%%%NAMESPACE%%%ofm_is_Add_Files_Visible__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>outfunds__Requirement__c.outfunds__Primary_Contact__c</field>
         <readable>true</readable>
@@ -300,5 +305,17 @@
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    <classAccesses>
+        <apexClass>%%%NAMESPACE%%%OFMSite_FileController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>%%%NAMESPACE%%%OFMSite_FileSelector</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>%%%NAMESPACE%%%OFMSite_FileService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <userLicense>Customer Community Plus Login</userLicense>
 </Profile>
