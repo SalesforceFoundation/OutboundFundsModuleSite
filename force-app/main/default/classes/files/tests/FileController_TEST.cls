@@ -1,0 +1,152 @@
+@isTest
+public with sharing class FileController_TEST {
+    private static String USER_EMAIL = 'alternatUser@example.com';
+
+    @IsTest
+    private static void getRecordFilesShouldRetrieveFiles() {
+        Id programId = TestUtils.mockId(outfunds__Funding_Program__c.SObjectType);
+        final List<ContentDocument> expected = new List<ContentDocument>{
+            new ContentDocument(Id = TestUtils.mockId(ContentDocument.sObjectType))
+        };
+
+        final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
+        fileServiceMock.getMethod('getContentDocumentByRecordId').returnValue = expected;
+
+        Test.startTest();
+
+        FileController.fileService = (FileService) fileServiceMock.createStub(
+            FileService.class
+        );
+
+        final List<ContentDocument> actual = FileController.getRecordFiles(programId);
+
+        Test.stopTest();
+
+        System.assertEquals(
+            expected,
+            actual,
+            'Expected the controller to return the list from the FileService'
+        );
+
+        fileServiceMock.getMethod('getContentDocumentByRecordId').assertCalled();
+    }
+
+    @IsTest
+    private static void getRecordFilesShouldThrowException() {
+        Id programId = TestUtils.mockId(outfunds__Funding_Program__c.SObjectType);
+        final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
+        fileServiceMock.getMethod('getContentDocumentByRecordId')
+            .returnValue = new AuraHandledException(System.Label.File_Retrieval_Error);
+
+        Test.startTest();
+
+        FileController.fileService = (FileService) fileServiceMock.createStub(
+            FileService.class
+        );
+
+        final List<ContentDocument> actual;
+        String actualExceptionMessage;
+
+        try {
+            actual = FileController.getRecordFiles(programId);
+        } catch (AuraHandledException e) {
+            actualExceptionMessage = e.getMessage();
+        } catch (Exception e) {
+            System.assert(false, 'Expected AuraHandledException to be thrown');
+        }
+
+        System.assertNotEquals(
+            null,
+            actualExceptionMessage,
+            'Exception message should not be null.'
+        );
+
+        fileServiceMock.getMethod('getContentDocumentByRecordId').assertCalled();
+    }
+
+    @isTest
+    private static void deleteContentDocumentShouldCallDeleteFiles() {
+        ContentDocument file = TestUtils.createContentDocuments(1)[0];
+        file = [SELECT Id, OwnerId FROM ContentDocument];
+
+        final List<Database.DeleteResult> results = new List<Database.DeleteResult>();
+        results.add(
+            (Database.DeleteResult) JSON.deserialize(
+                '{"success": true, "id": "' +
+                file.Id +
+                '"}',
+                Database.DeleteResult.class
+            )
+        );
+
+        final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
+        fileServiceMock.getMethod('deleteContentDocumentsById').returnValue = results;
+
+        Test.startTest();
+        FileController.fileService = (FileService) fileServiceMock.createStub(
+            FileService.class
+        );
+
+        final String actual = FileController.deleteContentDocument(file);
+        Test.stopTest();
+
+        System.assertEquals(JSON.serialize(results), actual);
+        fileServiceMock.getMethod('deleteContentDocumentsById').assertCalled();
+    }
+
+    @IsTest
+    private static void deleteContentDocumentShouldThrowExceptionOnMismatchedOwner() {
+        Exception actualException;
+        Id runningUserId = UserInfo.getUserId();
+
+        ContentDocument file = TestUtils.createContentDocuments(1)[0];
+        User alternateUser = TestUtils.createUser('System Administrator', USER_EMAIL);
+        insert alternateUser;
+
+        System.runAs(alternateUser) {
+            file.OwnerId = runningUserId;
+            update file;
+
+            Test.startTest();
+            try {
+                FileController.deleteContentDocument(file);
+            } catch (AuraHandledException e) {
+                actualException = e;
+            } catch (Exception e) {
+                System.assert(false, 'Expected an Aura Handled Exception to be thrown');
+            }
+            Test.stopTest();
+        }
+        System.assertNotEquals(null, actualException);
+    }
+
+    @IsTest
+    private static void deleteContentDocumentShouldThrowExceptionOnUnexpectedException() {
+        Exception actualException;
+        ContentDocument file = TestUtils.createContentDocuments(1)[0];
+        file.OwnerId = UserInfo.getUserId();
+
+        final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
+        fileServiceMock.getMethod('deleteContentDocumentsById')
+            .returnValue = new AuraHandledException(
+            System.Label.Delete_File_Error_Message
+        );
+
+        Test.startTest();
+
+        FileController.fileService = (FileService) fileServiceMock.createStub(
+            FileService.class
+        );
+
+        try {
+            FileController.deleteContentDocument(file);
+        } catch (AuraHandledException e) {
+            actualException = e;
+        } catch (Exception e) {
+            System.assert(false, 'Expected an Aura Handled Exception to be thrown');
+        }
+        Test.stopTest();
+
+        System.assertNotEquals(null, actualException);
+    }
+}

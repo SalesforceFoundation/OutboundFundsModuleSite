@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>51.0</apiVersion>
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>UpdateRequirementStatus</name>
         <label>Update Requirement Status</label>
@@ -97,15 +97,15 @@
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>RequirementSubmitted</name>
-        <label>RequirementSubmitted</label>
+        <label>Requirement Submitted</label>
         <locationX>314</locationX>
         <locationY>758</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <fields>
-            <name>RequirementSubmittedMessage</name>
-            <fieldText>&lt;p&gt;Your requirement has been submitted.&lt;/p&gt;</fieldText>
+            <name>RequirementSubmittedDisplayText</name>
+            <fieldText>&lt;p&gt;{!RequirementSubmittedMessage}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -121,7 +121,7 @@
         <allowPause>true</allowPause>
         <fields>
             <name>RequirementCompleteLabel</name>
-            <fieldText>&lt;p&gt;This requirement has &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;already&lt;/span&gt; been submitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;{!RequirementAlreadySubmittedMessage}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -129,7 +129,7 @@
     </screens>
     <screens>
         <name>SubmitRequirementReview</name>
-        <label>SubmitRequirementReview</label>
+        <label>Submit Requirement Review</label>
         <locationX>314</locationX>
         <locationY>398</locationY>
         <allowBack>true</allowBack>
@@ -161,6 +161,26 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>RequirementAlreadySubmittedMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Label.Requirement_Already_Submitted</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>RequirementSubmittedMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Label.Requirement_Submitted</elementReference>
+        </value>
     </variables>
     <variables>
         <name>SubmitRequirementContentReviewMessage</name>
