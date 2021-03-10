@@ -1,9 +1,9 @@
-public with sharing class OFMSite_FileService {
+public with sharing class FileService {
     @TestVisible
-    private static OFMSite_FileSelector fileSelector = new OFMSite_FileSelector();
+    private static FileSelector fileSelector = new FileSelector();
 
     @TestVisible
-    private static OFMSite_DatabaseService databaseService = new OFMSite_DatabaseService();
+    private static DatabaseService databaseService = new DatabaseService();
 
     // TODO(future) - Move to security service and create similar deletion checks
     @TestVisible
@@ -42,7 +42,7 @@ public with sharing class OFMSite_FileService {
      * @param recordId  Id of the record to which we will associate the ContentDocument(s)
      * @param contentDocumentIds    List of ContentDocument Id(s) to associate with the specified record
      */
-    public List<OFMSite_DatabaseService.SaveResult> createContentDocumentLinks(
+    public List<DatabaseService.SaveResult> createContentDocumentLinks(
         Id recordId,
         List<Id> contentDocumentIds
     ) {

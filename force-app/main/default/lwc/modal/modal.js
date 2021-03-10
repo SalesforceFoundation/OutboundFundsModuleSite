@@ -7,7 +7,7 @@ const TAB_KEY_CODE = 9;
 const TAB_KEY_STRING = "Tab";
 const CSS_CLASS = "modal-hidden";
 
-export default class OfmModal extends LightningElement {
+export default class Modal extends LightningElement {
     showModal = false;
 
     labels = {

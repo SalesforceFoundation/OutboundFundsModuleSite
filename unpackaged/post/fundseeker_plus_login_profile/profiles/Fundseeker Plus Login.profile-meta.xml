@@ -220,7 +220,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>outfunds__Requirement__c.%%%NAMESPACE%%%ofm_is_Add_Files_Visible__c</field>
+        <field>outfunds__Requirement__c.%%%NAMESPACE%%%Is_Add_Files_Visible__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -306,15 +306,15 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <classAccesses>
-        <apexClass>%%%NAMESPACE%%%OFMSite_FileController</apexClass>
+        <apexClass>%%%NAMESPACE%%%FileController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>%%%NAMESPACE%%%OFMSite_FileSelector</apexClass>
+        <apexClass>%%%NAMESPACE%%%FileSelector</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>%%%NAMESPACE%%%OFMSite_FileService</apexClass>
+        <apexClass>%%%NAMESPACE%%%FileService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <userLicense>Customer Community Plus Login</userLicense>

@@ -1,13 +1,13 @@
 import { LightningElement, api, wire, track } from "lwc";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
-import getRecordFiles from "@salesforce/apex/OFMSite_FileController.getRecordFiles";
-import deleteContentDocument from "@salesforce/apex/OFMSite_FileController.deleteContentDocument";
+import getRecordFiles from "@salesforce/apex/FileController.getRecordFiles";
+import deleteContentDocument from "@salesforce/apex/FileController.deleteContentDocument";
 import { refreshApex } from "@salesforce/apex";
-import { showToast } from "c/ofmUtil";
+import { showToast } from "c/util";
 import RUNNING_USER_ID from "@salesforce/user/Id";
 import COMMUNITY_BASE_URL from "@salesforce/community/basePath";
 
-import FILEUPLOAD_VISIBILITY_FIELD from "@salesforce/schema/outfunds__Requirement__c.ofm_is_Add_Files_Visible__c";
+import FILEUPLOAD_VISIBILITY_FIELD from "@salesforce/schema/outfunds__Requirement__c.Is_Add_Files_Visible__c";
 
 // LABELS
 import deleteFileErrorTitle from "@salesforce/label/c.Delete_File_Error_Header";
@@ -22,7 +22,7 @@ import cancelButton from "@salesforce/label/c.Cancel";
 import deleteFileConfirmationAction from "@salesforce/label/c.Delete_File_Confirmation_Action";
 import noFilesAttached from "@salesforce/label/c.No_Files_Attached";
 
-export default class OfmCommunityFileManager extends LightningElement {
+export default class CommunityFileManager extends LightningElement {
     @api recordId;
     files = [];
     deleteFileId;

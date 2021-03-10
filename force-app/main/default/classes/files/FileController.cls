@@ -1,6 +1,6 @@
-public with sharing class OFMSite_FileController {
+public with sharing class FileController {
     @TestVisible
-    private static OFMSite_FileService fileService = new OFMSite_FileService();
+    private static FileService fileService = new FileService();
 
     @AuraEnabled(cacheable=true)
     public static List<ContentDocument> getRecordFiles(Id recordId) {

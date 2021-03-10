@@ -184,8 +184,85 @@
         <protected>true</protected>
         <shortDescription>Requirement Attachments Delete File Confirmation Button and Modal Header</shortDescription>
         <value>Confirm Delete</value>
-    </labels>  
-
-
-
+    </labels>
+    <labels>
+        <fullName>Submit_Requirement_Button</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit Requirement Button</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Requirement_Success_Message</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requirement is successfully submitted</shortDescription>
+        <value>{requirementName} is successfully submitted</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Requirement_Modal_Title</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Modal Title</shortDescription>
+        <value>Confirm Submission</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Requirement_Modal_Content_Review</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Modal Content</shortDescription>
+        <value>Take a moment to review everything you'd like to submit.</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Requirement_Modal_Content_Submit</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Modal Content</shortDescription>
+        <value>Once you click "Submit," you won't be able to make changes.</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Requirement_Modal_Cancel_Button</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Modal Cancel Button</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Get_Requirement_Error_Title</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Toast Title</shortDescription>
+        <value>Error loading requirement</value>
+    </labels>
+    <labels>
+        <fullName>Get_Requirement_Toast_Error_Message</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Toast Message</shortDescription>
+        <value>Unknown error</value>
+    </labels>
+    <labels>
+        <fullName>Get_Requirement_Toast_Success</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>Update_Requirement_Toast_Error</fullName>
+        <categories>Requirements</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error updating requirement</shortDescription>
+        <value>We aren't able to update this record due to an error. Contact your system administrator for help</value>
+    </labels>
 </CustomLabels>

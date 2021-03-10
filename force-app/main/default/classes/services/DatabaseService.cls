@@ -1,8 +1,8 @@
-public with sharing class OFMSite_DatabaseService {
+public with sharing class DatabaseService {
     @TestVisible
-    private OFMSite_SecurityService securityService = new OFMSite_SecurityService();
+    private SecurityService securityService = new SecurityService();
 
-    public OFMSite_DatabaseService() {
+    public DatabaseService() {
     }
 
     /**
@@ -35,13 +35,13 @@ public with sharing class OFMSite_DatabaseService {
      * Stubbable "wrapper" of Database.SaveResult. We cannot mock Database directly as the operations are key words
      */
     public virtual with sharing class SaveResult {
-        private List<OFMSite_DatabaseService.Error> errors;
+        private List<DatabaseService.Error> errors;
         private Id recordId;
         public Boolean success;
 
         @TestVisible
         protected SaveResult(
-            List<OFMSite_DatabaseService.Error> errors,
+            List<DatabaseService.Error> errors,
             Id recordId,
             Boolean isSuccess
         ) {
@@ -50,7 +50,7 @@ public with sharing class OFMSite_DatabaseService {
             this.success = isSuccess;
         }
 
-        public List<OFMSite_DatabaseService.Error> getErrors() {
+        public List<DatabaseService.Error> getErrors() {
             return this.errors;
         }
 
@@ -92,8 +92,8 @@ public with sharing class OFMSite_DatabaseService {
      * This is the only way to get a DatabaseService.Savepoint in production code.
      * @return   A DatabaseService.Savepoint with its System.Savepoint set.
      */
-    public OFMSite_DatabaseService.Savepoint setSavepoint() {
-        final OFMSite_DatabaseService.Savepoint savepoint = new OFMSite_DatabaseService.Savepoint();
+    public DatabaseService.Savepoint setSavepoint() {
+        final DatabaseService.Savepoint savepoint = new DatabaseService.Savepoint();
         savepoint.savepoint = System.Database.setSavepoint();
         return savepoint;
     }
@@ -102,27 +102,27 @@ public with sharing class OFMSite_DatabaseService {
      * Rolls back to the savepoint's System.Savepoint.
      * @param  savepoint Pass in a DatabaseService.Savepoint returned by setSavepoint().
      */
-    public void rollback(OFMSite_DatabaseService.Savepoint savepoint) {
+    public void rollback(DatabaseService.Savepoint savepoint) {
         System.Database.rollback(savepoint.savepoint);
     }
 
     @TestVisible
-    private List<OFMSite_DatabaseService.SaveResult> getSaveResults(
+    private List<DatabaseService.SaveResult> getSaveResults(
         List<Database.SaveResult> databaseSaveResults
     ) {
-        List<OFMSite_DatabaseService.SaveResult> results = new List<OFMSite_DatabaseService.SaveResult>();
+        List<DatabaseService.SaveResult> results = new List<DatabaseService.SaveResult>();
         for (Database.SaveResult databaseSaveResult : databaseSaveResults) {
-            List<OFMSite_DatabaseService.Error> databaseServiceErrors = new List<OFMSite_DatabaseService.Error>();
+            List<DatabaseService.Error> databaseServiceErrors = new List<DatabaseService.Error>();
             for (Database.Error error : databaseSaveResult.getErrors()) {
                 databaseServiceErrors.add(
-                    new OFMSite_DatabaseService.Error(
+                    new DatabaseService.Error(
                         error.getFields(),
                         error.getMessage(),
                         error.getStatusCode()
                     )
                 );
             }
-            OFMSite_DatabaseService.SaveResult result = new OFMSite_DatabaseService.SaveResult(
+            DatabaseService.SaveResult result = new DatabaseService.SaveResult(
                 databaseServiceErrors,
                 databaseSaveResult.getId(),
                 databaseSaveResult.isSuccess()
@@ -137,7 +137,7 @@ public with sharing class OFMSite_DatabaseService {
      * @param  records This is a list of SObjects
      * @return return List of Database.SaveResult
      */
-    public List<OFMSite_DatabaseService.SaveResult> insertRecords(
+    public List<DatabaseService.SaveResult> insertRecords(
         List<SObject> records,
         Boolean allOrNothing
     ) {
@@ -151,7 +151,7 @@ public with sharing class OFMSite_DatabaseService {
      * @param  records This is a list of SObjects
      * @return return List of Database.SaveResult
      */
-    public List<OFMSite_DatabaseService.SaveResult> insertRecords(List<SObject> records) {
+    public List<DatabaseService.SaveResult> insertRecords(List<SObject> records) {
         return this.insertRecords(records, true);
     }
 
@@ -160,7 +160,7 @@ public with sharing class OFMSite_DatabaseService {
      * @param  records This is a list of SObjects
      * @return return List of Database.SaveResult
      */
-    public List<OFMSite_DatabaseService.SaveResult> updateRecords(
+    public List<DatabaseService.SaveResult> updateRecords(
         List<SObject> records,
         Boolean allOrNothing
     ) {
@@ -169,7 +169,7 @@ public with sharing class OFMSite_DatabaseService {
         return this.getSaveResults(System.Database.update(recordsToUpdate, allOrNothing));
     }
 
-    public List<OFMSite_DatabaseService.SaveResult> updateRecords(List<SObject> records) {
+    public List<DatabaseService.SaveResult> updateRecords(List<SObject> records) {
         return this.updateRecords(records, true);
     }
 

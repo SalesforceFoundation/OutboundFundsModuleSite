@@ -1,5 +1,5 @@
-public with sharing class OFMSite_SecurityService {
-    public OFMSite_SecurityService() {
+public with sharing class SecurityService {
+    public SecurityService() {
     }
 
     @TestVisible

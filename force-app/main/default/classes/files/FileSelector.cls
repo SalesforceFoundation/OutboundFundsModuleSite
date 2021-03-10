@@ -1,4 +1,4 @@
-public with sharing class OFMSite_FileSelector {
+public with sharing class FileSelector {
     public List<ContentDocumentLink> contentDocumentLinkByRecordIds(Set<Id> recordIds) {
         List<ContentDocumentLink> contentDocumentLinks = new List<ContentDocumentLink>();
 
