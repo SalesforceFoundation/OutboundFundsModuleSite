@@ -1,6 +1,6 @@
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 //Used to get namespace from org
-import isAddFilesVisibleField from "../communityFileManager/node_modules/@salesforce/schema/outfunds__Requirement__c.ofm_is_Add_Files_Visible__c";
+import isAddFilesVisibleField from "@salesforce/schema/outfunds__Requirement__c.Is_Add_Files_Visible__c";
 
 /**
  * Returns if value equals undefined or null
