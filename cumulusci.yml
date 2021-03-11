@@ -42,8 +42,10 @@ tasks:
 
     uninstall_packaged_incremental:
         options:
-            ignore_types:
-                - ContentAsset
+            ignore:
+                ContentAsset:
+                    - HIVE_Foundation_hero
+                    - HIVE_Foundation_logo
 
     # Fundseeker customer enablement
     fundseeker_create_site:
