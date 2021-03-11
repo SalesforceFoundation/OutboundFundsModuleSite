@@ -14,7 +14,7 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>Get_Requirement.Is_Add_Files_Visible__c</assignToReference>
+            <assignToReference>Get_Requirement.ofm_Is_Add_Files_Visible__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <booleanValue>false</booleanValue>

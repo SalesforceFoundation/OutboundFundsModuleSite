@@ -220,7 +220,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>outfunds__Requirement__c.%%%NAMESPACE%%%Is_Add_Files_Visible__c</field>
+        <field>outfunds__Requirement__c.%%%NAMESPACE%%%ofm_Is_Add_Files_Visible__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -5,7 +5,7 @@ import { ShowToastEvent } from "lightning/platformShowToastEvent";
 const mockFieldApiNameGetter = jest.fn();
 
 jest.mock(
-    "@salesforce/schema/outfunds__Requirement__c.Is_Add_Files_Visible__c",
+    "@salesforce/schema/outfunds__Requirement__c.ofm_Is_Add_Files_Visible__c",
     () => {
         return {
             default: {
@@ -343,7 +343,7 @@ describe("debug", () => {
 describe("prefixNamespace", () => {
     describe("namespace is present", () => {
         it("should return the string with the namespace prefix", () => {
-            mockFieldApiNameGetter.mockReturnValue("namespace__Is_Add_Files_Visible__c");
+            mockFieldApiNameGetter.mockReturnValue("namespace__ofm_Is_Add_Files_Visible__c");
             let result = util.prefixNamespace("outfunds__Requirement__r");
             expect(result).toBe("namespace__outfunds__Requirement__r");
         });
@@ -351,7 +351,7 @@ describe("prefixNamespace", () => {
 
     describe("namespace is not present", () => {
         it("should return the string without the namespace prefix", () => {
-            mockFieldApiNameGetter.mockReturnValue("Is_Add_Files_Visible__c");
+            mockFieldApiNameGetter.mockReturnValue("ofm_Is_Add_Files_Visible__c");
             let result = util.prefixNamespace("outfunds__Requirement__r");
             expect(result).toBe("outfunds__Requirement__r");
         });
