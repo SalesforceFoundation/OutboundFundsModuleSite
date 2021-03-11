@@ -13,6 +13,13 @@
                 <stringValue>Complete</stringValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Requirement.Is_Add_Files_Visible__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>UpdateRequirement</targetReference>
         </connector>
@@ -38,7 +45,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Requirment_Complete</targetReference>
+                <targetReference>RequirementComplete</targetReference>
             </connector>
             <label>Complete</label>
         </rules>
@@ -73,6 +80,7 @@
         <connector>
             <targetReference>is_Requirement_Complete</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -96,6 +104,22 @@
     </recordUpdates>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
+        <name>RequirementComplete</name>
+        <label>Requirement Complete</label>
+        <locationX>50</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>RequirementCompleteLabel</name>
+            <fieldText>&lt;p&gt;{!RequirementAlreadySubmittedMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>RequirementSubmitted</name>
         <label>Requirement Submitted</label>
         <locationX>314</locationX>
@@ -110,22 +134,6 @@
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>Requirment_Complete</name>
-        <label>Requirment Complete</label>
-        <locationX>50</locationX>
-        <locationY>398</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <fields>
-            <name>RequirementCompleteLabel</name>
-            <fieldText>&lt;p&gt;{!RequirementAlreadySubmittedMessage}&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
     </screens>
     <screens>
         <name>SubmitRequirementReview</name>
@@ -167,7 +175,7 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
-        <isOutput>true</isOutput>
+        <isOutput>false</isOutput>
         <value>
             <elementReference>$Label.Requirement_Already_Submitted</elementReference>
         </value>
@@ -177,7 +185,7 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
-        <isOutput>true</isOutput>
+        <isOutput>false</isOutput>
         <value>
             <elementReference>$Label.Requirement_Submitted</elementReference>
         </value>
