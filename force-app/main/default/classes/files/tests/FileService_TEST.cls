@@ -205,9 +205,7 @@ public with sharing class FileService_TEST {
     private static void createContentDocumentLinksShouldInsertContentDocumentLinks() {
         FileService fileServiceInstance = new FileService();
         Integer contentDocumentCount = 3;
-        Account account = new Account(
-            Name = 'Test Verification Check'
-        );
+        Account account = new Account(Name = 'Test Verification Check');
         insert account;
 
         List<ContentDocument> contentDocuments = TestUtils.createContentDocuments(
@@ -221,28 +219,17 @@ public with sharing class FileService_TEST {
 
         System.assertEquals(
             0,
-            [
-                SELECT COUNT()
-                FROM ContentDocumentLink
-                WHERE LinkedEntityId = :account.Id
-            ],
+            [SELECT COUNT() FROM ContentDocumentLink WHERE LinkedEntityId = :account.Id],
             'Expected no ContentDocumentLink records to exist prior to test execution.'
         );
 
         Test.startTest();
-        fileServiceInstance.createContentDocumentLinks(
-            account.Id,
-            contentDocumentIds
-        );
+        fileServiceInstance.createContentDocumentLinks(account.Id, contentDocumentIds);
         Test.stopTest();
 
         System.assertEquals(
             contentDocumentCount,
-            [
-                SELECT COUNT()
-                FROM ContentDocumentLink
-                WHERE LinkedEntityId = :account.Id
-            ],
+            [SELECT COUNT() FROM ContentDocumentLink WHERE LinkedEntityId = :account.Id],
             String.format(
                 'Expected {0} ContentDocumentLink record(s) to exist and be related to the record.',
                 new List<String>{ String.valueOf(contentDocumentCount) }
@@ -257,9 +244,7 @@ public with sharing class FileService_TEST {
     private static void createContentDocumentLinksShouldCallDatabaseService() {
         FileService fileServiceInstance = new FileService();
 
-        final Id accountId = TestUtils.mockId(
-            Schema.Account.getSObjectType()
-        );
+        final Id accountId = TestUtils.mockId(Schema.Account.getSObjectType());
         final Id contentDocumentId = TestUtils.mockId(
             Schema.ContentDocument.getSObjectType()
         );
@@ -313,9 +298,7 @@ public with sharing class FileService_TEST {
     private static void unlinkContentDocumentsFromRecordShouldDeleteContentDocumentLinks() {
         FileService fileServiceInstance = new FileService();
         Integer contentDocumentCount = 3;
-        Account account = new Account(
-            Name = 'Test Verification Check'
-        );
+        Account account = new Account(Name = 'Test Verification Check');
         insert account;
 
         List<ContentDocumentLink> contentLinks = TestUtils.createContentDocumentsWithLink(
@@ -331,11 +314,7 @@ public with sharing class FileService_TEST {
 
         System.assertEquals(
             contentDocumentCount,
-            [
-                SELECT COUNT()
-                FROM ContentDocumentLink
-                WHERE LinkedEntityId = :account.Id
-            ],
+            [SELECT COUNT() FROM ContentDocumentLink WHERE LinkedEntityId = :account.Id],
             String.format(
                 'Expected ContentDocumentLink records prior to test execution.',
                 new List<String>{ String.valueOf(contentDocumentCount) }
@@ -351,11 +330,7 @@ public with sharing class FileService_TEST {
 
         System.assertEquals(
             0,
-            [
-                SELECT COUNT()
-                FROM ContentDocumentLink
-                WHERE LinkedEntityId = :account.Id
-            ],
+            [SELECT COUNT() FROM ContentDocumentLink WHERE LinkedEntityId = :account.Id],
             'Expected no ContentDocumentLink records after test execution.'
         );
     }
@@ -367,9 +342,7 @@ public with sharing class FileService_TEST {
     private static void unlinkContentDocumentsFromRecordShouldCallDatabaseService() {
         FileService fileServiceInstance = new FileService();
 
-        final Id accountId = TestUtils.mockId(
-            Schema.Account.getSObjectType()
-        );
+        final Id accountId = TestUtils.mockId(Schema.Account.getSObjectType());
         final Id contentDocumentId = TestUtils.mockId(
             Schema.ContentDocument.getSObjectType()
         );

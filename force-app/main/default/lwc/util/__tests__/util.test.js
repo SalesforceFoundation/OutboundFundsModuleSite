@@ -1,11 +1,11 @@
-import util from "../../communityFileManager/node_modules/c/util";
-import { debug } from "../../communityFileManager/node_modules/c/util";
+import util from "c/util";
+import { debug } from "c/util";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 const mockFieldApiNameGetter = jest.fn();
 
 jest.mock(
-    "@salesforce/schema/VerificationCheck__c.Comments__c",
+    "@salesforce/schema/outfunds__Requirement__c.Is_Add_Files_Visible__c",
     () => {
         return {
             default: {

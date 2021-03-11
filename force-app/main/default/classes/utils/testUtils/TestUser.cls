@@ -1,7 +1,8 @@
 @IsTest
 public with sharing class TestUser {
-    public static final Boolean IS_PERSON_ACCOUNTS_ENABLED = Schema.SObjectType.Account.fields.getMap().get('IsPersonAccount') != null;
-    
+    public static final Boolean IS_PERSON_ACCOUNTS_ENABLED =
+        Schema.SObjectType.Account.fields.getMap().get('IsPersonAccount') != null;
+
     public with sharing virtual class MinimalAccessPersona extends TestUser.Persona {
         public MinimalAccessPersona() {
             super();
@@ -43,9 +44,6 @@ public with sharing class TestUser {
      * @return    Return first Account Record Type that is not a Person Account Record Type.
      */
     public static Id getFirstBusinessAccountRecordTypeId() {
-
-        
-
         final String sObjectType = Schema.SObjectType.Account.getName();
         List<String> filters = new List<String>{
             'SobjectType = :sObjectType',
