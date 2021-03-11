@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <userLicense>Guest User License</userLicense>
+    <custom>true</custom>
+    <layoutAssignments>
+        <layout>outfunds__Funding_Program__c-%%%NAMESPACE%%%OFM Funding Program Site Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>outfunds__Funding_Request__c-%%%NAMESPACE%%%OFM Funding Request Site Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>outfunds__Requirement__c-%%%NAMESPACE%%%OFM Requirement Site Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>outfunds__Disbursement__c-%%%NAMESPACE%%%OFM Disbursement Site Layout</layout>
+    </layoutAssignments>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__Funding_Program_Manager__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__Parent_Funding_Program__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__Top_Level__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>outfunds__Funding_Program__c.outfunds__Total_Program_Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>outfunds__Funding_Program__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+</Profile>
