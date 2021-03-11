@@ -1,7 +1,7 @@
 *** Settings ***
 
 Resource       cumulusci/robotframework/Salesforce.robot
-Library        robot/OutboundFunds/resources/OutboundFundsCommunity.py
+Library        OutboundFundsCommunity.py
 Library        DateTime
 
 *** Keywords ***

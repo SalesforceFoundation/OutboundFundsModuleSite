@@ -81,6 +81,13 @@ tasks:
         options:
             path: unpackaged/fundseeker_customer_enablement/sharing_set
 
+    fundseeker_deploy_submit_application:
+        group: "OFM-Site: Fundseeker customer enablement"
+        description: Deploys our flow for funding requests submission.
+        class_path: cumulusci.tasks.salesforce.Deploy
+        options:
+            path: unpackaged/fundseeker_customer_enablement/application_submission
+
     # All stories
     common_secure_owds_by_default:
         group: "OFM-Site: stories"
@@ -99,8 +106,8 @@ tasks:
                   internal_sharing_model: Private
                   external_sharing_model: Private
                 - api_name: User
-                  internal_sharing_model: Private
-                  external_sharing_model: Private
+                  internal_sharing_model: Read
+                  external_sharing_model: Read
                 - api_name: outfunds__Funding_Program__c
                   internal_sharing_model: Private
                   external_sharing_model: Private
@@ -332,6 +339,8 @@ flows:
                 task: fundseeker_configure_guest_user_profile
             5:
                 task: fundseeker_deploy_sharing_set
+            6:
+                task: fundseeker_deploy_submit_application
 
     # Internal flows
     common_replace_and_publish_theme_layout_navigation_menu:

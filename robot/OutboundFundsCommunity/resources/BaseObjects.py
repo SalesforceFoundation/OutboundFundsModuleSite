@@ -3,8 +3,8 @@ from robot.libraries.BuiltIn import BuiltIn
 
 class BaseOutboundFundsCommunityPage:
     @property
-    def OutboundFunds(self):
-        return self.builtin.get_library_instance("OutboundFunds")
+    def OutboundFundsCommunity(self):
+        return self.builtin.get_library_instance("OutboundFundsCommunity")
 
     @property
     def pageobjects(self):

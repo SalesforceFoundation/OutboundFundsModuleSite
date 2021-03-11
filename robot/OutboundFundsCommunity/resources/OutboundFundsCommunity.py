@@ -12,11 +12,11 @@ locators_by_api_version = {
     51.0: locators_51,  # Spring '21
 }
 # will get populated in _init_locators
-outboundfunds_lex_locators = {}
+outboundfundscommunity_lex_locators = {}
 
 
 @selenium_retry
-class OutboundFunds(BaseOutboundFundsCommunityPage):
+class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
     ROBOT_LIBRARY_SCOPE = "GLOBAL"
     ROBOT_LIBRARY_VERSION = 1.0
 
@@ -49,7 +49,7 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
             # the latest supported version
             self.latest_api_version = max(locators_by_api_version.keys())
         locators = locators_by_api_version[self.latest_api_version]
-        outboundfunds_lex_locators.update(locators)
+        outboundfundscommunity_lex_locators.update(locators)
 
     def get_namespace_prefix(self, name):
         parts = name.split("__")
@@ -109,16 +109,16 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
 
     def click_link_with_text(self, text):
         """Click on link with passed text"""
-        locator = outboundfunds_lex_locators["link"].format(text)
+        locator = outboundfundscommunity_lex_locators["link"].format(text)
         self.selenium.wait_until_page_contains_element(locator)
         element = self.selenium.driver.find_element_by_xpath(locator)
         self.selenium.driver.execute_script("arguments[0].click()", element)
 
     def click_save(self):
         """Click Save button in modal's footer"""
-        locator = outboundfunds_lex_locators["new_record"]["footer_button"].format(
-            "Save"
-        )
+        locator = outboundfundscommunity_lex_locators["new_record"][
+            "footer_button"
+        ].format("Save")
         self.selenium.scroll_element_into_view(locator)
         self.salesforce._jsclick(locator)
 
@@ -130,7 +130,7 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
             section = "text:" + section
             self.selenium.scroll_element_into_view(section)
         list_found = False
-        locators = outboundfunds_lex_locators["confirm"].values()
+        locators = outboundfundscommunity_lex_locators["confirm"].values()
         if status == "contains":
             for i in locators:
                 print("inside for loop")
@@ -159,7 +159,7 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
 
     def click_tab(self, label):
         """Click on a tab on a record page"""
-        locator = outboundfunds_lex_locators["tab"]["tab_header"].format(label)
+        locator = outboundfundscommunity_lex_locators["tab"]["tab_header"].format(label)
         self.selenium.wait_until_element_is_enabled(
             locator, error="Tab button is not available"
         )
@@ -169,10 +169,10 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
     @capture_screenshot_on_error
     def click_flexipage_dropdown(self, title, value):
         """Click the lightning dropdown to open it and select value"""
-        locator = outboundfunds_lex_locators["new_record"]["flexipage-list"].format(
-            title
-        )
-        option = outboundfunds_lex_locators["span"].format(value)
+        locator = outboundfundscommunity_lex_locators["new_record"][
+            "flexipage-list"
+        ].format(title)
+        option = outboundfundscommunity_lex_locators["span"].format(value)
         self.selenium.wait_until_page_contains_element(locator)
         self.selenium.scroll_element_into_view(locator)
         element = self.selenium.driver.find_element_by_xpath(locator)
@@ -190,7 +190,7 @@ class OutboundFunds(BaseOutboundFundsCommunityPage):
 
     def click_related_list_wrapper_button(self, heading, button_title):
         """ loads the related list  and clicks on the button on the list """
-        locator = outboundfunds_lex_locators["related"]["flexi_button"].format(
+        locator = outboundfundscommunity_lex_locators["related"]["flexi_button"].format(
             heading, button_title
         )
         self.salesforce._jsclick(locator)
