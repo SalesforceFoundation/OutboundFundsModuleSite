@@ -112,7 +112,7 @@
         <allowPause>true</allowPause>
         <fields>
             <name>RequirementCompleteLabel</name>
-            <fieldText>&lt;p&gt;{!RequirementAlreadySubmittedMessage}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(255, 255, 255);&quot;&gt;You have already submitted this requirement.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -128,7 +128,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>RequirementSubmittedDisplayText</name>
-            <fieldText>&lt;p&gt;{!RequirementSubmittedMessage}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(255, 255, 255);&quot;&gt;Your requirement has been submitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -147,7 +147,7 @@
         </connector>
         <fields>
             <name>SubmitRequirementReviewMessage</name>
-            <fieldText>&lt;p&gt;{!SubmitRequirementContentReviewMessage}&lt;/p&gt;&lt;p&gt;{!SubmitRequirementContentSubmit}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 12px; color: rgb(0, 0, 0);&quot;&gt;Take a moment to review everything you&apos;d like to submit.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 12px; color: rgb(0, 0, 0);&quot;&gt;Once you click &quot;Next,&quot; you won&apos;t be able to make changes.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -168,45 +168,5 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>RequirementAlreadySubmittedMessage</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Label.Requirement_Already_Submitted</elementReference>
-        </value>
-    </variables>
-    <variables>
-        <name>RequirementSubmittedMessage</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Label.Requirement_Submitted</elementReference>
-        </value>
-    </variables>
-    <variables>
-        <name>SubmitRequirementContentReviewMessage</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
-        <value>
-            <elementReference>$Label.Submit_Requirement_Modal_Content_Review</elementReference>
-        </value>
-    </variables>
-    <variables>
-        <name>SubmitRequirementContentSubmit</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
-        <value>
-            <elementReference>$Label.Submit_Requirement_Modal_Content_Submit</elementReference>
-        </value>
     </variables>
 </Flow>
