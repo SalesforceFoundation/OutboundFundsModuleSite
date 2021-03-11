@@ -343,17 +343,17 @@ describe("debug", () => {
 describe("prefixNamespace", () => {
     describe("namespace is present", () => {
         it("should return the string with the namespace prefix", () => {
-            mockFieldApiNameGetter.mockReturnValue("namespace__Comments__c");
-            let result = util.prefixNamespace("VerificationChecks__r");
-            expect(result).toBe("namespace__VerificationChecks__r");
+            mockFieldApiNameGetter.mockReturnValue("namespace__Is_Add_Files_Visible__c");
+            let result = util.prefixNamespace("outfunds__Requirement__r");
+            expect(result).toBe("namespace__outfunds__Requirement__r");
         });
     });
 
     describe("namespace is not present", () => {
         it("should return the string without the namespace prefix", () => {
-            mockFieldApiNameGetter.mockReturnValue("Comments__c");
-            let result = util.prefixNamespace("VerificationChecks__r");
-            expect(result).toBe("VerificationChecks__r");
+            mockFieldApiNameGetter.mockReturnValue("Is_Add_Files_Visible__c");
+            let result = util.prefixNamespace("outfunds__Requirement__r");
+            expect(result).toBe("outfunds__Requirement__r");
         });
     });
 });

@@ -56,7 +56,7 @@ export const debug = (data, logger = "log") => {
 export const prefixNamespace = (value) => {
     let namespace = isAddFilesVisibleField.fieldApiName.substring(
         0,
-        isAddFilesVisibleField.fieldApiName.indexOf("Comments__c")
+        isAddFilesVisibleField.fieldApiName.indexOf("Is_Add_Files_Visible__c")
     );
 
     return namespace + value;
