@@ -18,7 +18,9 @@ public with sharing class FileController {
         }
 
         try {
-            return JSON.serialize(fileService.deleteContentDocumentsById(new List<ContentDocument>{cd}));
+            return JSON.serialize(
+                fileService.deleteContentDocumentsById(new List<ContentDocument>{ cd })
+            );
         } catch (Exception e) {
             throw new AuraHandledException(System.Label.Delete_File_Error_Message);
         }

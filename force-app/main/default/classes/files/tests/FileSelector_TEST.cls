@@ -8,23 +8,20 @@ public with sharing class FileSelector_TEST {
         UserRole testRole = new UserRole(Name = 'TestRole');
         insert testRole;
 
-        User adminWithRole = createUser(
-            'System Administrator',
-            ADMIN_USER_EMAIL
-        );
+        User adminWithRole = createUser('System Administrator', ADMIN_USER_EMAIL);
 
         adminWithRole.UserRoleId = testRole.Id;
         insert adminWithRole;
 
         System.runAs(adminWithRole) {
-            Account portalAccount = new Account(Name = 'Portal Account'); 
+            Account portalAccount = new Account(Name = 'Portal Account');
             insert portalAccount;
 
             Contact communityContact = new Contact(
                 FirstName = 'Devon',
                 LastName = 'Berger',
                 accountId = portalAccount.Id
-            ); 
+            );
             insert communityContact;
 
             User communityUser = createUser(
@@ -42,7 +39,6 @@ public with sharing class FileSelector_TEST {
             insert communityPermissionSetAssignment;
         }
     }
-
 
     public static User createUser(String profileName, String userName) {
         // create user with no custom object permissions to test CRUD checks
@@ -215,18 +211,6 @@ public with sharing class FileSelector_TEST {
             Math.abs(Crypto.getRandomInteger());
         return uniqueString;
     }
-
-    
-
-
-
-
-
-
-
-
-
-
 
     @IsTest
     private static void testContentDocumentLinkByRecordIdsAsCommunityUser() {
@@ -415,11 +399,7 @@ public with sharing class FileSelector_TEST {
 
         createFundingProgramShares(communityUser.Id);
 
-        createContentDocumentsWithLink(
-            program.Id,
-            'AllUsers',
-            expectedFilesFromShares
-        );
+        createContentDocumentsWithLink(program.Id, 'AllUsers', expectedFilesFromShares);
         createContentDocumentsWithLink(
             program.Id,
             'InternalUsers',

@@ -100,7 +100,10 @@ public with sharing class FileController_TEST {
         Id runningUserId = UserInfo.getUserId();
 
         ContentDocument file = FileSelector_TEST.createContentDocuments(1)[0];
-        User alternateUser = FileSelector_TEST.createUser('System Administrator', USER_EMAIL);
+        User alternateUser = FileSelector_TEST.createUser(
+            'System Administrator',
+            USER_EMAIL
+        );
         insert alternateUser;
 
         System.runAs(alternateUser) {
