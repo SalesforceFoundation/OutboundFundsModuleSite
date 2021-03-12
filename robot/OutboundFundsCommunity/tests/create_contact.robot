@@ -2,6 +2,7 @@
 
 Resource        cumulusci/robotframework/Salesforce.robot
 Library         cumulusci.robotframework.PageObjects
+...             robot/OutboundFundsCommunity/resources/ContactPageObject.py
 
 Suite Setup     Open Test Browser
 Suite Teardown  Delete Records and Close Browser
