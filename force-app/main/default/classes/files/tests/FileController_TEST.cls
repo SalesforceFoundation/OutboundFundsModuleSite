@@ -4,9 +4,9 @@ public with sharing class FileController_TEST {
 
     @IsTest
     private static void getRecordFilesShouldRetrieveFiles() {
-        Id programId = TestUtils.mockId(outfunds__Funding_Program__c.SObjectType);
+        Id programId = UnitTest.mockId(Schema.SObjectType.outfunds__Funding_Program__c);
         final List<ContentDocument> expected = new List<ContentDocument>{
-            new ContentDocument(Id = TestUtils.mockId(ContentDocument.sObjectType))
+            new ContentDocument(Id = UnitTest.mockId(Schema.SObjectType.ContentDocument))
         };
 
         final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
@@ -33,7 +33,7 @@ public with sharing class FileController_TEST {
 
     @IsTest
     private static void getRecordFilesShouldThrowException() {
-        Id programId = TestUtils.mockId(outfunds__Funding_Program__c.SObjectType);
+        Id programId = UnitTest.mockId(Schema.SObjectType.outfunds__Funding_Program__c);
         final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
         fileServiceMock.getMethod('getContentDocumentByRecordId')
             .returnValue = new AuraHandledException(System.Label.File_Retrieval_Error);
@@ -66,7 +66,7 @@ public with sharing class FileController_TEST {
 
     @isTest
     private static void deleteContentDocumentShouldCallDeleteFiles() {
-        ContentDocument file = TestUtils.createContentDocuments(1)[0];
+        ContentDocument file = FileSelector_TEST.createContentDocuments(1)[0];
         file = [SELECT Id, OwnerId FROM ContentDocument];
 
         final List<Database.DeleteResult> results = new List<Database.DeleteResult>();
@@ -99,8 +99,8 @@ public with sharing class FileController_TEST {
         Exception actualException;
         Id runningUserId = UserInfo.getUserId();
 
-        ContentDocument file = TestUtils.createContentDocuments(1)[0];
-        User alternateUser = TestUtils.createUser('System Administrator', USER_EMAIL);
+        ContentDocument file = FileSelector_TEST.createContentDocuments(1)[0];
+        User alternateUser = FileSelector_TEST.createUser('System Administrator', USER_EMAIL);
         insert alternateUser;
 
         System.runAs(alternateUser) {
@@ -123,7 +123,7 @@ public with sharing class FileController_TEST {
     @IsTest
     private static void deleteContentDocumentShouldThrowExceptionOnUnexpectedException() {
         Exception actualException;
-        ContentDocument file = TestUtils.createContentDocuments(1)[0];
+        ContentDocument file = FileSelector_TEST.createContentDocuments(1)[0];
         file.OwnerId = UserInfo.getUserId();
 
         final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
