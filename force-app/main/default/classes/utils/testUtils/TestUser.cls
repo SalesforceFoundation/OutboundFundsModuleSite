@@ -1,8 +1,22 @@
 @IsTest
 public with sharing class TestUser {
+    public static final Boolean IS_PERSON_ACCOUNTS_ENABLED =
+        Schema.SObjectType.Account.fields.getMap().get('IsPersonAccount') != null;
+
     public with sharing virtual class MinimalAccessPersona extends TestUser.Persona {
         public MinimalAccessPersona() {
             super();
+        }
+
+        public override void doBeforeInsertingUser() {
+            // Clear all field level access as packaged fields are currently installed with Read/Write by default
+            Database.delete(
+                [
+                    SELECT Id
+                    FROM FieldPermissions
+                    WHERE Parent.Profile.Name = :this.getProfileName()
+                ]
+            );
         }
 
         public virtual override Type getType() {
@@ -10,7 +24,7 @@ public with sharing class TestUser {
         }
 
         public virtual override String getUsername() {
-            return 'TestUser.MinimalAccessPersona@sfdo.example.com';
+            return 'TestUser.MinimalAccessPersona@sfdo.grants.example.com';
         }
 
         public override String getProfileName() {
@@ -24,6 +38,52 @@ public with sharing class TestUser {
         public virtual override List<String> getPermissionSetLicensesToAssign() {
             return new List<String>();
         }
+    }
+
+    /**
+     * @return    Return first Account Record Type that is not a Person Account Record Type.
+     */
+    public static Id getFirstBusinessAccountRecordTypeId() {
+        final String sObjectType = Schema.SObjectType.Account.getName();
+        List<String> filters = new List<String>{
+            'SobjectType = :sObjectType',
+            'IsActive = true'
+        };
+        if (TestUser.IS_PERSON_ACCOUNTS_ENABLED) {
+            filters.add('IsPersonType = false');
+        }
+        List<Schema.RecordType> recordTypes = (List<Schema.RecordType>) Database.query(
+            String.format(
+                'SELECT Id FROM RecordType WHERE {0} LIMIT 1',
+                new List<String>{ String.join(filters, ' AND ') }
+            )
+        );
+
+        return recordTypes.isEmpty() ? null : recordTypes[0].Id;
+    }
+
+    /**
+     * @return   First "Person Account" Account Record Type if Person Accounts is enabled.
+     */
+    public static Id getFirstPersonAccountRecordTypeId() {
+        if (TestUser.IS_PERSON_ACCOUNTS_ENABLED) {
+            final String sObjectType = Schema.SObjectType.Account.getName();
+            List<String> filters = new List<String>{
+                'SobjectType = :sObjectType',
+                'IsActive = true',
+                'IsPersonType = true'
+            };
+
+            List<Schema.RecordType> recordTypes = (List<Schema.RecordType>) Database.query(
+                String.format(
+                    'SELECT Id FROM RecordType WHERE {0} LIMIT 1',
+                    new List<String>{ String.join(filters, ' AND ') }
+                )
+            );
+
+            return recordTypes.isEmpty() ? null : recordTypes[0].Id;
+        }
+        return null;
     }
 
     public static Schema.UserRole insertNewUserRole() {
@@ -53,6 +113,123 @@ public with sharing class TestUser {
             )
         );
         return null;
+    }
+
+    public with sharing virtual class BusinessFundseekerPersona extends TestUser.Persona {
+        protected Id contactId;
+
+        public BusinessFundseekerPersona() {
+            super();
+        }
+
+        public virtual override Type getType() {
+            return TestUser.BusinessFundseekerPersona.class;
+        }
+
+        public virtual override String getUsername() {
+            return 'TestUser.BusinessFundseekerPersona@sfdo.grants.example.com';
+        }
+
+        public override String getProfileName() {
+            return 'Customer Community Plus Login User';
+        }
+
+        public virtual override void doBeforeInsertingUser() {
+            Schema.Account account = new Schema.Account(
+                Name = 'Business Fundseeker Account'
+            );
+
+            // Set RecordTypeId if one exists.
+            // Make sure to dynamically set RecordTypeId in case Account doesn't have any Record Types so the RecordTypeId field isn't exposed.
+            final Id recordTypeId = getFirstBusinessAccountRecordTypeId();
+            if (recordTypeId != null) {
+                account.put('RecordTypeId', recordTypeId);
+            }
+
+            insert account;
+
+            Schema.Contact contact = new Schema.Contact(
+                AccountId = account.Id,
+                FirstName = 'BusinessFundseekerFirst',
+                LastName = 'BusinessFundseekerLast',
+                Email = this.getUsername()
+            );
+
+            insert contact;
+            this.contactId = contact.Id;
+        }
+
+        public virtual override Schema.User getUserForInsert() {
+            System.assertNotEquals(
+                null,
+                this.contactId,
+                String.format(
+                    '"{0}" should not have a null contactId.',
+                    new List<String>{ this.getType().getName() }
+                )
+            );
+            return new Schema.User(ContactId = this.contactId);
+        }
+
+        public virtual override List<String> getPermissionSetsToAssign() {
+            return new List<String>{};
+        }
+
+        public virtual override List<String> getPermissionSetLicensesToAssign() {
+            return new List<String>();
+        }
+    }
+
+    public with sharing virtual class PersonFundseekerPersona extends BusinessFundseekerPersona {
+        public PersonFundseekerPersona() {
+            super();
+        }
+
+        public virtual override Type getType() {
+            return TestUser.PersonFundseekerPersona.class;
+        }
+
+        public virtual override String getUsername() {
+            return 'TestUser.PersonFundseekerPersona@sfdo.grants.example.com';
+        }
+
+        public virtual override Schema.User getUserForInsert() {
+            return super.getUserForInsert();
+        }
+
+        /**
+         * Reverts to creating a Business Account/Contact if Person Accounts is not enabled.
+         */
+        public virtual override void doBeforeInsertingUser() {
+            if (TestUser.IS_PERSON_ACCOUNTS_ENABLED) {
+                Schema.Account account = new Schema.Account();
+
+                // Make sure to dynamically set RecordTypeId in case Account doesn't have any Record Types so the RecordTypeId field isn't exposed.
+                account.put('RecordTypeId', getFirstPersonAccountRecordTypeId()); // RecordTypeId must be exposed because Person Accounts is enabled, right?
+                account.put('FirstName', 'PersonFundseekerFirst');
+                account.put('LastName', 'PersonFundseekerLast');
+                account.put('PersonEmail', this.getUsername());
+                insert account;
+
+                final Id accountId = account.Id;
+
+                this.contactId = (Id) Database.query(
+                        'SELECT Id, PersonContactId FROM Account WHERE Id = :accountId LIMIT 1'
+                    )[0]
+                    .get('PersonContactId');
+            } else {
+                // Reverts to creating a Business Account/Contact since Person Accounts is not enabled.
+                super.doBeforeInsertingUser();
+            }
+        }
+
+        public virtual override List<String> getPermissionSetsToAssign() {
+            return super.getPermissionSetsToAssign();
+        }
+
+        public virtual override List<String> getPermissionSetLicensesToAssign() {
+            return super.getPermissionSetLicensesToAssign();
+        }
     }
 
     private static void setUserDefaultValue(
@@ -287,7 +464,7 @@ public with sharing class TestUser {
                 null,
                 profileId,
                 String.format(
-                    'No Profile found for Profile Name "{0}" for TestUser.Persona with Username "{1}".',
+                    'No Profile found for Profile Name "{0}" for TestUser.Persona with Username "{0}".',
                     new List<String>{ profileName, username }
                 )
             );
@@ -698,7 +875,7 @@ public with sharing class TestUser {
         }
 
         public TestUser.ObjectPermission getObjectPermission(
-            Schema.DescribeSObjectResult objectDescribe
+            DescribeSObjectResult objectDescribe
         ) {
             System.assertNotEquals(
                 null,
@@ -929,7 +1106,7 @@ public with sharing class TestUser {
             if (!this.getFieldDescribe().isPermissionable()) {
                 throw new TestUser.FieldNotPermissionableException(
                     String.format(
-                        'Cannot call setRead on Field "{0}" since it is not permissionable for the running User.',
+                        'Cannot call setRead on Field "{1}" since it is not permissionable for the running User.',
                         new List<String>{ this.getFieldDescribe().getName() }
                     )
                 );
@@ -951,7 +1128,7 @@ public with sharing class TestUser {
             if (!this.getFieldDescribe().isPermissionable()) {
                 throw new TestUser.FieldNotPermissionableException(
                     String.format(
-                        'Cannot call setEdit on Field "{0}" since it is not permissionable for the running User.',
+                        'Cannot call setEdit on Field "{1}" since it is not permissionable for the running User.',
                         new List<String>{ this.getFieldDescribe().getName() }
                     )
                 );
@@ -959,7 +1136,7 @@ public with sharing class TestUser {
             if (this.getFieldDescribe().isCalculated()) {
                 throw new TestUser.FieldNotPermissionableException(
                     String.format(
-                        'Cannot call setEdit on Field "{0}" since it is calculated for the running User.',
+                        'Cannot call setEdit on Field "{1}" since it is calculated for the running User.',
                         new List<String>{ this.getFieldDescribe().getName() }
                     )
                 );
@@ -1155,6 +1332,7 @@ public with sharing class TestUser {
                 Schema.SObjectType.ObjectPermissions.fields.PermissionsEdit,
                 permissionsEdit
             );
+
             // Edit requires Read
             if (this.getEdit()) {
                 this.setRead(true);
@@ -1186,6 +1364,7 @@ public with sharing class TestUser {
                 Schema.SObjectType.ObjectPermissions.fields.PermissionsViewAllRecords,
                 permissionsViewAllRecords
             );
+
             // View All requires Read
             if (this.getViewAllRecords()) {
                 this.setRead(true);
@@ -1202,6 +1381,7 @@ public with sharing class TestUser {
                 Schema.SObjectType.ObjectPermissions.fields.PermissionsModifyAllRecords,
                 permissionsModifyAllRecords
             );
+
             // Modify All requires Read, Edit, Delete, View All
             if (this.getModifyAllRecords()) {
                 this.setRead(true);
@@ -1261,7 +1441,7 @@ public with sharing class TestUser {
         }
     }
 
-    public static void save(List<TestUser.Permission> permissions) {
+    private static void save(List<TestUser.Permission> permissions) {
         final Set<Id> idsToDelete = new Set<Id>();
         final Map<Schema.SObjectType, List<SObject>> permissionsToInsertBySObjectType = new Map<Schema.SObjectType, List<SObject>>();
         final Map<Schema.SObjectType, List<SObject>> permissionsToUpdateBySObjectType = new Map<Schema.SObjectType, List<SObject>>();

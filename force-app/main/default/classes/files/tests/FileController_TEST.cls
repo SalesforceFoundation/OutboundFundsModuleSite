@@ -2,6 +2,15 @@
 public with sharing class FileController_TEST {
     private static String USER_EMAIL = 'alternatUser@example.com';
 
+    private static TestUser.BusinessFundseekerPersona alternateFundSeekerPersona = new TestUser.BusinessFundseekerPersona();
+
+    @TestSetup
+    private static void createTestData() {
+        TestUser.insertPersonasInTestSetup(
+            new List<TestUser.Persona>{ FileController_TEST.alternateFundSeekerPersona }
+        );
+    }
+
     @IsTest
     private static void getRecordFilesShouldRetrieveFiles() {
         Id programId = UnitTest.mockId(Schema.SObjectType.outfunds__Funding_Program__c);
@@ -98,15 +107,11 @@ public with sharing class FileController_TEST {
     private static void deleteContentDocumentShouldThrowExceptionOnMismatchedOwner() {
         Exception actualException;
         Id runningUserId = UserInfo.getUserId();
+        FileController_TEST.alternateFundSeekerPersona.load();
 
         ContentDocument file = FileSelector_TEST.createContentDocuments(1)[0];
-        User alternateUser = FileSelector_TEST.createUser(
-            'System Administrator',
-            USER_EMAIL
-        );
-        insert alternateUser;
 
-        System.runAs(alternateUser) {
+        System.runAs(FileController_TEST.alternateFundSeekerPersona.getUser()) {
             file.OwnerId = runningUserId;
             update file;
 

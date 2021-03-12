@@ -3,6 +3,15 @@ public with sharing class FileService_TEST {
     /** Static stubs and setup properties **/
     final static string COMMUNITY_USER_EMAIL = 'communitytestuser@salesforce.org';
 
+    private static TestUser.BusinessFundseekerPersona businessFundSeekerPersona = new TestUser.BusinessFundseekerPersona();
+
+    @TestSetup
+    private static void createTestData() {
+        TestUser.insertPersonasInTestSetup(
+            new List<TestUser.Persona>{ FileService_TEST.businessFundSeekerPersona}
+        );
+    }
+
     /** Test Runs **/
     @IsTest
     private static void testGetContentDocumentByRecordId() {
@@ -157,14 +166,12 @@ public with sharing class FileService_TEST {
         final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
         databaseServiceMock.getMethod('deleteRecords').returnValue = results;
 
-        User noPermUser = FileSelector_TEST.createUser(
-            'Minimum Access - Salesforce',
-            COMMUNITY_USER_EMAIL
-        );
+
+        FileService_TEST.businessFundSeekerPersona.load();
 
         final List<Database.DeleteResult> actual;
         Test.startTest();
-        System.runAs(noPermUser) {
+        System.runAs(FileService_TEST.businessFundSeekerPersona.getUser()) {
             fileServiceInstance.databaseService = (DatabaseService) databaseServiceMock.createStub(
                 DatabaseService.class
             );
