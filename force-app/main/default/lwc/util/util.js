@@ -1,6 +1,6 @@
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 //Used to get namespace from org
-import isAddFilesVisibleField from "@salesforce/schema/outfunds__Requirement__c.ofm_Is_Add_Files_Visible__c";
+import isAddFilesVisibleField from "@salesforce/schema/outfunds__Requirement__c.IsAddFilesVisible__c";
 
 /**
  * Returns if value equals undefined or null
@@ -56,7 +56,7 @@ export const debug = (data, logger = "log") => {
 export const prefixNamespace = (value) => {
     let namespace = isAddFilesVisibleField.fieldApiName.substring(
         0,
-        isAddFilesVisibleField.fieldApiName.indexOf("ofm_Is_Add_Files_Visible__c")
+        isAddFilesVisibleField.fieldApiName.indexOf("IsAddFilesVisible__c")
     );
 
     return namespace + value;

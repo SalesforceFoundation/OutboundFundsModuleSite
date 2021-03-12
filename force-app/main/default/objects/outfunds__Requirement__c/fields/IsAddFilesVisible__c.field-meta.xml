@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>ofm_Is_Add_Files_Visible__c</fullName>
+    <fullName>IsAddFilesVisible__c</fullName>
     <defaultValue>false</defaultValue>
     <description>Displays the Add Files component that allows a user to upload attachments to the Requirement.</description>
     <externalId>false</externalId>
