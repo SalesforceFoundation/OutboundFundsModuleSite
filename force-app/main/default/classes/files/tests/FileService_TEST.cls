@@ -1,14 +1,12 @@
 @IsTest
 public with sharing class FileService_TEST {
     /** Static stubs and setup properties **/
-    final static string COMMUNITY_USER_EMAIL = 'communitytestuser@salesforce.org';
-
     private static TestUser.BusinessFundseekerPersona businessFundSeekerPersona = new TestUser.BusinessFundseekerPersona();
 
     @TestSetup
     private static void createTestData() {
         TestUser.insertPersonasInTestSetup(
-            new List<TestUser.Persona>{ FileService_TEST.businessFundSeekerPersona}
+            new List<TestUser.Persona>{ FileService_TEST.businessFundSeekerPersona }
         );
     }
 
@@ -165,7 +163,6 @@ public with sharing class FileService_TEST {
 
         final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
         databaseServiceMock.getMethod('deleteRecords').returnValue = results;
-
 
         FileService_TEST.businessFundSeekerPersona.load();
 
