@@ -57,11 +57,10 @@ public with sharing class FileService_TEST {
             new List<Object>{ new Set<Id>{ programId } }
         );
 
-        // fileSelectorStub.assertCalledWith(
-        //     METHOD_CONTENT_DOCUMENT_BY_IDS,
-        //     Set<Id>.class,
-        //     new Set<Id>{ contentDocumentId }
-        // );
+        contentDocumentByRecordIds.assertCalledOnceWith(
+            new List<Object>{ new Set<Id>{ contentDocumentId } }
+        );
+
     }
 
     @IsTest
