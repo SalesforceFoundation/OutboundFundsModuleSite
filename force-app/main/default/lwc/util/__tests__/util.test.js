@@ -343,9 +343,7 @@ describe("debug", () => {
 describe("prefixNamespace", () => {
     describe("namespace is present", () => {
         it("should return the string with the namespace prefix", () => {
-            mockFieldApiNameGetter.mockReturnValue(
-                "namespace__IsAddFilesVisible__c"
-            );
+            mockFieldApiNameGetter.mockReturnValue("namespace__IsAddFilesVisible__c");
             let result = util.prefixNamespace("outfunds__Requirement__r");
             expect(result).toBe("namespace__outfunds__Requirement__r");
         });
