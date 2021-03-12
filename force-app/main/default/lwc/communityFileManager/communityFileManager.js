@@ -7,7 +7,7 @@ import { showToast } from "c/util";
 import RUNNING_USER_ID from "@salesforce/user/Id";
 import COMMUNITY_BASE_URL from "@salesforce/community/basePath";
 
-import FILEUPLOAD_VISIBILITY_FIELD from "@salesforce/schema/outfunds__Requirement__c.ofm_Is_Add_Files_Visible__c";
+import FILEUPLOAD_VISIBILITY_FIELD from "@salesforce/schema/outfunds__Requirement__c.IsAddFilesVisible__c";
 
 // LABELS
 import deleteFileErrorTitle from "@salesforce/label/c.Delete_File_Error_Header";
