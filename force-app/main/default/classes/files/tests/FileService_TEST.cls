@@ -60,7 +60,6 @@ public with sharing class FileService_TEST {
         contentDocumentByRecordIds.assertCalledOnceWith(
             new List<Object>{ new Set<Id>{ contentDocumentId } }
         );
-
     }
 
     @IsTest
