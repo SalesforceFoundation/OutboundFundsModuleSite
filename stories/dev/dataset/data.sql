@@ -96,7 +96,7 @@ CREATE TABLE "outfunds__Funding_Program__c" (
 	"outfunds__Status__c" VARCHAR(255), 
 	"outfunds__Top_Level__c" VARCHAR(255), 
 	"outfunds__Total_Program_Amount__c" VARCHAR(255), 
-	"PubliclyAccessible__c" VARCHAR(255), 
+	"PubliclyAccessible__c" VARCHAR(255),
 	"outfunds__Parent_Funding_Program__c" VARCHAR(255), 
 	PRIMARY KEY (id)
 );

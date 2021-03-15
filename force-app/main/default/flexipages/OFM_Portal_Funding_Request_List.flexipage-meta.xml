@@ -103,8 +103,8 @@
         <replaceable>enabled</replaceable>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Record List</masterLabel>
-    <sobjectType>Site</sobjectType>
+    <masterLabel>Funding Request List</masterLabel>
+    <sobjectType>outfunds__Funding_Request__c</sobjectType>
     <template>
         <name>siteforce:sldsOneColLayout</name>
     </template>

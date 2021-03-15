@@ -36,24 +36,17 @@
 	<enableExtendedCleanUpOnDelete>true</enableExtendedCleanUpOnDelete>
 	<masterLabel>OFM-Portal</masterLabel>
 	<publisher>Salesforce.org</publisher>
+	<!-- Login Pages -->
 	<pageSetting>
-		<page>OFM_Portal_Check_Password</page>
+		<page>OFM_Portal_Login</page>
 		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
 	</pageSetting>
 	<pageSetting>
-		<page>OFM_Portal_Related_Record_List</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+		<page>OFM_Portal_Login_Error</page>
+		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
 	</pageSetting>
 	<pageSetting>
-		<page>OFM_Portal_Record_List</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Error</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Login</page>
+		<page>OFM_Portal_Register</page>
 		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
 	</pageSetting>
 	<pageSetting>
@@ -61,13 +54,49 @@
 		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
 	</pageSetting>
 	<pageSetting>
-		<page>OFM_Portal_Sfdc_Page</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+		<page>OFM_Portal_Check_Password</page>
+		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
 	</pageSetting>
+	<!-- Home Page -->
 	<pageSetting>
 		<page>OFM_Portal_Home</page>
 		<themeLayout>OFM_Portal_themeLayout_Home</themeLayout>
 	</pageSetting>
+	<!-- Generic Pages -->
+	<pageSetting>
+		<page>OFM_Portal_Search</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Sfdc_Page</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Error</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Canvasapp_Page</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Create_Record</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<!-- Generic Object Pages -->
+	<pageSetting>
+		<page>OFM_Portal_Record_Detail</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Record_List</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Related_Record_List</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<!-- Funding Program -->
 	<pageSetting>
 		<page>OFM_Portal_Funding_Program_Detail</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
@@ -77,31 +106,46 @@
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
 	<pageSetting>
-		<page>OFM_Portal_Register</page>
-		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Canvasapp_Page</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Login_Error</page>
-		<themeLayout>OFM_Portal_themeLayout_Login</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Create_Record</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
-		<page>OFM_Portal_Record_Detail</page>
-		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
-	</pageSetting>
-	<pageSetting>
 		<page>OFM_Portal_Funding_Program_Related_List</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
+	<!-- Funding Request -->
 	<pageSetting>
-		<page>OFM_Portal_Search</page>
+		<page>OFM_Portal_Funding_Request_Detail</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Funding_Request_List</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Funding_Request_Related_List</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<!-- Requirement -->
+	<pageSetting>
+		<page>OFM_Portal_Requirement_Detail</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Requirement_List</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Requirement_Related_List</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<!-- Disbursement -->
+	<pageSetting>
+		<page>OFM_Portal_Disbursement_Detail</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Disbursement_List</page>
+		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
+	</pageSetting>
+	<pageSetting>
+		<page>OFM_Portal_Disbursement_Related_List</page>
 		<themeLayout>OFM_Portal_themeLayout_Default</themeLayout>
 	</pageSetting>
 </CommunityTemplateDefinition>
