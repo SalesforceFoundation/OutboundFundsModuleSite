@@ -71,7 +71,7 @@ public with sharing class FileService {
     ) {
         List<Database.DeleteResult> results = new List<Database.DeleteResult>();
         List<Id> contentDocumentLinkIdsToDelete = new List<Id>();
-        List<ContentDocumentLink> contentDocumentLinkToDelete = new List<ContentDocumentLink>();
+        List<ContentDocumentLink> contentDocumentLinksToDelete = new List<ContentDocumentLink>();
 
         // Unable to write a test that removes DELETE CRUD from the ContentDocumentLink object for the running user.
         // Removing from prettier formatting flow to ensure test coverage
@@ -83,10 +83,10 @@ public with sharing class FileService {
             )
         ) {
             if (contentDocumentIds.contains(contentDocumentLink.ContentDocumentId)) {
-                contentDocumentLinkToDelete.add(contentDocumentLink);
+                contentDocumentLinksToDelete.add(contentDocumentLink);
             }
         }
-        return databaseService.deleteRecords(contentDocumentLinkToDelete);
+        return databaseService.deleteRecords(contentDocumentLinksToDelete);
     }
 
     /**
