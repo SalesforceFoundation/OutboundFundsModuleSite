@@ -1,9 +1,9 @@
 public with sharing class FileService {
     @TestVisible
-    private static FileSelector fileSelector = new FileSelector();
+    private FileSelector fileSelector = new FileSelector();
 
     @TestVisible
-    private static DatabaseService databaseService = new DatabaseService();
+    private DatabaseService databaseService = new DatabaseService();
 
     // TODO(future) - Move to security service and create similar deletion checks
     @TestVisible
@@ -42,7 +42,7 @@ public with sharing class FileService {
      * @param recordId  Id of the record to which we will associate the ContentDocument(s)
      * @param contentDocumentIds    List of ContentDocument Id(s) to associate with the specified record
      */
-    public List<DatabaseService.SaveResult> createContentDocumentLinks(
+    public List<Database.SaveResult> createContentDocumentLinks(
         Id recordId,
         List<Id> contentDocumentIds
     ) {
@@ -57,7 +57,7 @@ public with sharing class FileService {
         }
 
         // Service confirms CRUD/FLS permissions
-        return databaseService.insertRecords(contentDocumentLinks);
+        return databaseService.insertRecordsEnforceFls(contentDocumentLinks);
     }
 
     /**
@@ -71,6 +71,7 @@ public with sharing class FileService {
     ) {
         List<Database.DeleteResult> results = new List<Database.DeleteResult>();
         List<Id> contentDocumentLinkIdsToDelete = new List<Id>();
+        List<ContentDocumentLink> contentDocumentLinksToDelete = new List<ContentDocumentLink>();
 
         // Unable to write a test that removes DELETE CRUD from the ContentDocumentLink object for the running user.
         // Removing from prettier formatting flow to ensure test coverage
@@ -81,10 +82,11 @@ public with sharing class FileService {
                 new Set<Id>{ recordId }
             )
         ) {
-            if (contentDocumentIds.contains(contentDocumentLink.ContentDocumentId))
-                contentDocumentLinkIdsToDelete.add(contentDocumentLink.Id);
+            if (contentDocumentIds.contains(contentDocumentLink.ContentDocumentId)) {
+                contentDocumentLinksToDelete.add(contentDocumentLink);
+            }
         }
-        return databaseService.deleteRecordsById(contentDocumentLinkIdsToDelete);
+        return databaseService.deleteRecords(contentDocumentLinksToDelete);
     }
 
     /**
@@ -92,12 +94,12 @@ public with sharing class FileService {
      * @param contentDocumentIds    List of ContentDocument Id(s) to delete
      */
     public List<Database.DeleteResult> deleteContentDocumentsById(
-        List<Id> contentDocumentIds
+        List<ContentDocument> contentDocuments
     ) {
         List<Database.DeleteResult> results = new List<Database.DeleteResult>();
 
         // prettier-ignore
         if (!ContentDocument.sObjectType.getDescribe().isDeletable()) {throw new DoesNotHaveDeleteAccessForObjectException();}
-        return databaseService.deleteRecordsById(contentDocumentIds);
+        return databaseService.deleteRecords(contentDocuments);
     }
 }

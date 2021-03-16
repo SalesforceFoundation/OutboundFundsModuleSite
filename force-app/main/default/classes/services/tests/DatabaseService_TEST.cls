@@ -1,921 +1,914 @@
-@IsTest
+@isTest
 public with sharing class DatabaseService_TEST {
-    public static final TestUser.MinimalAccessPersona minimalAccessPersona = new TestUser.MinimalAccessPersona();
+    private static TestUser.MinimalAccessPersona minimalAccessPersona = new TestUser.MinimalAccessPersona();
+
+    private static Account getAccount() {
+        return [SELECT Id, AccountNumber FROM Account LIMIT 1][0];
+    }
 
     @TestSetup
     public static void testSetup() {
         TestUser.insertPersonasInTestSetup(
-            new List<TestUser.Persona>{ minimalAccessPersona }
-        );
-    }
-
-    /**
-     * DatabaseService.Savepoint should be constructed with a null System.Savepoint
-     * to ensure a System.Savepoint was not created if a DatabaseService.Savepoint
-     * is stubbed.
-     */
-    @IsTest
-    private static void savepointShouldBeConstructedWithANullSavepoint() {
-        Test.startTest();
-
-        final DatabaseService.Savepoint savepoint = new DatabaseService.Savepoint();
-
-        Test.stopTest();
-
-        System.assertEquals(
-            null,
-            savepoint.savepoint,
-            'savepoint should be null after construction'
-        );
-    }
-
-    /**
-     * DatabaseService.Savepoint was specifically designed to:
-     * - Wrap a non-stubbable System.Savepoint
-     * - And itself be stubbable.
-     */
-    @IsTest
-    private static void savepointShouldBeStubbable() {
-        final UnitTest.Mock mock = new UnitTest.Mock();
-
-        Test.startTest();
-
-        try {
-            DatabaseService.Savepoint savepoint = (DatabaseService.Savepoint) mock.createStub(
-                DatabaseService.Savepoint.class
-            );
-        } catch (Exception e) {
-            System.assertNotEquals(
-                null,
-                e,
-                'Creating a stub of DatabaseService.Savepoint should not throw an Exception.'
-            );
-        }
-
-        Test.stopTest();
-    }
-
-    /**
-     * DatabaseService.setSavepoint should return a DatabaseService.Savepoint with
-     * its System.Savepoint set.
-     */
-    @IsTest
-    private static void setSavepointShouldReturnWithSavepointSet() {
-        final DatabaseService databaseService = new DatabaseService();
-
-        Test.startTest();
-
-        final DatabaseService.Savepoint savepoint = databaseService.setSavepoint();
-
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            savepoint.savepoint,
-            'setSavepoint should return a DatabaseService.Savepoint whose System.Savepoint is set.'
-        );
-    }
-
-    /**
-     * Asserts DatabaseService.rollback actually rolls back the transaction to the System.Savepoint in the DatabaseService.Savepoint returned by DatabaseService.setSavepoint.
-     */
-    @IsTest
-    private static void rollbackShouldRollback() {
-        final Schema.outfunds__Funding_Program__c fundingProgram = TestUtils.createFundingProgram();
-
-        Test.startTest();
-
-        final DatabaseService databaseService = new DatabaseService();
-        final DatabaseService.Savepoint savepoint = databaseService.setSavepoint();
-
-        insert fundingProgram;
-
-        System.assert(
-            ![SELECT Id FROM outfunds__Funding_Program__c WHERE Id = :fundingProgram.Id]
-                .isEmpty(),
-            'fundingProgram should be found because it was inserted.'
+            new List<TestUser.Persona>{ DatabaseService_TEST.minimalAccessPersona }
         );
 
-        databaseService.rollback(savepoint);
+        DatabaseService_TEST.minimalAccessPersona.load();
 
-        Test.stopTest();
-
-        System.assert(
-            [SELECT Id FROM outfunds__Funding_Program__c WHERE Id = :fundingProgram.Id]
-                .isEmpty(),
-            'fundingProgram should not be found because the transaction was rolled back.'
-        );
-    }
-
-    /**
-     * Asserts DatabaseService.insertRecords creates new records without error
-     */
-    @IsTest
-    private static void insertRecordsShouldCreateRecords() {
-        DatabaseService service = new DatabaseService();
-        String accountName = 'Insert Records Test Account';
-
-        Account acc = new Account(Name = accountName);
-        List<SObject> sobjectRecords = new List<SObject>{ acc };
-
-        List<DatabaseService.SaveResult> saveResults;
-        Test.startTest();
-        saveResults = service.insertRecords(sobjectRecords);
-        Test.stopTest();
-
-        System.assert(
-            saveResults[0].isSuccess(),
-            'Insert operation should have returned DatabaseService.SaveResult and isSuccess() should be true'
-        );
-
-        System.assertNotEquals(
-            null,
-            saveResults[0].getId(),
-            'A record Id should have been returned after insert'
-        );
-
-        Id accountId = saveResults[0].getId();
-        Account insertedAccount = [
-            SELECT Id, Name
-            FROM Account
-            WHERE Id = :accountId
-            LIMIT 1
-        ];
-        System.assert(
-            insertedAccount != null,
-            'Insert operation should have created an account record.'
-        );
-        System.assertEquals(
-            insertedAccount.Name,
-            accountName,
-            'Insert operation should have created an account record with the expected Name value.'
-        );
-    }
-
-    /**
-     * Asserts DatabaseService.insertRecords returns DatabaseService.SaveResult records and that isSuccess() returns false on error
-     */
-    @IsTest
-    private static void insertRecordsShouldReturnDatabaseServiceErrorOnFailure() {
-        DatabaseService service = new DatabaseService();
-        Account acc = new Account();
-
-        List<SObject> sobjectRecords = new List<SObject>{ acc };
-
-        List<DatabaseService.SaveResult> saveResults;
-        Test.startTest();
-        saveResults = service.insertRecords(sobjectRecords, false);
-        test.stopTest();
-
-        System.assert(
-            !saveResults[0].isSuccess(),
-            'The record insert should not have been successful'
-        );
-
-        System.assert(
-            !saveResults[0].getErrors().isEmpty(),
-            'A list of errors should have been returned from the service'
-        );
-
-        for (DatabaseService.Error error : saveResults[0].getErrors()) {
-            System.assert(
-                !error.getFields().isEmpty(),
-                'Error fields should have been returned'
-            );
-            System.assert(
-                !String.isBlank(error.getMessage()),
-                'An error message should have been returned'
-            );
-            System.assertNotEquals(
-                null,
-                error.getStatusCode(),
-                'An error status code should have been returned'
-            );
-        }
-    }
-
-    @IsTest
-    private static void insertRecordsWithAllOrNothingShouldThrowExceptionOnError() {
-        DatabaseService service = new DatabaseService();
-        Account acc = new Account();
-
-        List<SObject> sobjectRecords = new List<SObject>{ acc };
-
-        List<DatabaseService.SaveResult> saveResults;
-        Exception actualException;
-        Test.startTest();
-        try {
-            saveResults = service.insertRecords(sobjectRecords, true);
-        } catch (Exception e) {
-            actualException = e;
-        }
-        Test.stopTest();
-        System.assertNotEquals(
-            null,
-            actualException,
-            'Expected service to throw an exception on AllOrNothing DML failure'
+        insert new Account(
+            Name = 'Pi (approximately)',
+            AccountNumber = '3.14159',
+            // Owner will grant all sharing access to the record so we can test object-level permissions.
+            OwnerId = DatabaseService_TEST.minimalAccessPersona.getUser().Id
         );
     }
 
     @IsTest
-    private static void insertRecordsShouldThrowExceptionOnMissingCreatePermission() {
-        User limitedPermissionUser = TestUtils.createUser(
-            'Minimum Access - Salesforce',
-            'nocreatepermissions@example.com'
-        );
-        DatabaseService service = new DatabaseService();
-        String accountName = 'Insert Records Exception';
+    private static void testInsertRecordsEnforceFls_NoObjectLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
 
-        Account acc = new Account(Name = accountName);
-        List<SObject> sobjectRecords = new List<SObject>{ acc };
-
-        Exception actualException;
-
-        System.runAs(limitedPermissionUser) {
-            Test.startTest();
-            List<DatabaseService.SaveResult> saveResults;
-            try {
-                saveResults = service.insertRecords(sobjectRecords);
-            } catch (SecurityService.DoesNotHaveCreateAccessForObjectException e) {
-                actualException = e;
-            } catch (Exception e) {
-                System.assert(
-                    false,
-                    String.format(
-                        'Expected exception of type {0}. Received exception of type {1}',
-                        new List<String>{
-                            SecurityService.DoesNotHaveCreateAccessForObjectException.class
-                                .getName(),
-                            e.getTypeName()
-                        }
-                    )
-                );
-            }
-            Test.stopTest();
-        }
-
-        System.assertNotEquals(
-            null,
-            actualException,
-            String.format(
-                'Expected an exception to be thrown of type {0}',
-                new List<String>{
-                    DatabaseService.DoesNotHaveCreateAccessForObjectException.class
-                        .getName()
-                }
-            )
-        );
-    }
-
-    @IsTest
-    private static void insertRecordsShouldThrowExceptionOnMissingFlsPermission() {
-        final Schema.DescribeSObjectResult accountObjectDescribe = Schema.SObjectType.Account;
-        final Schema.DescribeSObjectResult contactObjectDescribe = Schema.SObjectType.Contact; // Account Read Dependency
-        Account expectedAccount = new Account(
-            Name = 'Test Account',
-            AccountNumber = '1234'
-        );
-
-        // GranteeAccountFormDataService_TEST.minimalAccessPersona.load();
-        TestUser.MinimalAccessPersona minimalAccessPersona = new TestUser.MinimalAccessPersona();
-        minimalAccessPersona.load();
-
-        final TestUser.PermissionSetManager permissionSet = minimalAccessPersona.getPermissionSetManager();
-
-        final TestUser.ObjectPermission accountPermission = permissionSet.getObjectPermission(
-            accountObjectDescribe
-        );
-        final TestUser.ObjectPermission contactPermission = permissionSet.getObjectPermission(
-            contactObjectDescribe
-        );
-        accountPermission.setRead(true).setCreate(true).setEdit(true);
-        contactPermission.setRead(true); // Account read dependency
-
-        final TestUser.FieldPermission accountNumberPermission = accountPermission.getFieldPermission(
-            Schema.SObjectType.Account.fields.AccountNumber
-        );
-        accountNumberPermission.setRead(true);
-        permissionSet.save();
-
-        Exception actualException;
-
-        Test.startTest();
-        System.runAs(minimalAccessPersona.getUser()) {
-            final Schema.DescribeFieldResult accountNumberDescribe = Schema.Account.AccountNumber.getDescribe();
-            System.assertEquals(
-                false,
-                accountNumberDescribe.isUpdateable(),
-                'accountNumber should NOT be editable for this test.'
-            );
-
-            DatabaseService service = new DatabaseService();
-
-            List<SObject> sobjectRecords = new List<SObject>{ expectedAccount };
-
-            List<DatabaseService.SaveResult> saveResults;
-
-            try {
-                saveResults = service.insertRecords(sobjectRecords);
-            } catch (SecurityService.DoesNotHaveFLSForCreateException e) {
-                actualException = e;
-            } catch (Exception e) {
-                System.assert(
-                    false,
-                    String.format(
-                        'Expected the service to throw an exception of type {0}',
-                        new List<String>{
-                            SecurityService.DoesNotHaveFLSForCreateException.class
-                                .getName()
-                        }
-                    )
-                );
-            }
-        }
-        Test.stopTest();
-        System.assertNotEquals(
-            null,
-            actualException,
-            'Expected the service to throw an exception'
-        );
-    }
-
-    //Test to confirm updateRecord for a list of list of SObjects is successfully updating grouped records.
-    @IsTest
-    private static void listForChunkProtectionShouldUpdate() {
-        final DatabaseService databaseService = new DatabaseService();
-
-        Account testOrg1 = TestUtils.createAccount('Database Service Test Account 1');
-        insert testOrg1;
-        Account testOrg2 = TestUtils.createAccount('Database Service Test Account 2');
-        insert testOrg2;
-        Set<Id> accIds = new Set<Id>{ testOrg1.Id, testOrg2.Id };
-
-        Contact testContact1 = TestUtils.createContact('Sara', 'Smith', testOrg1.Id);
-        testContact1.Email = 'sarasmith@salesforce.testUsersSfdc.test';
-        insert testContact1;
-        Contact testContact2 = TestUtils.createContact('Steve', 'Smith', testOrg2.Id);
-        testContact2.Email = 'stevesmith@salesforce.testUsersSfdc.test';
-        insert testContact2;
-        Set<Id> contactIds = new Set<Id>{ testContact1.Id, testContact2.Id };
-
-        testOrg1.Name = testOrg1.Name + ' updated';
-        testOrg2.Name = testOrg2.Name + ' updated';
-        testContact1.LastName = 'Updated';
-        testContact2.LastName = 'Updated';
-
-        List<SObject> groupedRecords = new List<SObject>{
-            (SObject) testOrg1,
-            (SObject) testOrg2,
-            (SObject) testContact1,
-            (SObject) testContact2
+        // Set arguments.
+        final List<Account> records = new List<Account>{
+            new Account(Name = 'Account 0', AccountNumber = '0'),
+            new Account(Name = 'Account 1', AccountNumber = '1')
         };
 
         Test.startTest();
-        databaseService.updateRecords(groupedRecords);
-        Test.stopTest();
 
-        List<Contact> updatedContacts = [
-            SELECT Id, FirstName, LastName
-            FROM Contact
-            WHERE Id IN :contactIds
-        ];
-        List<Account> updatedAccounts = [
-            SELECT Id, Name
-            FROM Account
-            WHERE Id IN :accIds
-        ];
-
-        System.assertEquals(
-            2,
-            updatedContacts.size(),
-            'We should have returned two contacts in our query'
-        );
-        System.assertEquals(
-            'Updated',
-            updatedContacts[0].LastName,
-            'Our contact names should have been updated'
-        );
-        System.assertEquals(
-            'Updated',
-            updatedContacts[1].LastName,
-            'Our contact names should have been updated'
-        );
-        System.assertEquals(
-            2,
-            updatedAccounts.size(),
-            'We should have returned two Accounts in our query'
-        );
-        System.assertEquals(
-            true,
-            updatedAccounts[0].Name.contains('updated'),
-            'Our contact names should have been updated'
-        );
-        System.assertEquals(
-            true,
-            updatedAccounts[1].Name.contains('updated'),
-            'Our contact names should have been updated'
-        );
-        System.assertEquals(
-            false,
-            updatedContacts.isEmpty(),
-            'We were expecting updated contacts but we found none'
-        );
-        System.assertEquals(
-            false,
-            updatedAccounts.isEmpty(),
-            'We were expecting updated accounts but we found none'
-        );
-    }
-
-    @IsTest
-    private static void deleteRecordsByIdShouldDeleteRecords() {
-        final Integer fundingProgramsCount = 5;
-        final DatabaseService databaseService = new DatabaseService();
-
-        final List<Schema.outfunds__Funding_Program__c> fundingPrograms = TestUtils.createFundingPrograms(
-            fundingProgramsCount
-        );
-        insert fundingPrograms;
-
-        Map<Id, outfunds__Funding_Program__c> programsById = new Map<Id, outfunds__Funding_Program__c>(
-            [SELECT Id FROM outfunds__Funding_Program__c]
-        );
-
-        System.assertEquals(fundingProgramsCount, programsById.size());
-
-        List<Database.DeleteResult> results = new List<Database.DeleteResult>();
-
-        Test.startTest();
-        results = databaseService.deleteRecordsById(new List<Id>(programsById.keyset()));
-        Test.stopTest();
-
-        for (Database.DeleteResult result : results) {
-            System.assert(result.isSuccess());
-        }
-
-        System.assertEquals(0, [SELECT COUNT() FROM outfunds__Funding_Program__c]);
-    }
-
-    @IsTest
-    private static void updateRecordsReturnsDatabaseServiceSaveResults() {
-        String accountNumber = '12345';
-        Account account = new Account(Name = 'Test Account');
-        insert account;
-
-        account.AccountNumber = accountNumber;
-
-        List<DatabaseService.SaveResult> results;
         Exception actualException;
 
-        Test.startTest();
-        List<SObject> sObjectRecords = new List<SObject>{ account };
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                !Schema.Account.SObjectType.getDescribe().isCreateable(),
+                'DatabaseService_TEST.minimalAccessPersona should not be able to create Account.'
+            );
 
-        results = new DatabaseService().updateRecords(sObjectRecords);
-        Test.stopTest();
+            final DatabaseService service = new DatabaseService();
 
-        System.assert(
-            results[0].isSuccess(),
-            String.format(
-                'Expected the {0} object\'s isSuccess() call to return true',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
+            // Null records.
+            final List<Database.SaveResult> actualWhenNullRecords = service.insertRecordsEnforceFls(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.insertRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.insertRecordsEnforceFls should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
 
-        System.assertNotEquals(
-            null,
-            results,
-            String.format(
-                'Expected the {0} objects returned from the update call',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
+            final List<Database.SaveResult> actualWhenEmptyRecords = service.insertRecordsEnforceFls(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.insertRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.insertRecordsEnforceFls should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
 
-        System.assertNotEquals(
-            null,
-            results[0].getErrors(),
-            String.format(
-                'Expected the {0} object to contain no {1} records',
-                new List<String>{
-                    DatabaseService.SaveResult.class.getName(),
-                    DatabaseService.Error.class.getName()
-                }
-            )
-        );
-
-        System.assertEquals(
-            account.Id,
-            results[0].getId(),
-            String.format(
-                'Expected the {0} object to return the record Id',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceSaveResultShouldBeCreatedByConstructor() {
-        DatabaseService.SaveResult saveResult;
-        List<DatabaseService.Error> errors; // No errors
-        Id accountId = TestUtils.mockId(Account.getSObjectType());
-        Boolean saveSuccess = true;
-
-        Test.startTest();
-        saveResult = new DatabaseService.SaveResult(errors, accountId, saveSuccess);
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            saveResult,
-            String.format(
-                'Expected a {0} object to be instantiated',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceSaveResultShouldReturnResultErrors() {
-        DatabaseService.SaveResult saveResult;
-        System.StatusCode statusCode = System.StatusCode.REQUIRED_FIELD_MISSING;
-        List<String> errorFields = new List<String>{ 'Name' };
-        String errorMessage = 'Required fields are missing: [Name] : [Name]';
-
-        DatabaseService.Error error = new DatabaseService.Error(
-            errorFields,
-            errorMessage,
-            statusCode
-        );
-
-        Id accountId = TestUtils.mockId(Account.getSObjectType());
-        Boolean saveSuccess = false;
-
-        Test.startTest();
-        saveResult = new DatabaseService.SaveResult(
-            new List<DatabaseService.Error>{ error },
-            accountId,
-            saveSuccess
-        );
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            saveResult,
-            String.format(
-                'Expected a {0} object to be instantiated',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-
-        System.assertEquals(
-            saveSuccess,
-            saveResult.isSuccess(),
-            String.format(
-                'Expected the instantiated {0} to return isSuccess() true',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-
-        System.assert(
-            !saveResult.getErrors().isEmpty(),
-            String.format(
-                'Expected the instantiated {0} to return a list of errors',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-
-        System.assertEquals(
-            errorFields,
-            saveResult.getErrors()[0].getFields(),
-            String.format(
-                'Expected the error fields returned from the {0} object to match the fields passed to the constructor',
-                new List<String>{ DatabaseService.Error.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceSaveResultShouldReturnResultRecordId() {
-        DatabaseService.SaveResult saveResult;
-        DatabaseService.Error error; // No errors
-        Id accountId = TestUtils.mockId(Account.getSObjectType());
-        Boolean saveSuccess = true;
-
-        Test.startTest();
-        saveResult = new DatabaseService.SaveResult(
-            new List<DatabaseService.Error>{ error },
-            accountId,
-            saveSuccess
-        );
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            saveResult,
-            String.format(
-                'Expected a {0} object to be instantiated',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-
-        System.assertEquals(
-            accountId,
-            saveResult.getId(),
-            String.format(
-                'Expected the record Id returned from the {0} to match the Id provided to the constructor',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceSaveResultShouldReturnResultSuccess() {
-        DatabaseService.SaveResult saveResult;
-        DatabaseService.Error error; // No errors
-        Id accountId = TestUtils.mockId(Account.getSObjectType());
-        Boolean saveSuccess = true;
-
-        Test.startTest();
-        saveResult = new DatabaseService.SaveResult(
-            new List<DatabaseService.Error>{ error },
-            accountId,
-            saveSuccess
-        );
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            saveResult,
-            String.format(
-                'Expected a {0} object to be instantiated',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-
-        System.assertEquals(
-            saveSuccess,
-            saveResult.isSuccess(),
-            String.format(
-                'Expected the instantiated {0} to return true',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceErrorShouldBeCreatedByConstructor() {
-        DatabaseService.Error error;
-        System.StatusCode statusCode = System.StatusCode.REQUIRED_FIELD_MISSING;
-        List<String> errorFields = new List<String>{ 'Name' };
-        String errorMessage = 'Required fields are missing: [Name] : [Name]';
-
-        Test.startTest();
-        error = new DatabaseService.Error(errorFields, errorMessage, statusCode);
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            error,
-            String.format(
-                'Expected a {0} object to be instantiated',
-                new List<String>{ DatabaseService.Error.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceErrorShouldReturnErrorFields() {
-        DatabaseService.Error error;
-        System.StatusCode statusCode = System.StatusCode.REQUIRED_FIELD_MISSING;
-        List<String> errorFields = new List<String>{ 'Name' };
-        String errorMessage = 'Required fields are missing: [Name] : [Name]';
-
-        Test.startTest();
-        error = new DatabaseService.Error(errorFields, errorMessage, statusCode);
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            error,
-            String.format(
-                'Expected the instantiated {0} to return a list of fields',
-                new List<String>{ DatabaseService.Error.class.getName() }
-            )
-        );
-
-        System.assertEquals(
-            errorFields,
-            error.getFields(),
-            String.format(
-                'Expected the error fields returned from the {0} object to match the fields passed to the constructor',
-                new List<String>{ DatabaseService.Error.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceErrorShouldReturnErrorMessage() {
-        DatabaseService.Error error;
-        System.StatusCode statusCode = System.StatusCode.REQUIRED_FIELD_MISSING;
-        List<String> errorFields = new List<String>{ 'Name' };
-        String errorMessage = 'Required fields are missing: [Name] : [Name]';
-
-        Test.startTest();
-        error = new DatabaseService.Error(errorFields, errorMessage, statusCode);
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            error,
-            String.format(
-                'Expected the instantiated {0} to return a list of true',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-
-        System.assertEquals(
-            errorMessage,
-            error.getMessage(),
-            String.format(
-                'Expected the error message returned from the {0} object to match the error message passed to the constructor',
-                new List<String>{ DatabaseService.Error.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void databaseServiceErrorShouldReturnStatusCode() {
-        DatabaseService.Error error;
-        System.StatusCode statusCode = System.StatusCode.REQUIRED_FIELD_MISSING;
-        List<String> errorFields = new List<String>{ 'Name' };
-        String errorMessage = 'Required fields are missing: [Name] : [Name]';
-
-        Test.startTest();
-        error = new DatabaseService.Error(errorFields, errorMessage, statusCode);
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            error,
-            String.format(
-                'Expected the instantiated {0} to return a list of true',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
-        );
-
-        System.assertEquals(
-            statusCode,
-            error.getStatusCode(),
-            String.format(
-                'Expected the status code returned from the {0} object to match the status code passed to the constructor',
-                new List<String>{ DatabaseService.Error.class.getName() }
-            )
-        );
-    }
-
-    @IsTest
-    private static void getSaveResultsShouldReturnListOfSaveResults() {
-        Integer recordCount = 3;
-        List<Account> accounts = new List<Account>();
-        for (Integer i = 0; i < recordCount; i++) {
-            accounts.add(new Account(Name = 'Test Account ' + String.valueOf(i)));
+            try {
+                service.insertRecordsEnforceFls(records);
+            } catch (Exception e) {
+                actualException = e;
+            }
         }
 
-        List<DatabaseService.SaveResult> serviceResults;
-        Test.startTest();
-        List<Database.SaveResult> saveResults = Database.insert(accounts);
-        serviceResults = new DatabaseService().getSaveResults(saveResults);
         Test.stopTest();
 
         System.assert(
-            !serviceResults.isEmpty(),
-            String.format(
-                'Expected the {0} to return a list of {1}',
-                new List<String>{
-                    DatabaseService.class.getName(),
-                    DatabaseService.SaveResult.class.getName()
-                }
-            )
-        );
-
-        System.assertEquals(
-            recordCount,
-            serviceResults.size(),
-            String.format(
-                'Expected the getSaveResults operation to return the same number of {0}s as records',
-                new List<String>{ DatabaseService.SaveResult.class.getName() }
-            )
+            actualException instanceof System.NoAccessException,
+            'DatabaseService.insertRecordsEnforceFls should throw a System.NoAccessException since the user does not have Create object-level access on Account.  Actual Exception: ' +
+            actualException
         );
     }
 
     @IsTest
-    private static void updateRecordsWithAllOrNothingShouldThrowExceptionOnError() {
-        Integer recordCount = 3;
-        Integer employeeCount = 150;
-        List<Account> accounts = new List<Account>();
-        for (Integer i = 0; i < recordCount; i++) {
-            accounts.add(
-                new Account(
-                    Id = TestUtils.mockId(Account.getSObjectType()),
-                    Name = 'Test Account ' + String.valueOf(i)
-                )
+    private static void testInsertRecordsEnforceFls_MissingFieldLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        TestUser.PermissionSetManager permissionSetManager = DatabaseService_TEST.minimalAccessPersona.getPermissionSetManager();
+
+        TestUser.ObjectPermission objectPermission = permissionSetManager.getObjectPermission(
+                Schema.SObjectType.Account
+            )
+            .setRead(true)
+            .setCreate(true);
+
+        TestUser.FieldPermission fieldPermission = objectPermission.getFieldPermission(
+                Schema.SObjectType.Account.fields.AccountNumber
+            )
+            .setRead(false)
+            .setEdit(false);
+
+        permissionSetManager.save();
+
+        // Set arguments.
+        final List<Account> records = new List<Account>{
+            new Account(Name = 'Account 0', AccountNumber = '0'),
+            new Account(Name = 'Account 1', AccountNumber = '1')
+        };
+
+        Test.startTest();
+
+        Exception actualException;
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                Schema.Account.SObjectType.getDescribe().isCreateable(),
+                'DatabaseService_TEST.minimalAccessPersona should be able to create Account.'
+            );
+
+            System.assert(
+                !Schema.Account.SObjectType.fields.AccountNumber.getDescribe()
+                    .isCreateable(),
+                'DatabaseService_TEST.minimalAccessPersona should not be able to create Account.AccountNumber.'
+            );
+
+            final DatabaseService service = new DatabaseService();
+
+            // Null records.
+            final List<Database.SaveResult> actualWhenNullRecords = service.insertRecordsEnforceFls(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.insertRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.insertRecordsEnforceFls should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
+
+            final List<Database.SaveResult> actualWhenEmptyRecords = service.insertRecordsEnforceFls(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.insertRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.insertRecordsEnforceFls should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
+
+            try {
+                service.insertRecordsEnforceFls(records);
+            } catch (Exception e) {
+                actualException = e;
+            }
+        }
+
+        Test.stopTest();
+
+        System.assert(
+            actualException instanceof System.NoAccessException,
+            'DatabaseService.insertRecordsEnforceFls should throw a System.NoAccessException since the user does not have Edit field-level access on Account.AccountNumber.  Actual Exception: ' +
+            actualException
+        );
+        System.assertEquals(
+            System.Label.DatabaseService_NoInsertFlsException,
+            actualException.getMessage(),
+            'DatabaseService.insertRecordsEnforceFls should throw a System.NoAccessException whose message equals System.Label.DatabaseService_NoInsertFlsException ("' +
+            System.Label.DatabaseService_NoInsertFlsException +
+            '").'
+        );
+    }
+
+    @IsTest
+    private static void testInsertRecordsEnforceFls_WithFieldLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        TestUser.PermissionSetManager permissionSetManager = DatabaseService_TEST.minimalAccessPersona.getPermissionSetManager();
+
+        TestUser.ObjectPermission objectPermission = permissionSetManager.getObjectPermission(
+                Schema.SObjectType.Account
+            )
+            .setRead(true)
+            .setCreate(true);
+
+        TestUser.FieldPermission fieldPermission = objectPermission.getFieldPermission(
+                Schema.SObjectType.Account.fields.AccountNumber
+            )
+            .setRead(true)
+            .setEdit(true);
+
+        permissionSetManager.save();
+
+        // Set arguments.
+        final List<Account> records = new List<Account>{
+            new Account(Name = 'Account 0', AccountNumber = '0'),
+            new Account(Name = 'Account 1', AccountNumber = '1')
+        };
+
+        Test.startTest();
+
+        List<Database.SaveResult> actual;
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                Schema.Account.SObjectType.getDescribe().isCreateable(),
+                'DatabaseService_TEST.minimalAccessPersona should be able to create Account.'
+            );
+
+            System.assert(
+                Schema.Account.SObjectType.fields.AccountNumber.getDescribe()
+                    .isCreateable(),
+                'DatabaseService_TEST.minimalAccessPersona should be able to create Account.AccountNumber.'
+            );
+
+            final DatabaseService service = new DatabaseService();
+
+            // Null records.
+            final List<Database.SaveResult> actualWhenNullRecords = service.insertRecordsEnforceFls(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.insertRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.insertRecordsEnforceFls should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
+
+            // Empty records.
+            final List<Database.SaveResult> actualWhenEmptyRecords = service.insertRecordsEnforceFls(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.insertRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.insertRecordsEnforceFls should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
+
+            // Actual test.
+            actual = service.insertRecordsEnforceFls(records);
+        }
+
+        Test.stopTest();
+
+        System.assertNotEquals(
+            null,
+            actual,
+            'DatabaseService.insertRecordsEnforceFls should never return null.'
+        );
+
+        final Integer recordsSize = records.size();
+
+        System.assertEquals(
+            recordsSize,
+            actual.size(),
+            'DatabaseService.insertRecordsEnforceFls should return a Database.SaveResult for each record in records.'
+        );
+
+        for (Integer i = 0; i < recordsSize; i++) {
+            System.assert(
+                actual[i].isSuccess(),
+                'actual[' +
+                i +
+                '].isSuccess should be true.'
+            );
+            System.assertNotEquals(
+                null,
+                actual[i].getId(),
+                'actual[' +
+                i +
+                '].getId should not be null.'
+            );
+            System.assertEquals(
+                records[i].Id,
+                actual[i].getId(),
+                'records[' +
+                i +
+                '].Id should equal actual[' +
+                i +
+                '].getId.'
             );
         }
 
-        Test.startTest();
-        // All or Nothing
-        Exception actualException;
-        try {
-            List<DatabaseService.SaveResult> results = new DatabaseService()
-                .updateRecords(accounts, true);
-        } catch (Exception e) {
-            actualException = e;
-        }
-        Test.stopTest();
-
-        System.assertNotEquals(
-            null,
-            actualException,
-            'Expected the allOrNothing updateRecords call to throw an exception'
+        System.assertEquals(
+            recordsSize,
+            [SELECT Id FROM Account WHERE Id IN :records].size(),
+            'All records should exist in the Database.'
         );
     }
 
     @IsTest
-    private static void updateRecordsShouldReturnSaveResultsWithErrors() {
-        Integer recordCount = 3;
-        List<Account> accounts = new List<Account>();
-        for (Integer i = 0; i < recordCount; i++) {
-            accounts.add(
-                new Account(
-                    Id = TestUtils.mockId(Account.getSObjectType()),
-                    Name = 'Test Account ' + String.valueOf(i)
-                )
+    private static void updateRecordsEnforceFls_NoObjectLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        // Set arguments.
+        final Account originalRecord = DatabaseService_TEST.getAccount();
+        final List<Account> records = new List<Account>{
+            new Account(
+                Id = originalRecord.Id,
+                Name = 'new Name',
+                AccountNumber = 'new Account Number'
+            )
+        };
+
+        Test.startTest();
+
+        Exception actualException;
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                !Schema.Account.SObjectType.getDescribe().isUpdateable(),
+                'DatabaseService_TEST.minimalAccessPersona should not be able to  update Account.'
+            );
+
+            final DatabaseService service = new DatabaseService();
+
+            // Null records.
+            final List<Database.SaveResult> actualWhenNullRecords = service.updateRecordsEnforceFls(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.updateRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.updateRecordsEnforceFls should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
+
+            final List<Database.SaveResult> actualWhenEmptyRecords = service.updateRecordsEnforceFls(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.updateRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.updateRecordsEnforceFls should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
+
+            try {
+                service.updateRecordsEnforceFls(records);
+            } catch (Exception e) {
+                actualException = e;
+            }
+        }
+
+        Test.stopTest();
+
+        System.assert(
+            actualException instanceof System.NoAccessException,
+            'DatabaseService.updateRecordsEnforceFls should throw a System.NoAccessException since the user does not have Update object-level access on Account.  Actual Exception: ' +
+            actualException
+        );
+    }
+
+    @IsTest
+    private static void updateRecordsEnforceFls_MissingFieldLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        TestUser.PermissionSetManager permissionSetManager = DatabaseService_TEST.minimalAccessPersona.getPermissionSetManager();
+
+        TestUser.ObjectPermission objectPermission = permissionSetManager.getObjectPermission(
+                Schema.SObjectType.Account
+            )
+            .setRead(true)
+            .setEdit(true);
+
+        TestUser.FieldPermission fieldPermission = objectPermission.getFieldPermission(
+                Schema.SObjectType.Account.fields.AccountNumber
+            )
+            .setRead(false)
+            .setEdit(false);
+
+        permissionSetManager.save();
+
+        // Set arguments.
+        final Account originalRecord = DatabaseService_TEST.getAccount();
+        final List<Account> records = new List<Account>{
+            new Account(
+                Id = originalRecord.Id,
+                Name = 'new Name',
+                AccountNumber = 'new Account Number'
+            )
+        };
+
+        Test.startTest();
+
+        Exception actualException;
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                Schema.Account.SObjectType.getDescribe().isUpdateable(),
+                'DatabaseService_TEST.minimalAccessPersona should be able to update Account.'
+            );
+
+            System.assert(
+                !Schema.Account.SObjectType.fields.AccountNumber.getDescribe()
+                    .isUpdateable(),
+                'DatabaseService_TEST.minimalAccessPersona should not be able to update Account.AccountNumber.'
+            );
+
+            final DatabaseService service = new DatabaseService();
+
+            // Null records.
+            final List<Database.SaveResult> actualWhenNullRecords = service.updateRecordsEnforceFls(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.updateRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.updateRecordsEnforceFls should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
+
+            final List<Database.SaveResult> actualWhenEmptyRecords = service.updateRecordsEnforceFls(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.updateRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.updateRecordsEnforceFls should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
+
+            try {
+                service.updateRecordsEnforceFls(records);
+            } catch (Exception e) {
+                actualException = e;
+            }
+        }
+
+        Test.stopTest();
+
+        System.assert(
+            actualException instanceof System.NoAccessException,
+            'DatabaseService.updateRecordsEnforceFls should throw a System.NoAccessException since the user does not have Edit field-level access on Account.AccountNumber.  Actual Exception: ' +
+            actualException
+        );
+        System.assertEquals(
+            System.Label.DatabaseService_NoUpdateFlsException,
+            actualException.getMessage(),
+            'DatabaseService.updateRecordsEnforceFls should throw a System.NoAccessException whose message equals System.Label.DatabaseService_NoUpdateFlsException ("' +
+            System.Label.DatabaseService_NoUpdateFlsException +
+            '").'
+        );
+    }
+
+    @IsTest
+    private static void updateRecordsEnforceFls_WithFieldLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        TestUser.PermissionSetManager permissionSetManager = DatabaseService_TEST.minimalAccessPersona.getPermissionSetManager();
+
+        TestUser.ObjectPermission objectPermission = permissionSetManager.getObjectPermission(
+                Schema.SObjectType.Account
+            )
+            .setRead(true)
+            .setEdit(true);
+
+        TestUser.FieldPermission fieldPermission = objectPermission.getFieldPermission(
+                Schema.SObjectType.Account.fields.AccountNumber
+            )
+            .setRead(true)
+            .setEdit(true);
+
+        permissionSetManager.save();
+
+        // Set arguments.
+        final Account originalRecord = DatabaseService_TEST.getAccount();
+        final List<Account> records = new List<Account>{
+            new Account(
+                Id = originalRecord.Id,
+                Name = 'new Name',
+                AccountNumber = 'new Account Number'
+            )
+        };
+
+        Test.startTest();
+
+        List<Database.SaveResult> actual;
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                Schema.Account.SObjectType.getDescribe().isUpdateable(),
+                'DatabaseService_TEST.minimalAccessPersona should be able to update Account.'
+            );
+
+            System.assert(
+                Schema.Account.SObjectType.fields.AccountNumber.getDescribe()
+                    .isUpdateable(),
+                'DatabaseService_TEST.minimalAccessPersona should be able to update Account.AccountNumber.'
+            );
+
+            final DatabaseService service = new DatabaseService();
+
+            // Null records.
+            final List<Database.SaveResult> actualWhenNullRecords = service.updateRecordsEnforceFls(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.updateRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.updateRecordsEnforceFls should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
+
+            // Empty records.
+            final List<Database.SaveResult> actualWhenEmptyRecords = service.updateRecordsEnforceFls(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.updateRecordsEnforceFls should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.updateRecordsEnforceFls should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
+
+            // Actual test.
+            actual = service.updateRecordsEnforceFls(records);
+        }
+
+        Test.stopTest();
+
+        System.assertNotEquals(
+            null,
+            actual,
+            'DatabaseService.updateRecordsEnforceFls should never return null.'
+        );
+
+        final Integer recordsSize = records.size();
+
+        System.assertEquals(
+            recordsSize,
+            actual.size(),
+            'DatabaseService.updateRecordsEnforceFls should return a Database.SaveResult for each record in records.'
+        );
+
+        for (Integer i = 0; i < recordsSize; i++) {
+            System.assert(
+                actual[i].isSuccess(),
+                'actual[' +
+                i +
+                '].isSuccess should be true.'
+            );
+            System.assertNotEquals(
+                null,
+                actual[i].getId(),
+                'actual[' +
+                i +
+                '].getId should not be null.'
+            );
+            System.assertEquals(
+                records[i].Id,
+                actual[i].getId(),
+                'records[' +
+                i +
+                '].Id should equal actual[' +
+                i +
+                '].getId.'
             );
         }
 
-        Test.startTest();
-        Exception actualException;
-        List<DatabaseService.SaveResult> results;
-        try {
-            results = new DatabaseService().updateRecords(accounts, false);
-        } catch (Exception e) {
-            actualException = e;
+        final Map<Id, Account> actualAccountsById = new Map<Id, Account>(
+            [SELECT Id, Name, AccountNumber FROM Account WHERE Id IN :records]
+        );
+
+        for (Account record : records) {
+            final Account actualAccount = actualAccountsById.get(record.Id);
+
+            System.assertNotEquals(
+                null,
+                actualAccount,
+                'An Account should exist for updated record with Name "' +
+                record.Name +
+                '".'
+            );
+            System.assertEquals(
+                record.Name,
+                actualAccount.Name,
+                'Account.Name should have been updated.'
+            );
+            System.assertEquals(
+                record.AccountNumber,
+                actualAccount.AccountNumber,
+                'Account.AccountNumber should have been updated.'
+            );
         }
+    }
+
+    @IsTest
+    private static void deleteRecords_NoObjectLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        // Set arguments.
+        final List<Account> records = new List<Account>{
+            DatabaseService_TEST.getAccount()
+        };
+
+        Test.startTest();
+
+        Exception actualException;
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                !Schema.Account.SObjectType.getDescribe().isDeletable(),
+                'DatabaseService_TEST.minimalAccessPersona should not be able to  delete Account.'
+            );
+
+            final DatabaseService service = new DatabaseService();
+
+            // Null records.
+            final List<Database.DeleteResult> actualWhenNullRecords = service.deleteRecords(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.deleteRecords should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.deleteRecords should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
+
+            final List<Database.DeleteResult> actualWhenEmptyRecords = service.deleteRecords(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.deleteRecords should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.deleteRecords should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
+
+            try {
+                service.deleteRecords(records);
+            } catch (Exception e) {
+                actualException = e;
+            }
+        }
+
         Test.stopTest();
 
-        System.assertEquals(
-            null,
-            actualException,
-            'updateRecords should not throw an exception when allOrNothing is false'
+        System.assert(
+            actualException instanceof System.NoAccessException,
+            'DatabaseService.deleteRecords should throw a System.NoAccessException since the user does not have Delete object-level access on Account.  Actual Exception: ' +
+            actualException
         );
-
         System.assertEquals(
-            recordCount,
-            results.size(),
-            String.format(
-                'Expected {0} SaveResults, but received {1}',
-                new List<String>{
-                    String.valueOf(recordCount),
-                    String.valueOf(results.size())
-                }
-            )
-        );
-
-        System.assertNotEquals(
-            null,
-            results[0].getErrors(),
-            String.format(
-                'updateRecords should have returned {0} records containing {1} records',
-                new List<String>{
-                    DatabaseService.SaveResult.class.getName(),
-                    DatabaseService.Error.class.getName()
-                }
-            )
+            System.Label.DatabaseService_NoDeleteAccessException,
+            actualException.getMessage(),
+            'DatabaseService.deleteRecords should throw a System.NoAccessException whose message equals System.Label.DatabaseService_NoDeleteAccessException ("' +
+            System.Label.DatabaseService_NoDeleteAccessException +
+            '").'
         );
     }
 
     @IsTest
-    private static void updateRecordsDmlFailureWithoutAllOrNothingParameterSetShouldThrowException() {
-        Account account = new Account(
-            Id = TestUtils.mockId(Account.getSObjectType()),
-            Name = 'Test Account'
-        );
+    private static void deleteRecords_WithObjectLevelPermission() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        TestUser.PermissionSetManager permissionSetManager = DatabaseService_TEST.minimalAccessPersona.getPermissionSetManager();
+
+        TestUser.ObjectPermission objectPermission = permissionSetManager.getObjectPermission(
+                Schema.SObjectType.Account
+            )
+            .setRead(true)
+            .setEdit(true)
+            .setDelete(true);
+
+        permissionSetManager.save();
+
+        // Set arguments.
+        final List<Account> records = new List<Account>{
+            DatabaseService_TEST.getAccount()
+        };
 
         Test.startTest();
-        Exception actualException;
-        try {
-            List<SObject> groupedRecords = new List<SObject>{ account };
-            // All or Nothing
-            List<DatabaseService.SaveResult> results = new DatabaseService()
-                .updateRecords(groupedRecords);
-        } catch (Exception e) {
-            actualException = e;
+
+        List<Database.DeleteResult> actual;
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            // Assert permissions are as expected.
+            System.assert(
+                Schema.Account.SObjectType.getDescribe().isDeletable(),
+                'DatabaseService_TEST.minimalAccessPersona should be able to delete Account.'
+            );
+
+            final DatabaseService service = new DatabaseService();
+
+            // Null records.
+            final List<Database.DeleteResult> actualWhenNullRecords = service.deleteRecords(
+                (List<Account>) null
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenNullRecords,
+                'DatabaseService.deleteRecords should never return null.'
+            );
+            System.assert(
+                actualWhenNullRecords.isEmpty(),
+                'DatabaseService.deleteRecords should always return an empty list whenever the records argument is null.  CRUD or FLS is not checked.'
+            );
+
+            // Empty records.
+            final List<Database.DeleteResult> actualWhenEmptyRecords = service.deleteRecords(
+                new List<Account>()
+            );
+            System.assertNotEquals(
+                null,
+                actualWhenEmptyRecords,
+                'DatabaseService.deleteRecords should never return null.'
+            );
+            System.assert(
+                actualWhenEmptyRecords.isEmpty(),
+                'DatabaseService.deleteRecords should always return an empty list whenever the records argument is empty.  CRUD or FLS is not checked.'
+            );
+
+            // Actual test.
+            actual = service.deleteRecords(records);
         }
+
         Test.stopTest();
 
         System.assertNotEquals(
             null,
-            actualException,
-            'Expected the allOrNothing updateRecords call to throw an exception'
+            actual,
+            'DatabaseService.deleteRecords should never return null.'
         );
+
+        final Integer recordsSize = records.size();
+
+        System.assertEquals(
+            recordsSize,
+            actual.size(),
+            'DatabaseService.deleteRecords should return a Database.DeleteResult for each record in records.'
+        );
+
+        for (Integer i = 0; i < recordsSize; i++) {
+            System.assert(
+                actual[i].isSuccess(),
+                'actual[' +
+                i +
+                '].isSuccess should be true.'
+            );
+            System.assertNotEquals(
+                null,
+                actual[i].getId(),
+                'actual[' +
+                i +
+                '].getId should not be null.'
+            );
+            System.assertEquals(
+                records[i].Id,
+                actual[i].getId(),
+                'records[' +
+                i +
+                '].Id should equal actual[' +
+                i +
+                '].getId.'
+            );
+        }
+
+        System.assert(
+            [SELECT Id FROM Account WHERE Id IN :records].isEmpty(),
+            'All records should have been deleted in the Database.'
+        );
+    }
+
+    @IsTest
+    private static void setSavepointAndRollback() {
+        // Load TestUser.Persona and assert the object-level and field-level are as expected for this test.
+        DatabaseService_TEST.minimalAccessPersona.load();
+
+        TestUser.PermissionSetManager permissionSetManager = DatabaseService_TEST.minimalAccessPersona.getPermissionSetManager();
+
+        TestUser.ObjectPermission objectPermission = permissionSetManager.getObjectPermission(
+                Schema.SObjectType.Account
+            )
+            .setRead(true)
+            .setEdit(true)
+            .setDelete(true);
+
+        permissionSetManager.save();
+
+        // Set arguments.
+        final List<Account> records = new List<Account>{
+            DatabaseService_TEST.getAccount()
+        };
+
+        Test.startTest();
+
+        System.runAs(DatabaseService_TEST.minimalAccessPersona.getUser()) {
+            final DatabaseService service = new DatabaseService();
+
+            // Create a savepoint.
+            final DatabaseService.Savepoint savepoint = service.setSavepoint();
+
+            System.assertNotEquals(
+                null,
+                savepoint.savepoint,
+                'DatabaseService.setSavepoint should set the DatabaseService.Savepoint.savepoint.'
+            );
+
+            // Delete records.
+            service.deleteRecords(records);
+
+            // Rollback the transaction.
+            service.rollback(savepoint);
+        }
+
+        Test.stopTest();
+
+        System.assert(
+            ![SELECT Id FROM Account WHERE Id IN :records LIMIT 1].isEmpty(),
+            'No records should have been deleted because the transaction should have been rolled back.'
+        );
+    }
+
+    /**
+     * Tests that we can mock rolling back because DatabaseService.Savepoint has an @TestVisible empty constructor.
+     */
+    @IsTest
+    private static void mockRollingBack() {
+        // Set mock return values.
+        final DatabaseService.Savepoint expected = new DatabaseService.Savepoint();
+
+        System.assertEquals(
+            null,
+            expected.savepoint,
+            '@TestVisible private Database.Savepoint() constructor should not set Database.Savepoint.savepoint.  Only DatabaseService.setSavepoint should set Database.Savepoint.savepoint.'
+        );
+
+        final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
+
+        final UnitTest.Mock setSavepoint = databaseServiceMock.getMethod('setSavepoint');
+        setSavepoint.returnValue = expected;
+
+        final UnitTest.Mock rollbackMethod = databaseServiceMock.getMethod('rollback');
+
+        Test.startTest();
+
+        final DatabaseService service = (DatabaseService) databaseServiceMock.createStub(
+            DatabaseService.class
+        );
+
+        final DatabaseService.Savepoint actual = service.setSavepoint();
+
+        service.rollback(actual);
+
+        Test.stopTest();
+
+        System.assertEquals(
+            expected,
+            actual,
+            'setSavepoint should have returned exactly (===) the mocked return value.'
+        );
+
+        setSavepoint.assertCalledOnceWith(new List<Object>());
+
+        rollbackMethod.assertCalledOnceWith(new List<Object>{ setSavepoint.returnValue });
     }
 }

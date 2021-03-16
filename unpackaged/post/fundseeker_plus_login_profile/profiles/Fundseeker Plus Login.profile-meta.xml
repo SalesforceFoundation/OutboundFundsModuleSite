@@ -219,7 +219,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>outfunds__Requirement__c.%%%NAMESPACE%%%IsAddFilesVisible__c</field>
         <readable>true</readable>
     </fieldPermissions>

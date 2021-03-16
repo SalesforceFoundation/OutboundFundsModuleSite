@@ -1,46 +1,27 @@
 @IsTest
 public with sharing class FileSelector_TEST {
-    final static string COMMUNITY_USER_EMAIL = 'communitytestuser@salesforce.org';
-    final static string ADMIN_USER_EMAIL = 'admintestuser@salesforce.org';
+    private static TestUser.BusinessFundseekerPersona businessFundSeekerPersona = new TestUser.BusinessFundseekerPersona();
 
     @TestSetup
     private static void createTestData() {
-        UserRole testRole = new UserRole(Name = 'TestRole');
-        insert testRole;
-
-        User adminWithRole = TestUtils.createUser(
-            'System Administrator',
-            ADMIN_USER_EMAIL
+        TestUser.insertPersonasInTestSetup(
+            new List<TestUser.Persona>{ FileSelector_TEST.businessFundSeekerPersona }
         );
+    }
 
-        adminWithRole.UserRoleId = testRole.Id;
-        insert adminWithRole;
+    public static List<outfunds__Funding_Program__c> createFundingPrograms(
+        Integer count
+    ) {
+        List<outfunds__Funding_Program__c> programs = new List<outfunds__Funding_Program__c>();
 
-        System.runAs(adminWithRole) {
-            Account portalAccount = TestUtils.createAccount('Portal Account');
-            insert portalAccount;
-
-            Contact communityContact = TestUtils.createContact(
-                'Devon',
-                'Berger',
-                portalAccount.Id
+        for (Integer i = 0; i < count; i++) {
+            outfunds__Funding_Program__c program = new outfunds__Funding_Program__c(
+                Name = 'Test Program ' + String.valueOf(count)
             );
-            insert communityContact;
-
-            User communityUser = TestUtils.createUser(
-                'Customer Community Plus User',
-                COMMUNITY_USER_EMAIL
-            );
-            communityUser.ContactId = communityContact.Id;
-            insert communityUser;
-
-            PermissionSet communityPermissionSet = TestUtils.createCommunityUserPermissionSet();
-            PermissionSetAssignment communityPermissionSetAssignment = new PermissionSetAssignment(
-                PermissionSetId = communityPermissionSet.Id,
-                AssigneeId = communityUser.Id
-            );
-            insert communityPermissionSetAssignment;
+            programs.add(program);
         }
+
+        return programs;
     }
 
     public static void createFundingProgramShares(Id userId) {
@@ -90,25 +71,96 @@ public with sharing class FileSelector_TEST {
         insert insertFundingProgramShares;
     }
 
+    public static List<ContentDocumentLink> createContentDocumentsWithLink(
+        Id recordId,
+        String visibility,
+        Integer count
+    ) {
+        List<ContentDocumentLink> contentDocumentLinks = new List<ContentDocumentLink>();
+        List<ContentDocument> contentDocuments = createContentDocuments(count);
+        for (ContentDocument cd : contentDocuments) {
+            ContentDocumentLink cdl = new ContentDocumentLink(
+                ContentDocumentId = cd.Id,
+                LinkedEntityId = recordId,
+                Visibility = visibility
+            );
+            contentDocumentLinks.add(cdl);
+        }
+
+        insert contentDocumentLinks;
+        return contentDocumentLinks;
+    }
+
+    public static List<ContentDocument> createContentDocuments(Integer count) {
+        // Content Documents cannot be inserted directly.
+        // They are created on insertion of ContentVersions
+        List<ContentVersion> cvs = new List<ContentVersion>();
+
+        for (Integer i = 0; i < count; i++) {
+            ContentVersion cv = new ContentVersion(
+                Title = 'Test File ' + String.valueOf(i),
+                PathOnClient = 'TestFile' + String.valueOf(i) + '.txt',
+                VersionData = Blob.valueOf('Test Text File'),
+                IsMajorVersion = true
+            );
+            cvs.add(cv);
+        }
+        insert cvs;
+
+        List<Id> contentIds = new List<Id>();
+        List<Id> contentVersionIds = new List<Id>();
+        for (ContentVersion cv : cvs) {
+            contentVersionIds.add(cv.Id);
+        }
+
+        for (ContentVersion cv : [
+            SELECT Id, ContentDocumentId
+            FROM ContentVersion
+            WHERE Id IN :contentVersionIds
+        ]) {
+            contentIds.add(cv.ContentDocumentId);
+        }
+
+        return [SELECT Id, Title FROM ContentDocument WHERE Id IN :contentIds];
+    }
+
+    private static void validateEmail(String email) {
+        // Simple email regex
+        // Note: Current pattern does NOT work with top-level domains
+        Pattern emailPattern = Pattern.compile('^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$');
+        Matcher patternMatcher = emailPattern.matcher(email);
+        System.assert(patternMatcher.matches(), 'Received an invalid email format');
+    }
+
+    public static String generateUniqueString() {
+        String uniqueString =
+            UserInfo.getOrganizationId() +
+            DateTime.now().getTime() +
+            Math.abs(Crypto.getRandomInteger());
+        return uniqueString;
+    }
+
     @IsTest
     private static void testContentDocumentLinkByRecordIdsAsCommunityUser() {
         Integer numberOfPrograms = 1;
         Integer numberOfFiles = 3;
 
-        User communityUser = [SELECT Id FROM User WHERE Email = :COMMUNITY_USER_EMAIL];
+        FileSelector_TEST.businessFundSeekerPersona.load();
 
-        outfunds__Funding_Program__c program = TestUtils.createFundingProgram();
+        outfunds__Funding_Program__c program = createFundingPrograms(1)[0];
         insert program;
 
-        createFundingProgramShares(communityUser.Id);
+        createFundingProgramShares(
+            FileSelector_TEST.businessFundSeekerPersona.getUser().Id
+        );
 
-        TestUtils.createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
+        createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
 
         List<ContentDocumentLink> actualContentDocumentLinks = new List<ContentDocumentLink>();
 
         Test.startTest();
 
-        System.runAs(communityUser) {
+        System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             FileSelector selector = new FileSelector();
             actualContentDocumentLinks = selector.contentDocumentLinkByRecordIds(
                 new Set<Id>{ program.Id }
@@ -131,21 +183,23 @@ public with sharing class FileSelector_TEST {
         Integer numberOfPrograms = 1;
         Integer numberOfFiles = 3;
 
-        User communityUser = [SELECT Id FROM User WHERE Email = :COMMUNITY_USER_EMAIL];
+        FileSelector_TEST.businessFundSeekerPersona.load();
 
-        outfunds__Funding_Program__c program = TestUtils.createFundingProgram();
+        outfunds__Funding_Program__c program = createFundingPrograms(1)[0];
         insert program;
 
-        createFundingProgramShares(communityUser.Id);
+        createFundingProgramShares(
+            FileSelector_TEST.businessFundSeekerPersona.getUser().Id
+        );
 
-        TestUtils.createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
+        createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
 
         List<ContentDocument> actualContentDocuments = new List<ContentDocument>();
         Set<Id> actualContentDocumentIds = new Set<Id>();
 
         Test.startTest();
 
-        System.runAs(communityUser) {
+        System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             FileSelector selector = new FileSelector();
 
             Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
@@ -185,17 +239,17 @@ public with sharing class FileSelector_TEST {
         Integer numberOfFiles = 3;
         Integer countVisibleFundingPrograms = 0; // Funding Programs may be shared by platform mechanism (OWD)
 
-        User communityUser = [SELECT Id FROM User WHERE Email = :COMMUNITY_USER_EMAIL];
+        FileSelector_TEST.businessFundSeekerPersona.load();
 
-        outfunds__Funding_Program__c program = TestUtils.createFundingProgram();
+        outfunds__Funding_Program__c program = createFundingPrograms(1)[0];
         insert program;
 
-        TestUtils.createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
+        createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
 
         List<ContentDocumentLink> actualContentDocumentLinks = new List<ContentDocumentLink>();
         Test.startTest();
 
-        System.runAs(communityUser) {
+        System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             countVisibleFundingPrograms = [
                 SELECT COUNT()
                 FROM outfunds__Funding_Program__c
@@ -225,12 +279,12 @@ public with sharing class FileSelector_TEST {
         Integer numberOfFiles = 3;
         Integer countVisibleFundingPrograms = 0; // Funding Programs may be shared by platform mechanism (OWD)
 
-        User communityUser = [SELECT Id FROM User WHERE Email = :COMMUNITY_USER_EMAIL];
+        FileSelector_TEST.businessFundSeekerPersona.load();
 
-        outfunds__Funding_Program__c program = TestUtils.createFundingProgram();
+        outfunds__Funding_Program__c program = createFundingPrograms(1)[0];
         insert program;
 
-        TestUtils.createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
+        createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
         Map<Id, ContentDocument> contentDocumentMap = new Map<Id, ContentDocument>(
             [SELECT Id FROM ContentDocument]
         );
@@ -239,7 +293,7 @@ public with sharing class FileSelector_TEST {
 
         Test.startTest();
 
-        System.runAs(communityUser) {
+        System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             countVisibleFundingPrograms = [
                 SELECT COUNT()
                 FROM outfunds__Funding_Program__c
@@ -269,20 +323,17 @@ public with sharing class FileSelector_TEST {
         Integer numberOfFiles = 3;
         Integer expectedFilesFromShares = 2;
 
-        User communityUser = [SELECT Id FROM User WHERE Email = :COMMUNITY_USER_EMAIL];
-        User adminUser = [SELECT Id FROM User WHERE Email = :ADMIN_USER_EMAIL];
+        FileSelector_TEST.businessFundSeekerPersona.load();
 
-        outfunds__Funding_Program__c program = TestUtils.createFundingProgram();
+        outfunds__Funding_Program__c program = createFundingPrograms(1)[0];
         insert program;
 
-        createFundingProgramShares(communityUser.Id);
-
-        TestUtils.createContentDocumentsWithLink(
-            program.Id,
-            'AllUsers',
-            expectedFilesFromShares
+        createFundingProgramShares(
+            FileSelector_TEST.businessFundSeekerPersona.getUser().Id
         );
-        TestUtils.createContentDocumentsWithLink(
+
+        createContentDocumentsWithLink(program.Id, 'AllUsers', expectedFilesFromShares);
+        createContentDocumentsWithLink(
             program.Id,
             'InternalUsers',
             numberOfFiles - expectedFilesFromShares
@@ -293,7 +344,7 @@ public with sharing class FileSelector_TEST {
 
         Test.startTest();
 
-        System.runAs(communityUser) {
+        System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             FileSelector selector = new FileSelector();
 
             Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
@@ -303,15 +354,14 @@ public with sharing class FileSelector_TEST {
             );
         }
 
-        System.runAs(adminUser) {
-            FileSelector selector = new FileSelector();
+        // Run as administrator
+        FileSelector selector = new FileSelector();
 
-            Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
+        Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
 
-            actualContentDocumentsAdminUser = selector.contentDocumentsByIds(
-                contentDocumentIds
-            );
-        }
+        actualContentDocumentsAdminUser = selector.contentDocumentsByIds(
+            contentDocumentIds
+        );
 
         Test.stopTest();
 
@@ -338,15 +388,16 @@ public with sharing class FileSelector_TEST {
         Integer numberOfFiles = 3;
         Integer expectedFilesFromShares = 2;
 
-        User communityUser = [SELECT Id FROM User WHERE Email = :COMMUNITY_USER_EMAIL];
-        User adminUser = [SELECT Id FROM User WHERE Email = :ADMIN_USER_EMAIL];
+        FileSelector_TEST.businessFundSeekerPersona.load();
 
-        outfunds__Funding_Program__c program = TestUtils.createFundingProgram();
+        outfunds__Funding_Program__c program = createFundingPrograms(1)[0];
         insert program;
 
-        createFundingProgramShares(communityUser.Id);
+        createFundingProgramShares(
+            FileSelector_TEST.businessFundSeekerPersona.getUser().Id
+        );
 
-        TestUtils.createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
+        createContentDocumentsWithLink(program.Id, 'AllUsers', numberOfFiles);
 
         ContentDocument privateDocument = [
             SELECT Id, SharingPrivacy
@@ -360,7 +411,7 @@ public with sharing class FileSelector_TEST {
 
         Test.startTest();
 
-        System.runAs(communityUser) {
+        System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             FileSelector selector = new FileSelector();
             Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
             actualContentDocumentsCommunityUser = selector.contentDocumentsByIds(

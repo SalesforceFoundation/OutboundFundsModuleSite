@@ -1,9 +1,50 @@
-/**
- * TODO: Add documentation.
- * TODO: Add UnitTest_TEST with examples showing how to UnitTest with best practices.
- */
 @IsTest
 public with sharing class UnitTest {
+    private static Integer MOCK_ID_INDEX = 0;
+
+    /**
+     * Generates a mocked Id that is guaranteed to be unique within a transaction.
+     * @param  sObjectType In tests, you can pass in a SObjectType with Schema.[SObjectType Name].SObjectType.
+     * @return             A single mocked Id of sObjectType guaranteed to be unique within a transaction.
+     */
+    public static Id mockId(Schema.DescribeSObjectResult describe) {
+        return describe.getKeyPrefix() +
+            String.valueOf(UnitTest.MOCK_ID_INDEX++).leftPad(12, '0');
+    }
+
+    /**
+     * Generates a mocked Id that is guaranteed to be unique within a transaction.
+     * @param  sObjectType In tests, you can pass in a describe with Schema.SObjectType.[SObjectType Name].
+     * @return             A single mocked Id of sObjectType guaranteed to be unique within a transaction.
+     */
+    public static Id mockId(SObjectType sObjectType) {
+        return UnitTest.mockId(sObjectType.getDescribe());
+    }
+
+    /**
+     * Generates mocked Ids that are guaranteed to be unique within a transaction.
+     * @param  describe In tests, you can pass in a describe with Schema.SObjectType.[SObjectType Name].
+     * @param  size     Number of Ids to generate for this sObjectType
+     * @return          List of mocked Ids of sObjectType guaranteed to be unique within a transaction.
+     */
+    public static List<Id> mockIds(Schema.DescribeSObjectResult describe, Integer size) {
+        final List<Id> mockIds = new List<Id>();
+        for (Integer i = 0; i < size; i++) {
+            mockIds.add(UnitTest.mockId(describe));
+        }
+        return mockIds;
+    }
+
+    /**
+     * Generates mocked Ids that are guaranteed to be unique within a transaction.
+     * @param  sObjectType In tests, you can pass in a SObjectType with Schema.[SObjectType Name].SObjectType.
+     * @param  size        Number of Ids to generate for this sObjectType
+     * @return             List of mocked Ids of sObjectType guaranteed to be unique within a transaction.
+     */
+    public static List<Id> mockIds(SObjectType sObjectType, Integer size) {
+        return UnitTest.mockIds(sObjectType.getDescribe(), size);
+    }
+
     /**
      * An exception that can be used for testing so tests don't have to create their own Exceptions.
      */

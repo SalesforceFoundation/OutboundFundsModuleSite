@@ -115,19 +115,19 @@ public with sharing class TestUser {
         return null;
     }
 
-    public with sharing virtual class BusinessGrantseekerPersona extends TestUser.Persona {
+    public with sharing virtual class BusinessFundseekerPersona extends TestUser.Persona {
         protected Id contactId;
 
-        public BusinessGrantseekerPersona() {
+        public BusinessFundseekerPersona() {
             super();
         }
 
         public virtual override Type getType() {
-            return TestUser.BusinessGrantseekerPersona.class;
+            return TestUser.BusinessFundseekerPersona.class;
         }
 
         public virtual override String getUsername() {
-            return 'TestUser.BusinessGrantseekerPersona@sfdo.grants.example.com';
+            return 'TestUser.BusinessFundseekerPersona@sfdo.grants.example.com';
         }
 
         public override String getProfileName() {
@@ -136,7 +136,7 @@ public with sharing class TestUser {
 
         public virtual override void doBeforeInsertingUser() {
             Schema.Account account = new Schema.Account(
-                Name = 'Business Grantseeker Account'
+                Name = 'Business Fundseeker Account'
             );
 
             // Set RecordTypeId if one exists.
@@ -150,8 +150,8 @@ public with sharing class TestUser {
 
             Schema.Contact contact = new Schema.Contact(
                 AccountId = account.Id,
-                FirstName = 'BusinessGrantseekerFirst',
-                LastName = 'BusinessGrantseekerLast',
+                FirstName = 'BusinessFundseekerFirst',
+                LastName = 'BusinessFundseekerLast',
                 Email = this.getUsername()
             );
 
@@ -180,17 +180,17 @@ public with sharing class TestUser {
         }
     }
 
-    public with sharing virtual class PersonGrantseekerPersona extends BusinessGrantseekerPersona {
-        public PersonGrantseekerPersona() {
+    public with sharing virtual class PersonFundseekerPersona extends BusinessFundseekerPersona {
+        public PersonFundseekerPersona() {
             super();
         }
 
         public virtual override Type getType() {
-            return TestUser.PersonGrantseekerPersona.class;
+            return TestUser.PersonFundseekerPersona.class;
         }
 
         public virtual override String getUsername() {
-            return 'TestUser.PersonGrantseekerPersona@sfdo.grants.example.com';
+            return 'TestUser.PersonFundseekerPersona@sfdo.grants.example.com';
         }
 
         public virtual override Schema.User getUserForInsert() {
@@ -206,8 +206,8 @@ public with sharing class TestUser {
 
                 // Make sure to dynamically set RecordTypeId in case Account doesn't have any Record Types so the RecordTypeId field isn't exposed.
                 account.put('RecordTypeId', getFirstPersonAccountRecordTypeId()); // RecordTypeId must be exposed because Person Accounts is enabled, right?
-                account.put('FirstName', 'PersonGrantseekerFirst');
-                account.put('LastName', 'PersonGrantseekerLast');
+                account.put('FirstName', 'PersonFundseekerFirst');
+                account.put('LastName', 'PersonFundseekerLast');
                 account.put('PersonEmail', this.getUsername());
                 insert account;
 

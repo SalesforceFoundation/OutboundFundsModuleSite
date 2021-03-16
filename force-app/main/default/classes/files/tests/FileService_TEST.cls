@@ -1,17 +1,23 @@
 @IsTest
 public with sharing class FileService_TEST {
     /** Static stubs and setup properties **/
-    private static BasicStub fileSelectorStub = new BasicStub(FileSelector.class);
-    final static String METHOD_CONTENT_DOCUMENT_LINK_BY_RECORD_IDS = 'contentDocumentLinkByRecordIds';
-    final static String METHOD_CONTENT_DOCUMENT_BY_IDS = 'contentDocumentsByIds';
-    final static string COMMUNITY_USER_EMAIL = 'communitytestuser@salesforce.org';
+    private static TestUser.BusinessFundseekerPersona businessFundSeekerPersona = new TestUser.BusinessFundseekerPersona();
+
+    @TestSetup
+    private static void createTestData() {
+        TestUser.insertPersonasInTestSetup(
+            new List<TestUser.Persona>{ FileService_TEST.businessFundSeekerPersona }
+        );
+    }
 
     /** Test Runs **/
     @IsTest
     private static void testGetContentDocumentByRecordId() {
-        Id programId = TestUtils.mockId(outfunds__Funding_Program__c.SObjectType);
-        Id contentDocumentLinkId = TestUtils.mockId(ContentDocumentLink.SObjectType);
-        Id contentDocumentId = TestUtils.mockId(ContentDocument.SObjectType);
+        Id programId = UnitTest.mockId(Schema.SObjectType.outfunds__Funding_Program__c);
+        Id contentDocumentLinkId = UnitTest.mockId(
+            Schema.SObjectType.ContentDocumentLink
+        );
+        Id contentDocumentId = UnitTest.mockId(Schema.SObjectType.ContentDocument);
 
         List<ContentDocumentLink> contentDocumentLinkExpected = new List<ContentDocumentLink>{
             new ContentDocumentLink(
@@ -24,22 +30,23 @@ public with sharing class FileService_TEST {
             new ContentDocument(Id = contentDocumentId)
         };
 
-        fileSelectorStub.withReturnValue(
-            METHOD_CONTENT_DOCUMENT_LINK_BY_RECORD_IDS,
-            Set<Id>.class,
-            contentDocumentLinkExpected
+        UnitTest.Mock fileSelectorMock = new UnitTest.Mock();
+        UnitTest.Mock contentDocumentLinkByRecordIds = fileSelectorMock.getMethod(
+            'contentDocumentLinkByRecordIds'
         );
+        contentDocumentLinkByRecordIds.returnValue = contentDocumentLinkExpected;
 
-        fileSelectorStub.withReturnValue(
-            METHOD_CONTENT_DOCUMENT_BY_IDS,
-            Set<Id>.class,
-            contentDocumentExpected
+        UnitTest.Mock contentDocumentByRecordIds = fileSelectorMock.getMethod(
+            'contentDocumentsByIds'
         );
+        contentDocumentByRecordIds.returnValue = contentDocumentExpected;
 
         Test.startTest();
 
-        FileService.fileSelector = (FileSelector) fileSelectorStub.createMock();
         FileService service = new FileService();
+        service.fileSelector = (FileSelector) fileSelectorMock.createStub(
+            FileSelector.class
+        );
 
         List<ContentDocument> contentDocumentActual = service.getContentDocumentByRecordId(
             programId
@@ -53,43 +60,40 @@ public with sharing class FileService_TEST {
             'Expected the FileService to return the list from the FileSelector'
         );
 
-        fileSelectorStub.assertCalledWith(
-            METHOD_CONTENT_DOCUMENT_LINK_BY_RECORD_IDS,
-            Set<Id>.class,
-            new Set<Id>{ programId }
+        contentDocumentLinkByRecordIds.assertCalledOnceWith(
+            new List<Object>{ new Set<Id>{ programId } }
         );
 
-        fileSelectorStub.assertCalledWith(
-            METHOD_CONTENT_DOCUMENT_BY_IDS,
-            Set<Id>.class,
-            new Set<Id>{ contentDocumentId }
+        contentDocumentByRecordIds.assertCalledOnceWith(
+            new List<Object>{ new Set<Id>{ contentDocumentId } }
         );
     }
 
     @IsTest
     private static void testGetContentDocumentByRecordIdNoFiles() {
-        Id programId = TestUtils.mockId(outfunds__Funding_Program__c.SObjectType);
+        Id programId = UnitTest.mockId(Schema.SObjectType.outfunds__Funding_Program__c);
         List<ContentDocumentLink> contentDocumentLinkExpected = new List<ContentDocumentLink>();
         List<ContentDocument> contentDocumentExpected = new List<ContentDocument>();
 
-        fileSelectorStub.withReturnValue(
-            METHOD_CONTENT_DOCUMENT_LINK_BY_RECORD_IDS,
-            Set<Id>.class,
-            contentDocumentLinkExpected
+        UnitTest.Mock fileSelectorMock = new UnitTest.Mock();
+        UnitTest.Mock contentDocumentLinkByRecordIds = fileSelectorMock.getMethod(
+            'contentDocumentLinkByRecordIds'
         );
+        contentDocumentLinkByRecordIds.returnValue = contentDocumentLinkExpected;
 
-        fileSelectorStub.withReturnValue(
-            METHOD_CONTENT_DOCUMENT_BY_IDS,
-            Set<Id>.class,
-            contentDocumentExpected
+        UnitTest.Mock contentDocumentByRecordIds = fileSelectorMock.getMethod(
+            'contentDocumentsByIds'
         );
+        contentDocumentByRecordIds.returnValue = contentDocumentExpected;
 
         Test.startTest();
 
-        FileService.fileSelector = (FileSelector) fileSelectorStub.createMock();
-        FileService service = new FileService();
+        FileService fileService = new FileService();
+        fileService.fileSelector = (FileSelector) fileSelectorMock.createStub(
+            FileSelector.class
+        );
 
-        List<ContentDocument> contentDocumentActual = service.getContentDocumentByRecordId(
+        List<ContentDocument> contentDocumentActual = fileService.getContentDocumentByRecordId(
             programId
         );
 
@@ -101,20 +105,23 @@ public with sharing class FileService_TEST {
             'Expected the FileService to return an empty list from the FileSelector'
         );
 
-        fileSelectorStub.assertCalledWith(
-            METHOD_CONTENT_DOCUMENT_LINK_BY_RECORD_IDS,
-            Set<Id>.class,
-            new Set<Id>{ programId }
+        contentDocumentLinkByRecordIds.assertCalledOnceWith(
+            new List<Object>{ new Set<Id>{ programId } }
         );
-
-        fileSelectorStub.assertNotCalled(METHOD_CONTENT_DOCUMENT_BY_IDS);
+        contentDocumentByRecordIds.assertNotCalled();
     }
 
     @IsTest
     private static void deleteContentDocumentsByIdShouldCallDeleteRecords() {
+        Integer contentDocumentCount = 5;
         FileService fileServiceInstance = new FileService();
+        List<ContentDocument> contentDocuments = FileSelector_TEST.createContentDocuments(
+            contentDocumentCount
+        );
 
-        final Id contentDocumentId = TestUtils.mockId(Schema.SObjectType.ContentDocument);
+        final Id contentDocumentId = contentDocuments[0].Id;
+
+        // final Id contentDocumentId = UnitTest.mockId(Schema.SObjectType.ContentDocument);
         final List<Database.DeleteResult> results = new List<Database.DeleteResult>();
         results.add(
             (Database.DeleteResult) JSON.deserialize(
@@ -126,52 +133,54 @@ public with sharing class FileService_TEST {
         );
 
         final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
-        databaseServiceMock.getMethod('deleteRecordsById').returnValue = results;
+        databaseServiceMock.getMethod('deleteRecords').returnValue = results;
 
         Test.startTest();
-        FileService.databaseService = (DatabaseService) databaseServiceMock.createStub(
+        fileServiceInstance.databaseService = (DatabaseService) databaseServiceMock.createStub(
             DatabaseService.class
         );
 
         final List<Database.DeleteResult> actual = fileServiceInstance.deleteContentDocumentsById(
-            new List<Id>{ contentDocumentId }
+            new List<ContentDocument>{ contentDocuments[0] }
         );
         Test.stopTest();
 
         System.assert(actual[0].success);
-        databaseServiceMock.getMethod('deleteRecordsById').assertCalled();
+        databaseServiceMock.getMethod('deleteRecords').assertCalled();
     }
 
     @IsTest
     private static void deleteContentDocumentsByIdShouldConfirmPermissions() {
+        Integer contentDocumentCount = 5;
         FileService fileServiceInstance = new FileService();
 
-        final Id contentDocumentId = TestUtils.mockId(Schema.SObjectType.User);
+        List<ContentDocument> contentDocuments = FileSelector_TEST.createContentDocuments(
+            contentDocumentCount
+        );
+
+        //final Id contentDocumentId = UnitTest.mockId(Schema.SObjectType.User);
         final List<Database.DeleteResult> results = new List<Database.DeleteResult>();
 
         final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
-        databaseServiceMock.getMethod('deleteRecordsById').returnValue = results;
+        databaseServiceMock.getMethod('deleteRecords').returnValue = results;
 
-        User noPermUser = TestUtils.createUser(
-            'Minimum Access - Salesforce',
-            COMMUNITY_USER_EMAIL
-        );
+        FileService_TEST.businessFundSeekerPersona.load();
 
         final List<Database.DeleteResult> actual;
         Test.startTest();
-        System.runAs(noPermUser) {
-            FileService.databaseService = (DatabaseService) databaseServiceMock.createStub(
+        System.runAs(FileService_TEST.businessFundSeekerPersona.getUser()) {
+            fileServiceInstance.databaseService = (DatabaseService) databaseServiceMock.createStub(
                 DatabaseService.class
             );
 
             actual = fileServiceInstance.deleteContentDocumentsById(
-                new List<Id>{ contentDocumentId }
+                new List<ContentDocument>{ contentDocuments[0] }
             );
         }
         Test.stopTest();
 
         System.assert(actual.isEmpty());
-        databaseServiceMock.getMethod('deleteRecordsById').assertCalled();
+        databaseServiceMock.getMethod('deleteRecords').assertCalled();
     }
 
     @IsTest
@@ -179,7 +188,7 @@ public with sharing class FileService_TEST {
         FileService fileServiceInstance = new FileService();
         Integer contentDocumentCount = 5;
 
-        List<ContentDocument> contentDocuments = TestUtils.createContentDocuments(
+        List<ContentDocument> contentDocuments = FileSelector_TEST.createContentDocuments(
             contentDocumentCount
         );
 
@@ -187,7 +196,7 @@ public with sharing class FileService_TEST {
 
         Test.startTest();
         fileServiceInstance.deleteContentDocumentsById(
-            new List<Id>{ contentDocuments[0].Id }
+            new List<ContentDocument>{ contentDocuments[0] }
         );
         Test.stopTest();
 
@@ -208,7 +217,7 @@ public with sharing class FileService_TEST {
         Account account = new Account(Name = 'Test Verification Check');
         insert account;
 
-        List<ContentDocument> contentDocuments = TestUtils.createContentDocuments(
+        List<ContentDocument> contentDocuments = FileSelector_TEST.createContentDocuments(
             contentDocumentCount
         );
 
@@ -244,31 +253,36 @@ public with sharing class FileService_TEST {
     private static void createContentDocumentLinksShouldCallDatabaseService() {
         FileService fileServiceInstance = new FileService();
 
-        final Id accountId = TestUtils.mockId(Schema.Account.getSObjectType());
-        final Id contentDocumentId = TestUtils.mockId(
-            Schema.ContentDocument.getSObjectType()
-        );
-        final Id contentDocumentLinkId = TestUtils.mockId(
-            Schema.ContentDocumentLink.getSObjectType()
+        final Id accountId = UnitTest.mockId(Schema.SObjectType.Account);
+        final Id contentDocumentId = UnitTest.mockId(Schema.SObjectType.ContentDocument);
+        final Id contentDocumentLinkId = UnitTest.mockId(
+            Schema.SObjectType.ContentDocumentLink
         );
 
         List<Id> contentDocumentIds = new List<Id>{ contentDocumentId };
-        List<DatabaseService.SaveResult> expectedSaveResults = new List<DatabaseService.SaveResult>{
-            new DatabaseService.SaveResult(null, contentDocumentLinkId, true)
-        };
+        List<Database.SaveResult> expectedSaveResults = new List<Database.SaveResult>();
+
+        expectedSaveResults.add(
+            (Database.SaveResult) JSON.deserialize(
+                '{"success":true, "id":"' +
+                contentDocumentLinkId +
+                '"}',
+                Database.SaveResult.class
+            )
+        );
 
         // Create all Mocks and set return values/exceptions.
         final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
         final UnitTest.Mock insertRecordsMock = databaseServiceMock.getMethod(
-            'insertRecords'
+            'insertRecordsEnforceFls'
         );
         insertRecordsMock.returnValue = expectedSaveResults;
 
-        List<DatabaseService.SaveResult> actualResults;
+        List<Database.SaveResult> actualResults;
         Test.startTest();
 
         // Set mocks.
-        FileService.databaseService = (DatabaseService) databaseServiceMock.createStub(
+        fileServiceInstance.databaseService = (DatabaseService) databaseServiceMock.createStub(
             DatabaseService.class
         );
 
@@ -301,7 +315,7 @@ public with sharing class FileService_TEST {
         Account account = new Account(Name = 'Test Verification Check');
         insert account;
 
-        List<ContentDocumentLink> contentLinks = TestUtils.createContentDocumentsWithLink(
+        List<ContentDocumentLink> contentLinks = FileSelector_TEST.createContentDocumentsWithLink(
             account.Id,
             'AllUsers',
             contentDocumentCount
@@ -342,12 +356,10 @@ public with sharing class FileService_TEST {
     private static void unlinkContentDocumentsFromRecordShouldCallDatabaseService() {
         FileService fileServiceInstance = new FileService();
 
-        final Id accountId = TestUtils.mockId(Schema.Account.getSObjectType());
-        final Id contentDocumentId = TestUtils.mockId(
-            Schema.ContentDocument.getSObjectType()
-        );
-        final Id contentDocumentLinkId = TestUtils.mockId(
-            Schema.ContentDocumentLink.getSObjectType()
+        final Id accountId = UnitTest.mockId(Schema.SObjectType.Account);
+        final Id contentDocumentId = UnitTest.mockId(Schema.SObjectType.ContentDocument);
+        final Id contentDocumentLinkId = UnitTest.mockId(
+            Schema.SObjectType.ContentDocumentLink
         );
         final ContentDocumentLink expectedContentDocumentLink = new ContentDocumentLink(
             Id = contentDocumentLinkId
@@ -374,7 +386,7 @@ public with sharing class FileService_TEST {
         // Create all Mocks and set return values/exceptions.
         final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
         final UnitTest.Mock deleteRecordsByIdMock = databaseServiceMock.getMethod(
-            'deleteRecordsById'
+            'deleteRecords'
         );
         deleteRecordsByIdMock.returnValue = deleteResults;
 
@@ -382,10 +394,10 @@ public with sharing class FileService_TEST {
         Test.startTest();
 
         // Set mocks.
-        FileService.databaseService = (DatabaseService) databaseServiceMock.createStub(
+        fileServiceInstance.databaseService = (DatabaseService) databaseServiceMock.createStub(
             DatabaseService.class
         );
-        FileService.fileSelector = (FileSelector) fileSelectorMock.createStub(
+        fileServiceInstance.fileSelector = (FileSelector) fileSelectorMock.createStub(
             FileSelector.class
         );
 
