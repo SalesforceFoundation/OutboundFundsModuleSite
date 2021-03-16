@@ -1,5 +1,5 @@
 *** Settings ***
-
+Documentation  Community User Apply for Funding Program
 Resource       robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.robot
 Library        cumulusci.robotframework.PageObjects
 ...            robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.py
@@ -13,18 +13,19 @@ Suite Teardown  Capture Screenshot And Delete Records And Close Browser
 
 *** Keywords ***
 Setup Test Data
+    [Documentation]                   Create data to run tests
     ${ns} =                           Get OBF Namespace Prefix
     Set Suite Variable                ${ns}
-    ${path} =                         Normalize Path     ${CURDIR}/../../../test_data/requirement.txt
+    ${path} =                         Normalize Path    ${CURDIR}/../../../test_data/requirement.txt
     Set Suite Variable                ${path}
     &{fundingprogram} =               API Create Funding Program
     Set suite variable                &{fundingprogram}
 
 *** Test Cases ***
 Apply to Funding Program
-    [Documentation]                             Add Funding Request on a funding Program in community
-    ...                                         via "Apply" button on Funding Program
-    [tags]                                      unstable    feature:Funding Program
+    [Documentation]                             Add Funding Request on a funding Program in
+    ...                                          community via "Apply" button on Funding Program
+    [tags]                                      unstable    feature:FundingProgram
     Go To Community As Test User                Contact        Grace Walker
     Wait Until Element Is Visible               text:Our Grant Programs
     Click Portal Tab                            Funding Programs

@@ -1,5 +1,5 @@
 *** Settings ***
-
+Documentation   Create a Contact
 Resource        robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.robot
 Library         cumulusci.robotframework.PageObjects
 ...             robot/OutboundFundsCommunity/resources/ContactPageObject.py
@@ -11,38 +11,32 @@ Suite Teardown  Delete Records and Close Browser
 *** Test Cases ***
 
 Via API
+    [Documentation]       Create Contact via API
     ${first_name} =       Get fake data  first_name
     ${last_name} =        Get fake data  last_name
-
     ${contact_id} =       Salesforce Insert  Contact
     ...                     FirstName=${first_name}
     ...                     LastName=${last_name}
-
     &{contact} =          Salesforce Get  Contact  ${contact_id}
     Validate Contact      ${contact_id}  ${first_name}  ${last_name}
 
 Via UI
+    [Documentation]       Create Contact via UI
     ${first_name} =       Get fake data  first_name
     ${last_name} =        Get fake data  last_name
-
     Go to page            Home  Contact
     Click Object Button   New
     Wait for modal        New  Contact
-
     Populate Form
     ...                   First Name=${first_name}
     ...                   Last Name=${last_name}
     Click Modal Button    Save
-
     Wait Until Modal Is Closed
-
     ${contact_id} =       Get Current Record Id
     Store Session Record  Contact  ${contact_id}
     Validate Contact      ${contact_id}  ${first_name}  ${last_name}
 
-
 *** Keywords ***
-
 Validate Contact
     [Arguments]          ${contact_id}  ${first_name}  ${last_name}
     [Documentation]
