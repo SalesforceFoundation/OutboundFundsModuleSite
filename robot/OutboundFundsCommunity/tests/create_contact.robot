@@ -1,7 +1,8 @@
 *** Settings ***
 
-Resource        cumulusci/robotframework/Salesforce.robot
+Resource        robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.robot
 Library         cumulusci.robotframework.PageObjects
+...             robot/OutboundFundsCommunity/resources/ContactPageObject.py
 
 Suite Setup     Open Test Browser
 Suite Teardown  Delete Records and Close Browser
