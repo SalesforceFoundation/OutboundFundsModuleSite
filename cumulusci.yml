@@ -233,6 +233,14 @@ tasks:
             network_name: Outbound Funds Portal
             navigation_menu: OFM_Portal_Navigation1
 
+    run_tests:
+        options:
+            retry_failures:
+                - "unable to obtain exclusive access to this record"
+                - "UNABLE_TO_LOCK_ROW"
+            retry_always: True
+            required_org_code_coverage_percent: "100"
+
 flows:
     # dev story
     dev_story:
