@@ -3,6 +3,9 @@
 Resource       cumulusci/robotframework/Salesforce.robot
 Library        OutboundFundsCommunity.py
 Library        DateTime
+Library        cumulusci.robotframework.PageObjects
+...            robot/OutboundFundsCommunity/resources/ContactPageObject.py
+...            robot/OutboundFundsCommunity/resources/CommunityHomePageObject.py
 
 *** Keywords ***
 
@@ -22,6 +25,14 @@ API Create Account
     ...                             &{fields}
     &{account} =                    Salesforce Get  Account  ${account_id}
     [return]                        &{account}
+
+API Get Group Id
+    [Documentation]         Returns the ID of a Group
+    [Arguments]             &{fields}
+    ${result} =             SOQL Query
+    ...                     SELECT Id FROM Group WHERE DeveloperName = 'AllCustomerPortalUsers'
+    &{Id} =                 Get From List  ${result['records']}  0
+    [return]                ${Id}[Id]
 
 API Create Contact
     [Documentation]                 Create a contact via API
@@ -62,6 +73,7 @@ API Create Funding Program
     ...                             ${ns}Description__c=Robot API Program
     ...                             &{fields}
     &{fundingprogram} =             Salesforce Get  ${ns}Funding_Program__c  ${funding_program_id}
+    Share Funding Program           ${funding_program_id}
     [Return]                        &{fundingprogram}
 
 API Create Funding Request
@@ -119,3 +131,39 @@ API Create Disbursement on a Funding Request
     &{disbursement} =               Salesforce Get  ${ns}Disbursement__c  ${disbursement_id}
     Store Session Record            ${ns}disbursement__c   ${disbursement_id}
     [Return]                        &{disbursement}
+
+API Get Id
+    [Documentation]                 Returns the ID of a record identified by the given field_name
+    ...                             and field_value input for a specific object
+    [Arguments]                     ${obj_name}    &{fields}
+    @{records} =                    Salesforce Query      ${obj_name}
+    ...                             select=Id
+    ...                             &{fields}
+    &{Id} =                         Get From List  ${records}  0
+    [return]                        ${Id}[Id]
+
+Share Funding Program
+    [Documentation]         Share New Funding Program with Community User
+    [Arguments]             ${funding_program_id}       &{fields}
+    ${ns} =                 Get OBF Namespace Prefix
+    ${group_id} =           API Get Group Id
+    ${share_id}             Salesforce Insert   ${ns}Funding_Program__Share
+    ...                     UserOrGroupId=${group_id}
+    ...                     ParentId=${funding_program_id}
+    ...                     AccessLevel=Read
+    ...                     RowCause=Manual
+    ...                     &{fields}
+    &{access} =             Salesforce Get  ${ns}Funding_Program__Share  ${share_id}
+    [Return]                &{access}
+
+Go To Community As Test User
+    [Documentation]                 Go to the given CONTACT_ID detail page and log in to community
+    [Arguments]                     ${object}    ${name}
+    ${contact_id} =                 API Get Id  ${object}   name=${name}
+    Go To Page                      Detail      Contact       ${contact_id}
+    Wait Until Loading Is Complete
+    Current Page Should Be          Detail      Contact
+    Capture Page Screenshot
+    Login To Community As User
+    Capture Page Screenshot
+    Current Page Should Be          Home        Community

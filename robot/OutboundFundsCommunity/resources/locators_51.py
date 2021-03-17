@@ -6,6 +6,16 @@ outboundfundscommunity_lex_locators = {
         "app_link_search_result": "//mark[contains(text(),'{}')]",
         "search_input": "//input[contains(@placeholder,'Search apps or items...')]",
     },
+    "action_locators": {
+        "community_login_error": "//div[contains(@class, 'slds-modal__container')]/div[contains(@class, 'modal-body')]/div[contains(text(), 'Looks like this portal user is not a member of a community or your community is down')]",
+        "login_to_community": "//span[contains(text(), 'Log in to')]",
+        "show_more_actions": "//div[contains(@class, 'windowViewMode-normal oneContent active lafPageHost')]//lightning-button-menu[contains(@class,'slds-dropdown-trigger')]/button[contains(@class, 'slds-button_icon-border-filled')]",
+    },
+    "community_locators": {
+        "quick_action_button": "//button[contains(text(), '{}')]",
+        "header": "//h1//div[contains(@class, 'entityNameTitle') and text()='{}']",
+        "header_title": "//h2[(contains(@class, 'slds-card__header-title'))]//span[contains(text(),'{}')] ",
+    },
     "new_record": {
         "label": "//label[text()='{}']",
         "title": "//h2[contains(@class, 'inlineTitle') and text()='{}']",
@@ -48,6 +58,10 @@ outboundfundscommunity_lex_locators = {
         "button": "//button[contains(@class, 'slds-button') and text() = '{}']",
         "header": "//h1//div[contains(@class, 'entityNameTitle') and contains(text(),'{}')]",
     },
+    "header_title": "//h2[(contains(@class, 'inlineTitle') or contains(@class, 'slds-text-heading') or contains(@class, 'listTitle') or contains(@class, 'slds-hyphenate')) and contains(text(),'{}')]",
     "link": "//a[contains(text(),'{}')]",
+    "modal_field": "//label[contains(@class, 'uiLabel')][.//div[text()='{}']]//*[self::input or self::textarea]",
     "flexipage-popup": "//div[contains(@class, 'slds-is-open')][contains(@class, 'slds-combobox')]",
+    "upload_file": "//input[@type='file' and contains(@class,'slds-file-selector__input')]",
+    "upload_modal": "//button//span[text()='{}']",
 }

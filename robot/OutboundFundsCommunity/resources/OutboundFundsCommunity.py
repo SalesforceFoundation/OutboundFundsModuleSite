@@ -195,3 +195,35 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         )
         self.salesforce._jsclick(locator)
         self.salesforce.wait_until_loading_is_complete()
+
+    def login_to_community_as_user(self):
+        """ Click on 'Show more actions' drop down and select the option to log in to community as user """
+        locator_actions = outboundfundscommunity_lex_locators["action_locators"][
+            "show_more_actions"
+        ]
+        locator_login_link = outboundfundscommunity_lex_locators["action_locators"][
+            "login_to_community"
+        ]
+
+        self.selenium.wait_until_page_contains_element(
+            locator_actions,
+            error=f"Show more actions drop down with locator '{locator_actions}' is not available on the page",
+        )
+        self.selenium.click_element(locator_actions)
+        self.selenium.wait_until_page_contains_element(
+            locator_login_link,
+            error="'Log in to Experience as user' option is not available in the list of actions",
+        )
+        self.selenium.click_element(locator_login_link)
+
+    @capture_screenshot_on_error
+    def click_portal_tab(self, title):
+        """Click on Navigation Tab in Community"""
+        locator = outboundfundscommunity_lex_locators["link"].format(title)
+        if self.check_if_element_exists(locator):
+            ele = self.selenium.get_webelement(locator)
+            classname = ele.get_attribute("class")
+            if "comm-hide" in classname:
+                self.click_more_button()
+            else:
+                self.selenium.click_element(locator)
