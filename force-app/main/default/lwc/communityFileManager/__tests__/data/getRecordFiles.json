@@ -1,0 +1,29 @@
+[
+  {
+    "OwnerId": "0053B000003wIzfQAE",
+    "FileType": "TEXT",
+    "FileExtension": "txt",
+    "Title": "Test File 1",
+    "Id": "0693B000000B1MKQA0",
+    "canDelete": false,
+    "fullName": "Test File 1.txt"
+  },
+  {
+    "OwnerId": "0053B000003wIzfQAE",
+    "FileType": "TEXT",
+    "FileExtension": "txt",
+    "Title": "Test File 2",
+    "Id": "0693B000000B1MVQA0",
+    "canDelete": true,
+    "fullName": "Test File 2.txt"
+  },
+  {
+    "OwnerId": "0053B000003wIzfQAE",
+    "FileType": "TEXT",
+    "FileExtension": "txt",
+    "Title": "Test File 3",
+    "Id": "0693B000000B1MZQA0",
+    "canDelete": true,
+    "fullName": "Test File 3.txt"
+  }
+]
