@@ -422,37 +422,4 @@ public with sharing class FileService_TEST {
             )
         );
     }
-
-    /**
-     * Asserts that the custom exception created for ContentDocument Deletion security checks can be thrown by the service
-     */
-    @IsTest
-    private static void doesNotHaveDeleteAccessForObjectExceptionShouldBeThrowable() {
-        Exception actualException;
-        try {
-            throw new FileService.DoesNotHaveDeleteAccessForObjectException();
-        } catch (FileService.DoesNotHaveDeleteAccessForObjectException e) {
-            actualException = e;
-        } catch (Exception e) {
-            System.assert(
-                false,
-                String.format(
-                    'Expected to catch an exception of type {0}',
-                    new List<String>{
-                        FileService.DoesNotHaveDeleteAccessForObjectException.class
-                            .getName()
-                    }
-                )
-            );
-        }
-        System.assertEquals(
-            actualException.getTypeName(),
-            FileService.DoesNotHaveDeleteAccessForObjectException.class.getName()
-        );
-        System.assertEquals(
-            System.Label.Does_Not_Have_Delete_Access_For_Object_Message,
-            actualException.getMessage(),
-            'Expected exception message to match the expected label'
-        );
-    }
 }

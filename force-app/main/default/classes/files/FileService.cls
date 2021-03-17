@@ -5,14 +5,6 @@ public with sharing class FileService {
     @TestVisible
     private DatabaseService databaseService = new DatabaseService();
 
-    // TODO(future) - Move to security service and create similar deletion checks
-    @TestVisible
-    private with sharing class DoesNotHaveDeleteAccessForObjectException extends Exception {
-        public override string getMessage() {
-            return System.Label.Does_Not_Have_Delete_Access_For_Object_Message;
-        }
-    }
-
     /**
      * @description Returns a list of ContentDocument(s) related to a record
      * @param recordId  Id of the record for which we will query associated ContentDocument(s)
@@ -74,9 +66,7 @@ public with sharing class FileService {
         List<ContentDocumentLink> contentDocumentLinksToDelete = new List<ContentDocumentLink>();
 
         // Unable to write a test that removes DELETE CRUD from the ContentDocumentLink object for the running user.
-        // Removing from prettier formatting flow to ensure test coverage
-        // prettier-ignore
-        if (!ContentDocumentLink.sObjectType.getDescribe().isDeletable()) {throw new DoesNotHaveDeleteAccessForObjectException();}
+
         for (
             ContentDocumentLink contentDocumentLink : fileSelector.contentDocumentLinkByRecordIds(
                 new Set<Id>{ recordId }
@@ -98,8 +88,6 @@ public with sharing class FileService {
     ) {
         List<Database.DeleteResult> results = new List<Database.DeleteResult>();
 
-        // prettier-ignore
-        if (!ContentDocument.sObjectType.getDescribe().isDeletable()) {throw new DoesNotHaveDeleteAccessForObjectException();}
         return databaseService.deleteRecords(contentDocuments);
     }
 }
