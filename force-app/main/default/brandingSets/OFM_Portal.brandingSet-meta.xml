@@ -22,11 +22,11 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CardBackgroundColor</propertyName>
-        <propertyValue>rgba(255, 255, 255, 0)</propertyValue>
+        <propertyValue>#131413</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LoginBackgroundColor</propertyName>
-        <propertyValue>#F4F4F4</propertyValue>
+        <propertyValue>#FAFAFA</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>ActionColor</propertyName>
@@ -38,15 +38,15 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CompanyLogo</propertyName>
-        <propertyValue>/file-asset/HIVE_Foundation_logo?v=1</propertyValue>
+        <propertyValue>/file-asset/GCCS_Foundation_logo?v=1</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LoginBackgroundImage</propertyName>
-        <propertyValue>../../../../sfsites/picasso/core/external/salesforceIdentity/images/background.jpg?v=1</propertyValue>
+        <propertyValue></propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>PageBackgroundColor</propertyName>
-        <propertyValue>#FFFFFF</propertyValue>
+        <propertyValue>rgb(250, 250, 250)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>_LinkColorDarker</propertyName>

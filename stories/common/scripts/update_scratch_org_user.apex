@@ -30,6 +30,6 @@ update new Schema.User(
     City = 'Denver',
     State = 'CO',
     PostalCode = '80202',
-    CompanyName = 'Hive Foundation'
+    CompanyName = 'Grantwood Conservation Center'
     // TimeZoneSidKey defaults from CumulusCI settings.
 );
