@@ -15,7 +15,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>richTextValue</name>
-                    <value>&lt;p&gt;&lt;img class=&quot;sfdcCbImage&quot; title=&quot;HIVE Foundation logo&quot; src=&quot;{!contentAsset.HIVE_Foundation_logo.1}&quot; /&gt;&lt;/p&gt;</value>
+                    <value>&lt;p&gt;&lt;img class=&quot;sfdcCbImage&quot; title=&quot;GCCS Foundation logo&quot; src=&quot;{!contentAsset.GCCS_Foundation_logo.1}&quot; /&gt;&lt;/p&gt;</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:richTextInline</componentName>
             </componentInstance>
