@@ -24,7 +24,8 @@ const MOCK_DELETE_ERROR = {
 
 const MOCK_GET_RECORD_SHOW_UPLOAD_FILES = require("./data/getShowFilesRequirement.json");
 const MOCK_GET_RECORD_HIDE_UPLOAD_FILES = require("./data/getHideFilesRequirement.json");
-const getRecordWireAdapter = registerLdsTestWireAdapter(getRecord);
+
+const getRecordWireAdapter = registerLdsTestWireAdapter(getRecord); // eslint-disable-line
 
 jest.mock(
     "@salesforce/community/basePath",
