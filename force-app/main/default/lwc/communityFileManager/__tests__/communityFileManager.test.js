@@ -25,7 +25,11 @@ const MOCK_DELETE_ERROR = {
 const MOCK_GET_RECORD_SHOW_UPLOAD_FILES = require("./data/getShowFilesRequirement.json");
 const MOCK_GET_RECORD_HIDE_UPLOAD_FILES = require("./data/getHideFilesRequirement.json");
 
-const getRecordWireAdapter = registerLdsTestWireAdapter(getRecord); // eslint-disable-line
+// Disabling the following line due to an issue with no-unexpected-wire-adapter-usages.
+// for more information go to:
+// https://github.com/salesforce/eslint-plugin-lwc/blob/master/docs/rules/no-unexpected-wire-adapter-usages.md
+// eslint-disable-next-line @lwc/lwc/no-unexpected-wire-adapter-usages
+const getRecordWireAdapter = registerLdsTestWireAdapter(getRecord);
 
 jest.mock(
     "@salesforce/community/basePath",
