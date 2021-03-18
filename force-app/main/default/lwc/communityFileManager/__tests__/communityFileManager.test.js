@@ -25,7 +25,7 @@ const MOCK_DELETE_ERROR = {
 const MOCK_GET_RECORD_SHOW_UPLOAD_FILES = require("./data/getShowFilesRequirement.json");
 const MOCK_GET_RECORD_HIDE_UPLOAD_FILES = require("./data/getHideFilesRequirement.json");
 
-// Disabling the following line due to an issue with no-unexpected-wire-adapter-usages.
+// Disabling the following line due to an unexpected behavior with eslint rule no-unexpected-wire-adapter-usages.
 // for more information go to:
 // https://github.com/salesforce/eslint-plugin-lwc/blob/master/docs/rules/no-unexpected-wire-adapter-usages.md
 // eslint-disable-next-line @lwc/lwc/no-unexpected-wire-adapter-usages
