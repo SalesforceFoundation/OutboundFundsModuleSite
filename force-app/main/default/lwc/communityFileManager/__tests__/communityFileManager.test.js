@@ -93,7 +93,7 @@ describe("c-community-file-manager", () => {
         window.location.href = target;
         expect(window.location.href).toBe(target);
     });
-    
+
     it("should be accessible", async () => {
         await expect(fileManager).toBeAccessible();
     });
