@@ -121,7 +121,6 @@ public with sharing class FileService_TEST {
 
         final Id contentDocumentId = contentDocuments[0].Id;
 
-        // final Id contentDocumentId = UnitTest.mockId(Schema.SObjectType.ContentDocument);
         final List<Database.DeleteResult> results = new List<Database.DeleteResult>();
         results.add(
             (Database.DeleteResult) JSON.deserialize(
@@ -158,7 +157,6 @@ public with sharing class FileService_TEST {
             contentDocumentCount
         );
 
-        //final Id contentDocumentId = UnitTest.mockId(Schema.SObjectType.User);
         final List<Database.DeleteResult> results = new List<Database.DeleteResult>();
 
         final UnitTest.Mock databaseServiceMock = new UnitTest.Mock();
