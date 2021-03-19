@@ -75,7 +75,7 @@ tasks:
     fundseeker_create_network_members:
         group: "OFM-Site: Fundseeker customer enablement"
         description: Create a NetworkMemberGroup records.
-        class_path: tasks.network_member_group.CreateNetworkMemberGroups
+        class_path: cumulusci.tasks.salesforce.network_member_group.CreateNetworkMemberGroups
         options:
             network_name: Outbound Funds Portal
             profile_names:
