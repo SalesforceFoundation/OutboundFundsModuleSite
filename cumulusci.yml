@@ -48,8 +48,8 @@ tasks:
         options:
             ignore:
                 ContentAsset:
-                    - HIVE_Foundation_hero
-                    - HIVE_Foundation_logo
+                    - GCCS_Foundation_hero
+                    - GCCS_Foundation_logo
 
     # Fundseeker customer enablement
     fundseeker_create_site:
