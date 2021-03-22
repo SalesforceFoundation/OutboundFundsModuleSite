@@ -227,3 +227,98 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
                 self.click_more_button()
             else:
                 self.selenium.click_element(locator)
+
+    @capture_screenshot_on_error
+    def populate_modal_form(self, **kwargs):
+        """This keyword validates , identifies the element and populates value"""
+        for key, value in kwargs.items():
+            if key in (
+                "Application Date",
+                "Close Date",
+                "Due Date",
+                "Completed date",
+            ):
+                locator = outboundfundscommunity_lex_locators["new_record"][
+                    "lightning_datepicker"
+                ].format(key)
+                if self.check_if_element_exists(locator):
+                    element = self.selenium.driver.find_element_by_xpath(locator)
+                    self.selenium.driver.execute_script(
+                        "arguments[0].scrollIntoView(true)", element
+                    )
+                    self.selenium.wait_until_element_is_visible(locator)
+                    self.selenium.set_focus_to_element(locator)
+                    self.select_from_date_picker(key, value)
+                else:
+                    self.builtin.log(f"Element {key} not found")
+
+            elif key in ("Status", "Type", "Application Form"):
+                locator = outboundfundscommunity_lex_locators["new_record"][
+                    "dropdown_field"
+                ].format(key)
+                selection_value = outboundfundscommunity_lex_locators["new_record"][
+                    "dropdown_value"
+                ].format(value)
+                if self.check_if_element_exists(locator):
+                    self.selenium.set_focus_to_element(locator)
+                    self.selenium.wait_until_element_is_visible(locator)
+                    self.selenium.scroll_element_into_view(locator)
+                    self.salesforce._jsclick(locator)
+                    self.selenium.wait_until_element_is_visible(selection_value)
+                    self.selenium.click_element(selection_value)
+
+            elif key in (
+                "Funding Program",
+                "Applying Contact",
+                "Assigned",
+                "Primary Contact",
+            ):
+                self.salesforce.populate_lookup_field(key, value)
+
+            elif key in (
+                "Funding Request Name",
+                "Description",
+                "Requested Amount",
+                "Number of Disbursements",
+                "Interval",
+                "Amount",
+                "Requirement Name",
+                "Funding Program Name",
+            ):
+                locator = outboundfundscommunity_lex_locators["new_record"][
+                    "field_input"
+                ].format(key)
+                self.salesforce._populate_field(locator, value)
+            else:
+                raise Exception("Locator for {} is not found on the page".format(key))
+
+    @capture_screenshot_on_error
+    def click_related_list_link(self, text):
+        """Click on link with passed text"""
+        locator = outboundfundscommunity_lex_locators["flexi_link"].format(text)
+        self.selenium.wait_until_page_contains_element(locator)
+        element = self.selenium.driver.find_element_by_xpath(locator)
+        self.selenium.driver.execute_script("arguments[0].click()", element)
+
+    @capture_screenshot_on_error
+    def save_disbursement(self):
+        """Click Save Disbursement"""
+        locator = outboundfundscommunity_lex_locators["details"]["button"].format(
+            "Save"
+        )
+        self.selenium.set_focus_to_element(locator)
+        self.selenium.get_webelement(locator).click()
+
+    def select_from_date_picker(self, title, value):
+        """Opens the date picker by clicking on the date picker icon given the title of the field and select a date"""
+        locator = outboundfundscommunity_lex_locators["new_record"][
+            "lightning_datepicker"
+        ].format(title)
+        self.selenium.scroll_element_into_view(locator)
+        self.selenium.set_focus_to_element(locator)
+        self.selenium.get_webelement(locator).click()
+        locator_date = outboundfundscommunity_lex_locators["new_record"][
+            "datepicker"
+        ].format(value)
+        self.selenium.set_focus_to_element(locator_date)
+        self.selenium.get_webelement(locator_date).click()
