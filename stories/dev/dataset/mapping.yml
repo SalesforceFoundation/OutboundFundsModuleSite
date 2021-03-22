@@ -159,6 +159,7 @@ outfunds__Requirement__c:
     - outfunds__Requirements__c
     - outfunds__Status__c
     - outfunds__Type__c
+    - IsAddFilesVisible__c
   lookups:
     outfunds__Disbursement__c:
       key_field: outfunds__disbursement__c

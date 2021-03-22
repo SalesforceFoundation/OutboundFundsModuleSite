@@ -5,7 +5,7 @@ public with sharing class FileController {
     @AuraEnabled(cacheable=true)
     public static List<ContentDocument> getRecordFiles(Id recordId) {
         try {
-            return fileService.getContentDocumentByRecordId(recordId);
+            return fileService.getContentDocumentsByRecordId(recordId);
         } catch (Exception e) {
             throw new AuraHandledException(System.Label.File_Retrieval_Error);
         }
@@ -19,7 +19,7 @@ public with sharing class FileController {
 
         try {
             return JSON.serialize(
-                fileService.deleteContentDocumentsById(new List<ContentDocument>{ cd })
+                fileService.deleteContentDocuments(new List<ContentDocument>{ cd })
             );
         } catch (Exception e) {
             throw new AuraHandledException(System.Label.Delete_File_Error_Message);

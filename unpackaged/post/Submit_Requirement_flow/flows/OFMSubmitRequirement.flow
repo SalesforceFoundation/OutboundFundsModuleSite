@@ -51,7 +51,7 @@
         </rules>
     </decisions>
     <interviewLabel>Submit Requirement {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Submit Requirement</label>
+    <label>OFM: Submit Requirement</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>

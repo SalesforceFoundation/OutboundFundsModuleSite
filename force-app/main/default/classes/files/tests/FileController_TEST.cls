@@ -1,7 +1,5 @@
 @isTest
 public with sharing class FileController_TEST {
-    private static String USER_EMAIL = 'alternatUser@example.com';
-
     private static TestUser.BusinessFundseekerPersona alternateFundSeekerPersona = new TestUser.BusinessFundseekerPersona();
 
     @TestSetup
@@ -19,7 +17,7 @@ public with sharing class FileController_TEST {
         };
 
         final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
-        fileServiceMock.getMethod('getContentDocumentByRecordId').returnValue = expected;
+        fileServiceMock.getMethod('getContentDocumentsByRecordId').returnValue = expected;
 
         Test.startTest();
 
@@ -37,14 +35,15 @@ public with sharing class FileController_TEST {
             'Expected the controller to return the list from the FileService'
         );
 
-        fileServiceMock.getMethod('getContentDocumentByRecordId').assertCalled();
+        fileServiceMock.getMethod('getContentDocumentsByRecordId')
+            .assertCalledOnceWith(new List<Object>{ programId });
     }
 
     @IsTest
     private static void getRecordFilesShouldThrowException() {
         Id programId = UnitTest.mockId(Schema.SObjectType.outfunds__Funding_Program__c);
         final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
-        fileServiceMock.getMethod('getContentDocumentByRecordId')
+        fileServiceMock.getMethod('getContentDocumentsByRecordId')
             .returnValue = new AuraHandledException(System.Label.File_Retrieval_Error);
 
         Test.startTest();
@@ -70,7 +69,7 @@ public with sharing class FileController_TEST {
             'Exception message should not be null.'
         );
 
-        fileServiceMock.getMethod('getContentDocumentByRecordId').assertCalled();
+        fileServiceMock.getMethod('getContentDocumentsByRecordId').assertCalled();
     }
 
     @isTest
@@ -89,7 +88,7 @@ public with sharing class FileController_TEST {
         );
 
         final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
-        fileServiceMock.getMethod('deleteContentDocumentsById').returnValue = results;
+        fileServiceMock.getMethod('deleteContentDocuments').returnValue = results;
 
         Test.startTest();
         FileController.fileService = (FileService) fileServiceMock.createStub(
@@ -100,7 +99,7 @@ public with sharing class FileController_TEST {
         Test.stopTest();
 
         System.assertEquals(JSON.serialize(results), actual);
-        fileServiceMock.getMethod('deleteContentDocumentsById').assertCalled();
+        fileServiceMock.getMethod('deleteContentDocuments').assertCalled();
     }
 
     @IsTest
@@ -135,7 +134,7 @@ public with sharing class FileController_TEST {
         file.OwnerId = UserInfo.getUserId();
 
         final UnitTest.Mock fileServiceMock = new UnitTest.Mock();
-        fileServiceMock.getMethod('deleteContentDocumentsById')
+        fileServiceMock.getMethod('deleteContentDocuments')
             .returnValue = new AuraHandledException(
             System.Label.Delete_File_Error_Message
         );

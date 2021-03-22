@@ -9,11 +9,11 @@ public with sharing class FileService {
      * @description Returns a list of ContentDocument(s) related to a record
      * @param recordId  Id of the record for which we will query associated ContentDocument(s)
      */
-    public List<ContentDocument> getContentDocumentByRecordId(Id recordId) {
+    public List<ContentDocument> getContentDocumentsByRecordId(Id recordId) {
         Set<Id> contentDocumentLinkIds = new Set<Id>();
         List<ContentDocument> contentDocuments = new List<ContentDocument>();
 
-        List<ContentDocumentLink> contentDocumentLinks = fileSelector.contentDocumentLinkByRecordIds(
+        List<ContentDocumentLink> contentDocumentLinks = fileSelector.getContentDocumentLinksByRecordIds(
             new Set<Id>{ recordId }
         );
 
@@ -24,7 +24,7 @@ public with sharing class FileService {
         for (ContentDocumentLink cdl : contentDocumentLinks) {
             contentDocumentLinkIds.add(cdl.ContentDocumentId);
         }
-        contentDocuments = fileSelector.contentDocumentsByIds(contentDocumentLinkIds);
+        contentDocuments = fileSelector.getContentDocumentsByIds(contentDocumentLinkIds);
 
         return contentDocuments;
     }
@@ -65,10 +65,8 @@ public with sharing class FileService {
         List<Id> contentDocumentLinkIdsToDelete = new List<Id>();
         List<ContentDocumentLink> contentDocumentLinksToDelete = new List<ContentDocumentLink>();
 
-        // Unable to write a test that removes DELETE CRUD from the ContentDocumentLink object for the running user.
-
         for (
-            ContentDocumentLink contentDocumentLink : fileSelector.contentDocumentLinkByRecordIds(
+            ContentDocumentLink contentDocumentLink : fileSelector.getContentDocumentLinksByRecordIds(
                 new Set<Id>{ recordId }
             )
         ) {
@@ -83,11 +81,9 @@ public with sharing class FileService {
      * @description Deletes a collection of ContentDocument(s)
      * @param contentDocumentIds    List of ContentDocument Id(s) to delete
      */
-    public List<Database.DeleteResult> deleteContentDocumentsById(
+    public List<Database.DeleteResult> deleteContentDocuments(
         List<ContentDocument> contentDocuments
     ) {
-        List<Database.DeleteResult> results = new List<Database.DeleteResult>();
-
         return databaseService.deleteRecords(contentDocuments);
     }
 }

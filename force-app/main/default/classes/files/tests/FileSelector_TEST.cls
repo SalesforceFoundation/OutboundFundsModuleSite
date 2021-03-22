@@ -141,7 +141,7 @@ public with sharing class FileSelector_TEST {
     }
 
     @IsTest
-    private static void testContentDocumentLinkByRecordIdsAsCommunityUser() {
+    private static void testgetContentDocumentLinksByRecordIdsAsCommunityUser() {
         Integer numberOfPrograms = 1;
         Integer numberOfFiles = 3;
 
@@ -162,7 +162,7 @@ public with sharing class FileSelector_TEST {
 
         System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             FileSelector selector = new FileSelector();
-            actualContentDocumentLinks = selector.contentDocumentLinkByRecordIds(
+            actualContentDocumentLinks = selector.getContentDocumentLinksByRecordIds(
                 new Set<Id>{ program.Id }
             );
         }
@@ -204,7 +204,9 @@ public with sharing class FileSelector_TEST {
 
             Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
 
-            actualContentDocuments = selector.contentDocumentsByIds(contentDocumentIds);
+            actualContentDocuments = selector.getContentDocumentsByIds(
+                contentDocumentIds
+            );
 
             for (ContentDocument cd : actualContentDocuments) {
                 actualContentDocumentIds.add(cd.Id);
@@ -234,7 +236,7 @@ public with sharing class FileSelector_TEST {
     }
 
     @IsTest
-    private static void testContentDocumentLinkByRecordIdsAsCommunityUserWithoutExplicitRecordShare() {
+    private static void testgetContentDocumentLinksByRecordIdsAsCommunityUserWithoutExplicitRecordShare() {
         Integer numberOfPrograms = 1;
         Integer numberOfFiles = 3;
         Integer countVisibleFundingPrograms = 0; // Funding Programs may be shared by platform mechanism (OWD)
@@ -256,7 +258,7 @@ public with sharing class FileSelector_TEST {
             ];
 
             FileSelector selector = new FileSelector();
-            actualContentDocumentLinks = selector.contentDocumentLinkByRecordIds(
+            actualContentDocumentLinks = selector.getContentDocumentLinksByRecordIds(
                 new Set<Id>{ program.Id }
             );
         }
@@ -300,7 +302,7 @@ public with sharing class FileSelector_TEST {
             ];
 
             FileSelector selector = new FileSelector();
-            actualContentDocuments = selector.contentDocumentsByIds(
+            actualContentDocuments = selector.getContentDocumentsByIds(
                 contentDocumentMap.keyset()
             );
         }
@@ -349,7 +351,7 @@ public with sharing class FileSelector_TEST {
 
             Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
 
-            actualContentDocumentsCommunityUser = selector.contentDocumentsByIds(
+            actualContentDocumentsCommunityUser = selector.getContentDocumentsByIds(
                 contentDocumentIds
             );
         }
@@ -359,7 +361,7 @@ public with sharing class FileSelector_TEST {
 
         Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
 
-        actualContentDocumentsAdminUser = selector.contentDocumentsByIds(
+        actualContentDocumentsAdminUser = selector.getContentDocumentsByIds(
             contentDocumentIds
         );
 
@@ -414,7 +416,7 @@ public with sharing class FileSelector_TEST {
         System.runAs(FileSelector_TEST.businessFundSeekerPersona.getUser()) {
             FileSelector selector = new FileSelector();
             Set<Id> contentDocumentIds = getContentDocumentIds(program.Id);
-            actualContentDocumentsCommunityUser = selector.contentDocumentsByIds(
+            actualContentDocumentsCommunityUser = selector.getContentDocumentsByIds(
                 contentDocumentIds
             );
         }
@@ -432,7 +434,7 @@ public with sharing class FileSelector_TEST {
 
     private static Set<Id> getContentDocumentIds(Id programId) {
         FileSelector selector = new FileSelector();
-        List<ContentDocumentLink> contentDocumentLinks = selector.contentDocumentLinkByRecordIds(
+        List<ContentDocumentLink> contentDocumentLinks = selector.getContentDocumentLinksByRecordIds(
             new Set<Id>{ programId }
         );
 
