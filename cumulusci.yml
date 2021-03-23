@@ -88,13 +88,6 @@ tasks:
         options:
             path: unpackaged/fundseeker_customer_enablement/sharing_set
 
-    fundseeker_deploy_submit_application:
-        group: "OFM-Site: Fundseeker customer enablement"
-        description: Deploys our flow for funding requests submission.
-        class_path: cumulusci.tasks.salesforce.Deploy
-        options:
-            path: unpackaged/fundseeker_customer_enablement/application_submission
-
     fundseeker_check_sharing_set_owds:
         class_path: cumulusci.tasks.preflight.sobjects.CheckSObjectOWDs
         group: "Preflight Checks"
@@ -374,11 +367,6 @@ flows:
                 checks:
                     - when: "not tasks.fundseeker_check_sharing_set_owds()"
                       action: hide
-            6:
-                task: fundseeker_deploy_submit_application
-                ui_options:
-                    name: "Add flow and quick action for Fund Request submission"
-                    is_required: True
 
     # Internal flows
     common_replace_and_publish_theme_layout_navigation_menu:
