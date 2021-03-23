@@ -1,0 +1,55 @@
+<template>
+    <template if:true={showModal}>
+        <section aria-hidden={showModal}>
+            <!-- TODO: why is there both "body" and "content" slots? -->
+            <slot name="body"></slot>
+        </section>
+        <section
+            aria-hidden={modalAriaHidden}
+            aria-modal="true"
+            class={cssClass}
+            onkeyup={innerKeyUpHandler}
+            role="dialog"
+        >
+            <div class={modalContainerCss}>
+                <!-- TODO: is firstLink used to trap focus? -->
+                <!--<a href="javascript:void(0)" class="firstlink"></a>-->
+                <header class="slds-modal__header" onclick={innerClickHandler}>
+                    <lightning-button-icon
+                        class="slds-modal__close"
+                        title={labels.close}
+                        icon-name="utility:close"
+                        icon-class="slds-button_icon-inverse"
+                        onclick={closeModal}
+                        alternative-text={labels.close}
+                    ></lightning-button-icon>
+
+                    <template if:true={hasHeaderAttribute}>
+                        <h2 class="slds-modal__title slds-hyphenate">{header}</h2>
+                    </template>
+
+                    <template if:false={hasHeaderAttribute}>
+                        <h2 class="slds-text-heading_medium slds-hyphenate header-slot">
+                            <slot name="header"></slot>
+                        </h2>
+                    </template>
+                </header>
+                <div
+                    class="slds-modal__content slds-p-around_medium"
+                    id="modal-content-id-1"
+                    tabindex="-1"
+                    onclick={innerClickHandler}
+                >
+                    <slot name="content"></slot>
+                </div>
+                <footer class="slds-modal__footer modal-hidden">
+                    <slot name="footer" onslotchange={handleSlotFooterChange}></slot>
+                    <a href="javascript:void(0)" class="end-of-form"></a>
+                </footer>
+            </div>
+        </section>
+        <template if:true={showModal}>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </template>
+</template>
