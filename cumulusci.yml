@@ -88,12 +88,15 @@ tasks:
         options:
             path: unpackaged/fundseeker_customer_enablement/sharing_set
 
-    fundseeker_deploy_submit_application:
-        group: "OFM-Site: Fundseeker customer enablement"
-        description: Deploys our flow for funding requests submission.
-        class_path: cumulusci.tasks.salesforce.Deploy
+    fundseeker_check_sharing_set_owds:
+        class_path: cumulusci.tasks.preflight.sobjects.CheckSObjectOWDs
+        group: "Preflight Checks"
         options:
-            path: unpackaged/fundseeker_customer_enablement/application_submission
+            org_wide_defaults:
+                - api_name: outfunds__Funding_Request__c
+                  external_sharing_model: Private
+                - api_name: outfunds__Requirement__c
+                  external_sharing_model: Private
 
     # All stories
     common_secure_owds_by_default:
@@ -338,16 +341,32 @@ flows:
         steps:
             1:
                 task: fundseeker_create_site
+                ui_options:
+                    name: "Create the Outbound Funds Portal"
+                    is_required: True
             2:
                 task: fundseeker_publish_site
+                ui_options:
+                    name: "Publish the Outbound Funds Portal"
+                    is_required: True
             3:
                 task: fundseeker_create_network_members
+                ui_options:
+                    name: "Add 'Fundseeker Plus Login' Profile to Outbound Funds Portal"
+                    is_required: True
             4:
                 task: fundseeker_configure_guest_user_profile
+                ui_options:
+                    name: "Update 'Outbound Funds Portal Profile' (Guest User) profile"
+                    is_required: True
             5:
                 task: fundseeker_deploy_sharing_set
-            6:
-                task: fundseeker_deploy_submit_application
+                ui_options:
+                    name: "Grant Visibility to Site Users"
+                    is_required: True
+                checks:
+                    - when: "not tasks.fundseeker_check_sharing_set_owds()"
+                      action: hide
 
     # Internal flows
     common_replace_and_publish_theme_layout_navigation_menu:
