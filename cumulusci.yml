@@ -72,7 +72,7 @@ tasks:
         options:
             path: unpackaged/fundseeker_customer_enablement/guest_user_profile
 
-    fundseeker_create_network_members:
+    fundseeker_add_network_members:
         group: "OFM-Site: Fundseeker customer enablement"
         description: Create a NetworkMemberGroup records.
         class_path: cumulusci.tasks.salesforce.network_member_group.CreateNetworkMemberGroups
@@ -350,7 +350,7 @@ flows:
                     name: "Publish the Outbound Funds Portal"
                     is_required: True
             3:
-                task: fundseeker_create_network_members
+                task: fundseeker_add_network_members
                 ui_options:
                     name: "Add 'Fundseeker Plus Login' Profile to Outbound Funds Portal"
                     is_required: True
