@@ -6,7 +6,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>DetailTextColor</propertyName>
-        <propertyValue>rgba(0, 0, 0, 0.6)</propertyValue>
+        <propertyValue>rgb(102, 102, 102)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>BorderColor</propertyName>
@@ -22,7 +22,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CardBackgroundColor</propertyName>
-        <propertyValue>#131413</propertyValue>
+        <propertyValue>rgb(17, 17, 17)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LoginBackgroundColor</propertyName>
@@ -30,11 +30,11 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>ActionColor</propertyName>
-        <propertyValue>#0A32C6</propertyValue>
+        <propertyValue>rgb(23, 115, 23)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>_ActionColorTrans</propertyName>
-        <propertyValue>rgba(10, 50, 198, 0.9)</propertyValue>
+        <propertyValue>rgba(23, 115, 23, 0.9)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CompanyLogo</propertyName>
@@ -46,23 +46,23 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>PageBackgroundColor</propertyName>
-        <propertyValue>rgb(250, 250, 250)</propertyValue>
+        <propertyValue>rgb(255, 255, 255)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>_LinkColorDarker</propertyName>
-        <propertyValue>#000000</propertyValue>
+        <propertyValue>#105110</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>_ActionColorDarker</propertyName>
-        <propertyValue>#082695</propertyValue>
+        <propertyValue>#0e480e</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>_HoverColor</propertyName>
-        <propertyValue>rgba(10, 50, 198, 0.05)</propertyValue>
+        <propertyValue>rgba(23, 115, 23, 0.05)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>ErrorFontColor</propertyName>
-        <propertyValue>#ff9e9e</propertyValue>
+        <propertyValue>rgb(255, 83, 83)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>TextColor</propertyName>
@@ -78,7 +78,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LinkColor</propertyName>
-        <propertyValue>#111111</propertyValue>
+        <propertyValue>rgb(23, 115, 23)</propertyValue>
     </brandingSetProperty>
     <masterLabel>OFM_Portal</masterLabel>
     <type>jepson:branding-jepson</type>
