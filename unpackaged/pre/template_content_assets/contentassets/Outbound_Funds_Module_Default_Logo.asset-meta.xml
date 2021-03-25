@@ -2,7 +2,8 @@
 <ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
     <isVisibleByExternalUsers>true</isVisibleByExternalUsers>
     <language>en_US</language>
-    <masterLabel>GCCS_Foundation_hero</masterLabel>
+    <masterLabel>Outbound_Funds_Module_Default_Logo
+</masterLabel>
     <relationships>
         <workspace>
             <access>INFERRED</access>
@@ -13,7 +14,7 @@
     <versions>
         <version>
             <number>1</number>
-            <pathOnClient>GCCS Foundation hero.png</pathOnClient>
+            <pathOnClient>Outbound Funds Module Default Logo.png</pathOnClient>
         </version>
     </versions>
 </ContentAsset>

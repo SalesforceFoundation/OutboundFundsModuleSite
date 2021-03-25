@@ -48,8 +48,8 @@ tasks:
         options:
             ignore:
                 ContentAsset:
-                    - GCCS_Foundation_hero
-                    - GCCS_Foundation_logo
+                    - Outbound_Funds_Module_Default_Hero
+                    - Outbound_Funds_Module_Default_Logo
 
     # Fundseeker customer enablement
     fundseeker_create_site:
