@@ -1,11 +1,11 @@
 const { jestConfig } = require("@salesforce/sfdx-lwc-jest/config");
+
+const setupFilesAfterEnv = jestConfig.setupFilesAfterEnv || [];
+setupFilesAfterEnv.push("<rootDir>/jest.setup.js");
+
 module.exports = {
     ...jestConfig,
-    moduleNameMapper: {
-        "^lightning/navigation$":
-            "<rootDir>/force-app/main/default/lwc/__mocks__/lightning/navigation/navigation.js",
-    },
-    testPathIgnorePatterns: ["force-app/main/default/lwc/__(tests|mocks)__/"],
+    testPathIgnorePatterns: ["<rootDir>/force-app/main/default/lwc/__(tests|mocks)__/"],
     reporters: ["default"],
-    setupFilesAfterEnv: ["./jest.setup.js"],
+    setupFilesAfterEnv: setupFilesAfterEnv,
 };
