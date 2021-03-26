@@ -1,0 +1,14 @@
+.modal-hidden {
+    display: none;
+}
+
+@media (min-width: 48em) {
+    .slds-modal__container.modal__large {
+        width: 90% !important;
+        max-width: none !important;
+    }
+}
+
+.slds-modal__content {
+    overflow: visible;
+}
