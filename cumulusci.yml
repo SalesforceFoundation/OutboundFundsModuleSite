@@ -8,9 +8,10 @@ project:
     dependencies:
         - namespace: sfdobase
           version: 1.0
-        - github: "https://github.com/SalesforceFoundation/OutboundFunds"
+        - github: "https://github.com/SalesforceFoundation/OutboundFundsModule"
     git:
         default_branch: "main"
+        repo_url: "https://github.com/SalesforceFoundation/OutboundFundsModuleSite"
     source_format: sfdx
 
 tasks:
