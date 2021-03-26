@@ -27,6 +27,15 @@
                 <componentName>forceCommunity:recordDetail</componentName>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>recordId</name>
+                    <value>{!recordId}</value>
+                </componentInstanceProperties>
+                <componentName>communityFileManager</componentName>
+            </componentInstance>
+        </itemInstances>
         <name>content</name>
         <prependable>enabled</prependable>
         <replaceable>enabled</replaceable>

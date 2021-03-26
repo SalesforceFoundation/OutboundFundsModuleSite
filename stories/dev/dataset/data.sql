@@ -170,19 +170,20 @@ CREATE TABLE "outfunds__Requirement__c" (
 	"outfunds__Type__c" VARCHAR(255), 
 	outfunds__disbursement__c VARCHAR(255), 
 	outfunds__funding_request__c VARCHAR(255), 
-	outfunds__primary_contact__c VARCHAR(255), 
+	outfunds__primary_contact__c VARCHAR(255),
+	"IsAddFilesVisible__c" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "outfunds__Requirement__c" VALUES(1,'Application','2019-03-21','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Application</span></p>','Accepted','Final Application','','5','6');
-INSERT INTO "outfunds__Requirement__c" VALUES(2,'Outcome Report','','2020-12-30','<p>Outcome Report</p>','Open','Outcome','','5','6');
-INSERT INTO "outfunds__Requirement__c" VALUES(3,'Proposed Budget','2019-03-21','2019-12-30','<p>Proposed budget</p>','Accepted','Report','','5','6');
-INSERT INTO "outfunds__Requirement__c" VALUES(4,'Budget Report','2020-02-11','2020-12-30','<p>Budget Report</p>','Complete','Report','','5','6');
-INSERT INTO "outfunds__Requirement__c" VALUES(5,'Letter of Intent','2019-03-21','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Cover letter</span></p>','Accepted','Letter of Intent','','5','6');
-INSERT INTO "outfunds__Requirement__c" VALUES(6,'Budget Report','','2020-09-14','<p>Budget Report</p>','Open','Report','','2','3');
-INSERT INTO "outfunds__Requirement__c" VALUES(7,'Outcome Report','','2021-03-31','<p>Outcome Report</p>','Open','Outcome','','2','3');
-INSERT INTO "outfunds__Requirement__c" VALUES(8,'Application','2020-03-11','2020-12-30','<p>Application</p>','Accepted','Final Application','','2','3');
-INSERT INTO "outfunds__Requirement__c" VALUES(9,'Letter of Intent','2019-04-25','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Cover letter</span></p>','Accepted','Letter of Intent','','3','4');
-INSERT INTO "outfunds__Requirement__c" VALUES(10,'Application','2019-04-25','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Application</span></p>','Accepted','Final Application','','3','4');
-INSERT INTO "outfunds__Requirement__c" VALUES(11,'Outcome Report','','2022-12-30','<p>Outcome Report</p>','Open','Outcome','','3','4');
-INSERT INTO "outfunds__Requirement__c" VALUES(12,'Budget Report','','2021-12-30','<p><span style="color: rgb(0, 0, 0); font-size: 10pt; font-family: Arial;">Budget Report</span></p>','Open','Report','','3','4');
+INSERT INTO "outfunds__Requirement__c" VALUES(1,'Application','2019-03-21','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Application</span></p>','Accepted','Final Application','','5','6','False');
+INSERT INTO "outfunds__Requirement__c" VALUES(2,'Outcome Report','','2020-12-30','<p>Outcome Report</p>','Open','Outcome','','5','6','True');
+INSERT INTO "outfunds__Requirement__c" VALUES(3,'Proposed Budget','2019-03-21','2019-12-30','<p>Proposed budget</p>','Accepted','Report','','5','6','False');
+INSERT INTO "outfunds__Requirement__c" VALUES(4,'Budget Report','2020-02-11','2020-12-30','<p>Budget Report</p>','Complete','Report','','5','6','False');
+INSERT INTO "outfunds__Requirement__c" VALUES(5,'Letter of Intent','2019-03-21','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Cover letter</span></p>','Accepted','Letter of Intent','','5','6','False');
+INSERT INTO "outfunds__Requirement__c" VALUES(6,'Budget Report','','2020-09-14','<p>Budget Report</p>','Open','Report','','2','3','True');
+INSERT INTO "outfunds__Requirement__c" VALUES(7,'Outcome Report','','2021-03-31','<p>Outcome Report</p>','Open','Outcome','','2','3','True');
+INSERT INTO "outfunds__Requirement__c" VALUES(8,'Application','2020-03-11','2020-12-30','<p>Application</p>','Accepted','Final Application','','2','3','False');
+INSERT INTO "outfunds__Requirement__c" VALUES(9,'Letter of Intent','2019-04-25','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Cover letter</span></p>','Accepted','Letter of Intent','','3','4','False');
+INSERT INTO "outfunds__Requirement__c" VALUES(10,'Application','2019-04-25','2019-12-30','<p><span style="font-family: Arial; font-size: 10pt; color: rgb(0, 0, 0);">Application</span></p>','Accepted','Final Application','','3','4','False');
+INSERT INTO "outfunds__Requirement__c" VALUES(11,'Outcome Report','','2022-12-30','<p>Outcome Report</p>','Open','Outcome','','3','4','True');
+INSERT INTO "outfunds__Requirement__c" VALUES(12,'Budget Report','','2021-12-30','<p><span style="color: rgb(0, 0, 0); font-size: 10pt; font-family: Arial;">Budget Report</span></p>','Open','Report','','3','4','True');
 COMMIT;
