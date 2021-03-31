@@ -226,12 +226,9 @@ public with sharing class UnitTest {
             } else if (returnValue instanceof Exception) {
                 throw (Exception) returnValue;
             } else if (returnValue instanceof Type) {
-                try {
-                    Object newInstance = ((Type) returnValue).newInstance();
-                    if (newInstance instanceof Exception) {
-                        throw (Exception) newInstance;
-                    }
-                } catch (Exception e) {
+                Object newInstance = ((Type) returnValue).newInstance();
+                if (newInstance instanceof Exception) {
+                    throw (Exception) newInstance;
                 }
             }
             return returnValue;
