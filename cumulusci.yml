@@ -432,7 +432,7 @@ plans:
             - when: "'PID_Customer_Community_Plus_Login' not in tasks.get_available_licenses()"
               action: error
               message: "The Fundseeker Starter Portal Template requires Customer Community Plus Login licenses. Please coordinate with your Salesforce account executive to be sure you have the correct licenses set up in your org."
-              - when: "'outfunds' not in tasks.get_installed_packages()"
+            - when: "'outfunds' not in tasks.get_installed_packages()"
               action: error
               message: "The Fundseeker Starter site requires Outbound Funds Module to be installed. Please visit the [Outbound Funds Module Site repo](https://github.com/SalesforceFoundation/OutboundFundsModuleSite)."
 
