@@ -20,7 +20,7 @@
         <description>Share publicly accessible Funding Programs with the site guest user.</description>
         <label>Publicly Accessible: Non-authenticated Users</label>
         <sharedTo>
-            <guestUser>Outbound_Funds_Portal</guestUser>
+            <guestUser>Fundseeker_Portal</guestUser>
         </sharedTo>
         <criteriaItems>
             <field>PubliclyAccessible__c</field>
