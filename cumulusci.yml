@@ -464,10 +464,9 @@ plans:
             - when: "'outfunds' not in tasks.get_installed_packages()"
               action: error
               message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module to be installed. Please visit the [Outbound Funds Module repo](https://github.com/SalesforceFoundation/OutboundFundsModule)."
-            #  How to check for existing sites with same name ?
-            #- when: "'Fundseeker Portal' in tasks.list_communities()"
-            #  action: error
-            #  message: "The site with the default 'Fundseeker Portal' name already exists."
+            - when: "'Fundseeker Portal' in tasks.list_communities()"
+              action: error
+              message: "An Experience site with the default 'Fundseeker Portal' name already exists."
 
         steps:
             1:

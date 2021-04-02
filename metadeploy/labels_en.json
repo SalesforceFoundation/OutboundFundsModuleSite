@@ -59,6 +59,10 @@
     "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module to be installed. Please visit the [Outbound Funds Module repo](https://github.com/SalesforceFoundation/OutboundFundsModule).": {
       "message": "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module to be installed. Please visit the [Outbound Funds Module repo](https://github.com/SalesforceFoundation/OutboundFundsModule).",
       "description": "shown if validation fails"
+    },
+    "An Experience site with the default 'Fundseeker Portal' name already exists.": {
+      "message": "An Experience site with the default 'Fundseeker Portal' name already exists.",
+      "description": "shown if validation fails"
     }
   },
   "steps": {
