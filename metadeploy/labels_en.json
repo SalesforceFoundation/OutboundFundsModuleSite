@@ -9,15 +9,15 @@
       "description": "tagline of product"
     },
     "description": {
-      "message": "Welcome to the Outbound Funds Module Fundseeker Starter Portal Template installer!\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template streamlines the grantmaking process and helps grantmakers cultivate and manage relationships with their grantees. Leveraging Salesforce Communities, Grants Management makes grantmaking a breeze through an intuitive, easy-to-use interface and backend automation.\r\n\r\n*IMPORTANT*: Salesforce does not recommend installing upgrades directly in production organizations. Instead, install Grants Management in one of your free sandbox environments or a developer organization first.\r\n\r\nOnce you've installed Grants Management, check out these resources:\r\n\r\n* [Grants Management Documentation](https://powerofus.force.com/s/article/GM-Documentation)\r\n* [Power of Us Hub - Grants Management Customer Group](https://powerofus.force.com/s/group/0F91E0000000iEwSAI/grants-management-sfdo-product)\r\n* [Salesforce Partner Community - Grants Management Experts Group](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F94V000000LpYeSAK)",
+      "message": "Welcome to the Outbound Funds Module Fundseeker Starter Portal Template installer!\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template streamlines the funding process and helps fund providers cultivate and manage relationships with their fundees. Leveraging Salesforce Experience Cloud, Outbound Funds Module Fundseeker Starter Portal Template makes funding a breeze through an intuitive, easy-to-use interface and backend automation.\r\n\r\n*IMPORTANT*: Salesforce does not recommend installing upgrades directly in production organizations. Instead, install Outbound Funds Module Fundseeker Starter Portal Template in one of your free sandbox environments or a developer organization first.\r\n\r\nOnce you've installed it, check out resources on getting started in our documentation:\r\n\r\n* [Outbound Funds Module Documentation](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nQuestions? Become a member of the [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS) community group in the Power of Us Hub.",
       "description": "shown on product detail page (markdown)"
     },
     "error_message": {
-      "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include \u201cGrants Management\u201d in the subject line and include in your comment the installation link shown here.",
+      "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include \u201cOutbound Funds Module Fundseeker Starter Portal Template\u201d in the subject line and include in your comment the installation link shown here.",
       "description": "shown after failed installation (markdown)"
     },
     "click_through_agreement": {
-      "message": "Grants Management is a closed-source package licensed by salesforce.com, Inc. or one of its Affiliates (\u201cSFDC\u201d) under a proprietary limited use license.  When you install the Grants Management package, both i) the Outbound Funds Module, an open source technology licensed by SFDC under the [BSD-3 Clause License](https://opensource.org/licenses/BSD-3-Clause), and ii) the SFDO Base package, a closed-source technology licensed by SFDC under a proprietary limited use license, will automatically be installed into your Salesforce org.  For the purposes of this agreement, the term \u201cSFDC Packages\u201d refers to the Grants Management, OFM, and SFDO Base packages collectively.\r\n\r\nBY INSTALLING GRANTS MANAGEMENT, YOU AGREE TO ITS LICENSE (<[https://github.com/SalesforceFoundation/ProductLicenses/blob/master/GrantsManagement.md](https://github.com/SalesforceFoundation/ProductLicenses/blob/master/GrantsManagement.md)>), THE OFM LICENSE (<[https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE](https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE)>), AND THE SFDO BASE LICENSE ([https://github.com/SalesforceFoundation/ProductLicenses/blob/master/SFDOBase.md](https://github.com/SalesforceFoundation/ProductLicenses/blob/master/SFDOBase.md)).\r\n\r\nANY MASTER SUBSCRIPTION AGREEMENT YOU OR YOUR ENTITY MAY HAVE WITH SFDC DOES NOT APPLY TO YOUR USE OF THE SFDC PACKAGES.  AN \u201cAFFILIATE\u201d MEANS ANY ENTITY THAT DIRECTLY OR INDIRECTLY CONTROLS, IS CONTROLLED BY, OR IS UNDER COMMON CONTROL WITH THE SUBJECT ENTITY. \u201cCONTROL,\u201d FOR PURPOSES OF THIS DEFINITION, MEANS DIRECT OR INDIRECT OWNERSHIP OR CONTROL OF MORE THAN 50% OF THE VOTING INTERESTS OF THE SUBJECT ENTITY.  SALESFORCE.ORG LLC IS AN AFFILIATE OF SALESFORCE.COM, INC. \r\n\r\nTHE SFDC PACKAGES ARE NON-SFDC APPLICATIONS OR THIRD-PARTY APPLICATIONS, AND NOT SERVICES, UNDER ANY MASTER SUBSCRIPTION AGREEMENT YOU HAVE WITH SFDC. THE SFDC PACKAGES ARE PROVIDED \u201cAS IS\u201d AND AS AVAILABLE. SFDC MAKES NO WARRANTY OF ANY KIND REGARDING THE SFDC PACKAGES, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, FREEDOM FROM DEFECTS OR NON-INFRINGEMENT, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.  IF YOU SUBMIT ANY SENSITIVE OR REGULATED DATA TO THE SFDC PACKAGES, YOU ARE SOLELY RESPONSIBLE FOR ENSURING THAT YOUR USE OF THE SFDC PACKAGES TO PROCESS THAT INFORMATION COMPLIES WITH ALL APPLICABLE LAWS AND REGULATIONS. \r\n\r\nSFDC WILL NOT HAVE ANY LIABILITY ARISING OUT OF OR RELATED TO YOUR USE OF THE SFDC PACKAGES FOR ANY DIRECT DAMAGES OR FOR ANY LOST PROFITS, REVENUES, GOODWILL OR INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, COVER, BUSINESS INTERRUPTION OR PUNITIVE DAMAGES, WHETHER AN ACTION IS IN CONTRACT OR TORT AND REGARDLESS OF THE THEORY OF LIABILITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR IF A REMEDY OTHERWISE FAILS OF ITS ESSENTIAL PURPOSE. THE FOREGOING DISCLAIMER WILL NOT APPLY TO THE EXTENT PROHIBITED BY LAW. SFDC DISCLAIMS ALL LIABILITY AND INDEMNIFICATION OBLIGATIONS FOR ANY HARM OR DAMAGES CAUSED BY ANY THIRD-PARTY HOSTING PROVIDERS. \r\n\r\nTHIS AGREEMENT SHALL BE GOVERNED EXCLUSIVELY BY, AND CONSTRUED EXCLUSIVELY IN ACCORDANCE WITH, THE LAWS OF THE UNITED STATES AND THE STATE OF CALIFORNIA, WITHOUT REGARD TO ITS CONFLICT OF LAWS PROVISIONS. THE STATE AND FEDERAL COURTS LOCATED IN SAN FRANCISCO, CALIFORNIA SHALL HAVE EXCLUSIVE JURISDICTION TO ADJUDICATE ANY DISPUTE ARISING OUT OF OR RELATING TO THIS AGREEMENT. EACH PARTY HEREBY CONSENTS TO THE JURISDICTION OF SUCH COURTS AND WAIVES ANY RIGHT IT MAY OTHERWISE HAVE TO CHALLENGE THE APPROPRIATENESS OF SUCH FORUMS.",
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template is an open-source package licensed by salesforce.com, Inc. or one of its Affiliates (\u201cSFDC\u201d) under the BSD-3 Clause License, found at https://opensource.org/licenses/BSD-3-Clause. When you install the OFM package, the SFDO Base package, a closed-source technology licensed by SFDC under a proprietary limited use license, will automatically be installed into your Salesforce org. \r\n\r\nBY INSTALLING OFM, YOU AGREE TO ITS LICENSE (https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE) AND THE SFDO BASE LICENSE (https://github.com/SalesforceFoundation/ProductLicenses/blob/master/SFDOBase.md).\r\n\r\nANY MASTER SUBSCRIPTION AGREEMENT YOU OR YOUR ENTITY MAY HAVE WITH SFDC DOES NOT APPLY TO YOUR USE OF OFM OR SFDO BASE.  AN \u201cAFFILIATE\u201d MEANS ANY ENTITY THAT DIRECTLY OR INDIRECTLY CONTROLS, IS CONTROLLED BY, OR IS UNDER COMMON CONTROL WITH THE SUBJECT ENTITY. \u201cCONTROL,\u201d FOR PURPOSES OF THIS DEFINITION, MEANS DIRECT OR INDIRECT OWNERSHIP OR CONTROL OF MORE THAN 50% OF THE VOTING INTERESTS OF THE SUBJECT ENTITY.  SALESFORCE.ORG LLC IS AN AFFILIATE OF SALESFORCE.COM, INC. \r\n\r\nOFM AND SFDO BASE ARE NON-SFDC APPLICATIONS OR THIRD-PARTY APPLICATIONS, AND NOT SERVICES, UNDER ANY MASTER SUBSCRIPTION AGREEMENT YOU HAVE WITH SFDC. OFM AND SFDO BASE ARE PROVIDED \u201cAS IS\u201d AND AS AVAILABLE. SFDC MAKES NO WARRANTY OF ANY KIND REGARDING OFM OR SFDO BASE, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, FREEDOM FROM DEFECTS OR NON-INFRINGEMENT, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.  IF YOU SUBMIT ANY SENSITIVE OR REGULATED DATA TO OFM, YOU ARE SOLELY RESPONSIBLE FOR ENSURING THAT YOUR USE OF OFM TO PROCESS THAT INFORMATION COMPLIES WITH ALL APPLICABLE LAWS AND REGULATIONS. \r\n\r\nSFDC WILL NOT HAVE ANY LIABILITY ARISING OUT OF OR RELATED TO YOUR USE OF OFM OR SFDO BASE FOR ANY DIRECT DAMAGES OR FOR ANY LOST PROFITS, REVENUES, GOODWILL OR INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, COVER, BUSINESS INTERRUPTION OR PUNITIVE DAMAGES, WHETHER AN ACTION IS IN CONTRACT OR TORT AND REGARDLESS OF THE THEORY OF LIABILITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR IF A REMEDY OTHERWISE FAILS OF ITS ESSENTIAL PURPOSE. THE FOREGOING DISCLAIMER WILL NOT APPLY TO THE EXTENT PROHIBITED BY LAW. SFDC DISCLAIMS ALL LIABILITY AND INDEMNIFICATION OBLIGATIONS FOR ANY HARM OR DAMAGES CAUSED BY ANY THIRD-PARTY HOSTING PROVIDERS. \r\n\r\nTHIS AGREEMENT SHALL BE GOVERNED EXCLUSIVELY BY, AND CONSTRUED EXCLUSIVELY IN ACCORDANCE WITH, THE LAWS OF THE UNITED STATES AND THE STATE OF CALIFORNIA, WITHOUT REGARD TO ITS CONFLICT OF LAWS PROVISIONS. THE STATE AND FEDERAL COURTS LOCATED IN SAN FRANCISCO, CALIFORNIA SHALL HAVE EXCLUSIVE JURISDICTION TO ADJUDICATE ANY DISPUTE ARISING OUT OF OR RELATING TO THIS AGREEMENT. EACH PARTY HEREBY CONSENTS TO THE JURISDICTION OF SUCH COURTS AND WAIVES ANY RIGHT IT MAY OTHERWISE HAVE TO CHALLENGE THE APPROPRIATENESS OF SUCH FORUMS.",
       "description": "legal text shown in modal dialog"
     }
   },
@@ -27,15 +27,15 @@
       "description": "title of installation plan"
     },
     "preflight_message": {
-      "message": "This will install Outbound Funds Module Fundseeker Starter Portal Template into your org.",
+      "message": "This will install the Outbound Funds Module Fundseeker Starter Portal Template into your org. The installer adds the Fundseeker Starter Experience Site template to your org.",
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Please visit the [Grants Management customer group](https://powerofus.force.com/s/group/0F91E0000000iEwSAI) on the Power of Us Hub for any questions about Grants Case Management.",
+      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Please visit the [Outbound Funds Module Site](https://powerofus.force.com/s/group/0F980000000CvlMCAS) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Site.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
-      "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include \u201cGrants Management\u201d in the subject line and include in your comment the installation link shown here.",
+      "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include \u201cOutbound Funds Module Fundseeker Starter Portal Template\u201d in the subject line and include in your comment the installation link shown here.",
       "description": "shown after failed installation (markdown)"
     }
   },
@@ -48,12 +48,20 @@
       "message": "The Fundseeker Starter Portal Template requires Customer Community Plus Login licenses. Please coordinate with your Salesforce account executive to be sure you have the correct licenses set up in your org.",
       "description": "shown if validation fails"
     },
-    "Please ensure that Salesforce Experience Cloud is available in your org prior to installing.": {
+    "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Make sure to enable it in your org before installing the site template.": {
       "message": "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Make sure to enable it in your org before installing the site template.",
       "description": "shown if validation fails"
     },
-    "The Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again.": {
-      "message": "The Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again.",
+    "Outbound Funds Module Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again.": {
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again.",
+      "description": "shown if validation fails"
+    },
+    "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module to be installed. Please visit the [Outbound Funds Module repo](https://github.com/SalesforceFoundation/OutboundFundsModule).": {
+      "message": "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module to be installed. Please visit the [Outbound Funds Module repo](https://github.com/SalesforceFoundation/OutboundFundsModule).",
+      "description": "shown if validation fails"
+    },
+    "An Experience site with the default 'Fundseeker Portal' name already exists.": {
+      "message": "An Experience site with the default 'Fundseeker Portal' name already exists.",
       "description": "shown if validation fails"
     }
   },
@@ -62,16 +70,16 @@
       "message": "Install {product} {version}",
       "description": "title of installation step"
     },
-    "Deploy Create Application Flow": {
-      "message": "Deploy Create Application Flow",
+    "Deploy Create Application Flow And Quick Action": {
+      "message": "Deploy Create Application Flow And Quick Action",
       "description": "title of installation step"
     },
     "Deploy Profiles": {
       "message": "Deploy Profiles",
       "description": "title of installation step"
     },
-    "Deploy Submit Application Flow": {
-      "message": "Deploy Submit Application Flow",
+    "Deploy Submit Application Flow And Quick Action": {
+      "message": "Deploy Submit Application Flow And Quick Action",
       "description": "title of installation step"
     },
     "Deploy Visual Assets": {
@@ -90,24 +98,28 @@
       "message": "Add 'Add File' Button on the Requirement Layout",
       "description": "title of installation step"
     },
-    "Create the Funding Program Portal": {
-      "message": "Create the Funding Program Portal",
+    "Create the Fundseeker Portal": {
+      "message": "Create the Fundseeker Portal",
       "description": "title of installation step"
     },
-    "Publish the Funding Program Portal": {
-      "message": "Publish the Funding Program Portal",
+    "Publish the Fundseeker Portal": {
+      "message": "Publish the Fundseeker Portal",
       "description": "title of installation step"
     },
-    "Add Grantseeker Profile to Funding Program Portal": {
-      "message": "Add Grantseeker Profile to Funding Program Portal",
+    "Add 'Fundseeker Plus Login' Profile to Fundseeker Portal": {
+      "message": "Add 'Fundseeker Plus Login' Profile to Fundseeker Portal",
       "description": "title of installation step"
     },
-    "Grant Visibility to Community Users": {
-      "message": "Grant Visibility to Community Users",
+    "Grant Visibility to Site Users": {
+      "message": "Grant Visibility to Site Users",
       "description": "title of installation step"
     },
-    "Add Funding Program Portal Branding": {
-      "message": "Add Funding Program Portal Branding",
+    "Add Funding Fundseeker Portal Branding": {
+      "message": "Add Fundseeker Program Portal Branding",
+      "description": "title of installation step"
+    },
+    "Update 'Fundseeker Portal Profile' (Guest User) profile": {
+      "message": "Update 'Fundseeker Portal Profile' (Guest User) profile",
       "description": "title of installation step"
     }
   },
@@ -117,15 +129,15 @@
       "description": "title of installation plan"
     },
     "preflight_message": {
-      "message": "This installs Outbound Funds Module Fundseeker Starter Portal Template into your org. The installer creates an experience site with the Outbound Funds Module Fundseeker Starter Portal Template and applies our recommended configurations.",
+      "message": "This will install Outbound Funds Module Fundseeker Starter Portal Template into your org. The installer will also create a Site from the Fundseeker Starter Portal Template and applies our recommended configurations.",
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Please visit the [Outbound Funds Module Fundseeker Starter Portal customer group](https://powerofus.force.com/s/group/0F91E0000000iEwSAI) on the Power of Us Hub for any questions about Outbound Funds Module Fundseeker Starter Portal Template.",
+      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Please visit the [Outbound Funds Module Fundseeker Starter Portal Template](https://powerofus.force.com/s/group/0F980000000CvlMCAS) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Site.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
-      "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include \u201cOutbound Funds Module Fundseeker Starter Portal Template\u201d in the subject line and include in your comment the installation link shown here.",
+      "message": "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “Outbound Funds Module” in the subject line and include in your comment the installation link shown here.",
       "description": "shown after failed installation (markdown)"
     }
   }
