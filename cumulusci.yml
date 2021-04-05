@@ -409,8 +409,10 @@ flows:
                         name: Deploy Create Application Flow And Quick Action
                     fundseeker_plus_login_profile:
                         name: Deploy Profiles
-                    funding_request_submission:
+                    funding_request_submission_flow:
                         name: Deploy Submit Application Flow And Quick Action
+                    submit_requirement_flow:
+                        name: Deploy Submit Requirement Flow And Quick Action
 
     customer_org_full:
         steps:
