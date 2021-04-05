@@ -103,6 +103,15 @@ tasks:
                 - api_name: outfunds__Requirement__c
                   external_sharing_model: Private
 
+    fundseeker_check_enable_networks_enabled:
+        description: Preflight check to validate that Digital Experiences are enabled.
+        group: "Preflight Checks"
+        class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
+        options:
+            settings_type: CommunitiesSettings
+            settings_field: IsNetworksEnabledEnabled
+            value: true
+
     # All stories
     common_secure_owds_by_default:
         group: "OFM-Site: stories"
@@ -426,7 +435,7 @@ plans:
             - when: "'.my.' not in org_config.instance_url"
               action: error
               message: "Please enable My Domain in your org prior to installing."
-            - when: "not tasks.check_enable_networks_enabled()"
+            - when: "not tasks.fundseeker_check_enable_networks_enabled()"
               action: error
               message: "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Make sure to enable it in your org before installing the site template."
             - when: "'PID_Customer_Community_Plus_Login' not in tasks.get_available_licenses()"
@@ -455,7 +464,7 @@ plans:
             - when: "'.my.' not in org_config.instance_url"
               action: error
               message: "Please enable My Domain in your org prior to installing."
-            - when: "not tasks.check_enable_networks_enabled()"
+            - when: "not tasks.fundseeker_check_enable_networks_enabled()"
               action: error
               message: "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Make sure to enable it in your org before installing the site template."
             - when: "'PID_Customer_Community_Plus_Login' not in tasks.get_available_licenses()"
