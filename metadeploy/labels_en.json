@@ -82,6 +82,10 @@
       "message": "Deploy Submit Application Flow And Quick Action",
       "description": "title of installation step"
     },
+    "Deploy Submit Requirement Flow And Quick Action": {
+      "message": "Deploy Submit Requirement Flow And Quick Action",
+      "description": "title of installation step"
+    },
     "Deploy Visual Assets": {
       "message": "Deploy Visual Assets",
       "description": "title of installation step"
