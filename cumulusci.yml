@@ -60,7 +60,7 @@ tasks:
         options:
             template: Fundseeker Starter Portal
             name: Fundseeker Portal
-            url_path_prefix: outboundfunds
+            url_path_prefix: fundseekerportal
             timeout: 60000
 
     fundseeker_publish_site:
@@ -423,7 +423,7 @@ flows:
 
 plans:
     install:
-        slug: install-ofm-portal-template
+        slug: install
         title: Install Outbound Funds Module Fundseeker Starter Portal Template
         tier: primary
         is_listed: True
@@ -452,7 +452,7 @@ plans:
                 flow: customer_org
 
     customer_enablement_install:
-        slug: install-ofm-portal-template-and-build-site
+        slug: install-and-build-portal
         title: Install Outbound Funds Module Fundseeker Starter Portal Template and Build Experience Site
         tier: secondary
         is_listed: True
