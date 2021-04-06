@@ -8,25 +8,37 @@ The short version should follow the way the comments are used on the file. We ar
 
     ```
         /*
-        * Copyright (c) 2021, salesforce.com, inc.
-        * All rights reserved.
-        * SPDX-License-Identifier: BSD-3-Clause
-        * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
-        */
+         * Copyright (c) 2021, salesforce.com, inc.
+         * All rights reserved.
+         * SPDX-License-Identifier: BSD-3-Clause
+         * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+         */
     ```
 
-    -   HTML, and XML
+-   HTML, and XML
 
     ```
         <!--
-        * Copyright (c) 2021, salesforce.com, inc.
-        * All rights reserved.
-        * SPDX-License-Identifier: BSD-3-Clause
-        * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+         * Copyright (c) 2021, salesforce.com, inc.
+         * All rights reserved.
+         * SPDX-License-Identifier: BSD-3-Clause
+         * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
         -->
     ```
 
-    -   Python, Robot, and Yaml
+-   Python
+
+    ```
+        """
+         * Copyright (c) 2021, salesforce.com, inc.
+         * All rights reserved.
+         * SPDX-License-Identifier: BSD-3-Clause
+         * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+         *
+        """
+    ```
+
+-   Robot, and Yaml
 
     ```
         # * Copyright (c) 2021, salesforce.com, inc.
@@ -36,6 +48,6 @@ The short version should follow the way the comments are used on the file. We ar
         # *
     ```
 
-### Important
+## Important
 
 The short version of the license should not be added to any JSON file.
