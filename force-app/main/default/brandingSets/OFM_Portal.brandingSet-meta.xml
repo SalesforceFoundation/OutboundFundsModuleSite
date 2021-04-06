@@ -5,12 +5,12 @@
         <propertyValue>none</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
-        <propertyName>DetailTextColor</propertyName>
-        <propertyValue>rgb(102, 102, 102)</propertyValue>
-    </brandingSetProperty>
-    <brandingSetProperty>
         <propertyName>BorderColor</propertyName>
         <propertyValue>#D4D4D4</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>DetailTextColor</propertyName>
+        <propertyValue>rgb(102, 102, 102)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>_OverlayTextColorShadow</propertyName>
@@ -18,31 +18,31 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>HeaderFonts</propertyName>
-        <propertyValue>Montserrat</propertyValue>
+        <propertyValue>Merriweather</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CardBackgroundColor</propertyName>
-        <propertyValue>rgb(17, 17, 17)</propertyValue>
+        <propertyValue>rgb(255, 255, 255)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LoginBackgroundColor</propertyName>
-        <propertyValue>#FAFAFA</propertyValue>
+        <propertyValue>rgb(250, 250, 250)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>ActionColor</propertyName>
         <propertyValue>rgb(23, 115, 23)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
+        <propertyName>CompanyLogo</propertyName>
+        <propertyValue>/file-asset/%%%NAMESPACE%%%Outbound_Funds_Module_Default_Logo?v=1</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
         <propertyName>_ActionColorTrans</propertyName>
         <propertyValue>rgba(23, 115, 23, 0.9)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
-        <propertyName>CompanyLogo</propertyName>
-        <propertyValue>/file-asset/Outbound_Funds_Module_Default_Logo?v=1</propertyValue>
-    </brandingSetProperty>
-    <brandingSetProperty>
         <propertyName>LoginBackgroundImage</propertyName>
-        <propertyValue></propertyValue>
+        <propertyValue/>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>PageBackgroundColor</propertyName>
@@ -65,12 +65,12 @@
         <propertyValue>rgb(255, 83, 83)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
-        <propertyName>TextColor</propertyName>
-        <propertyValue>rgba(0, 0, 0, 0.8)</propertyValue>
-    </brandingSetProperty>
-    <brandingSetProperty>
         <propertyName>OverlayTextColor</propertyName>
         <propertyValue>#FFFFFF</propertyValue>
+    </brandingSetProperty>
+    <brandingSetProperty>
+        <propertyName>TextColor</propertyName>
+        <propertyValue>rgba(0, 0, 0, 0.8)</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>PrimaryFont</propertyName>

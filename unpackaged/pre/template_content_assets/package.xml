@@ -3,6 +3,7 @@
   <types>    
     <members>Outbound_Funds_Module_Default_Logo</members>
     <members>Outbound_Funds_Module_Default_Hero</members>
+    <members>Outbound_Funds_Module_Default_Hero_2</members>
     <name>ContentAsset</name>
   </types>
   <version>48.0</version>

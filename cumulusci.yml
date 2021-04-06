@@ -50,6 +50,7 @@ tasks:
             ignore:
                 ContentAsset:
                     - Outbound_Funds_Module_Default_Hero
+                    - Outbound_Funds_Module_Default_Hero_2
                     - Outbound_Funds_Module_Default_Logo
 
     # Fundseeker customer enablement
