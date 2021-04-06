@@ -16,6 +16,7 @@ Refer to [Definition of Done](https://salesforce.quip.com/9P7hAOPHJJyU) to see a
 - [ ] 🔑 Grant users access in Permission Sets (Object, Field, Apex Class) as necessary
 - [ ] Link the pull request and work item by PR comment and Chatter post respectively, e.g. GUS: [W-0000000: Work Name]()
 - [ ] Make sure that ACs are updated (if any gaps)
+- [ ] Add Open Source short version license if new files suppport inline comments. For more information check SHORT_VERSION_LICENSE_GUIDELINES readme.
 - [ ] **All acceptance criteria have been met**
     - [ ] Developer
     - [ ] Code Reviewer
