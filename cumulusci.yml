@@ -408,7 +408,7 @@ flows:
                     funding_program_application_flow:
                         name: Deploy Create Application Flow And Quick Action
                     fundseeker_plus_login_profile:
-                        name: Deploy Profiles
+                        name: Deploy Fundseeker Plus Login Profile
                     funding_request_submission_flow:
                         name: Deploy Submit Application Flow And Quick Action
                     submit_requirement_flow:
