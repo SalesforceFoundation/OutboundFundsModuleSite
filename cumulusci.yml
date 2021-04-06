@@ -477,7 +477,7 @@ plans:
               message: "It looks like you don't have Outbound Funds Module installed, which is required to install Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module installer](https://github.com/SalesforceFoundation/OutboundFundsModule) to install it and try again."
             - when: "'Fundseeker Portal' in tasks.list_communities()"
               action: error
-              message: "An Experience Cloud site with the name "Fundseeker Portal" already exists."
+              message: "An Experience Cloud site with the name 'Fundseeker Portal' already exists."
 
         steps:
             1:
