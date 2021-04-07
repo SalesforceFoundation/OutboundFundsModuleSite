@@ -58,7 +58,7 @@ tasks:
         description: Creates a site with the OFM Experience Template.
         class_path: cumulusci.tasks.salesforce.CreateCommunity
         options:
-            template: Fundseeker Starter Portal
+            template: OFM-Portal
             name: Fundseeker Portal
             url_path_prefix: fundseekerportal
             timeout: 60000
