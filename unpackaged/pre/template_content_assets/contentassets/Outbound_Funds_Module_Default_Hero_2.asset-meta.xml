@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
-    <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+    <isVisibleByExternalUsers>true</isVisibleByExternalUsers>
     <language>en_US</language>
     <masterLabel>Outbound_Funds_Module_Default_Hero_2</masterLabel>
     <originNetwork>Outbound Funds Portal</originNetwork>

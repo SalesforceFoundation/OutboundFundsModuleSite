@@ -34,7 +34,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>CompanyLogo</propertyName>
-        <propertyValue>/file-asset/%%%NAMESPACE%%%Outbound_Funds_Module_Default_Logo?v=1</propertyValue>
+        <propertyValue>/file-asset/Outbound_Funds_Module_Default_Logo?v=1</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>_ActionColorTrans</propertyName>
