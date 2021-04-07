@@ -15,7 +15,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>richTextValue</name>
-                    <value>&lt;p&gt;&lt;img class=&quot;sfdcCbImage&quot; title=&quot;GCCS Foundation logo&quot; alt= &quot;Portal logo&quot; src=&quot;{!contentAsset.Outbound_Funds_Module_Default_Logo.1}&quot; /&gt;&lt;/p&gt;</value>
+                    <value>&lt;p&gt;&lt;img class=&quot;sfdcCbImage&quot; title=&quot;GCCS Foundation logo&quot; alt= &quot;Grantwood Conservation Center logo&quot; src=&quot;{!contentAsset.Outbound_Funds_Module_Default_Logo.1}&quot; /&gt;&lt;/p&gt;</value>
                 </componentInstanceProperties>
                 <componentName>forceCommunity:richTextInline</componentName>
             </componentInstance>
