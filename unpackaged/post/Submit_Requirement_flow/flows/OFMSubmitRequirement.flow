@@ -2,6 +2,9 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>49.0</apiVersion>
     <assignments>
+        <description>Changes the fields on the Requirement, including: 
+- Status updates to Complete 
+- Is Add Files Visible? updates to False</description>
         <name>UpdateRequirementStatus</name>
         <label>Update Requirement Status</label>
         <locationX>314</locationX>
@@ -25,7 +28,7 @@
         </connector>
     </assignments>
     <decisions>
-        <description>Checks if the current requirement has been submitted.</description>
+        <description>Checks if the Requirement’s Status is Complete. If Status is Complete, a message notifies the user that the Requirement was already submitted</description>
         <name>is_Requirement_Complete</name>
         <label>is Requirement Complete?</label>
         <locationX>182</locationX>
@@ -72,6 +75,7 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordLookups>
+        <description>Retrieves the Requirement record.</description>
         <name>Get_Requirement</name>
         <label>Get Requirement</label>
         <locationX>182</locationX>
@@ -92,6 +96,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <description>Updates the Status and Is Add Files Visible? Fields on the Requirement.</description>
         <name>UpdateRequirement</name>
         <label>Update Requirement</label>
         <locationX>314</locationX>
@@ -103,6 +108,7 @@
     </recordUpdates>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
+        <description>Presents a message that requirement have already been submitted.</description>
         <name>RequirementComplete</name>
         <label>Requirement Complete</label>
         <locationX>50</locationX>
@@ -119,6 +125,7 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <description>Presents a confirmation message that the Requirement is submitted.</description>
         <name>RequirementSubmitted</name>
         <label>Requirement Submitted</label>
         <locationX>314</locationX>
@@ -135,6 +142,7 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <description>Presents a message that no additional changes can be made after the Requirement is submitted.</description>
         <name>SubmitRequirementReview</name>
         <label>Submit Requirement Review</label>
         <locationX>314</locationX>
