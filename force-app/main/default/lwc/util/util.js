@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2021, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 //Used to get namespace from org
 import isAddFilesVisibleField from "@salesforce/schema/outfunds__Requirement__c.IsAddFilesVisible__c";
