@@ -448,7 +448,7 @@ plans:
               message: "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org."
             - when: "'outfunds' not in tasks.get_installed_packages()"
               action: error
-              message: "It looks like you don't have Outbound Funds Module installed, which is required to install Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module installer](https://github.com/SalesforceFoundation/OutboundFundsModule) to install it and try again."
+              message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit the [Outbound Funds Module installer](https://github.com/SalesforceFoundation/OutboundFundsModule) to install it and try again."
             - when: "'Fundseeker Portal' in tasks.list_communities()"
               action: error
               message: "An Experience Cloud site with the name 'Fundseeker Portal' already exists."
