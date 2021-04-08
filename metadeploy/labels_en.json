@@ -7,7 +7,7 @@
   },
   "plan:install": {
     "title": {
-      "message": "Install Outbound Funds Module Fundseeker Starter Portal Template",
+      "message": "Install OFM Fundseeker Starter Portal Template",
       "description": "title of installation plan"
     },
     "preflight_message": {
@@ -46,10 +46,6 @@
     },
     "The Fundseeker Starter Portal Template requires that Chatter is enabled. Enable Chatter in your org and try again.": {
       "message": "The Fundseeker Starter Portal Template requires that Chatter is enabled. Enable Chatter in your org and try again.",
-      "description": "shown if validation fails"
-    },
-    "It looks like you don't have Outbound Funds Module installed, which is required to install Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module installer](https://github.com/SalesforceFoundation/OutboundFundsModule) to install it and try again.": {
-      "message": "It looks like you don't have Outbound Funds Module installed, which is required to install Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module installer](https://github.com/SalesforceFoundation/OutboundFundsModule) to install it and try again.",
       "description": "shown if validation fails"
     },
     "An Experience Cloud site with the name 'Fundseeker Portal' already exists.": {
@@ -105,7 +101,7 @@
   },
   "plan:customer_enablement_install": {
     "title": {
-      "message": "Install Outbound Funds Module Fundseeker Starter Portal Template and Build Experience Site",
+      "message": "Install OFM Fundseeker Starter Portal Template and Build Experience Site",
       "description": "title of installation plan"
     },
     "preflight_message": {
