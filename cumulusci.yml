@@ -448,7 +448,7 @@ plans:
               message: "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org."
             - when: "'outfunds' not in tasks.get_installed_packages()"
               action: error
-              message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit the [Outbound Funds Module installer](https://github.com/SalesforceFoundation/OutboundFundsModule) to install it and try again."
+              message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit the [Outbound Funds Module installer](https://install.salesforce.org/products/outbound-funds/) to install it and try again."
             - when: "'Fundseeker Portal' in tasks.list_communities()"
               action: error
               message: "An Experience Cloud site with the name 'Fundseeker Portal' already exists."
@@ -480,7 +480,7 @@ plans:
               message: "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org."
             - when: "'outfunds' not in tasks.get_installed_packages()"
               action: error
-              message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit the [Outbound Funds Module installer](https://github.com/SalesforceFoundation/OutboundFundsModule) to install it and try again."
+              message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit the [Outbound Funds Module installer](https://install.salesforce.org/products/outbound-funds/) to install it and try again."
 
         steps:
             1:
