@@ -1,0 +1,17 @@
+.THIS .main {
+    background-color: var(--lwc-LoginBackgroundColor);
+    height: 100vh;
+}
+.THIS .loginHeader {
+    min-height: 100px;
+}
+.THIS .slds-body {
+    border-radius: 5px;
+    background-color: var(--lwc-CardBackgroundColor);
+}
+.THIS .salesforceIdentityEmployeeLoginLink2.employeeLoginLink a.inverseTextColor {
+    color: var(--lwc-colorTextLink);
+}
+.THIS .salesforceIdentityLoginForm2 .inverseTextColor {
+    color: var(--lwc-colorTextLink);
+}

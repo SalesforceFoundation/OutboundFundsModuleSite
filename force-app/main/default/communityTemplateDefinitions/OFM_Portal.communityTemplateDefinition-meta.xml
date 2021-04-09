@@ -8,27 +8,27 @@
 <CommunityTemplateDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
 	<baseTemplate>c</baseTemplate>
 	<bundlesInfo>
-		<description>Create a single place to share all of your funding opportunities with fundseekers. They’ll also have the ability to create accounts so they can personalize their experience with you and speed up the process.</description>
+		<description>Create a single place to share all of your Funding Programs with fundseekers. Fundseekers have the ability to create a portal account that streamlines the application process when they are ready to apply for funding.</description>
 		<order>1</order>
 		<title>Self-Service</title>
 		<type>Highlight</type>
 	</bundlesInfo>
 	<bundlesInfo>
-		<description>Customize your applications with applicable requirements to each of your funding programs. Once fundseekers find the right opportunities, they can submit applications with ease.</description>
+		<description>Customize your application with applicable questions and requirements. Once fundseekers find the right Funding Programs, they can easily submit applications.</description>
 		<order>2</order>
 		<title>Funding Applications</title>
 		<type>Highlight</type>
 	</bundlesInfo>
 	<bundlesInfo>
-		<description>No need for guess work here. Fundseekers can log in anytime, on any device, to monitor the status of their applications. Once awarded, they can also use the portal to see disbursement schedules and amounts.</description>
+		<description>Grantees can provide important information related to their awards by submitting status reports and other updates through the portal.</description>
 		<order>3</order>
-		<title>Status Updates</title>
+		<title>Submit Requirements</title>
 		<type>Highlight</type>
 	</bundlesInfo>
 	<bundlesInfo>
-		<description>Fundees can provide important information related to their awards by submitting status reports and other updates through the portal.</description>
+		<description>Once awarded, grantees can log in to the portal anywhere, any time, to see disbursement schedules and amounts.</description>
 		<order>4</order>
-		<title>Submit Updates</title>
+		<title>Disbursement Schedules</title>
 		<type>Highlight</type>
 	</bundlesInfo>
 	<bundlesInfo>
@@ -39,6 +39,7 @@
 	</bundlesInfo>
 	<category>Sales</category>
 	<defaultThemeDefinition>OFM_Portal</defaultThemeDefinition>
+	<description>It can be tedious for fundseekers to find and apply for funding—it takes their time away from delivering vital services to the community. With a starter portal, you can make it easier for them to find and apply for funding, submit ongoing progress reports, and view disbursements. Add your organization’s look and feel to create one seamless experience. </description>
 	<enableExtendedCleanUpOnDelete>true</enableExtendedCleanUpOnDelete>
 	<masterLabel>Fundseeker Starter Portal</masterLabel>
 	<publisher>Salesforce.org</publisher>
