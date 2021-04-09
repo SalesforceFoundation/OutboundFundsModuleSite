@@ -7,7 +7,7 @@
 -->
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Outbound Funds Portal Profile</members>
+        <members>Fundseeker Portal Profile</members>
         <name>Profile</name>
     </types>
     <version>50.0</version>

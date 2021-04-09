@@ -40,7 +40,7 @@
 	<category>Sales</category>
 	<defaultThemeDefinition>OFM_Portal</defaultThemeDefinition>
 	<enableExtendedCleanUpOnDelete>true</enableExtendedCleanUpOnDelete>
-	<masterLabel>OFM-Portal</masterLabel>
+	<masterLabel>Fundseeker Starter Portal</masterLabel>
 	<publisher>Salesforce.org</publisher>
 	<!-- Login Pages -->
 	<pageSetting>
