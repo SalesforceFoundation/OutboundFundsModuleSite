@@ -40,8 +40,8 @@
       "message": "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org.",
       "description": "shown if validation fails"
     },
-    "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit the [Outbound Funds Module installer](https://install.salesforce.org/products/outbound-funds/) to install it and try again.": {
-      "message": "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit the [Outbound Funds Module installer](https://install.salesforce.org/products/outbound-funds/) to install it and try again.",
+    "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit https://install.salesforce.org/products/outbound-funds/ to install it and try again.": {
+      "message": "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit https://install.salesforce.org/products/outbound-funds/ to install it and try again.",
       "description": "shown if validation fails"
     },
     "The Fundseeker Starter Portal Template requires that Chatter is enabled. Enable Chatter in your org and try again.": {
