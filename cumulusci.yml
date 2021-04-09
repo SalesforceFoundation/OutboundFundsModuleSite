@@ -3,7 +3,7 @@
 # * SPDX-License-Identifier: BSD-3-Clause
 # * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 # *
-minimum_cumulusci_version: "3.27.0"
+minimum_cumulusci_version: "3.32.0"
 project:
     name: OutboundFundsCommunity
     package:
@@ -83,10 +83,10 @@ tasks:
         options:
             path: unpackaged/fundseeker_customer_enablement/guest_user_profile
 
-    fundseeker_create_network_members:
+    fundseeker_add_network_members:
         group: "OFM-Site: Fundseeker customer enablement"
         description: Create a NetworkMemberGroup records.
-        class_path: tasks.network_member_group.CreateNetworkMemberGroups
+        class_path: cumulusci.tasks.salesforce.network_member_group.CreateNetworkMemberGroups
         options:
             network_name: Fundseeker Portal
             profile_names:
@@ -106,12 +106,24 @@ tasks:
         options:
             path: unpackaged/fundseeker_customer_enablement/sharing_set
 
-    fundseeker_deploy_submit_application:
-        group: "OFM-Site: Fundseeker customer enablement"
-        description: Deploys our flow for funding requests submission.
-        class_path: cumulusci.tasks.salesforce.Deploy
+    fundseeker_check_sharing_set_owds:
+        class_path: cumulusci.tasks.preflight.sobjects.CheckSObjectOWDs
+        group: "Preflight Checks"
         options:
-            path: unpackaged/fundseeker_customer_enablement/application_submission
+            org_wide_defaults:
+                - api_name: outfunds__Funding_Request__c
+                  external_sharing_model: Private
+                - api_name: outfunds__Requirement__c
+                  external_sharing_model: Private
+
+    fundseeker_check_enable_networks_enabled:
+        description: Preflight check to validate that Digital Experiences are enabled.
+        group: "Preflight Checks"
+        class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
+        options:
+            settings_type: CommunitiesSettings
+            settings_field: IsNetworksEnabledEnabled
+            value: true
 
     # All stories
     common_secure_owds_by_default:
@@ -352,28 +364,132 @@ flows:
 
     # Customer flows
     fundseeker_customer_enablement:
-        description: Customer enablement for the Outbound Funds Portal.
+        description: Customer enablement for the Fundseeker Portal with recommended configuration.
         steps:
             1:
                 task: fundseeker_create_site
+                ui_options:
+                    name: "Create the Fundseeker Portal"
+                    is_required: True
             2:
                 task: fundseeker_publish_site
+                ui_options:
+                    name: "Publish the Fundseeker Portal"
+                    is_required: True
             3:
-                task: fundseeker_create_network_members
+                task: fundseeker_add_network_members
+                ui_options:
+                    name: "Add 'Fundseeker Plus Login' Profile to Fundseeker Portal"
+                    is_required: True
             4:
                 task: fundseeker_configure_guest_user_profile
+                ui_options:
+                    name: "Update 'Fundseeker Portal Profile' (Guest User) profile"
+                    is_required: True
             5:
                 task: fundseeker_deploy_sharing_set
-            6:
-                task: fundseeker_deploy_submit_application
-            7:
-                task: fundseeker_deploy_network_branding
+                ui_options:
+                    name: "Grant Visibility to Site Users"
+                    is_required: True
+                checks:
+                    - when: "not tasks.fundseeker_check_sharing_set_owds()"
+                      action: hide
 
     # Internal flows
     common_replace_and_publish_theme_layout_navigation_menu:
-        description: Configures the Outbound Funds Portal Site to use the packaged Navigation Menu instead of the default Navigation Menu.  Then, publishes the Site so the changes are committed in the org.
+        description: Configures the Fundseeker Portal to use the packaged Navigation Menu instead of the default Navigation Menu.  Then, publishes the Site so the changes are committed in the org.
         steps:
             1:
                 task: common_replace_theme_layout_navigation_menu
             2:
                 task: fundseeker_publish_site
+
+    customer_org:
+        steps:
+            1:
+                task: deploy_pre
+                ui_options:
+                    template_content_assets:
+                        name: Deploy Visual Assets
+            2:
+                task: install_managed
+            3:
+                task: deploy_post
+                ui_options:
+                    funding_program_application_flow:
+                        name: Deploy Create Application Flow And Quick Action
+                    fundseeker_plus_login_profile:
+                        name: Deploy Fundseeker Plus Login Profile
+                    funding_request_submission_flow:
+                        name: Deploy Submit Application Flow And Quick Action
+                    submit_requirement_flow:
+                        name: Deploy Submit Requirement Flow And Quick Action
+
+    customer_org_full:
+        steps:
+            1:
+                flow: customer_org
+            2:
+                flow: fundseeker_customer_enablement
+
+plans:
+    customer_enablement_install:
+        slug: install-and-build-portal
+        title: Install OFM Fundseeker Starter Portal Template and Build Site
+        tier: primary
+        is_listed: True
+        preflight_message: "This installs the Outbound Funds Module Fundseeker Starter Portal Template into your org and creates the Fundseeker Portal with our recommended configurations."
+        post_install_message: "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module Fundseeker Starter Portal Template](https://powerofus.force.com/s/group/0F980000000CvlMCAS) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template."
+        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find Support & Services, and log a support ticket with Salesforce. Include “Outbound Funds Module Fundseeker Starter Portal Template” in the subject line and the installation link in the comments."
+        checks:
+            - when: "not tasks.check_chatter_enabled()"
+              action: error
+              message: "The Fundseeker Starter Portal Template requires that Chatter is enabled. Enable Chatter in your org and try again."
+            - when: "'.my.' not in org_config.instance_url"
+              action: error
+              message: "The Fundseeker Starter Portal Template requires that My Domain is enabled. Enable My Domain in your org and try again."
+            - when: "not tasks.fundseeker_check_enable_networks_enabled()"
+              action: error
+              message: "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Enable Digital Experience in your org and try again."
+            - when: "'PID_Customer_Community_Plus_Login' not in tasks.get_available_licenses()"
+              action: error
+              message: "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org."
+            - when: "'outfunds' not in tasks.get_installed_packages()"
+              action: error
+              message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit https://install.salesforce.org/products/outbound-funds/ to install it and try again."
+            - when: "'Fundseeker Portal' in tasks.list_communities()"
+              action: error
+              message: "An Experience Cloud site with the name 'Fundseeker Portal' already exists."
+
+        steps:
+            1:
+                flow: customer_org_full
+
+    install:
+        slug: install
+        title: Install OFM Fundseeker Starter Portal Template
+        tier: secondary
+        is_listed: True
+        preflight_message: "This installs the Outbound Funds Module Fundseeker Starter Portal Experience Cloud template in your org."
+        post_install_message: "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template."
+        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find Support & Services, and log a support ticket with Salesforce. Include “Outbound Funds Module Fundseeker Starter Portal Template” in the subject line and the installation link in the comments."
+        checks:
+            - when: "not tasks.check_chatter_enabled()"
+              action: error
+              message: "Outbound Funds Module Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again."
+            - when: "'.my.' not in org_config.instance_url"
+              action: error
+              message: "The Fundseeker Starter Portal Template requires that My Domain is enabled. Enable My Domain in your org and try again."
+            - when: "not tasks.fundseeker_check_enable_networks_enabled()"
+              action: error
+              message: "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Enable Digital Experience in your org and try again."
+            - when: "'PID_Customer_Community_Plus_Login' not in tasks.get_available_licenses()"
+              action: error
+              message: "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org."
+            - when: "'outfunds' not in tasks.get_installed_packages()"
+              action: error
+              message: "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit https://install.salesforce.org/products/outbound-funds/ to install it and try again."
+
+        steps:
+            1:
+                flow: customer_org
