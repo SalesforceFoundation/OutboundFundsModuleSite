@@ -404,7 +404,7 @@ flows:
                     template_content_assets:
                         name: Deploy Visual Assets
             2:
-                task: install_managed_beta
+                task: install_managed
             3:
                 task: deploy_post
                 ui_options:
