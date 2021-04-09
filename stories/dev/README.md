@@ -25,7 +25,7 @@ The following are unpackaged configuration of the org to easily develop the unau
 -   Adds `PubliclyAccessible__c` to the `outfunds__Funding_Program__c.outfunds__Funding Program Layout` Layout so internal users can see access this field.
 -   Grants the **System Administrator** Profile field-level security to `PubliclyAccessible__c`.
 -   Adds Sharing Rules to grant access to the following for Funding Programs records whose `PubliclyAccessible__c` is checked:
-    -   **Outbound Funds Portal** Site Guest User (i.e. unauthenticated site users)
+    -   **Fundseeker Portal** Site Guest User (i.e. unauthenticated site users)
     -   **All Customer Portal Users** (i.e. authenticated site users)
 
 ### Reorders the App Menu
