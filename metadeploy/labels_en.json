@@ -101,7 +101,7 @@
   },
   "plan:customer_enablement_install": {
     "title": {
-      "message": "Install OFM Fundseeker Starter Portal Template and Build Experience Site",
+      "message": "Install OFM Fundseeker Starter Portal Template and Build Site",
       "description": "title of installation plan"
     },
     "preflight_message": {

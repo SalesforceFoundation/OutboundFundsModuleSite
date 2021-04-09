@@ -427,7 +427,7 @@ flows:
 plans:
     customer_enablement_install:
         slug: install-and-build-portal
-        title: Install OFM Fundseeker Starter Portal Template and Build Experience Site
+        title: Install OFM Fundseeker Starter Portal Template and Build Site
         tier: primary
         is_listed: True
         preflight_message: "This installs the Outbound Funds Module Fundseeker Starter Portal Template into your org and creates the Fundseeker Portal with our recommended configurations."
