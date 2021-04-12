@@ -362,11 +362,11 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>bgImage</name>
-                    <value>background: rgb(32,92,160) url(/sfsites/c/file-asset/GCCS_Foundation_hero) center center /cover</value>
+                    <value>background: rgb(32,92,160) url(/sfsites/c/file-asset/Outbound_Funds_Module_Default_Hero) center center /cover</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>bgOverlayColor</name>
-                    <value>rgba(31, 31, 34, 0.8)</value>
+                    <value>rgba(31, 31, 34, 0)</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>captionText</name>
@@ -452,7 +452,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaShowBtnOne</name>
-                    <value>true</value>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>ctaShowBtnTwo</name>
@@ -464,7 +464,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>heroHeight</name>
-                    <value>162</value>
+                    <value>150</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>heroWidth</name>
@@ -480,11 +480,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showSubtitle</name>
-                    <value>true</value>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showTitle</name>
-                    <value>true</value>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>subtitleText</name>

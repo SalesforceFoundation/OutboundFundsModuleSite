@@ -132,7 +132,9 @@
     "deserialization",
     "onformload",
     "oncasecreate",
-    "critop"
+    "critop",
+    // Site Font
+    "Merriweather"
   ],
   // List of words to be always considered incorrect.
   "flagWords": [],

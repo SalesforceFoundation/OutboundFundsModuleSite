@@ -29,7 +29,7 @@
     </flexiPageRegions>
     <masterLabel>Login</masterLabel>
     <template>
-        <name>salesforceIdentity:loginBody2</name>
+        <name>OFM_loginThemeLayout</name>
     </template>
     <type>CommThemeLayoutPage</type>
 </FlexiPage>
