@@ -313,7 +313,7 @@ The decision is based on Status and Start/End Dates</description>
         <allowPause>false</allowPause>
         <fields>
             <name>GuestUserScreenText</name>
-            <fieldText>&lt;p&gt;You need to &lt;a href=&quot;/fundingprograms/s/login&quot; target=&quot;_blank&quot;&gt;log in&lt;/a&gt; to or &lt;a href=&quot;/fundingprograms/s/login/SelfRegister&quot; target=&quot;_blank&quot;&gt;sign up&lt;/a&gt; for an account before you can apply for funding.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;You need to &lt;a href=&quot;/fundseekerportal/s/login&quot; target=&quot;_blank&quot;&gt;log in&lt;/a&gt; to or &lt;a href=&quot;/fundseekerportal/s/login/SelfRegister&quot; target=&quot;_blank&quot;&gt;sign up&lt;/a&gt; for an account before you can apply for funding.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
