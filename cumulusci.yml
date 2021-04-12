@@ -57,6 +57,8 @@ tasks:
                     - Outbound_Funds_Module_Default_Hero
                     - Outbound_Funds_Module_Default_Logo
                     - Outbound_Funds_Module_Body
+                    - GCCS_Foundation_hero
+                    - GCCS_Foundation_logo
 
     # Fundseeker customer enablement
     fundseeker_create_site:
