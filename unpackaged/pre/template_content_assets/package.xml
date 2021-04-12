@@ -7,8 +7,9 @@
 -->
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
   <types>    
-    <members>GCCS_Foundation_logo</members>
-    <members>GCCS_Foundation_hero</members>
+    <members>Outbound_Funds_Module_Default_Logo</members>
+    <members>Outbound_Funds_Module_Default_Hero</members>
+    <members>Outbound_Funds_Module_Body</members>
     <name>ContentAsset</name>
   </types>
   <version>48.0</version>

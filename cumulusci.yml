@@ -54,6 +54,9 @@ tasks:
         options:
             ignore:
                 ContentAsset:
+                    - Outbound_Funds_Module_Default_Hero
+                    - Outbound_Funds_Module_Default_Logo
+                    - Outbound_Funds_Module_Body
                     - GCCS_Foundation_hero
                     - GCCS_Foundation_logo
 
@@ -63,7 +66,7 @@ tasks:
         description: Creates a site with the OFM Experience Template.
         class_path: cumulusci.tasks.salesforce.CreateCommunity
         options:
-            template: OFM-Portal
+            template: Fundseeker Starter Portal
             name: Fundseeker Portal
             url_path_prefix: fundseekerportal
             timeout: 60000
@@ -90,6 +93,13 @@ tasks:
             network_name: Fundseeker Portal
             profile_names:
                 - Fundseeker Plus Login
+
+    fundseeker_deploy_network_branding:
+        group: "SFDO-Grants: Customer enablement"
+        description: Deploys the NetworkBranding files for the Fundseeker Portal. Must be deployed after creating the "Fundseeker Portal" Community.
+        class_path: cumulusci.tasks.salesforce.Deploy
+        options:
+            path: unpackaged/fundseeker_customer_enablement/network_branding
 
     fundseeker_deploy_sharing_set:
         group: "OFM-Site: Fundseeker customer enablement"

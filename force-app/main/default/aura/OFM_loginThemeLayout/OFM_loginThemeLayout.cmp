@@ -1,0 +1,32 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Default Login Theme Layout">
+    <aura:attribute name="themeLoginHeader" type="Aura.Component[]" required="false" access="global" />
+    <aura:attribute name="themeLoginFooter" type="Aura.Component[]" required="false" access="global" />
+    <div>
+        <div class="main">
+            <header>
+                <div class="loginHeader">{!v.themeLoginHeader}</div>
+            </header>
+            <div role="main" class="slds-container_center">
+                <lightning:layout verticalAlign="center" multipleRows="true">
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="3" largeDeviceSize="3">
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="6">
+                        <lightning:layout verticalAlign="center">
+                            <lightning:layoutItem size="1" mediumDeviceSize="2" largeDeviceSize="3">
+                            </lightning:layoutItem>
+                            <lightning:layoutItem flexibility="no-shrink" size="10" smallDeviceSize="10"
+                                mediumDeviceSize="8" largeDeviceSize="6" padding="around-large" class="slds-body">
+                                {!v.body}
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="1" mediumDeviceSize="2" largeDeviceSize="3">
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="3" largeDeviceSize="3">
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+            {!v.themeLoginFooter}
+        </div>
+    </div>
+</aura:component>
