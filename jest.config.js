@@ -10,8 +10,8 @@ const { jestConfig } = require("@salesforce/sfdx-lwc-jest/config");
 const setupFilesAfterEnv = jestConfig.setupFilesAfterEnv || [];
 setupFilesAfterEnv.push("<rootDir>/jest.setup.js");
 
-const coverageThreshold = jestConfig.coverageThreshold || {};
 // Repo needs to have have 100% LWC Jest test code coverage across all measures.
+const coverageThreshold = jestConfig.coverageThreshold || {};
 /*
 coverageThreshold.global = {
     branches: 100,
