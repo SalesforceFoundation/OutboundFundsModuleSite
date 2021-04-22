@@ -184,6 +184,12 @@ The decision is based on Status and Start/End Dates</description>
             <stringValue>LightningFlowBuilder</stringValue>
         </value>
     </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
         <description>Inserts Application record.</description>
@@ -282,7 +288,7 @@ The decision is based on Status and Start/End Dates</description>
         </connector>
         <fields>
             <name>FundingProgramName</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 12px; color: rgb(134, 132, 132);&quot;&gt;Program Name&lt;/span&gt;&lt;/p&gt;&lt;p&gt;{!FundingProgram.Name}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 12px; color: rgb(62, 62, 60);&quot;&gt;Program Name&lt;/span&gt;&lt;/p&gt;&lt;p&gt;{!FundingProgram.Name}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
