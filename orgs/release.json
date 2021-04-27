@@ -1,6 +1,6 @@
 {
   "orgName": "Outbound Funds Community - Release Test Org",
-  "edition": "Enterprise",
+  "edition": "Developer",
   "features": ["Communities"],
   "settings": {
     "lightningExperienceSettings": {
