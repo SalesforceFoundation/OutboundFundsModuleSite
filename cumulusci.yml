@@ -21,6 +21,12 @@ project:
         repo_url: "https://github.com/SalesforceFoundation/OutboundFundsModuleSite"
     source_format: sfdx
 
+orgs:
+    scratch:
+        prerelease:
+            config_file: orgs/prerelease.json
+        beta_prerelease:
+            config_file: orgs/beta_prerelease.json
 tasks:
     # Automerge Major Release Branches
     github_automerge_feature:
