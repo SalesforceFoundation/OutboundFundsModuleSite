@@ -3,7 +3,7 @@
 # * SPDX-License-Identifier: BSD-3-Clause
 # * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 # *
-minimum_cumulusci_version: "3.32.0"
+minimum_cumulusci_version: "3.33.1"
 project:
     name: OutboundFundsCommunity
     package:
@@ -280,6 +280,36 @@ tasks:
             network_name: Fundseeker Portal
             navigation_menu: OFM_Portal_Navigation1
 
+    add_apply_quick_action_to_funding_program_layout:
+        group: "OFM-Site: Fundseeker customer enablement"
+        description: Adds the Apply quick action to the Funding Program Experience Site layout.
+        class_path: cumulusci.tasks.metadata_etl.layouts.AddRecordPlatformActionListItem
+        options:
+            api_names: "outfunds__Funding_Program__c-%%%NAMESPACE%%%OFM Funding Program Site Layout"
+            action_name: "outfunds__Funding_Program__c.Apply"
+            action_type: QuickAction
+            place_first: true
+
+    add_submit_quick_action_to_requirement_layout:
+        group: "OFM-Site: Fundseeker customer enablement"
+        description: Adds the Submit quick action to the Requirement Experience Site layout.
+        class_path: cumulusci.tasks.metadata_etl.layouts.AddRecordPlatformActionListItem
+        options:
+            api_names: "outfunds__Requirement__c-%%%NAMESPACE%%%OFM Requirement Site Layout"
+            action_name: "outfunds__Requirement__c.Submit"
+            action_type: QuickAction
+            place_first: true
+
+    add_submit_application_quick_action_to_funding_request_layout:
+        group: "OFM-Site: Fundseeker customer enablement"
+        description: Adds the Submit quick action to the Funding Request Experience Site layout.
+        class_path: cumulusci.tasks.metadata_etl.layouts.AddRecordPlatformActionListItem
+        options:
+            api_names: "outfunds__Funding_Request__c-%%%NAMESPACE%%%OFM Funding Request Site Layout"
+            action_name: "outfunds__Funding_Request__c.SubmitApplication"
+            action_type: QuickAction
+            place_first: true
+
 flows:
     # dev story
     dev_story:
@@ -356,6 +386,12 @@ flows:
                 task: common_share_funding_programs_with_accounts_with_funding_requests
             11:
                 flow: common_replace_and_publish_theme_layout_navigation_menu
+            12:
+                task: add_apply_quick_action_to_funding_program_layout
+            13:
+                task: add_submit_quick_action_to_requirement_layout
+            14:
+                task: add_submit_application_quick_action_to_funding_request_layout
 
     config_qa:
         steps:
