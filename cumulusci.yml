@@ -446,6 +446,21 @@ flows:
                 checks:
                     - when: "not tasks.fundseeker_check_sharing_set_owds()"
                       action: hide
+            6:
+                task: add_apply_quick_action_to_funding_program_layout
+                ui_options:
+                    name: "Add the 'Apply' Quick Action to the 'Funding Program Site Layout' page layout"
+                    is_required: True
+            7:
+                task: add_submit_quick_action_to_requirement_layout
+                ui_options:
+                    name: "Add the 'Submit' Quick Action to the 'Requirement Site Layout' page layout"
+                    is_required: True
+            8:
+                task: add_submit_application_quick_action_to_funding_request_layout
+                ui_options:
+                    name: "Add the 'Submit Application' Quick Action to the 'Funding Request Site Layout' page layout"
+                    is_required: True
 
     # Internal flows
     common_replace_and_publish_theme_layout_navigation_menu:
