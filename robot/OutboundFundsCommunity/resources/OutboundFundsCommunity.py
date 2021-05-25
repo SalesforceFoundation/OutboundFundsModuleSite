@@ -90,7 +90,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         return True if elements > 0 else False
 
     def new_random_string(self, len=5):
-        """Generate a random string of fixed length """
+        """Generate a random string of fixed length"""
         return "".join(random.choice(string.ascii_lowercase) for _ in range(len))
 
     def generate_new_string(self, prefix="Robot Test"):
@@ -197,7 +197,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
             self.selenium.click_element(option)
 
     def click_related_list_wrapper_button(self, heading, button_title):
-        """ loads the related list  and clicks on the button on the list """
+        """loads the related list  and clicks on the button on the list"""
         locator = outboundfundscommunity_lex_locators["related"]["flexi_button"].format(
             heading, button_title
         )
@@ -205,7 +205,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         self.salesforce.wait_until_loading_is_complete()
 
     def login_to_community_as_user(self):
-        """ Click on 'Show more actions' drop down and select the option to log in to community as user """
+        """Click on 'Show more actions' drop down and select the option to log in to community as user"""
         locator_actions = outboundfundscommunity_lex_locators["action_locators"][
             "show_more_actions"
         ]
