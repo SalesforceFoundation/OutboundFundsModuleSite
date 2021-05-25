@@ -33,7 +33,7 @@ Apply to Funding Program
     ...                                          community via "Apply" button on Funding Program
     [tags]                                      unstable    feature:FundingProgram
     Go To Community As Test User                Contact        Grace Walker
-    Wait Until Element Is Visible               text:Our Grant Programs
+    Wait Until Element Is Visible               text:Find Funding Opportunities
     Click Portal Tab                            Funding Programs
     Current Page Should Be                      Listing     Funding Program
     Click Link With Text                        ${fundingprogram}[Name]
@@ -42,7 +42,7 @@ Apply to Funding Program
     Populate Apply Form                         Requested Amount=20000
     ...                                         Requested For=Education
     Click Next
-    Choose File                                 Grants:upload_file      ${path}
+    Choose File                                 OutboundFundsCommunity:upload_file      ${path}
     Click Upload Modal Button                   Done
     Click Button                                Next
     Current Page Should be                      Details       Funding Request

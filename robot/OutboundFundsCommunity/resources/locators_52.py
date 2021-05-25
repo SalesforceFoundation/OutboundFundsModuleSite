@@ -18,7 +18,7 @@ outboundfundscommunity_lex_locators = {
         "show_more_actions": "//div[contains(@class, 'windowViewMode-normal oneContent active lafPageHost')]//lightning-button-menu[contains(@class,'slds-dropdown-trigger')]/button[contains(@class, 'slds-button_icon-border-filled')]",
     },
     "community_locators": {
-        "quick_action_button": "//button[contains(text(), '{}')]",
+        "quick_action_button": "//a//div[@title='{}']",
         "header": "//h1//div[contains(@class, 'entityNameTitle') and text()='{}']",
         "header_title": "//h2[(contains(@class, 'slds-card__header-title'))]//span[contains(text(),'{}')] ",
     },
@@ -71,8 +71,9 @@ outboundfundscommunity_lex_locators = {
     "header_title": "//h2[(contains(@class, 'inlineTitle') or contains(@class, 'slds-text-heading') or contains(@class, 'listTitle') or contains(@class, 'slds-hyphenate')) and contains(text(),'{}')]",
     "link": "//a[contains(text(),'{}')]",
     "modal_field": "//label[contains(@class, 'uiLabel')][.//div[text()='{}']]//*[self::input or self::textarea]",
+    "amount_field": "//lightning-formatted-rich-text/span[text()='{}']/../../../lightning-input/div/input",
     "flexi_link": "//a//span[text()='{}']",
     "flexipage-popup": "//div[contains(@class, 'slds-is-open')][contains(@class, 'slds-combobox')]",
-    "upload_file": "//input[@type='file' and contains(@class,'slds-file-selector__input')]",
+    "upload_file": "//span[contains(@class,'slds-file-selector__button')]",
     "upload_modal": "//button//span[text()='{}']",
 }

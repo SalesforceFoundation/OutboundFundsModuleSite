@@ -55,7 +55,10 @@ class CommunityFundingProgramDetailPage(BaseOutboundFundsCommunityPage, DetailPa
     def populate_apply_form(self, **kwargs):
         """ Populates standard event form with the field-value pairs """
         for key, value in kwargs.items():
-            if (key == "Requested Amount") or (key == "Requested For"):
+            if key == "Requested Amount":
+                locator = outboundfundscommunity_lex_locators["amount_field"].format(key)
+                self.selenium.get_webelement(locator).send_keys(value)
+            elif key == "Requested For":
                 locator = outboundfundscommunity_lex_locators["modal_field"].format(key)
                 self.selenium.get_webelement(locator).send_keys(value)
             else:
