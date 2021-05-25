@@ -394,17 +394,14 @@ flows:
                     param1: gms.robotwalker@inbox.testmail.app
             8:
                 task: common_upload_photo_for_admin_aileen_davis
-#            9:
-#                task: common_upload_photo_for_fundseeker_grace_walker
-#            10:
-#                task: common_share_funding_programs_with_accounts_with_funding_requests
-            11:
+
+            9:
                 flow: common_replace_and_publish_theme_layout_navigation_menu
-            12:
+            10:
                 task: add_apply_quick_action_to_funding_program_layout
-            13:
+            11:
                 task: add_submit_quick_action_to_requirement_layout
-            14:
+            12:
                 task: add_submit_application_quick_action_to_funding_request_layout
 
     config_qa:
