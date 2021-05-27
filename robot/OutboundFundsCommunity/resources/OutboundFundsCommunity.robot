@@ -164,12 +164,28 @@ Share Funding Program
 
 Go To Community As Test User
     [Documentation]                 Go to the given CONTACT_ID detail page and log in to community
-    [Arguments]                     ${object}    ${name}
-    ${contact_id} =                 API Get Id  ${object}   name=${name}
+    [Arguments]                     ${contact_id}
     Go To Page                      Detail      Contact       ${contact_id}
-    Wait Until Loading Is Complete
+    wait until loading is complete
+    ${contact_name} =               API Get Name Based on Id     Contact     Id=${contact_id}
     Current Page Should Be          Detail      Contact
     Capture Page Screenshot
     Login To Community As User
     Capture Page Screenshot
     Current Page Should Be          Home        Community
+
+API Get Name Based on Id
+    [Documentation]                 Returns the Name of a record identified by the given field_name
+    ...                             and field_value input for a specific object
+    [Arguments]                     ${obj_name}    &{fields}
+    @{records} =                    Salesforce Query      ${obj_name}
+    ...                             select=Name
+    ...                             &{fields}
+    &{Name} =                       Get From List  ${records}  0
+    [return]                        ${Name}[Name]
+
+API Get Contact Id for Test User
+    [Documentation]         Returns the ID of Grace Walker
+    [Arguments]             ${last_name}     &{fields}
+    ${result} =             API Get Id      Contact         LastName=${last_name}
+    [return]                ${result}
