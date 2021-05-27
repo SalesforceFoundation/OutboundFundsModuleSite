@@ -235,6 +235,14 @@ tasks:
             sql_path: stories/dev/dataset/data.sql
 
     # qa story
+    qa_common_create_site_users:
+        group: "OFM-Site: stories/common"
+        description: Creates site users for the Fundseeker Portal.
+        class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+        options:
+            path: stories/qa/scripts/qa_create_site_users.apex
+            # param1 is a comma-delimited list of Contact.Email to create site users.
+
     qa_deploy_unpackaged:
         group: "OFM-Site: stories/qa"
         description: Deploys the bundle of unpackaged for the qa story.
@@ -381,22 +389,19 @@ flows:
             6:
                 task: common_update_default_scratch_org_user
             7:
-                task: common_create_site_users
+                task: qa_common_create_site_users
                 options:
-                    param1: meiko.takagawa@takagawa-institute.example.com,devon.berger@hillside-elementary.example.com,ellen.perez@steps.example.com,grace.walker@steps.example.com
+                    param1: gms.robotwalker@inbox.testmail.app
             8:
                 task: common_upload_photo_for_admin_aileen_davis
+
             9:
-                task: common_upload_photo_for_fundseeker_grace_walker
-            10:
-                task: common_share_funding_programs_with_accounts_with_funding_requests
-            11:
                 flow: common_replace_and_publish_theme_layout_navigation_menu
-            12:
+            10:
                 task: add_apply_quick_action_to_funding_program_layout
-            13:
+            11:
                 task: add_submit_quick_action_to_requirement_layout
-            14:
+            12:
                 task: add_submit_application_quick_action_to_funding_request_layout
 
     config_qa:
