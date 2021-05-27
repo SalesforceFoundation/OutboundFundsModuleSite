@@ -7,6 +7,7 @@
 from cumulusci.robotframework.pageobjects import DetailPage
 from cumulusci.robotframework.pageobjects import pageobject
 from BaseObjects import BaseOutboundFundsCommunityPage
+from OutboundFundsCommunity import outboundfundscommunity_lex_locators
 
 
 @pageobject("Details", "Funding Request")
@@ -19,3 +20,10 @@ class CommunityFundingRequestDetailPage(BaseOutboundFundsCommunityPage, DetailPa
             "/s/funding-request", message="Current page is not a Funding Request Page"
         )
         self.selenium.wait_until_page_contains("Instructions for Applying")
+
+    def submit_application(self):
+        locator = outboundfundscommunity_lex_locators["community_locators"][
+            "quick_action_button"
+        ].format("Submit Application")
+        self.selenium.set_focus_to_element(locator)
+        self.selenium.click_element(locator)

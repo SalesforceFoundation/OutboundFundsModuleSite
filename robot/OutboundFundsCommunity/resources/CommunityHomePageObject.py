@@ -16,6 +16,6 @@ class CommunityHomePage(BaseOutboundFundsCommunityPage, HomePage):
         by verifying that the url contains '/outboundfunds'
         """
         self.selenium.wait_until_location_contains(
-            "/outboundfunds/s", message="Current page is not a Community Portal"
+            "/fundseekerportal/s", message="Current page is not a Fundseeker Portal"
         )
-        self.selenium.wait_until_page_contains("Your OFM Fundings")
+        self.selenium.wait_until_page_contains("Find Funding Opportunities")
