@@ -25,13 +25,13 @@ Setup Test Data
     ...                               ${fundingprogram}[Id]     ${contact}[Id]
     ...                               ${ns}Status__c=Awarded
     ...                               ${ns}Awarded_Amount__c=100000
-    Store Session Record              ${ns}Funding_Request__c         ${funding_request}[Id]
+    Store Session Record              ${ns}Funding_Request__c         ${funding_request1}[Id]
     Set suite variable                ${funding_request1}
     ${funding_request2} =             API Create Funding Request
     ...                               ${fundingprogram}[Id]     ${contact}[Id]
     ...                               ${ns}Status__c=Awarded
     ...                               ${ns}Awarded_Amount__c=100000
-    Store Session Record              ${ns}Funding_Request__c         ${funding_request}[Id]
+    Store Session Record              ${ns}Funding_Request__c         ${funding_request2}[Id]
     Set suite variable                ${funding_request2}
     ${date_1} =                         Get current date    result_format=%m/%d/%Y  increment=1 day
     ${date_2} =                         Get current date    result_format=%m/%d/%Y  increment=10 day
@@ -60,7 +60,7 @@ New Disbursement on a Funding Request via Create Disbursements button
     Validate Field Value                        Unpaid Disbursements    contains    $80,000.00
     Validate Field Value                        Available for Disbursement  contains    $20,000.00
 
-New Diisbursement via Related List
+New Disbursement via Related List
     [Documentation]                             Creates a Funding Request via API.
     ...                                         Verifies that Funding Request is created and
     ...                                         add a new Disbursement via Related list
@@ -74,16 +74,16 @@ New Diisbursement via Related List
     Wait For Modal                              New                     Disbursement
     Populate Field                              Amount          10000
     Select Value from Picklist                  Status          Scheduled
-    Select Value from Picklist                  Type            Initial
-    Select Value from Picklist                  Disbursement Method         Check
+    Select Value from Picklist                  Type            Final
+    Select Value from Picklist                  Disbursement Method         EFT
     Add Date                                    Scheduled Date              ${date_1}
     Add Date                                    Disbursement Date           ${date_2}
     Click Save
+    Verify Toast Message                        Disbursement
     ${ds_name}=                                 API Get Name Based on Id  ${ns}Disbursement__c
-    ...                                         ${ns}Funding_Request__c=${funding_request2}[Name]
+    ...                                         ${ns}Type__c=Final
     ...                                         ${ns}Status__c=Scheduled
-    Verify Toast Message                        Disbursement "${ds_name}" was created.
-    Click link with text                        ${ds_name}
-    Current Page Should Be                      Details          Disbursements__c
+    Click Element                               //a//span[text()='${ds_name}']
+    Current Page Should Be                      Details          Disbursement__c
     Validate Field Value                        Funding Request    contains    ${funding_request2}[Name]
     Validate Field Value                        Amount  contains    $10,000.00

@@ -78,6 +78,6 @@ outboundfundscommunity_lex_locators = {
     "flexipage-popup": "//div[contains(@class, 'slds-is-open')][contains(@class, 'slds-combobox')]",
     "upload_file": "//span[contains(@class,'slds-file-selector__button')]",
     "upload_modal": "//button//span[text()='{}']",
-    "toast_message": "//div[contains(@class,'toastContent')]/child::div/span[contains(text()=\"{}\")]",
+    "toast_message": "//div[contains(@class,'toastContent')]/child::div/span[text()=\"{}\"]",
     "toast_close": "//span[contains(@class, 'toastMessage') and text()=\"{}\"]/ancestor::div//button[@title='Close']",
 }
