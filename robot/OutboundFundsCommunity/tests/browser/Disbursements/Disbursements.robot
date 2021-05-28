@@ -21,52 +21,25 @@ Setup Test Data
     ${contact} =                      API Create Contact
     Store Session Record              Contact                              ${contact}[Id]
     Set suite variable                ${contact}
-    ${funding_request1} =             API Create Funding Request
+    ${funding_request} =              API Create Funding Request
     ...                               ${fundingprogram}[Id]     ${contact}[Id]
     ...                               ${ns}Status__c=Awarded
     ...                               ${ns}Awarded_Amount__c=100000
-    Store Session Record              ${ns}Funding_Request__c         ${funding_request1}[Id]
-    Set suite variable                ${funding_request1}
-    ${funding_request2} =             API Create Funding Request
-    ...                               ${fundingprogram}[Id]     ${contact}[Id]
-    ...                               ${ns}Status__c=Awarded
-    ...                               ${ns}Awarded_Amount__c=100000
-    Store Session Record              ${ns}Funding_Request__c         ${funding_request2}[Id]
-    Set suite variable                ${funding_request2}
+    Store Session Record              ${ns}Funding_Request__c         ${funding_request}[Id]
+    Set suite variable                ${funding_request}
     ${date_1} =                         Get current date    result_format=%m/%d/%Y  increment=1 day
     ${date_2} =                         Get current date    result_format=%m/%d/%Y  increment=10 day
     Set suite variable                  ${date_1}
     Set suite variable                  ${date_2}
 
 *** Test Case ***
-New Disbursement on a Funding Request via Create Disbursements button
-    [Documentation]                             Creates a Funding Request via API.
-    ...                                         Verifies that Funding Request is created and
-    ...                                         add a new Disbursement
-    [tags]                                      feature:FundingRequest
-    Go To Page                                  Listing          ${ns}Funding_Request__c
-    Click Link With Text                        ${funding_request1}[Name]
-    Wait Until Loading Is Complete
-    Current Page Should Be                      Details          Funding_Request__c
-    Click Button                                Create Disbursements
-    wait until modal is open
-    Populate Field                              Number of Disbursements     4
-    Populate Field                              Interval    4
-    Populate Field                              Amount      80000
-    click button                                Calculate
-    Wait Until Element Is Visible               text:Scheduled Date
-    Save Disbursement
-    Current Page Should Be                      Details          Funding_Request__c
-    Validate Field Value                        Unpaid Disbursements    contains    $80,000.00
-    Validate Field Value                        Available for Disbursement  contains    $20,000.00
-
 New Disbursement via Related List
     [Documentation]                             Creates a Funding Request via API.
     ...                                         Verifies that Funding Request is created and
     ...                                         add a new Disbursement via Related list
     [tags]                                      feature:FundingRequest
     Go To Page                                  Listing          ${ns}Funding_Request__c
-    Click Link With Text                        ${funding_request2}[Name]
+    Click Link With Text                        ${funding_request}[Name]
     Wait Until Loading Is Complete
     Current Page Should Be                      Details          Funding_Request__c
     Click Tab                                   Disbursements
@@ -85,5 +58,5 @@ New Disbursement via Related List
     ...                                         ${ns}Status__c=Scheduled
     Click Element                               //a//span[text()='${ds_name}']
     Current Page Should Be                      Details          Disbursement__c
-    Validate Field Value                        Funding Request    contains    ${funding_request2}[Name]
+    Validate Field Value                        Funding Request    contains    ${funding_request}[Name]
     Validate Field Value                        Amount  contains    $10,000.00
