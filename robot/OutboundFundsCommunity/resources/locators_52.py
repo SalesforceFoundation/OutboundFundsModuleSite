@@ -76,10 +76,6 @@ outboundfundscommunity_lex_locators = {
     "amount_field": "//lightning-formatted-rich-text/span[text()='{}']/../../../lightning-input/div/input",
     "flexi_link": "//a//span[text()='{}']",
     "flexipage-popup": "//div[contains(@class, 'slds-is-open')][contains(@class, 'slds-combobox')]",
-<<<<<<< Updated upstream
-    "upload_file": "//span[contains(@class,'slds-file-selector__button')]",
-    "upload_modal": "//button//span[text()='{}']",
-=======
     "upload_files": {
         "file_manager": "//span[text()='Or drop files']",
         "upload_button": "//input[@type='file' and contains(@class,'slds-file-selector__input')]",
@@ -88,5 +84,4 @@ outboundfundscommunity_lex_locators = {
     },
     "toast_message": "//div[contains(@class,'toastContent')]/child::div/span[text()=\"{}\"]",
     "toast_close": "//span[contains(@class, 'toastMessage') and text()=\"{}\"]/ancestor::div//button[@title='Close']",
->>>>>>> Stashed changes
 }

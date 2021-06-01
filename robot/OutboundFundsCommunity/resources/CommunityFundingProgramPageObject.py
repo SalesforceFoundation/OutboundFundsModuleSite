@@ -78,5 +78,8 @@ class CommunityFundingProgramDetailPage(BaseOutboundFundsCommunityPage, DetailPa
         self.selenium.wait_until_page_contains("Upload Documentation")
 
     def click_upload_modal_button(self, title):
-        locator = outboundfundscommunity_lex_locators["upload_files"]["upload_modal"].format(title)
+        """Click Upload Modal button on an application"""
+        locator = outboundfundscommunity_lex_locators["upload_files"][
+            "upload_modal"
+        ].format(title)
         self.selenium.get_webelement(locator).click()

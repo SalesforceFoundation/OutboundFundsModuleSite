@@ -330,8 +330,6 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         ].format(value)
         self.selenium.set_focus_to_element(locator_date)
         self.selenium.get_webelement(locator_date).click()
-<<<<<<< Updated upstream
-=======
 
     @capture_screenshot_on_error
     def select_value_from_picklist(self, dropdown, value):
@@ -390,4 +388,3 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         locator = outboundfundscommunity_lex_locators["delete_file"]
         self.selenium.wait_until_element_is_visible(locator)
         self.selenium.get_webelement(locator).click()
->>>>>>> Stashed changes
