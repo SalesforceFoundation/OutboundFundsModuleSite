@@ -102,11 +102,13 @@ API Create Funding Request
 
 API Create Requirement on a Funding Request
     [Documentation]                 Create a Requirement on a Funding Request via API
-    [Arguments]                     ${funding_request_id}  ${contact_id}    ${user_id}   &{fields}
-    ${ns} =                         Get OBF Namespace Prefix
+    [Arguments]                     ${funding_request_id}     &{fields}
     ${requirement_name} =           Generate New String
+    ${ns}=                          Get OBF Namespace Prefix
     ${due_date} =                   Get Current Date  result_format=%Y-%m-%d    increment=30 days
-    ${requirement_id} =             Salesforce Insert  outfunds__Requirement__c
+    ${user_id} =                    API Get User Id for Robot Test User  Walker
+    ${contact_id} =                 API Get Contact Id for Robot Test User  Walker
+    ${requirement_id} =             Salesforce Insert  ${ns}Requirement__c
     ...                             Name=${requirement_name}
     ...                             ${ns}Primary_Contact__c=${contact_id}
     ...                             ${ns}Due_Date__c=${due_date}
@@ -114,6 +116,7 @@ API Create Requirement on a Funding Request
     ...                             ${ns}Status__c=Open
     ...                             ${ns}Funding_Request__c=${funding_request_id}
     ...                             ${ns}Type__c=Review
+    ...                             IsAddFilesVisible__c=true
     ...                             &{fields}
     &{requirement} =                Salesforce Get  ${ns}Requirement__c  ${requirement_id}
     Store Session Record            ${ns}Requirement__c   ${requirement_id}
@@ -162,7 +165,7 @@ Share Funding Program
     &{access} =             Salesforce Get  ${ns}Funding_Program__Share  ${share_id}
     [Return]                &{access}
 
-Go To Community As Test User
+Go To Community As Robot Test User
     [Documentation]                 Go to the given CONTACT_ID detail page and log in to community
     [Arguments]                     ${contact_id}
     Go To Page                      Detail      Contact       ${contact_id}
@@ -184,8 +187,19 @@ API Get Name Based on Id
     &{Name} =                       Get From List  ${records}  0
     [return]                        ${Name}[Name]
 
+<<<<<<< Updated upstream
 API Get Contact Id for Test User
     [Documentation]         Returns the ID of Grace Walker
+=======
+API Get Contact Id for Robot Test User
+    [Documentation]         Returns the ID of Robot Walker
+>>>>>>> Stashed changes
     [Arguments]             ${last_name}     &{fields}
     ${result} =             API Get Id      Contact         LastName=${last_name}
+    [return]                ${result}
+
+API Get User Id for Robot Test User
+    [Documentation]         Returns the ID of a Robot Test User
+    [Arguments]             ${last_name}     &{fields}
+    ${result} =             API Get Id      User         LastName=${last_name}
     [return]                ${result}

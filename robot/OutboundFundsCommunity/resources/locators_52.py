@@ -21,6 +21,8 @@ outboundfundscommunity_lex_locators = {
         "quick_action_button": "//a//div[@title='{}']",
         "header": "//h1//div[contains(@class, 'entityNameTitle') and text()='{}']",
         "header_title": "//h2[(contains(@class, 'slds-card__header-title'))]//span[contains(text(),'{}')] ",
+        "list_view_dropdown": "//div[contains(@class, 'triggerLink')]//div/button[@title='Select List View']",
+        "list_view_dropdown_options": "//li[contains(@role, 'presentation')]/a//span[contains(text(),'{}')]",
     },
     "new_record": {
         "label": "//label[text()='{}']",
@@ -74,6 +76,17 @@ outboundfundscommunity_lex_locators = {
     "amount_field": "//lightning-formatted-rich-text/span[text()='{}']/../../../lightning-input/div/input",
     "flexi_link": "//a//span[text()='{}']",
     "flexipage-popup": "//div[contains(@class, 'slds-is-open')][contains(@class, 'slds-combobox')]",
+<<<<<<< Updated upstream
     "upload_file": "//span[contains(@class,'slds-file-selector__button')]",
     "upload_modal": "//button//span[text()='{}']",
+=======
+    "upload_files": {
+        "file_manager": "//span[text()='Or drop files']",
+        "upload_button": "//input[@type='file' and contains(@class,'slds-file-selector__input')]",
+        "upload_modal": "//button//span[text()='{}']",
+        "delete_file": "//a//span[contains(@class, 'slds-assistive-text')and contains(text(),'Delete File')]",
+    },
+    "toast_message": "//div[contains(@class,'toastContent')]/child::div/span[text()=\"{}\"]",
+    "toast_close": "//span[contains(@class, 'toastMessage') and text()=\"{}\"]/ancestor::div//button[@title='Close']",
+>>>>>>> Stashed changes
 }

@@ -26,13 +26,17 @@ Setup Test Data
     Set Suite Variable                ${path}
     &{fundingprogram} =               API Create Funding Program
     Set suite variable                &{fundingprogram}
+    ${contact_id} =                   API Get Contact Id for Robot Test User
+    ...                               Walker
+    Set Suite Variable                ${contact_id}
+
 
 *** Test Cases ***
 Apply to Funding Program
     [Documentation]                             Add Funding Request on a funding Program in
-    ...                                          community via "Apply" button on Funding Program
-    [tags]                                      unstable    feature:FundingProgram
-    Go To Community As Test User                Contact        Grace Walker
+    ...                                         community via "Apply" button on Funding Program
+    [tags]                                      feature:FundingProgram
+    Go To Community As Robot Test User          ${contact_id}
     Wait Until Element Is Visible               text:Find Funding Opportunities
     Click Portal Tab                            Funding Programs
     Current Page Should Be                      Listing     Funding Program
