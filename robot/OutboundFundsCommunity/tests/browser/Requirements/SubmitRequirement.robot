@@ -27,19 +27,31 @@ Setup Test Data
     ${contact_id} =                   API Get Contact Id for Robot Test User
     ...                               Walker
     Set Suite Variable                ${contact_id}
-    ${fundingrequest_id} =                      API Get Id    ${nso}Funding_Request__c
-    ...                                         ${nso}FundingProgram__c=${fundingprogram}[Id]
-    Set Suite Variable                          ${fundingrequest_id}
-    ${requirement}                              API Create Requirement on a Funding Request
-    ...                                         ${fundingrequest_id}
-    Set Suite Variable                          ${requirement}
 
 
 *** Test Cases ***
 Submit a File on a Requirement on a Funding Request
     [Documentation]                             Create a Funding Request via the Community and then create a Requirement
     ...                                         via API and then complete the requirement via the Community
-    [tags]                                      W-8079214         feature:Requirement
+    [tags]                                      feature:Requirement     feature:Community
+    Go To Community As Robot Test User                ${contact_id}
+    Wait Until Element Is Visible               text:Find Funding Opportunities
+    click Portal Tab                            Funding Programs
+    Current Page Should Be                      Listing     Funding Program
+    Click Link With Text                        ${fundingprogram}[Name]
+    Current Page Should be                      Details       Funding Program
+    Click Program Button                        Apply
+    Populate Apply Form                         Requested Amount=20000
+    ...                                         Requested For=Education
+    Click Next
+    Click Button                                Next
+    Current Page Should be                      Details       Funding Request
+    ${fundingrequest_id} =                      API Get Id    ${nso}Funding_Request__c
+    ...                                         ${nso}FundingProgram__c=${fundingprogram}[Id]
+    Set Suite Variable                          ${fundingrequest_id}
+    ${requirement}                              API Create Requirement on a Funding Request
+    ...                                         ${fundingrequest_id}
+    Set Suite Variable                          ${requirement}
     Go To Community As Robot Test User           ${contact_id}
     Wait Until Element Is Visible               text:Find Funding Opportunities
     Click Portal Tab                            My Application

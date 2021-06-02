@@ -84,8 +84,9 @@ API Create Funding Program
 
 API Create Funding Request
     [Documentation]                 Create a Funding Request via API
-    [Arguments]                     ${funding_program_id}  ${contact_id}    &{fields}
+    [Arguments]                     ${funding_program_id}   &{fields}
     ${ns} =                         Get OBF Namespace Prefix
+    ${contact_id} =                 API Get Contact Id for Robot Test User  Walker
     ${funding_request_name} =       Generate New String
     ${application_date} =           Get Current Date  result_format=%Y-%m-%d
     ${funding_request_id} =         Salesforce Insert  ${ns}Funding_Request__c
