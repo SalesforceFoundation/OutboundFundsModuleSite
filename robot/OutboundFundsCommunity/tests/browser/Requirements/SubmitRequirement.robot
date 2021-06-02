@@ -15,8 +15,8 @@ Suite Teardown  Capture Screenshot and Delete Records and Close Browser
 
 *** Keywords ***
 Setup Test Data
-    ${nso}=                           Get OBF Namespace Prefix
-    Set Suite Variable                ${nso}
+    ${ns}=                            Get OBF Namespace Prefix
+    Set Suite Variable                ${ns}
     ${path} =                         Normalize Path     ${CURDIR}/../../../test_data/requirement.txt
     Set Suite Variable                ${path}
     ${fundingprogram} =               API Create Funding Program
@@ -46,8 +46,8 @@ Submit a File on a Requirement on a Funding Request
     Click Next
     Click Button                                Next
     Current Page Should be                      Details       Funding Request
-    ${fundingrequest_id} =                      API Get Id    ${nso}Funding_Request__c
-    ...                                         ${nso}FundingProgram__c=${fundingprogram}[Id]
+    ${fundingrequest_id} =                      API Get Id    ${ns}Funding_Request__c
+    ...                                         ${ns}FundingProgram__c=${fundingprogram}[Id]
     Set Suite Variable                          ${fundingrequest_id}
     ${requirement}                              API Create Requirement on a Funding Request
     ...                                         ${fundingrequest_id}

@@ -27,7 +27,7 @@ Setup Test Data
     ${contact_id} =                   API Get Contact Id for Robot Test User
     ...                               Walker
     Set Suite Variable                ${contact_id}
-    ${awardedfunding_request} =         API Create Funding Request           ${fundingprogram}[Id]     ${contact_id}
+    ${awardedfunding_request} =         API Create Funding Request           ${fundingprogram}[Id]
     ...                                 ${ns}Status__c=Awarded          ${ns}Awarded_Amount__c=100000
     Store Session Record                ${ns}Funding_Request__c         ${awardedfunding_request}[Id]
     Set suite variable                  ${awardedfunding_request}

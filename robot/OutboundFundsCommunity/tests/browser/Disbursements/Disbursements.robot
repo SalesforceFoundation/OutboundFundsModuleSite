@@ -18,11 +18,8 @@ Setup Test Data
     Set Suite Variable                ${ns}
     ${fundingprogram} =               API Create Funding Program
     Set suite variable                ${fundingprogram}
-    ${contact} =                      API Create Contact
-    Store Session Record              Contact                              ${contact}[Id]
-    Set suite variable                ${contact}
     ${funding_request} =              API Create Funding Request
-    ...                               ${fundingprogram}[Id]     ${contact}[Id]
+    ...                               ${fundingprogram}[Id]
     ...                               ${ns}Status__c=Awarded
     ...                               ${ns}Awarded_Amount__c=100000
     Store Session Record              ${ns}Funding_Request__c         ${funding_request}[Id]
