@@ -34,6 +34,7 @@ outboundfundscommunity_lex_locators = {
         "list": "//div[contains(@class,'forcePageBlockSectionRow')]/div[contains(@class,'forcePageBlockItem')]/div[contains(@class,'slds-hint-parent')]/div[@class='slds-form-element__control']/div[.//span[text()='{}']][//div[contains(@class,'uiMenu')]//a[@class='select']]",
         "text_field": "//div[contains(@class, 'uiInput')][.//label[contains(@class, 'uiLabel')][.//span[text()='{}']]]//*[self::input or self::textarea]",
         "dropdown_field": "//lightning-combobox[./label[text()='{}']]/div//input[contains(@class,'combobox__input')]",
+        "dropdown_popup": "//div[contains(@class, 'slds-dropdown-trigger')]/div[contains(@class, 'slds-listbox')]",
         "dropdown_value": "//div[contains(@class,'slds-listbox')]//lightning-base-combobox-item//span[text()='{}']",
         "flexipage-list": '//lightning-combobox[./label[text()="{}"]]//input[contains(@class,"combobox__input")]',
         "dd_selection": "//lightning-base-combobox-item[@data-value='{}']",
@@ -50,6 +51,7 @@ outboundfundscommunity_lex_locators = {
         "text-field": "//label/span[text()='{}']/../following-sibling::input",
         "footer_button": "//lightning-button//button[text()='{}']",
         "datepicker": "//*[text()='{}']",
+        "date_field": "//div[contains(@class,'slds-dropdown-trigger')][./label[text()='{}']]/div/input",
     },
     "confirm": {
         "check_value": "//div[contains(@class, 'forcePageBlockItem') or contains(@class, 'slds-form-element_stacked')][.//span[text()='{}']]//following-sibling::div[.//span[contains(@class, 'test-id__field-value')]]//*[text()='{}']",
