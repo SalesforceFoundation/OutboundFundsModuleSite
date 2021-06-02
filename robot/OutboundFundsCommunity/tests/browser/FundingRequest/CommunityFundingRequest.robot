@@ -52,7 +52,7 @@ Add Funding Request Via Apply on Funding Program
 Submit a New Funding Request
     [Documentation]                             Submit a New Funding Request
     [tags]                                      feature:Funding Request     feature:Community
-    Go To Community As Test User                ${contact_id}
+    Go To Community As Robot Test User                ${contact_id}
     Wait Until Element Is Visible               text:Find Funding Opportunities
     click Portal Tab                            Funding Programs
     Current Page Should Be                      Listing     Funding Program

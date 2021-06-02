@@ -46,7 +46,7 @@ Apply to Funding Program
     Populate Apply Form                         Requested Amount=20000
     ...                                         Requested For=Education
     Click Next
-    Choose File                                 OutboundFundsCommunity:upload_file      ${path}
+    Choose File                                 //input[@type='file' and contains(@class,'slds-file-selector__input')]      ${path}
     Click Upload Modal Button                   Done
     Click Button                                Next
     Current Page Should be                      Details       Funding Request

@@ -63,40 +63,12 @@ Submit a File on a Requirement on a Funding Request
     Choose File                                 //input[@type='file' and contains(@class,'slds-file-selector__input')]     ${path}
     Click Button                                Done
     Current Page Should be                      Details       Requirement
-
-Delete a file on aa requirement
-    [Documentation]                             Create a Funding Request via the Community and then create a Requirement
-    ...                                         via API and then complete the requirement via the Community
-    [tags]                                      W-8079214         feature:Requirement
-    Go To Community As Robot Test User                ${contact_id}
-    Wait Until Element Is Visible               text:Find Funding Opportunities
-    click Portal Tab                            Funding Programs
-    Current Page Should Be                      Listing     Funding Program
-    Click Link With Text                        ${fundingprogram}[Name]
-    Current Page Should be                      Details       Funding Program
-    Click Program Button                        Apply
-    Populate Apply Form                         Requested Amount=20000
-    ...                                         Requested For=Education
-    Click Next
+    Submit Requirement
+    Wait Until Element Is Visible               text:Take a moment to review everything you'd like to submit.
     Click Button                                Next
-    Current Page Should be                      Details       Funding Request
-    ${fundingrequest_id} =                      API Get Id    ${nso}Funding_Request__c
-    ...                                         ${nso}FundingProgram__c=${fundingprogram}[Id]
-    Set Suite Variable                          ${fundingrequest_id}
-    ${requirement}                              API Create Requirement on a Funding Request
-    ...                                         ${fundingrequest_id}
-    Set Suite Variable                          ${requirement}
-    Go To Community As Robot Test User           ${contact_id}
-    Wait Until Element Is Visible               text:Find Funding Opportunities
-    Click Portal Tab                            My Application
-    Click Link With Text                        Robot Walker: ${fundingprogram}[Name]
-    Current Page Should be                      Details       Funding Request
-    Click Link With Text                        ${requirement}[Name]
+    Wait Until Element Is Visible               text:Your requirement has been submitted.
+    Click Button                                Finish
     Current Page Should be                      Details       Requirement
-    Scroll To Upload Files
-    Choose File                                 //input[@type='file' and contains(@class,'slds-file-selector__input')]     ${path}
-    Click Button                                Done
-    Current Page Should be                      Details       Requirement
-    Delete File
-    Wait Until Element Is Visible               text:Are you sure you want to delete this file?
-    Click Button                                Confirm Delete
+    Submit Requirement
+    Wait Until Element Is Visible               text:You have already submitted this requirement.
+    Click Button                                Finish

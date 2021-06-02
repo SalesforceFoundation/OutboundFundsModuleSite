@@ -23,3 +23,10 @@ class CommunityRequirementDetailPage(BaseOutboundFundsCommunityPage, DetailPage)
         locator = outboundfundscommunity_lex_locators["upload_files"]["file_manager"]
         self.selenium.scroll_element_into_view(locator)
         self.selenium.wait_until_element_is_visible(locator)
+
+    def submit_requirement(self):
+        locator = outboundfundscommunity_lex_locators["community_locators"][
+            "quick_action_button"
+        ].format("Submit")
+        self.selenium.set_focus_to_element(locator)
+        self.selenium.click_element(locator)
