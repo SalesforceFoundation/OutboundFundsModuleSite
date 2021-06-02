@@ -330,3 +330,43 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         ].format(value)
         self.selenium.set_focus_to_element(locator_date)
         self.selenium.get_webelement(locator_date).click()
+
+    @capture_screenshot_on_error
+    def select_value_from_picklist(self, dropdown, value):
+        """Select given value in the dropdown field"""
+        locator = outboundfundscommunity_lex_locators["new_record"][
+            "dropdown_field"
+        ].format(dropdown)
+        self.selenium.get_webelement(locator).click()
+        popup_loc = outboundfundscommunity_lex_locators["new_record"]["dropdown_popup"]
+        self.selenium.wait_until_page_contains_element(
+            popup_loc, error="Picklist dropdown did not open"
+        )
+        value_loc = outboundfundscommunity_lex_locators["new_record"][
+            "dropdown_value"
+        ].format(value)
+        self.salesforce._jsclick(value_loc)
+
+    @capture_screenshot_on_error
+    def add_date(self, title, date):
+        """Clicks on the 'Date' field in Form and picks a date in the argument"""
+        locator = outboundfundscommunity_lex_locators["new_record"][
+            "date_field"
+        ].format(title)
+        self.selenium.set_focus_to_element(locator)
+        self.selenium.clear_element_text(locator)
+        self.selenium.get_webelement(locator).send_keys(date)
+
+    @capture_screenshot_on_error
+    def verify_toast_message(self, value):
+        """Verifies the toast message"""
+        locator = outboundfundscommunity_lex_locators["toast_message"].format(value)
+        self.selenium.wait_until_element_is_visible(locator)
+        try:
+            close_locator = outboundfundscommunity_lex_locators["toast_close"].format(
+                value
+            )
+            self.selenium.wait_until_page_contains_element(close_locator)
+            self.selenium.click_element(close_locator)
+        except Exception:
+            self.builtin.log("The toast could not be closed.", "WARN")

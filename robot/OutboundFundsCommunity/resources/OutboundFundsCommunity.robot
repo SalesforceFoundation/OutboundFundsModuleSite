@@ -185,7 +185,7 @@ API Get Name Based on Id
     [return]                        ${Name}[Name]
 
 API Get Contact Id for Test User
-    [Documentation]         Returns the ID of Grace Walker
+    [Documentation]         Returns the ID of Robot Walker
     [Arguments]             ${last_name}     &{fields}
     ${result} =             API Get Id      Contact         LastName=${last_name}
     [return]                ${result}
