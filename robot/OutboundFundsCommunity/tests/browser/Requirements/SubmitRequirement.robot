@@ -69,6 +69,3 @@ Submit a File on a Requirement on a Funding Request
     Wait Until Element Is Visible               text:Your requirement has been submitted.
     Click Button                                Finish
     Current Page Should be                      Details       Requirement
-    Submit Requirement
-    Wait Until Element Is Visible               text:You have already submitted this requirement.
-    Click Button                                Finish
