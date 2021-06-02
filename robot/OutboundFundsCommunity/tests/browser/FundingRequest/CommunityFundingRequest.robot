@@ -61,6 +61,7 @@ Edit an Existing Funding Request
     Current Page Should Be                      Edit          Funding Request
     Edit Application                            Requested Amount=25000
     Save Application
+    Verify Toast Message                        Funding Request
     Current Page Should be                      Details       Funding Request
     Submit Application
     Click Button                                Next
