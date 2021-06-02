@@ -23,6 +23,8 @@ outboundfundscommunity_lex_locators = {
         "header_title": "//h2[(contains(@class, 'slds-card__header-title'))]//span[contains(text(),'{}')] ",
         "list_view_dropdown": "//div[contains(@class, 'triggerLink')]//div/button[@title='Select List View']",
         "list_view_dropdown_options": "//li[contains(@role, 'presentation')]/a//span[contains(text(),'{}')]",
+        "modal_header": "//h2[contains(@class, 'slds-hyphenate') and contains(text(),'{}')]",
+        "modal_text": "//p[contains(@class,'summary') and contains(text(),'Looks like')]",
     },
     "new_record": {
         "label": "//label[text()='{}']",
@@ -84,4 +86,5 @@ outboundfundscommunity_lex_locators = {
     },
     "toast_message": "//div[contains(@class,'toastContent')]/child::div/span[text()=\"{}\"]",
     "toast_close": "//span[contains(@class, 'toastMessage') and text()=\"{}\"]/ancestor::div//button[@title='Close']",
+    "modal_footer": "//div[contains(@class, 'modal-footer')]//button//span[text()='Save']",
 }

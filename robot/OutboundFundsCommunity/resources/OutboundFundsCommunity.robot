@@ -95,6 +95,7 @@ API Create Funding Request
     ...                             ${ns}Requested_Amount__c=100000
     ...                             ${ns}FundingProgram__c=${funding_program_id}
     ...                             ${ns}Requested_For__c=Education
+    ...                             ${ns}Application_Date__c=${application_date}
     ...                             &{fields}
     &{funding_request} =            Salesforce Get  ${ns}Funding_Request__c  ${funding_request_id}
     Store Session Record            ${ns}Funding_Request__c   ${funding_request_id}
@@ -116,7 +117,7 @@ API Create Requirement on a Funding Request
     ...                             ${ns}Status__c=Open
     ...                             ${ns}Funding_Request__c=${funding_request_id}
     ...                             ${ns}Type__c=Review
-    ...                             IsAddFilesVisible__c=true
+    ...                             outfunds_comm__IsAddFilesVisible__c=true
     ...                             &{fields}
     &{requirement} =                Salesforce Get  ${ns}Requirement__c  ${requirement_id}
     Store Session Record            ${ns}Requirement__c   ${requirement_id}

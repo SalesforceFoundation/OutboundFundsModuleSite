@@ -56,9 +56,14 @@ class CommunityFundingProgramDetailPage(BaseOutboundFundsCommunityPage, DetailPa
         """Populates standard event form with the field-value pairs"""
         for key, value in kwargs.items():
             if key == "Requested Amount":
-                locator = outboundfundscommunity_lex_locators["amount_field"].format(
-                    key
-                )
+                if self.OutboundFundsCommunity.latest_api_version == 52.0:
+                    locator = outboundfundscommunity_lex_locators[
+                        "amount_field"
+                    ].format(key)
+                else:
+                    locator = outboundfundscommunity_lex_locators["modal_field"].format(
+                        key
+                    )
                 self.selenium.get_webelement(locator).send_keys(value)
             elif key == "Requested For":
                 locator = outboundfundscommunity_lex_locators["modal_field"].format(key)

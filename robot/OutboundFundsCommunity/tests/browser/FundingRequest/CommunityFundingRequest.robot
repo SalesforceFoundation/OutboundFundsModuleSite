@@ -14,8 +14,7 @@ Library        cumulusci.robotframework.PageObjects
 Suite Setup     Run keywords
 ...             Open Test Browser
 ...             Setup Test Data
-#Suite Teardown  Capture Screenshot and Delete Records and Close Browser
-
+Suite Teardown  Capture Screenshot and Delete Records and Close Browser
 
 *** Keywords ***
 Setup Test Data
@@ -34,13 +33,10 @@ Setup Test Data
     Set suite variable                  ${awardedfunding_request}
 
 *** Test Cases ***
-Add Funding Request Via Apply on Funding Program
-    [Documentation]                             Add Funding Request on a funding Program in community
-    ...                                         via "Apply" button on Funding Program
-    [tags]                                      feature:FundingRequest     feature:Community
+Create a New Funding Request
     Go To Community As Robot Test User          ${contact_id}
     Wait Until Element Is Visible               text:Find Funding Opportunities
-    click Portal Tab                            Funding Programs
+    Click Portal Tab                            Funding Programs
     Current Page Should Be                      Listing     Funding Program
     Click Link With Text                        ${fundingprogram}[Name]
     Current Page Should be                      Details       Funding Program
@@ -49,8 +45,26 @@ Add Funding Request Via Apply on Funding Program
     ...                                         Requested For=Education
     Click Next
     Choose File                                 //input[@type='file' and contains(@class,'slds-file-selector__input')]      ${path}
-    Click Button                                Done
+    Click Upload Modal Button                   Done
     Click Button                                Next
+    Current Page Should be                      Details       Funding Request
+
+Edit an Existing Funding Request
+    [Documentation]                             Edit an Existing  Funding Request
+    [tags]                                      feature:Funding Request     feature:Community
+    Go To Community As Robot Test User                ${contact_id}
+    Wait Until Element Is Visible               text:Find Funding Opportunities
+    Click Portal Tab                            My Application
+    Click Link With Text                        Robot Walker: ${fundingprogram}[Name]
+    Current Page Should be                      Details       Funding Request
+    Click Edit
+    Current Page Should Be                      Edit          Funding Request
+    Edit Application                            Requested Amount=25000
+    Save Application
+    Current Page Should be                      Details       Funding Request
+    Submit Application
+    Click Button                                Next
+    Click Button                                Finish
     Current Page Should be                      Details       Funding Request
 
 Submit a New Funding Request
@@ -73,6 +87,16 @@ Submit a New Funding Request
     Click Button                                Finish
     Current Page Should be                      Details       Funding Request
 
+Edit a Submitted Request
+    Go To Community As Robot Test User                ${contact_id}
+    Wait Until Element Is Visible               text:Find Funding Opportunities
+    Click Portal Tab                            My Application
+    Click Link With Text                        ${awardedfunding_request}[Name]
+    Current Page Should be                      Details       Funding Request
+    Click Edit
+    Current Page Should be                      Edit       Funding Request
+    Page Should Contain Element                 //p[contains(@class,'summary') and contains(text(),'Looks like')]
+
 Verify User Cannot Re-Submit Application
     [Documentation]                             Re-Submit a  Funding Request
     [tags]                                      feature:Funding Request     feature:Community
@@ -85,4 +109,3 @@ Verify User Cannot Re-Submit Application
     Wait Until Element Is Visible               text:This application cannot be submitted at this time.
     Click Button                                Finish
     Current Page Should be                      Details       Funding Request
-
