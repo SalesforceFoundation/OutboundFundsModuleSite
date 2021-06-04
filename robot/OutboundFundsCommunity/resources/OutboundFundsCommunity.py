@@ -127,7 +127,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         locator = outboundfundscommunity_lex_locators["new_record"][
             "footer_button"
         ].format("Save")
-        self.selenium.scroll_element_into_view(locator)
+        self.salesforce.scroll_element_into_view(locator)
         self.salesforce._jsclick(locator)
 
     def validate_field_value(self, field, status, value, section=None):
@@ -136,7 +136,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         """
         if section is not None:
             section = "text:" + section
-            self.selenium.scroll_element_into_view(section)
+            self.salesforce.scroll_element_into_view(section)
         list_found = False
         locators = outboundfundscommunity_lex_locators["confirm"].values()
         if status == "contains":
@@ -182,18 +182,18 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         ].format(title)
         option = outboundfundscommunity_lex_locators["span"].format(value)
         self.selenium.wait_until_page_contains_element(locator)
-        self.selenium.scroll_element_into_view(locator)
+        self.salesforce.scroll_element_into_view(locator)
         element = self.selenium.driver.find_element_by_xpath(locator)
         try:
             self.selenium.get_webelement(locator).click()
             self.wait_for_locator("flexipage-popup")
-            self.selenium.scroll_element_into_view(option)
+            self.salesforce.scroll_element_into_view(option)
             self.selenium.click_element(option)
         except Exception:
             self.builtin.sleep(1, "waiting for a second and retrying click again")
             self.selenium.driver.execute_script("arguments[0].click()", element)
             self.wait_for_locator("flexipage-popup")
-            self.selenium.scroll_element_into_view(option)
+            self.salesforce.scroll_element_into_view(option)
             self.selenium.click_element(option)
 
     def click_related_list_wrapper_button(self, heading, button_title):
@@ -270,7 +270,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
                 if self.check_if_element_exists(locator):
                     self.selenium.set_focus_to_element(locator)
                     self.selenium.wait_until_element_is_visible(locator)
-                    self.selenium.scroll_element_into_view(locator)
+                    self.salesforce.scroll_element_into_view(locator)
                     self.salesforce._jsclick(locator)
                     self.selenium.wait_until_element_is_visible(selection_value)
                     self.selenium.click_element(selection_value)
@@ -322,7 +322,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         locator = outboundfundscommunity_lex_locators["new_record"][
             "lightning_datepicker"
         ].format(title)
-        self.selenium.scroll_element_into_view(locator)
+        self.salesforce.scroll_element_into_view(locator)
         self.selenium.set_focus_to_element(locator)
         self.selenium.get_webelement(locator).click()
         locator_date = outboundfundscommunity_lex_locators["new_record"][
@@ -370,3 +370,21 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
             self.selenium.click_element(close_locator)
         except Exception:
             self.builtin.log("The toast could not be closed.", "WARN")
+
+    @capture_screenshot_on_error
+    def change_list_view_in_community(self, value):
+        """Changes the list view in the grantseeker community"""
+        locator_list_view_dropdown_button = outboundfundscommunity_lex_locators[
+            "community_locators"
+        ]["list_view_dropdown"]
+        locator_list_options = outboundfundscommunity_lex_locators[
+            "community_locators"
+        ]["list_view_dropdown_options"].format(value)
+        self.selenium.click_element(locator_list_view_dropdown_button)
+        self.selenium.click_element(locator_list_options)
+
+    def delete_file(self):
+        """delete a file on a requirement or an application"""
+        locator = outboundfundscommunity_lex_locators["delete_file"]
+        self.selenium.wait_until_element_is_visible(locator)
+        self.selenium.get_webelement(locator).click()

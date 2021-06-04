@@ -29,11 +29,11 @@ Setup Test Data
     Store Session Record                Contact     ${contact}[Id]
     Set suite variable                  ${contact}
     ${funding_request} =                API Create Funding Request
-    ...                                 ${fundingprogram}[Id]     ${contact}[Id]
+    ...                                 ${fundingprogram}[Id]
     Store Session Record                ${ns}Funding_Request__c         ${funding_request}[Id]
     Set suite variable                  ${funding_request}
     ${awardedfunding_request} =         API Create Funding Request
-    ...                                 ${fundingprogram}[Id]     ${contact}[Id]
+    ...                                 ${fundingprogram}[Id]
     ...                                 ${ns}Status__c=Awarded      ${ns}Awarded_Amount__c=100000
     Store Session Record                ${ns}Funding_Request__c     ${awardedfunding_request}[Id]
     Set suite variable                  ${awardedfunding_request}
@@ -89,6 +89,7 @@ Add a Requirement on a Funding Request
     Click Save
     Wait Until Modal Is Closed
     Click Related List Link                     ${req_name}
+    Current Page Should Be                      Details          Funding_Request__c
     Validate Field Value                        Requirement Name    contains    ${req_name}
     Validate Field Value                        Primary Contact    contains    ${contact}[Name]
 
