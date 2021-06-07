@@ -1,0 +1,140 @@
+{
+  "product": {
+    "title": {
+      "message": "OFM Fundseeker Starter Portal Template",
+      "description": "name of product"
+    },
+    "short_description": {
+      "message": "Experience Cloud サイトテンプレートを使用して、資金調達者ポータルで Outbound Funds Module を拡張します。",
+      "description": "tagline of product"
+    },
+    "description": {
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template インストーラをご利用いただきありがとうございます。\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template は、資金調達プロセスを合理化し、資金提供者が資金受領者との関係を育み、管理するのに役立ちます。Salesforce Experience Cloud を活用する Outbound Funds Module Fundseeker Starter Portal Template では、直感的で使いやすいインターフェースとバックエンドオートメーションを通じて、簡単に資金調達を処理することができます。\r\n\r\nOutbound Funds Module を初めて使用する場合、Outbound Funds Module Fundseeker Starter Portal Template をインストールする前に、組織に [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) をインストールしていることを確認してください。\r\n\r\n*重要*: Salesforce は、本番組織にアップグレードを直接インストールすることを推奨しません。まず、Outbound Funds Module Fundseeker Starter Portal Template を無料の Sandbox 環境または Developer Edition 組織にインストールしてください。\r\n\r\nインストールが完了したら、使用を開始するための各種資料を参照してください。\r\n\r\n* [Outbound Funds Module ドキュメント](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nご質問がある場合は、Power of Us Hub の [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS/outbound-funds-module-sfdo-product)  カスタマーグループにご参加ください。",
+      "description": "shown on product detail page (markdown)"
+    },
+    "click_through_agreement": {
+      "message": "*Outbound Funds Module Fundseeker Starter Portal Template インストーラ\r\n利用規約*\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template (「OFM\r\nPortal」) テクノロジは、Salesforce.com, Inc. 又はその関連会社の 1 つ (「SFDC」) が 3 条項 BSD ライセンス ([*https://opensource.org/licenses/BSD-3-Clause*](https://opensource.org/licenses/BSD-3-Clause)) の下でライセンスを供与するオープンソースパッケージです。\r\nOFM Portal パッケージは、Outbound Funds Module (3 条項 BSD ライセンスの下で SFDC がライセンス供与するオープンソースパッケージ) のインストールに依存します。\r\n\r\nお客様は OFM PORTAL をインストールすることにより、そのライセンス ([*https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE*](https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE)) に同意したことになります。\r\n\r\n重要: OFM Portal を使用して、未承諾の第三者へのメッセージ (「メッセージ」) を生成、送信、または促進することはできません。\r\nお客様は、メッセージの送信 (メッセージ送信の同意の取得を含む) 及びメッセージの内容に適用される法律、規制、又は規則の準拠を含むがこれらに限定されない、メッセージの作成、開始、及び送信に対して全責任を負うものとします。OFM Portal は、米国の公正信用報告法又は同様の法律で定義されている規約に従い、個人の信用、雇用、保険の適格性の確立に関連するいかなる目的、或いはその他の消費者主導の取引に使用することはできません。\r\n\r\nOFM Portal は、かかるメッセージを送信する権限を取得するための法的要件に従い、かかる権限を顧客に付与した受信者にのみメッセージを送信する目的において、或いは米国の CAN-SPAM 法に準拠するメールメッセージに対して使用できます。かかるメッセージは、米国の CAN-SPAM 法で企図されている「トランザクションメッセージ又は関係構築のためのメッセージ」とみなされます。また、お客様は米国の CAN-SPAM 法に準拠する全責任を負うものとします。\r\n\r\n電話会社、収集組織、業種グループ、政府グループ、又はその他の組織が状況の変更されたメールアドレス、電話番号、又はその他のアドレス (「連絡不可」リストに追加されたメールアドレス、新規ユーザに割り当てられた電話番号等) のリストを作成した場合、SFDC はそれらの受信者へのメッセージの送信をブロックする権利を留保します。ただし、かかるリストに準拠していることを確認するのは、全面的にお客様の責任となり、SFDC はかかるアドレス又は電話番号へのメッセージのブロックの不履行、或いはオプトインすべき受信者の不注意によるオプトアウトついて責任を負わないものとします。\r\n\r\nお客様又はお客様の法人と SFDC との間のマスターサブスクリプション契約は、OFM PORTAL の使用には適用されません。「関連会社」とは、該当法人を直接的又は間接的に支配している、該当法人により支配されている、又は該当法人との共同支配下にある法人を意味します。この定義の目的における「支配」とは、該当法人の議決権持分の 50% を超える直接的又は間接的な所有権又は支配を意味します。SALESFORCE.ORG LLC は SALESFORCE.COM, INC. の関連会社です。\r\n\r\nOFM PORTAL は SFDC 以外のアプリケーション又はサードパーティアプリケーションで、お客様と SFDC との間のマスターサブスクリプション契約に基づくサービスではありません。\r\nOFM PORTAL は「現状有姿」及び「現状渡し」で提供され、SFDC は、準拠法により許容される最大限において、明示的、黙字的、法律上、その他一切の OFM PORTAL に関するいかなる保証 (商品性、特定の目的に対する適合性、欠陥がないこと、不侵害の黙示的な保証を含むが、それに限定されない) も行いません。\r\n機密データ又は保護されたデータを OFM PORTAL に送信する場合、その情報の処理においての OFM PORTAL の使用がすべての適用法及び規制に準拠していることを確認するのは、全面的にお客様の責任となります。\r\n\r\nSFDC は、お客様の OFM PORTAL の使用に起因する又はそれに関連する直接の損害、又は利益、収入、業務上の信用の喪失、又は間接的、特別、偶発的、派生的、懲罰的、補償、事業の中断による損害に関して、その行為が契約内か不法行為かどうか、或いは責任論に関係なく、そのような損害の発生の可能性について予告がなされていた場合であっても、救済措置がその本来の目的を果たせなかった場合であっても、一切の責任を負わないものとします。上記の免責事項は、法律で禁止されている範囲においては適用されません。SFDC は、サードパーティのホスティングプロバイダによる損傷又は損害について、あらゆる法的責任及び賠償義務を負わないものとします。\r\n\r\n本契約は、米国及びカリフォルニア州の法律のみに準拠し、その法律のみに従って解釈されるものとし、抵触法条項を考慮しません。\r\nカリフォルニア州サンフランシスコに所在する州及び連邦裁判所は、本契約に起因又は関連するいかなる紛争を解決するための専属管轄権を有するものとします。各当事者は本契約により、かかる裁判所の管轄権に同意し、かかる法廷の適切性に異議を申し立てる権利を放棄します。\r\n",
+      "description": "legal text shown in modal dialog"
+    },
+    "error_message": {
+      "message": "このエラーについて支援を受けるには、[help.salesforce.com](https://help.salesforce.com/) にアクセスし、[サポートとサービス] を見つけて、Salesforce でサポートのチケットを登録してください。件名行に「Outbound Funds Module Fundseeker Starter Portal Template」を含め、コメントにはインストールリンクを含めてください。",
+      "description": "shown after failed installation (markdown)"
+    }
+  },
+  "plan:install": {
+    "title": {
+      "message": "OFM Fundseeker Starter Portal Template のインストール",
+      "description": "title of installation plan"
+    },
+    "preflight_message": {
+      "message": "これにより、組織に Outbound Funds Module Fundseeker Starter Portal Experience Cloud テンプレートがインストールされます。",
+      "description": "shown before user starts installation (markdown)"
+    },
+    "post_install_message": {
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template をインストールしていただきありがとうございます。Outbound Funds Module または Outbound Funds Module Fundseeker Starter Portal Template に関するあらゆる質問については、Power of Us Hub の [Outbound Funds Module] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) コミュニティグループにアクセスしてさい。",
+      "description": "shown after successful installation (markdown)"
+    },
+    "error_message": {
+      "message": "このエラーについて支援を受けるには、[help.salesforce.com](https://help.salesforce.com/) にアクセスし、[サポートとサービス] を見つけて、Salesforce でサポートのチケットを登録してください。件名行に「Outbound Funds Module Fundseeker Starter Portal Template」を含め、コメントにはインストールリンクを含めてください。",
+      "description": "shown after failed installation (markdown)"
+    }
+  },
+  "checks": {
+    "Outbound Funds Module Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again.": {
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template には Chatter が必要です。組織で Chatter を有効化して、もう一度お試しください。",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that My Domain is enabled. Enable My Domain in your org and try again.": {
+      "message": "Fundseeker Starter Portal Template では、[私のドメイン] が有効化されている必要があります。組織で [私のドメイン] を有効にして、もう一度お試しください。",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Enable Digital Experience in your org and try again.": {
+      "message": "Fundseeker Starter Portal Template では、デジタルエクスペリエンスが有効化されている必要があります。組織でデジタルエクスペリエンスを有効にして、もう一度お試しください。",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org.": {
+      "message": "Fundseeker Starter Portal Template は Experience Cloud サイトテンプレートであり、Customer Community Plus Login ライセンスが必要です。Salesforce アカウントエグゼクティブと連携して、組織に適切なライセンスがあることを確認してください。",
+      "description": "shown if validation fails"
+    },
+    "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit https://install.salesforce.org/products/outbound-funds/ to install it and try again.": {
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template では、最初に Outbound Funds Module がインストールされている必要があります。https://install.salesforce.org/products/outbound-funds/ にアクセスしてインストールし、もう一度お試しください。",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that Chatter is enabled. Enable Chatter in your org and try again.": {
+      "message": "Fundseeker Starter Portal Template では、Chatter が有効化されている必要があります。組織で Chatter を有効にして、もう一度お試しください。",
+      "description": "shown if validation fails"
+    },
+    "An Experience Cloud site with the name 'Fundseeker Portal' already exists.": {
+      "message": "「Fundseeker Portal (資金調達者ポータル)」という名前の Experience Cloud サイトはすでに存在します。",
+      "description": "shown if validation fails"
+    }
+  },
+  "steps": {
+    "Install {product} {version}": {
+      "message": "{product} {version} のインストール",
+      "description": "title of installation step"
+    },
+    "Deploy Visual Assets": {
+      "message": "ビジュアルアセットをリリース",
+      "description": "title of installation step"
+    },
+    "Deploy unpackaged/post/Submit_Requirement_flow": {
+      "message": "unpackaged/post/Submit_Requirement_flow をリリース",
+      "description": "title of installation step"
+    },
+    "Deploy Create Application Flow And Quick Action": {
+      "message": "申請の作成フローとクイックアクションをリリース",
+      "description": "title of installation step"
+    },
+    "Deploy Submit Application Flow And Quick Action": {
+      "message": "申請の送信フローとクイックアクションをリリース",
+      "description": "title of installation step"
+    },
+    "Deploy Fundseeker Plus Login Profile": {
+      "message": "Fundseeker Plus Login (資金調達者プラスログイン) プロファイルをリリース",
+      "description": "title of installation step"
+    },
+    "Create the Fundseeker Portal": {
+      "message": "Fundseeker Portal (資金調達者ポータル) を作成",
+      "description": "title of installation step"
+    },
+    "Publish the Fundseeker Portal": {
+      "message": "Fundseeker Portal (資金調達者ポータル) を公開",
+      "description": "title of installation step"
+    },
+    "Add 'Fundseeker Plus Login' Profile to Fundseeker Portal": {
+      "message": "「Fundseeker Plus Login (資金調達者プラスログイン)」プロファイルを Fundseeker Portal (資金調達者ポータル) に追加",
+      "description": "title of installation step"
+    },
+    "Update 'Fundseeker Portal Profile' (Guest User) profile": {
+      "message": "「Fundseeker Portal Profile (資金調達者ポータルプロファイル)」 (ゲストユーザ) プロファイルを更新",
+      "description": "title of installation step"
+    },
+    "Grant Visibility to Site Users": {
+      "message": "サイトユーザに表示を許可する",
+      "description": "title of installation step"
+    },
+    "Deploy Submit Requirement Flow And Quick Action": {
+      "message": "要件の送信フローとクイックアクションをリリース",
+      "description": "title of installation step"
+    }
+  },
+  "plan:customer_enablement_install": {
+    "title": {
+      "message": "OFM Fundseeker Starter Portal Template のインストールとサイトの構築",
+      "description": "title of installation plan"
+    },
+    "preflight_message": {
+      "message": "これにより、Outbound Funds Module Fundseeker Starter Portal Template が組織にインストールされ、推奨設定を使用して Fundseeker Portal (資金調達者ポータル) が作成されます。",
+      "description": "shown before user starts installation (markdown)"
+    },
+    "post_install_message": {
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template をインストールしていただきありがとうございます。Outbound Funds Module または Outbound Funds Module Fundseeker Starter Portal Template に関するあらゆる質問については、Power of Us Hub の [Outbound Funds Module Fundseeker Starter Portal Template] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) コミュニティグループにアクセスしてさい。",
+      "description": "shown after successful installation (markdown)"
+    },
+    "error_message": {
+      "message": "このエラーについて支援を受けるには、[help.salesforce.com](https://help.salesforce.com/) にアクセスし、[サポートとサービス] を見つけて、Salesforce でサポートのチケットを登録してください。件名行に「Outbound Funds Module Fundseeker Starter Portal Template」を含め、コメントにはインストールリンクを含めてください。",
+      "description": "shown after failed installation (markdown)"
+    }
+  }
+}

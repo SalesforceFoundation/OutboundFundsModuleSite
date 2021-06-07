@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>IsAddFilesVisible__c</name>
+    <help>Lorsque cette option est activée, un utilisateur peut charger des pièces jointes dans une exigence en utilisant le composant Ajouter des fichiers. Après avoir soumis une exigence, ce composant est automatiquement masqué pour les utilisateurs.</help>
+    <label>Ajouter des fichiers est-il visible ?</label>
+</CustomFieldTranslation>
