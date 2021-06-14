@@ -2,7 +2,7 @@ import random
 import requests
 import re
 import string
-from BaseObjects import BaseGrantsPage
+from BaseObjects import BaseOutboundFundsCommunityPage
 from cumulusci.robotframework.utils import selenium_retry
 from OutboundFundsCommunity import outboundfundscommunity_lex_locators
 
@@ -11,7 +11,7 @@ endpoint = "https://api.testmail.app/api/json?apikey=cc5a1174-6d74-46d4-9ee9-409
 
 
 @selenium_retry
-class Email(BaseGrantsPage):
+class Email(BaseOutboundFundsCommunityPage):
     def get_reset_password_url(self, tag):
         """Retrieves reset password URL from email sent to user"""
         params = {
