@@ -63,7 +63,7 @@ class Email(BaseGrantsPage):
         ]["confirm_password"]
         locator_change_password_button = outboundfundscommunity_lex_locators[
             "password"
-         ]["change_password"]
+        ]["change_password"]
         new_password_input = self.selenium.driver.find_element_by_xpath(
             locator_new_password_input
         )
