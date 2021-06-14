@@ -55,13 +55,15 @@ class Email(BaseGrantsPage):
 
     def set_new_password(self, password):
         """Sets new password for user"""
-        locator_new_password_input = outboundfundscommunity_lex_locators["password"]["new_password"]
-        locator_confirm_password_input = outboundfundscommunity_lex_locators["password"][
-            "confirm_password"
+        locator_new_password_input = outboundfundscommunity_lex_locators["password"][
+            "new_password"
         ]
-        locator_change_password_button = outboundfundscommunity_lex_locators["password"][
-            "change_password"
-        ]
+        locator_confirm_password_input = outboundfundscommunity_lex_locators[
+            "password"
+        ]["confirm_password"]
+        locator_change_password_button = outboundfundscommunity_lex_locators[
+            "password"
+         ]["change_password"]
         new_password_input = self.selenium.driver.find_element_by_xpath(
             locator_new_password_input
         )
