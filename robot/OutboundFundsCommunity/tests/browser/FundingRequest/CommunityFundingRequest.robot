@@ -7,6 +7,7 @@
 *** Settings ***
 Documentation  Create a Funding Program
 Resource       robot/OutboundFundsCommunity/resources/OutboundFundsCommunity.robot
+Library        robot/OutboundFundsCommunity/resources/Email.py
 Library        cumulusci.robotframework.PageObjects
 ...            robot/OutboundFundsCommunity/resources/CommunityFundingRequestPageObject.py
 ...            robot/OutboundFundsCommunity/resources/CommunityFundingProgramPageObject.py
@@ -31,6 +32,10 @@ Setup Test Data
     ...                                 ${ns}Status__c=Awarded          ${ns}Awarded_Amount__c=100000
     Store Session Record                ${ns}Funding_Request__c         ${awardedfunding_request}[Id]
     Set suite variable                  ${awardedfunding_request}
+    ${email} =                         API Get Email for User      Walker
+    Set Suite Variable                 ${email}
+    ${tag} =                           Get Tag         ${email}
+    Set Suite Variable                 ${tag}
 
 *** Test Cases ***
 Create a New Funding Request
@@ -87,6 +92,12 @@ Submit a New Funding Request
     Click Button                                Next
     Click Button                                Finish
     Current Page Should be                      Details       Funding Request
+
+Verify Submit Application Email is Received
+    [Documentation]                             Verify if user receives email after
+    ...                                         submitting application
+    [tags]                                      feature:Funding Request
+    Verify Submit Application Email Received    ${tag}
 
 Edit a Submitted Request
     Go To Community As Robot Test User                ${contact_id}

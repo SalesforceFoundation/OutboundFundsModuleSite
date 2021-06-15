@@ -153,6 +153,14 @@ API Get Id
     &{Id} =                         Get From List  ${records}  0
     [return]                        ${Id}[Id]
 
+API Get Email for User
+    [Documentation]         Returns the Email of a User
+    [Arguments]             ${last_name}    &{fields}
+    ${result} =             SOQL Query
+    ...                     SELECT Email FROM Contact where LastName LIKE '${last_name}'
+    ${email} =              Get From List  ${result['records']}  0
+    [return]                ${email}[Email]
+
 Share Funding Program
     [Documentation]         Share New Funding Program with Community User
     [Arguments]             ${funding_program_id}       &{fields}
