@@ -388,3 +388,75 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         locator = outboundfundscommunity_lex_locators["delete_file"]
         self.selenium.wait_until_element_is_visible(locator)
         self.selenium.get_webelement(locator).click()
+
+    def get_community_url(self):
+        """Saves Grants management community URL"""
+        """Activates external self-register via the UI"""
+        locator_quick_find_box = outboundfundscommunity_lex_locators["self_register"][
+            "setup_quick_find"
+        ]
+        locator_quick_find_result = outboundfundscommunity_lex_locators["self_register"][
+            "quick_find_result"
+        ]
+
+        quick_find_box = self.selenium.driver.find_element_by_xpath(
+            locator_quick_find_box
+        )
+        quick_find_box.send_keys("All Sites")
+        self.selenium.click_element(locator_quick_find_result)
+        self.grants.select_frame_with_value(
+            "Digital Experiences ~ Salesforce - Developer Edition"
+        )
+        locator_community_url = outboundfundscommunity_lex_locators["guest_user"]["community_url"]
+        community_url = self.selenium.driver.find_element_by_xpath(
+            locator_community_url
+        ).text
+        return community_url
+
+    def enable_public_access(self):
+        """Enables public access for the grants management community for guest users"""
+        locator_setting_gear = outboundfundscommunity_lex_locators["guest_user"]["setting_gear"]
+        locator_public_access = outboundfundscommunity_lex_locators["guest_user"]["public_access"]
+        locator_publish_button = outboundfundscommunity_lex_locators["guest_user"]["publish_button"]
+        locator_confirmation_button = outboundfundscommunity_lex_locators["guest_user"]["got_it_button"]
+        locator_modal_publish_button = outboundfundscommunity_lex_locators["guest_user"][
+            "modal_publish_button"
+        ]
+        locator_checkbox_check = outboundfundscommunity_lex_locators["guest_user"]["checkbox_check"]
+        checkbox = self.selenium.driver.find_element_by_xpath(locator_checkbox_check)
+        self.selenium.wait_until_page_contains_element(locator_setting_gear)
+        self.selenium.click_element(locator_setting_gear)
+        if checkbox.is_selected():
+            pass
+        else:
+            self.selenium.click_element(locator_public_access)
+            self.selenium.click_element(locator_publish_button)
+            self.selenium.click_element(locator_modal_publish_button)
+            self.selenium.wait_until_page_contains_element(
+                locator_confirmation_button, timeout=15
+            )
+            self.selenium.click_element(locator_confirmation_button)
+
+    def go_to_community_builder(self):
+        """Takes user to builder for the grants management community"""
+        locator_quick_find_box = outboundfundscommunity_lex_locators["self_register"][
+            "setup_quick_find"
+        ]
+        locator_quick_find_result = outboundfundscommunity_lex_locators["self_register"][
+            "quick_find_result"
+        ]
+        locator_community_builder_link = outboundfundscommunity_lex_locators["guest_user"][
+            "community_builder_link"
+        ]
+        quick_find_box = self.selenium.driver.find_element_by_xpath(
+            locator_quick_find_box
+        )
+        quick_find_box.send_keys("All Sites")
+        self.selenium.click_element(locator_quick_find_result)
+        self.grants.select_frame_with_value(
+            "Digital Experiences ~ Salesforce - Developer Edition"
+        )
+        self.selenium.wait_until_element_is_visible(
+            locator_community_builder_link, timeout=15
+        )
+        self.selenium.click_element(locator_community_builder_link)
