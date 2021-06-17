@@ -68,6 +68,17 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         else:
             return ""
 
+    def format_all(self, loc, value):
+        """ Formats the given locator with the value for all {} occurrences """
+        count = loc.count("{")
+
+        if count == 1:
+            return loc.format(value)
+        elif count == 2:
+            return loc.format(value, value)
+        elif count == 3:
+            return loc.format(value, value, value)
+
     def get_obf_namespace_prefix(self):
         if not hasattr(self.cumulusci, "_describe_result"):
             self.cumulusci._describe_result = self.cumulusci.sf.describe()
