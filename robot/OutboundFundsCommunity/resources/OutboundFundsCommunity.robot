@@ -147,10 +147,11 @@ API Get Id
     [Documentation]                 Returns the ID of a record identified by the given field_name
     ...                             and field_value input for a specific object
     [Arguments]                     ${obj_name}    &{fields}
-    ${records} =                    Salesforce Query      ${obj_name}
+    @{records} =                    Salesforce Query      ${obj_name}
     ...                             select=Id
     ...                             &{fields}
-    [return]                        ${records}
+    &{Id} =                         Get From List  ${records}  0
+    [return]                        ${Id}[Id]
 
 API Get Email for User
     [Documentation]         Returns the Email of a User
