@@ -76,6 +76,7 @@ outboundfundscommunity_lex_locators = {
     },
     "header_title": "//h2[(contains(@class, 'inlineTitle') or contains(@class, 'slds-text-heading') or contains(@class, 'listTitle') or contains(@class, 'slds-hyphenate')) and contains(text(),'{}')]",
     "link": "//a[contains(text(),'{}')]",
+    "frame": "//iframe[contains(@id, '{}') or contains(@title, '{}') or contains(@name, '{}')]",
     "modal_field": "//label[contains(@class, 'uiLabel')][.//div[text()='{}']]//*[self::input or self::textarea]",
     "amount_field": "//lightning-formatted-rich-text/span[text()='{}']/../../../lightning-input/div/input",
     "flexi_link": "//a//span[text()='{}']",
