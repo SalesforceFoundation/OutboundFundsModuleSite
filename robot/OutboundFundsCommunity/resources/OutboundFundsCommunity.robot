@@ -161,6 +161,28 @@ API Get Email for User
     ${email} =              Get From List  ${result['records']}  0
     [return]                ${email}[Email]
 
+API Get User Name for User
+    [Documentation]         Returns the Username of a User
+    [Arguments]             ${last_name}    &{fields}
+    ${result} =             SOQL Query
+    ...                     SELECT Username FROM User where LastName LIKE '${last_name}' and IsActive=True
+    ${user_name} =          Get From List  ${result['records']}  0
+    [return]                ${user_name}[Username]
+
+API Activate Community
+    [Documentation]             Activates community to live
+    ${network_id} =             API Get Id
+    ...                         Network     Name=Funding Program Portal
+    API Update Record           Network     ${network_id}    Status=Live
+
+Enable Public Access for Guest User
+    [Documentation]             Setup Community for Public access
+    Go To Setup Home
+    Go To Community Builder
+    Get Window Titles
+    Switch Window               title=Experience Builder
+    Enable Public Access
+
 Share Funding Program
     [Documentation]         Share New Funding Program with Community User
     [Arguments]             ${funding_program_id}       &{fields}
