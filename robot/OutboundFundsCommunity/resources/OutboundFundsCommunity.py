@@ -404,7 +404,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         )
         quick_find_box.send_keys("All Sites")
         self.selenium.click_element(locator_quick_find_result)
-        self.outboundfundscommunity.select_frame_with_value(
+        self.select_frame_with_value(
             "Digital Experiences ~ Salesforce - Developer Edition"
         )
         locator_community_url = outboundfundscommunity_lex_locators["guest_user"][
@@ -474,7 +474,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         )
         quick_find_box.send_keys("All Sites")
         self.selenium.click_element(locator_quick_find_result)
-        self.grants.select_frame_with_value(
+        self.select_frame_with_value(
             "Digital Experiences ~ Salesforce - Developer Edition"
         )
         self.selenium.wait_until_element_is_visible(
