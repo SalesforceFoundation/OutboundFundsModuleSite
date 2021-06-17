@@ -172,7 +172,7 @@ API Get User Name for User
 API Activate Community
     [Documentation]             Activates community to live
     ${network_id} =             API Get Id
-    ...                         Network     Name=Funding Program Portal
+    ...                         Network     Name=Fundseeker Portal
     API Update Record           Network     ${network_id}    Status=Live
 
 Enable Public Access for Guest User
