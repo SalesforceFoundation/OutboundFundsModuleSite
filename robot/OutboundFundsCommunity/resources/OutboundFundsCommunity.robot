@@ -219,6 +219,16 @@ API Get Name Based on Id
     &{Name} =                       Get From List  ${records}  0
     [return]                        ${Name}[Name]
 
+API Update Record
+    [Documentation]         Updates the record based on the Id,field_name & field_value.
+    [Arguments]             ${obj_name}  ${user_id}  &{fields}
+    ${record} =             Salesforce Update  ${obj_name}  ${user_id}
+    ...                     &{fields}
+    @{records} =            Salesforce Query  ${obj_name}
+    ...                         select=Id
+    &{Id} =                 Get From List  ${records}  0
+    [return]                &{Id}
+
 API Get Contact Id for Robot Test User
     [Documentation]         Returns the ID of Robot Walker
     [Arguments]             ${last_name}     &{fields}
