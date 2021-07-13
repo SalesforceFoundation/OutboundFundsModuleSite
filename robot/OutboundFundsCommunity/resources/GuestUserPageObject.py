@@ -11,7 +11,7 @@ class CommunityHomePage(BaseOutboundFundsCommunityPage, HomePage):
         by verifying that the url contains '/fundingseekerportal'
         """
         self.selenium.wait_until_location_contains(
-            "/fundingseekerportal/s", message="Current page is not a Community Portal"
+            "/fundingseekerportal", message="Current page is not a Community Portal"
         )
 
     def click_down_arrow(self):
