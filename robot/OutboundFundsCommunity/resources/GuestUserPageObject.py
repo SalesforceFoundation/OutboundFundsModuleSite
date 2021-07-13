@@ -8,12 +8,11 @@ from Grants import grants_lex_locators
 class CommunityHomePage(BaseGrantsPage, HomePage):
     def _is_current_page(self):
         """Verify we are on the Guest User Portal Home Page
-        by verifying that the url contains '/fundingprograms'
+        by verifying that the url contains '/fundingseekerportal'
         """
         self.selenium.wait_until_location_contains(
-            "/fundingprograms/s", message="Current page is not a Community Portal"
+            "/fundingseekerportal/s", message="Current page is not a Community Portal"
         )
-        self.selenium.wait_until_page_contains("Our Grant Programs")
 
     def click_down_arrow(self):
         """Clicks down arrow to show more nav bar options"""
