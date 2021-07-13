@@ -16,20 +16,28 @@ class CommunityHomePage(BaseOutboundFundsCommunityPage, HomePage):
 
     def click_down_arrow(self):
         """Clicks down arrow to show more nav bar options"""
-        locator_down_arrow = outboundfundscommunity_lex_locators["guest_user"]["down_arrow"]
+        locator_down_arrow = outboundfundscommunity_lex_locators["guest_user"][
+            "down_arrow"
+        ]
         self.selenium.click_element(locator_down_arrow)
 
     def click_funding_program_link(self):
         """Clicks Funding Program nav bar link from More dropdown"""
-        locator_funding_program = outboundfundscommunity_lex_locators["guest_user"]["funding_program"]
+        locator_funding_program = outboundfundscommunity_lex_locators["guest_user"][
+            "funding_program"
+        ]
         self.selenium.click_element(locator_funding_program)
 
     def go_to_sign_up_page(self):
         """Clicks on sign up link"""
-        locator_sign_up_link = outboundfundscommunity_lex_locators["guest_user"]["sign_up"]
+        locator_sign_up_link = outboundfundscommunity_lex_locators["guest_user"][
+            "sign_up"
+        ]
         self.selenium.click_element(locator_sign_up_link)
 
     def go_to_log_in_page(self):
         """Clicks on log in link"""
-        locator_log_in_button = outboundfundscommunity_lex_locators["password"]["log_in_button"]
+        locator_log_in_button = outboundfundscommunity_lex_locators["password"][
+            "log_in_button"
+        ]
         self.selenium.click_element(locator_log_in_button)
