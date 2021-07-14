@@ -91,7 +91,7 @@ outboundfundscommunity_lex_locators = {
     "toast_close": "//span[contains(@class, 'toastMessage') and text()=\"{}\"]/ancestor::div//button[@title='Close']",
     "modal_footer": "//div[contains(@class, 'modal-footer')]//button//span[text()='Save']",
     "password": {
-        "log_in_button": "//span[contains(text(),'Log in')]",
+        "log_in_button": "//button[contains(@title, 'Log in')]",
         "forgot_your_password_link": "//a[contains(text(),'Forgot your password?')]",
         "username_input": "//input[contains(@placeholder,'Username')]",
         "reset_password_button": "//span[contains(text(),'Reset Password')]",
