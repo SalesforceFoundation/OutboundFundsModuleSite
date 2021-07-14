@@ -157,7 +157,7 @@ API Get Email for User
     [Documentation]         Returns the Email of a User
     [Arguments]             ${last_name}    &{fields}
     ${result} =             SOQL Query
-    ...                     SELECT Email FROM Contact where LastName LIKE '${last_name}'
+    ...                     SELECT Email FROM User where LastName LIKE '${last_name}'
     ${email} =              Get From List  ${result['records']}  0
     [return]                ${email}[Email]
 
