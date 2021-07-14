@@ -16,7 +16,6 @@ class Email(BaseOutboundFundsCommunityPage):
         """Retrieves reset password URL from email sent to user"""
         params = {
             "tag": tag,
-            "livequery": "true",
         }
         email_data = requests.get(endpoint, params=params, timeout=30)
         email_json = email_data.json()
