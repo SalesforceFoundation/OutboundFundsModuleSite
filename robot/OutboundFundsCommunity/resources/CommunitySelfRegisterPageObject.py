@@ -38,7 +38,9 @@ class CommunityRegisterPage(BaseOutboundFundsCommunityPage, BasePage):
 
     def click_sign_up_button(self):
         """Clicks sign up button"""
-        locator_sign_up_button = outboundfundscommunity_lex_locators["guest_user"]["sign_up_button"]
+        locator_sign_up_button = outboundfundscommunity_lex_locators["guest_user"][
+            "sign_up_button"
+        ]
         self.selenium.click_element(locator_sign_up_button)
 
 
@@ -48,9 +50,9 @@ class CommunityCheckPasswordResetEmailPage(BaseOutboundFundsCommunityPage, BaseP
         """Verify we are on the CheckPasswordResetEmail page
         by verifying that the url contains '/fundingprograms/s/login/CheckPasswordResetEmail'
         """
-        locator_now_check_your_email = outboundfundscommunity_lex_locators["guest_user"][
-            "now_check_your_email"
-        ]
+        locator_now_check_your_email = outboundfundscommunity_lex_locators[
+            "guest_user"
+        ]["now_check_your_email"]
         self.selenium.wait_until_location_contains(
             "/fundseekerportal/s/login/CheckPasswordResetEmail",
             message="Current page is not CheckPasswordResetEmail Page",
@@ -74,7 +76,9 @@ class CommunityForgotPasswordPage(BaseOutboundFundsCommunityPage, BasePage):
 
     def input_username(self, username):
         """Input username in forgot password page"""
-        locator_username_input = outboundfundscommunity_lex_locators["password"]["username_input"]
+        locator_username_input = outboundfundscommunity_lex_locators["password"][
+            "username_input"
+        ]
         username_input_box = self.selenium.driver.find_element_by_xpath(
             locator_username_input
         )
