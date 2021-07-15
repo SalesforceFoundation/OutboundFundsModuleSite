@@ -84,8 +84,9 @@ API Create Funding Program
 
 API Create Funding Request
     [Documentation]                 Create a Funding Request via API
-    [Arguments]                     ${funding_program_id}  ${contact_id}    &{fields}
+    [Arguments]                     ${funding_program_id}   &{fields}
     ${ns} =                         Get OBF Namespace Prefix
+    ${contact_id} =                 API Get Contact Id for Robot Test User  Walker
     ${funding_request_name} =       Generate New String
     ${application_date} =           Get Current Date  result_format=%Y-%m-%d
     ${funding_request_id} =         Salesforce Insert  ${ns}Funding_Request__c
@@ -95,6 +96,7 @@ API Create Funding Request
     ...                             ${ns}Requested_Amount__c=100000
     ...                             ${ns}FundingProgram__c=${funding_program_id}
     ...                             ${ns}Requested_For__c=Education
+    ...                             ${ns}Application_Date__c=${application_date}
     ...                             &{fields}
     &{funding_request} =            Salesforce Get  ${ns}Funding_Request__c  ${funding_request_id}
     Store Session Record            ${ns}Funding_Request__c   ${funding_request_id}
@@ -102,11 +104,13 @@ API Create Funding Request
 
 API Create Requirement on a Funding Request
     [Documentation]                 Create a Requirement on a Funding Request via API
-    [Arguments]                     ${funding_request_id}  ${contact_id}    ${user_id}   &{fields}
-    ${ns} =                         Get OBF Namespace Prefix
+    [Arguments]                     ${funding_request_id}     &{fields}
     ${requirement_name} =           Generate New String
+    ${ns}=                          Get OBF Namespace Prefix
     ${due_date} =                   Get Current Date  result_format=%Y-%m-%d    increment=30 days
-    ${requirement_id} =             Salesforce Insert  outfunds__Requirement__c
+    ${user_id} =                    API Get User Id for Robot Test User  Walker
+    ${contact_id} =                 API Get Contact Id for Robot Test User  Walker
+    ${requirement_id} =             Salesforce Insert  ${ns}Requirement__c
     ...                             Name=${requirement_name}
     ...                             ${ns}Primary_Contact__c=${contact_id}
     ...                             ${ns}Due_Date__c=${due_date}
@@ -114,6 +118,7 @@ API Create Requirement on a Funding Request
     ...                             ${ns}Status__c=Open
     ...                             ${ns}Funding_Request__c=${funding_request_id}
     ...                             ${ns}Type__c=Review
+    ...                             outfunds_comm__IsAddFilesVisible__c=true
     ...                             &{fields}
     &{requirement} =                Salesforce Get  ${ns}Requirement__c  ${requirement_id}
     Store Session Record            ${ns}Requirement__c   ${requirement_id}
@@ -148,6 +153,36 @@ API Get Id
     &{Id} =                         Get From List  ${records}  0
     [return]                        ${Id}[Id]
 
+API Get Email for User
+    [Documentation]         Returns the Email of a User
+    [Arguments]             ${last_name}    &{fields}
+    ${result} =             SOQL Query
+    ...                     SELECT Email FROM User where LastName LIKE '${last_name}'
+    ${email} =              Get From List  ${result['records']}  0
+    [return]                ${email}[Email]
+
+API Get User Name for User
+    [Documentation]         Returns the Username of a User
+    [Arguments]             ${last_name}    &{fields}
+    ${result} =             SOQL Query
+    ...                     SELECT Username FROM User where LastName LIKE '${last_name}' and IsActive=True
+    ${user_name} =          Get From List  ${result['records']}  0
+    [return]                ${user_name}[Username]
+
+API Activate Community
+    [Documentation]             Activates community to live
+    ${network_id} =             API Get Id
+    ...                         Network     Name=Fundseeker Portal
+    API Update Record           Network     ${network_id}    Status=Live
+
+Enable Public Access for Guest User
+    [Documentation]             Setup Community for Public access
+    Go To Setup Home
+    Go To Community Builder
+    Get Window Titles
+    Switch Window               title=Experience Builder
+    Enable Public Access
+
 Share Funding Program
     [Documentation]         Share New Funding Program with Community User
     [Arguments]             ${funding_program_id}       &{fields}
@@ -162,14 +197,46 @@ Share Funding Program
     &{access} =             Salesforce Get  ${ns}Funding_Program__Share  ${share_id}
     [Return]                &{access}
 
-Go To Community As Test User
+Go To Community As Robot Test User
     [Documentation]                 Go to the given CONTACT_ID detail page and log in to community
-    [Arguments]                     ${object}    ${name}
-    ${contact_id} =                 API Get Id  ${object}   name=${name}
+    [Arguments]                     ${contact_id}
     Go To Page                      Detail      Contact       ${contact_id}
-    Wait Until Loading Is Complete
+    wait until loading is complete
+    ${contact_name} =               API Get Name Based on Id     Contact     Id=${contact_id}
     Current Page Should Be          Detail      Contact
     Capture Page Screenshot
     Login To Community As User
     Capture Page Screenshot
     Current Page Should Be          Home        Community
+
+API Get Name Based on Id
+    [Documentation]                 Returns the Name of a record identified by the given field_name
+    ...                             and field_value input for a specific object
+    [Arguments]                     ${obj_name}    &{fields}
+    @{records} =                    Salesforce Query      ${obj_name}
+    ...                             select=Name
+    ...                             &{fields}
+    &{Name} =                       Get From List  ${records}  0
+    [return]                        ${Name}[Name]
+
+API Update Record
+    [Documentation]         Updates the record based on the Id,field_name & field_value.
+    [Arguments]             ${obj_name}  ${user_id}  &{fields}
+    ${record} =             Salesforce Update  ${obj_name}  ${user_id}
+    ...                     &{fields}
+    @{records} =            Salesforce Query  ${obj_name}
+    ...                         select=Id
+    &{Id} =                 Get From List  ${records}  0
+    [return]                &{Id}
+
+API Get Contact Id for Robot Test User
+    [Documentation]         Returns the ID of Robot Walker
+    [Arguments]             ${last_name}     &{fields}
+    ${result} =             API Get Id      Contact         LastName=${last_name}
+    [return]                ${result}
+
+API Get User Id for Robot Test User
+    [Documentation]         Returns the ID of a Robot Test User
+    [Arguments]             ${last_name}     &{fields}
+    ${result} =             API Get Id      User         LastName=${last_name}
+    [return]                ${result}
