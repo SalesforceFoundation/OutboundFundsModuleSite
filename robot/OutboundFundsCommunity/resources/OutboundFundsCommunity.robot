@@ -157,9 +157,31 @@ API Get Email for User
     [Documentation]         Returns the Email of a User
     [Arguments]             ${last_name}    &{fields}
     ${result} =             SOQL Query
-    ...                     SELECT Email FROM Contact where LastName LIKE '${last_name}'
+    ...                     SELECT Email FROM User where LastName LIKE '${last_name}'
     ${email} =              Get From List  ${result['records']}  0
     [return]                ${email}[Email]
+
+API Get User Name for User
+    [Documentation]         Returns the Username of a User
+    [Arguments]             ${last_name}    &{fields}
+    ${result} =             SOQL Query
+    ...                     SELECT Username FROM User where LastName LIKE '${last_name}' and IsActive=True
+    ${user_name} =          Get From List  ${result['records']}  0
+    [return]                ${user_name}[Username]
+
+API Activate Community
+    [Documentation]             Activates community to live
+    ${network_id} =             API Get Id
+    ...                         Network     Name=Fundseeker Portal
+    API Update Record           Network     ${network_id}    Status=Live
+
+Enable Public Access for Guest User
+    [Documentation]             Setup Community for Public access
+    Go To Setup Home
+    Go To Community Builder
+    Get Window Titles
+    Switch Window               title=Experience Builder
+    Enable Public Access
 
 Share Funding Program
     [Documentation]         Share New Funding Program with Community User
@@ -196,6 +218,16 @@ API Get Name Based on Id
     ...                             &{fields}
     &{Name} =                       Get From List  ${records}  0
     [return]                        ${Name}[Name]
+
+API Update Record
+    [Documentation]         Updates the record based on the Id,field_name & field_value.
+    [Arguments]             ${obj_name}  ${user_id}  &{fields}
+    ${record} =             Salesforce Update  ${obj_name}  ${user_id}
+    ...                     &{fields}
+    @{records} =            Salesforce Query  ${obj_name}
+    ...                         select=Id
+    &{Id} =                 Get From List  ${records}  0
+    [return]                &{Id}
 
 API Get Contact Id for Robot Test User
     [Documentation]         Returns the ID of Robot Walker
