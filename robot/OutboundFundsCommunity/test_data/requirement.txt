@@ -1,0 +1,13 @@
+Requirements allow organizations to track deliverables or milestones on a Funding Request before it is approved or closed. For example, the Hive Foundation requires an application, letter of intent, and proposed budget to be submitted before the Funding Request is reviewed.
+Michon adds these as Requirements that can be managed and tracked.
+While viewing a Funding Request, click the Requirements related list.
+Click New.
+Enter a Requirement Name. For example, Application.
+Select a Primary Contact.
+Select a Type.
+Next to Assigned, choose an internal user who will manage this Requirement.
+If a disbursement has been made, select or add it from Disbursement.
+Enter a Due Date. This is when the Primary Contact is required to submit their Requirement information.
+If completed, enter a Completed Date.
+Select a Status.
+Optionally, enter additional information in Requirements.

@@ -68,6 +68,17 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         else:
             return ""
 
+    def format_all(self, loc, value):
+        """ Formats the given locator with the value for all {} occurrences """
+        count = loc.count("{")
+
+        if count == 1:
+            return loc.format(value)
+        elif count == 2:
+            return loc.format(value, value)
+        elif count == 3:
+            return loc.format(value, value, value)
+
     def get_obf_namespace_prefix(self):
         if not hasattr(self.cumulusci, "_describe_result"):
             self.cumulusci._describe_result = self.cumulusci.sf.describe()
@@ -90,7 +101,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         return True if elements > 0 else False
 
     def new_random_string(self, len=5):
-        """Generate a random string of fixed length """
+        """Generate a random string of fixed length"""
         return "".join(random.choice(string.ascii_lowercase) for _ in range(len))
 
     def generate_new_string(self, prefix="Robot Test"):
@@ -127,7 +138,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         locator = outboundfundscommunity_lex_locators["new_record"][
             "footer_button"
         ].format("Save")
-        self.selenium.scroll_element_into_view(locator)
+        self.salesforce.scroll_element_into_view(locator)
         self.salesforce._jsclick(locator)
 
     def validate_field_value(self, field, status, value, section=None):
@@ -136,7 +147,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         """
         if section is not None:
             section = "text:" + section
-            self.selenium.scroll_element_into_view(section)
+            self.salesforce.scroll_element_into_view(section)
         list_found = False
         locators = outboundfundscommunity_lex_locators["confirm"].values()
         if status == "contains":
@@ -182,22 +193,22 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         ].format(title)
         option = outboundfundscommunity_lex_locators["span"].format(value)
         self.selenium.wait_until_page_contains_element(locator)
-        self.selenium.scroll_element_into_view(locator)
+        self.salesforce.scroll_element_into_view(locator)
         element = self.selenium.driver.find_element_by_xpath(locator)
         try:
             self.selenium.get_webelement(locator).click()
             self.wait_for_locator("flexipage-popup")
-            self.selenium.scroll_element_into_view(option)
+            self.salesforce.scroll_element_into_view(option)
             self.selenium.click_element(option)
         except Exception:
             self.builtin.sleep(1, "waiting for a second and retrying click again")
             self.selenium.driver.execute_script("arguments[0].click()", element)
             self.wait_for_locator("flexipage-popup")
-            self.selenium.scroll_element_into_view(option)
+            self.salesforce.scroll_element_into_view(option)
             self.selenium.click_element(option)
 
     def click_related_list_wrapper_button(self, heading, button_title):
-        """ loads the related list  and clicks on the button on the list """
+        """loads the related list  and clicks on the button on the list"""
         locator = outboundfundscommunity_lex_locators["related"]["flexi_button"].format(
             heading, button_title
         )
@@ -205,7 +216,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         self.salesforce.wait_until_loading_is_complete()
 
     def login_to_community_as_user(self):
-        """ Click on 'Show more actions' drop down and select the option to log in to community as user """
+        """Click on 'Show more actions' drop down and select the option to log in to community as user"""
         locator_actions = outboundfundscommunity_lex_locators["action_locators"][
             "show_more_actions"
         ]
@@ -270,7 +281,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
                 if self.check_if_element_exists(locator):
                     self.selenium.set_focus_to_element(locator)
                     self.selenium.wait_until_element_is_visible(locator)
-                    self.selenium.scroll_element_into_view(locator)
+                    self.salesforce.scroll_element_into_view(locator)
                     self.salesforce._jsclick(locator)
                     self.selenium.wait_until_element_is_visible(selection_value)
                     self.selenium.click_element(selection_value)
@@ -322,7 +333,7 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         locator = outboundfundscommunity_lex_locators["new_record"][
             "lightning_datepicker"
         ].format(title)
-        self.selenium.scroll_element_into_view(locator)
+        self.salesforce.scroll_element_into_view(locator)
         self.selenium.set_focus_to_element(locator)
         self.selenium.get_webelement(locator).click()
         locator_date = outboundfundscommunity_lex_locators["new_record"][
@@ -330,3 +341,154 @@ class OutboundFundsCommunity(BaseOutboundFundsCommunityPage):
         ].format(value)
         self.selenium.set_focus_to_element(locator_date)
         self.selenium.get_webelement(locator_date).click()
+
+    @capture_screenshot_on_error
+    def select_value_from_picklist(self, dropdown, value):
+        """Select given value in the dropdown field"""
+        locator = outboundfundscommunity_lex_locators["new_record"][
+            "dropdown_field"
+        ].format(dropdown)
+        self.selenium.get_webelement(locator).click()
+        popup_loc = outboundfundscommunity_lex_locators["new_record"]["dropdown_popup"]
+        self.selenium.wait_until_page_contains_element(
+            popup_loc, error="Picklist dropdown did not open"
+        )
+        value_loc = outboundfundscommunity_lex_locators["new_record"][
+            "dropdown_value"
+        ].format(value)
+        self.salesforce._jsclick(value_loc)
+
+    @capture_screenshot_on_error
+    def add_date(self, title, date):
+        """Clicks on the 'Date' field in Form and picks a date in the argument"""
+        locator = outboundfundscommunity_lex_locators["new_record"][
+            "date_field"
+        ].format(title)
+        self.selenium.set_focus_to_element(locator)
+        self.selenium.clear_element_text(locator)
+        self.selenium.get_webelement(locator).send_keys(date)
+
+    @capture_screenshot_on_error
+    def verify_toast_message(self, value):
+        """Verifies the toast message"""
+        locator = outboundfundscommunity_lex_locators["toast_message"].format(value)
+        self.selenium.wait_until_element_is_visible(locator)
+        try:
+            close_locator = outboundfundscommunity_lex_locators["toast_close"].format(
+                value
+            )
+            self.selenium.wait_until_page_contains_element(close_locator)
+            self.selenium.click_element(close_locator)
+        except Exception:
+            self.builtin.log("The toast could not be closed.", "WARN")
+
+    @capture_screenshot_on_error
+    def change_list_view_in_community(self, value):
+        """Changes the list view in the grantseeker community"""
+        locator_list_view_dropdown_button = outboundfundscommunity_lex_locators[
+            "community_locators"
+        ]["list_view_dropdown"]
+        locator_list_options = outboundfundscommunity_lex_locators[
+            "community_locators"
+        ]["list_view_dropdown_options"].format(value)
+        self.selenium.click_element(locator_list_view_dropdown_button)
+        self.selenium.click_element(locator_list_options)
+
+    def delete_file(self):
+        """delete a file on a requirement or an application"""
+        locator = outboundfundscommunity_lex_locators["delete_file"]
+        self.selenium.wait_until_element_is_visible(locator)
+        self.selenium.get_webelement(locator).click()
+
+    def get_community_url(self):
+        """Saves Grants management community URL"""
+        """Activates external self-register via the UI"""
+        locator_quick_find_box = outboundfundscommunity_lex_locators["self_register"][
+            "setup_quick_find"
+        ]
+        locator_quick_find_result = outboundfundscommunity_lex_locators[
+            "self_register"
+        ]["quick_find_result"]
+
+        quick_find_box = self.selenium.driver.find_element_by_xpath(
+            locator_quick_find_box
+        )
+        quick_find_box.send_keys("All Sites")
+        self.selenium.click_element(locator_quick_find_result)
+        self.select_frame_with_value(
+            "Digital Experiences ~ Salesforce - Developer Edition"
+        )
+        locator_community_url = outboundfundscommunity_lex_locators["guest_user"][
+            "community_url"
+        ]
+        community_url = self.selenium.driver.find_element_by_xpath(
+            locator_community_url
+        ).text
+        return community_url
+
+    @capture_screenshot_on_error
+    def select_frame_with_value(self, value):
+        """Selects frame identified by the given value
+        value should be the 'id', 'title' or 'name' attribute value of the web element used to identify the frame
+        """
+        locator = outboundfundscommunity_lex_locators["frame"]
+        locator = self.format_all(locator, value)
+        self.selenium.select_frame(locator)
+
+    def enable_public_access(self):
+        """Enables public access for the grants management community for guest users"""
+        locator_setting_gear = outboundfundscommunity_lex_locators["guest_user"][
+            "setting_gear"
+        ]
+        locator_public_access = outboundfundscommunity_lex_locators["guest_user"][
+            "public_access"
+        ]
+        locator_publish_button = outboundfundscommunity_lex_locators["guest_user"][
+            "publish_button"
+        ]
+        locator_confirmation_button = outboundfundscommunity_lex_locators["guest_user"][
+            "got_it_button"
+        ]
+        locator_modal_publish_button = outboundfundscommunity_lex_locators[
+            "guest_user"
+        ]["modal_publish_button"]
+        locator_checkbox_check = outboundfundscommunity_lex_locators["guest_user"][
+            "checkbox_check"
+        ]
+        checkbox = self.selenium.driver.find_element_by_xpath(locator_checkbox_check)
+        self.selenium.wait_until_page_contains_element(locator_setting_gear)
+        self.selenium.click_element(locator_setting_gear)
+        if checkbox.is_selected():
+            pass
+        else:
+            self.selenium.click_element(locator_public_access)
+            self.selenium.click_element(locator_publish_button)
+            self.selenium.click_element(locator_modal_publish_button)
+            self.selenium.wait_until_page_contains_element(
+                locator_confirmation_button, timeout=15
+            )
+            self.selenium.click_element(locator_confirmation_button)
+
+    def go_to_community_builder(self):
+        """Takes user to builder for the grants management community"""
+        locator_quick_find_box = outboundfundscommunity_lex_locators["self_register"][
+            "setup_quick_find"
+        ]
+        locator_quick_find_result = outboundfundscommunity_lex_locators[
+            "self_register"
+        ]["quick_find_result"]
+        locator_community_builder_link = outboundfundscommunity_lex_locators[
+            "guest_user"
+        ]["community_builder_link"]
+        quick_find_box = self.selenium.driver.find_element_by_xpath(
+            locator_quick_find_box
+        )
+        quick_find_box.send_keys("All Sites")
+        self.selenium.click_element(locator_quick_find_result)
+        self.select_frame_with_value(
+            "Digital Experiences ~ Salesforce - Developer Edition"
+        )
+        self.selenium.wait_until_element_is_visible(
+            locator_community_builder_link, timeout=15
+        )
+        self.selenium.click_element(locator_community_builder_link)
