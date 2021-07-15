@@ -42,7 +42,7 @@ for (Schema.Contact contact : [
     Datetime dt = Datetime.now();
     Long l = dt.getTime();
     String sLong = String.valueOf(l);
-    String userEmail = contact.Email.replace('@', '+' + sLong + '@');
+    String userEmail = contact.Email.replace('@', sLong + '@');
     users.add(
         new Schema.User(
             FirstName = contact.FirstName,
