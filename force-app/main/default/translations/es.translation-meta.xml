@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <name>Cancel</name>
+        <label>Cancelar</label>
+    </customLabels>
+    <customLabels>
+        <name>Close</name>
+        <label>Cerrar</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoDeleteAccessException</name>
+        <label>No tiene acceso de eliminación a este objeto. Solicite ayuda a su administrador de Salesforce.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoInsertFlsException</name>
+        <label>No tiene acceso de nivel de campo para crear este objeto. Solicite ayuda a su administrador de Salesforce.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoUpdateFlsException</name>
+        <label>No tiene acceso de nivel de campo para modificar este objeto. Solicite ayuda a su administrador de Salesforce.</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Action</name>
+        <label>Eliminar archivo</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Action</name>
+        <label>Confirmar eliminación</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Body</name>
+        <label>¿Está seguro de que desea eliminar este archivo?</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Header</name>
+        <label>No se pudo eliminar el archivo</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Message</name>
+        <label>Este archivo no puede eliminarse. Póngase en contacto con su administrador del sistema para obtener ayuda.</label>
+    </customLabels>
+    <customLabels>
+        <name>Error</name>
+        <label>Error</label>
+    </customLabels>
+    <customLabels>
+        <name>File_Retrieval_Error</name>
+        <label>Se produjo un error, y no podemos recuperar los registros relacionados. Póngase en contacto con su administrador del sistema para obtener ayuda.</label>
+    </customLabels>
+    <customLabels>
+        <name>Loading</name>
+        <label>Cargando</label>
+    </customLabels>
+    <customLabels>
+        <name>No_Files_Attached</name>
+        <label>No hay archivos adjuntos</label>
+    </customLabels>
+    <customLabels>
+        <name>Requirement_Attachments</name>
+        <label>Datos adjuntos de requisito</label>
+    </customLabels>
+</Translations>

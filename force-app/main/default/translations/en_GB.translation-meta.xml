@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <name>Cancel</name>
+        <label>Cancel</label>
+    </customLabels>
+    <customLabels>
+        <name>Close</name>
+        <label>Close</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoDeleteAccessException</name>
+        <label>You don&apos;t have delete access to this object. Ask your Salesforce admin for help.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoInsertFlsException</name>
+        <label>You don&apos;t have field-level access to create this record. Ask your Salesforce admin for help.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoUpdateFlsException</name>
+        <label>You don&apos;t have field-level access to edit this record. Ask your Salesforce admin for help.</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Action</name>
+        <label>Delete File</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Action</name>
+        <label>Confirm Delete</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Body</name>
+        <label>Are you sure you want to delete this file?</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Header</name>
+        <label>Unable to Delete File</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Message</name>
+        <label>This file can&apos;t be deleted. Contact your system administrator for help.</label>
+    </customLabels>
+    <customLabels>
+        <name>Error</name>
+        <label>Error</label>
+    </customLabels>
+    <customLabels>
+        <name>File_Retrieval_Error</name>
+        <label>An error occurred, and we are unable to retrieve the related records. Contact your system administrator for help.</label>
+    </customLabels>
+    <customLabels>
+        <name>Loading</name>
+        <label>Loading</label>
+    </customLabels>
+    <customLabels>
+        <name>No_Files_Attached</name>
+        <label>No Files Attached</label>
+    </customLabels>
+    <customLabels>
+        <name>Requirement_Attachments</name>
+        <label>Requirement Attachments</label>
+    </customLabels>
+</Translations>
