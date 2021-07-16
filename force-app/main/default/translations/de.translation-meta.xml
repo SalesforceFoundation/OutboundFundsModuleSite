@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <name>Cancel</name>
+        <label>Abbrechen</label>
+    </customLabels>
+    <customLabels>
+        <name>Close</name>
+        <label>Schließen</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoDeleteAccessException</name>
+        <label>Sie besitzen keinen Löschzugriff auf dieses Objekt. Bitten Sie Ihren Salesforce-Administrator um Hilfe.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoInsertFlsException</name>
+        <label>Sie besitzen keinen Zugriff auf Feldebene, um diesen Datensatz zu erstellen. Bitten Sie Ihren Salesforce-Administrator um Hilfe.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoUpdateFlsException</name>
+        <label>Sie besitzen keinen Zugriff auf Feldebene, um diesen Datensatz zu bearbeiten. Bitten Sie Ihren Salesforce-Administrator um Hilfe.</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Action</name>
+        <label>Datei löschen</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Action</name>
+        <label>Löschen bestätigen</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Body</name>
+        <label>Möchten Sie diese Datei wirklich löschen?</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Header</name>
+        <label>Datei kann nicht gelöscht werden</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Message</name>
+        <label>Diese Datei kann nicht gelöscht werden. Bitten Sie Ihren Systemadministrator um Hilfe.</label>
+    </customLabels>
+    <customLabels>
+        <name>Error</name>
+        <label>Fehler</label>
+    </customLabels>
+    <customLabels>
+        <name>File_Retrieval_Error</name>
+        <label>Ein Fehler ist aufgetreten, und wir können die zugehörigen Datensätze nicht abrufen. Bitten Sie Ihren Systemadministrator um Hilfe.</label>
+    </customLabels>
+    <customLabels>
+        <name>Loading</name>
+        <label>Wird geladen...</label>
+    </customLabels>
+    <customLabels>
+        <name>No_Files_Attached</name>
+        <label>Keine Dateien angefügt</label>
+    </customLabels>
+    <customLabels>
+        <name>Requirement_Attachments</name>
+        <label>Anlagen für Anforderungen</label>
+    </customLabels>
+</Translations>

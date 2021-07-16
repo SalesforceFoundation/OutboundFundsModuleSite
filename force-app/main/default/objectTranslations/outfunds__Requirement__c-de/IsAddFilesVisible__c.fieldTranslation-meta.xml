@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>IsAddFilesVisible__c</name>
+    <help>Wenn diese Option aktiviert ist, können Benutzer Anlagen zu einer Anforderung mithilfe der Komponente &quot;Dateien hinzufügen&quot; hinzufügen. Die Komponente &quot;Dateien hinzufügen&quot; wird für den Benutzer nach dem Einreichen der Anforderung automatisch ausgeblendet.</help>
+    <label>Wird &quot;Dateien hinzufügen&quot; angezeigt?</label>
+</CustomFieldTranslation>
