@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <name>Cancel</name>
+        <label>Annuler</label>
+    </customLabels>
+    <customLabels>
+        <name>Close</name>
+        <label>Fermer</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoDeleteAccessException</name>
+        <label>Vous ne disposez pas de l’accès en suppression à cet objet. Demandez de l’aide à votre administrateur Salesforce.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoInsertFlsException</name>
+        <label>Vous ne disposez pas de l’accès au niveau du champ pour créer cet enregistrement. Demandez de l’aide à votre administrateur Salesforce.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoUpdateFlsException</name>
+        <label>Vous ne disposez pas de l’accès au niveau du champ pour modifier cet enregistrement. Demandez de l’aide à votre administrateur Salesforce.</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Action</name>
+        <label>Supprimer le fichier</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Action</name>
+        <label>Confirmer la suppression</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Body</name>
+        <label>Voulez-vous vraiment supprimer ce fichier ?</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Header</name>
+        <label>Impossible de supprimer le fichier</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Message</name>
+        <label>Ce fichier ne peut pas être supprimé. Contactez l&apos;administrateur pour obtenir une aide.</label>
+    </customLabels>
+    <customLabels>
+        <name>Error</name>
+        <label>Erreur</label>
+    </customLabels>
+    <customLabels>
+        <name>File_Retrieval_Error</name>
+        <label>Une erreur s&apos;est produite et nous n&apos;avons pas pu récupérer les enregistrements associés. Contactez votre administrateur système pour obtenir une aide.</label>
+    </customLabels>
+    <customLabels>
+        <name>Loading</name>
+        <label>Chargement</label>
+    </customLabels>
+    <customLabels>
+        <name>No_Files_Attached</name>
+        <label>Aucun fichier joint</label>
+    </customLabels>
+    <customLabels>
+        <name>Requirement_Attachments</name>
+        <label>Pièces jointes aux exigences</label>
+    </customLabels>
+</Translations>

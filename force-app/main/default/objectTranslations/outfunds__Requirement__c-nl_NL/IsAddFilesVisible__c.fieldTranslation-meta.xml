@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>IsAddFilesVisible__c</name>
+    <help>Indien ingeschakeld, kan een gebruiker bijlagen uploaden voor een vereiste door de component &apos;Bestanden toevoegen&apos; te gebruiken. De component &apos;Bestanden toevoegen&apos; wordt automatisch voor de gebruiker verborgen nadat er een vereiste is ingediend.</help>
+    <label>Is &apos;Bestanden toevoegen&apos; zichtbaar?</label>
+</CustomFieldTranslation>
