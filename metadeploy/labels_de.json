@@ -1,0 +1,140 @@
+{
+  "product": {
+    "title": {
+      "message": "OFM Fundseeker-Startportal-Vorlage",
+      "description": "name of product"
+    },
+    "short_description": {
+      "message": "Erweitern Sie das Outbound Funds Module mithilfe einer Experience Cloud-Website-Vorlage um ein Fundseeker-Portal.",
+      "description": "tagline of product"
+    },
+    "description": {
+      "message": "Willkommen beim Installationsprogramm für die Outbound Funds Module Fundseeker-Startportal-Vorlage!\r\n\r\nDie Fundseeker-Startportal-Vorlage für das Outbound Funds Module optimiert den Finanzierungsprozess und hilft Finanzierungsanbietern bei der Pflege und Verwaltung der Beziehungen zu ihren Geldgebern. Die Fundseeker-Startportal-Vorlage für das Outbound Funds Module stützt sich auf die Salesforce Experience Cloud und macht Finanzierung durch eine intuitive, benutzerfreundliche Oberfläche und Backend-Automatisierung zu einem Kinderspiel.\r\n\r\nSteigen Sie erst in das Outbound Funds Module ein? Achten Sie darauf, vor der Installation der Fundseeker-Startportal-Vorlage für das Outbound Funds Module zunächst das [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) in Ihrer Organisation zu installieren.\r\n\r\n*WICHTIG*: Salesforce rät von der direkten Installation von Upgrades in Produktionsorganisationen ab. Installieren Sie stattdessen die Outbound Funds Module Fundseeker-Startportal-Vorlage zunächst in einer Ihrer kostenlosen Sandbox-Umgebungen oder einer Entwicklerorganisation\r\n\r\nSehen Sie sich nach der Installation die Ressourcen zum Einstieg in unserer Dokumentation an:\r\n\r\n* [Outbound Funds Module Documentation](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nFragen? Werden Sie Mitglied bei der [Outbound Funds Module]-Kundengruppe (https://powerofus.force.com/s/group/0F980000000CvlMCAS/outbound-funds-module-sfdo-product) im Power of Us-Hub.",
+      "description": "shown on product detail page (markdown)"
+    },
+    "click_through_agreement": {
+      "message": "*Installationsprogramm für die Outbound Funds Module Fundseeker-Startportal-Vorlage\r\nNutzungsbedingungen*\r\n\r\nBei der Technologie der Outbound Funds Module Fundseeker-Startportal-Vorlage (“OFM\r\nPortal”) handelt es sich um ein Open-Source-Paket, das von\r\nsalesforce.com, Inc. oder einem Partnerunternehmen (\"SFDC\") unter der BSD-3\r\nClause License lizenziert wird, die Sie unter \r\n[*https://opensource.org/licenses/BSD-3-Clause*](https://opensource.org/licenses/BSD-3-Clause) finden.\r\nDas OFM Portal-Paket setzt eine Installation des Outbound\r\nFunds Module voraus, bei dem es sich ebenfalls um ein Open-Source-Paket handelt, das von SFDC unter der\r\nBSD-3-Lizenz lizenziert wird.\r\n\r\nDURCH DIE INSTALLATION VON OFM PORTAL ERKLÄREN SIE IHR EINVERSTÄNDNIS MIT SEINER LIZENZ\r\n([*https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE*](https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE)).\r\n\r\nWichtig: Das OFM Portal darf nicht verwendet werden, um unaufgefordert Nachrichten an Dritte (\"Nachrichten\") zu erstellen, zu senden oder zu vermitteln.\r\nDer Kunde trägt die alleinige Verantwortung für die Erstellung, Initiierung und Versendung von Nachrichten, insbesondere\r\nfür die Einhaltung von Gesetzen, Vorschriften oder Regeln,\r\ndie für die Versendung von Nachrichten gelten (einschließlich der Einholung der Zustimmung zur Versendung dieser Nachrichten)\r\nsowie für den Inhalt der Nachrichten. Das OFM Portal darf nicht zu Zwecken verwendet werden,\r\ndie mit der Feststellung der Kredit-, Beschäftigungs-\r\noder Versicherungsfähigkeit einer Person oder mit anderen von Verbrauchern eingeleiteten\r\nTransaktionen im Sinne des U.S. Fair Credit Reporting Act oder\r\neines ähnlichen Gesetzes zusammenhängen.\r\n\r\nDas OFM Portal darf zum Versenden von Nachrichten nur an solche Empfänger verwendet werden,\r\ndie dem Kunden die Erlaubnis erteilt haben, ihnen solche Nachrichten in Übereinstimmung\r\nmit den gesetzlichen Anforderungen für die Einholung einer solchen Erlaubnis zu senden, oder für E-Mail-Nachrichten,\r\ndie dem U.S. CAN-SPAM Act unterliegen, wenn die Nachricht als \"Transaktions- oder Beziehungsnachricht\"\r\nim Sinne des U.S. CAN-SPAM Act charakterisiert werden kann.\r\nDie Einhaltung des U.S. CAN-SPAM Act liegt in der alleinigen Verantwortung des Kunden.\r\n\r\nWenn ein Betreiber, ein Sammler, eine Branchengruppierung, eine behördliche Gruppierung\r\noder eine sonstige Organisation eine Liste mit E-Mail-Adressen, Telefonnummern oder anderen\r\nAdressdaten erstellt, deren Status sich geändert hat – etwa, wenn einer Liste\r\n\"Kontakt nicht erwünscht\" E-Mail-Adressen hinzugefügt wurden oder Telefonnummern einem \r\nneuen Benutzer zugewiesen wurden – behält sich SFDC das Recht vor,\r\ndas Senden von Nachrichten an diese Empfänger zu blockieren. Die Verantwortung für die Beachtung\r\nsolcher Listen liegt jedoch allein bei unserem Kunden, und SFDC haftet\r\nnicht für das Versäumnis, Nachrichten an solche Adressen oder\r\nTelefonnummern zu blockieren, oder für das Versäumnis, versehentlich einen Empfänger\r\nauszuschließen, der eigentlich zugelassen werden sollte.\r\n\r\nEVENTUELLE RAHMENVERTRÄGE, DIE ZWISCHEN IHNEN ODER IHRER GESELLSCHAFT UND SFDC BESTEHEN; GELTEN NICHT FÜR IHRE NUTZUNG VON OFM PORTAL. EIN \"PARTNERUNTERNEHMEN\" BEZEICHNET JEDE ENTITÄT, DIE DIE BETREFFENDE ENTITÄT DIREKT ODER INDIREKT KONTROLLIERT, VON IHR KONTROLLIERT WIRD ODER UNTER GEMEINSAMER KONTROLLE MIT IHR STEHT. \"KONTROLLE\" BEDEUTET IM RAHMEN DIESER DEFINITION DIREKTES ODER INDIREKTES EIGENTUM ODER KONTROLLE VON MEHR ALS 50 % DER STIMMBERECHTIGTEN ANTEILE DER BETREFFENDEN EINHEIT. SALESFORCE.ORG LLC IST EIN PARTNERUNTERNEHMEN VON SALESFORCE.COM, INC.\r\n\r\nOFM PORTAL STELLT EINE SFDC-FREMDE ANWENDUNG ODER DRITTANBIETERANWENDUNG DAR UND IST\r\nKEIN SERVICE, DER VON RAHMENABONNEMENTVERTRÄGEN ABGEDECKT IST, DIE ZWISCHEN IHNEN UND SFDC BESTEHEN.\r\nOFM PORTAL WIRD \"WIE BESEHEN\" UND WIE VERFÜGBAR BEREITGESTELLT. SFDC GIBT KEINERLEI GARANTIE\r\nBEZÜGLICH OFM PORTAL, WEDER AUSDRÜCKLICH, STILLSCHWEIGEND, GESETZLICH ODER\r\nANDERWEITIG, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, STILLSCHWEIGENDE GARANTIEN DER\r\nMARKTGÄNGIGKEIT, DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, DER MÄNGELFREIHEIT\r\nODER DER NICHTVERLETZUNG VON RECHTEN DRITTER, SOWEIT DIES NACH GELTENDEM RECHT ZULÄSSIG IST.\r\nWENN SIE VERTRAULICHE ODER REGULIERUNGEN UNTERLIEGENDE DATEN AN OFM PORTAL ÜBERMITTELN,\r\nLIEGT ES AUSSCHLIESSLICH IN IHRER VERANTWORTUNG; SICHERZUSTELLEN, DASS IHRE NUTZUNG VON OFM PORTAL ZUR VERARBEITUNG\r\nDIESER DATEN MIT ALLEN GELTENDEN GESETZEN UND VORSCHRIFTEN ÜBEREINSTIMMT.\r\n\r\nSFDC ÜBERNIMMT KEINE HAFTUNG, DIE SICH AUS IHRER NUTZUNG VON OFM PORTAL\r\nERGIBT ODER DAMIT IN ZUSAMMENHANG STEHT, FÜR DIREKTE SCHÄDEN ODER FÜR ENTGANGENE GEWINNE, EINKÜNFTE;\r\nGOODWILL ODER INDIREKTE, SPEZIELLE, ZUFÄLLIGE, FOLGESCHÄDEN, EXEMPLARISCHE SCHÄDEN,\r\nDECKUNGEN, GESCHÄFTSUNTERBRECHUNGEN ODER STRAFSCHADENERSATZ, UNABHÄNGIG DAVON,\r\nOB ES SICH UM EINE KLAGE AUS VERTRAG ODER UNERLAUBTER HANDLUNG HANDELT UND UNABHÄNGIG VON DER HAFTUNGSTHEORIE,\r\nSELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE ODER WENN EINE ABHILFEMASSNAHME\r\nANDERWEITIG IHREN WESENTLICHEN ZWECK VERFEHLT. DER VORSTEHENDE HAFTUNGSAUSSCHLUSS\r\nGILT NUR IN DEM NACH DEM GESETZ ZULÄSSIGEN UMFANG. SFDC LEHNT ALLE HAFTUNGS- UND\r\nENTSCHÄDIGUNGSVERPFLICHTUNGEN FÜR SCHÄDEN AB, DIE VON DRITTEN HOSTINGANBIETERN\r\nVERURSACHT WERDEN.\r\n\r\nDIESE VEREINBARUNG UNTERLIEGT AUSSCHLIESSLICH DEN GESETZEN DER VEREINIGTEN STAATEN\r\nUND DES BUNDESSTAATES KALIFORNIEN UND IST AUSSCHLIESSLICH IN ÜBEREINSTIMMUNG MIT DIESEN AUSZULEGEN,\r\nOHNE BERÜCKSICHTIGUNG DER KOLLISIONSRECHTLICHEN BESTIMMUNGEN. DIE EINZELSTAATS- UND BUNDESSTAATSGERICHTE\r\nMIT SITZ IN SAN FRANCISCO, KALIFORNIEN, HABEN DIE AUSSCHLIESSLICHE ZUSTÄNDIGKEIT ZUR ENTSCHEIDUNG\r\nVON STREITIGKEITEN, DIE SICH AUS DIESER VEREINBARUNG ERGEBEN ODER DAMIT ZUSAMMENHÄNGEN.\r\nJEDE PARTEI STIMMT HIERMIT DER GERICHTSBARKEIT DIESER GERICHTE ZU UND VERZICHTET AUF JEDES RECHT, DIE EIGNUNG SOLCHER GERICHTE ANZUFECHTEN.",
+      "description": "legal text shown in modal dialog"
+    },
+    "error_message": {
+      "message": "Um Hilfe zu diesem Fehler zu erhalten, navigieren Sie zu [help.salesforce.com](https://help.salesforce.com/), suchen Sie \"Support und Services\"; und öffnen Sie ein Ticket beim Support von Salesforce. Geben Sie \"Outbound Funds Module Fundseeker Starter Portal Template\" in die Betreffzeile ein; und schließen Sie in Ihren Kommentar den hier abgebildeten Installationslink ein.",
+      "description": "shown after failed installation (markdown)"
+    }
+  },
+  "plan:install": {
+    "title": {
+      "message": "OFM Fundseeker-Startportal-Vorlage installieren",
+      "description": "title of installation plan"
+    },
+    "preflight_message": {
+      "message": "Hiermit wird die Outbound Funds Module Fundseeker-Startportaloberflächen-Cloud-Vorlage in Ihrer Organisation installiert.",
+      "description": "shown before user starts installation (markdown)"
+    },
+    "post_install_message": {
+      "message": "Danke, dass Sie die Outbound Funds Modul Fundseeker-Startportal-Vorlage installieren. Bitte besuchen Sie die Community-Gruppe [Outbound Funds Module] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) auf dem Power of Us-Hub, wenn Sie Fragen zum Outbound Funds Module oder der Outbound Funds Module Fundseeker-Startportal-Vorlage haben.",
+      "description": "shown after successful installation (markdown)"
+    },
+    "error_message": {
+      "message": "Um Hilfe zu diesem Fehler zu erhalten, navigieren Sie zu [help.salesforce.com](https://help.salesforce.com/), suchen Sie \"Support und Services\"; und öffnen Sie ein Ticket beim Support von Salesforce. Geben Sie \"Outbound Funds Module Fundseeker Starter Portal Template\" in die Betreffzeile ein; und schließen Sie in Ihren Kommentar den hier abgebildeten Installationslink ein.",
+      "description": "shown after failed installation (markdown)"
+    }
+  },
+  "checks": {
+    "Outbound Funds Module Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again.": {
+      "message": "Für die Outbound Funds Module Fundseeker-Startportal-Vorlage ist Chatter erforderlich. Aktivieren Sie Chatter in Ihrer Organisation, und versuchen Sie es noch einmal.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that My Domain is enabled. Enable My Domain in your org and try again.": {
+      "message": "Für die Fundseeker-Startportal-Vorlage muss \"Meine Domäne\" aktiviert sein. Aktivieren Sie \"Meine Domäne\" in Ihrer Organisation, und versuchen Sie es noch einmal.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Enable Digital Experience in your org and try again.": {
+      "message": "Die Fundseeker-Startportal-Vorlage setzt voraus, dass Digital Experiences aktiviert ist. Aktivieren Sie Digital Experiences in Ihrer Organisation, und versuchen Sie es noch einmal.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org.": {
+      "message": "Die Fundseeker-Startportal-Vorlage ist eine Experience Cloud-Website-Vorlage und erfordert Customer Community Plus Login-Lizenzen. Stimmen Sie sich mit Ihrem Salesforce-Kundenbetreuer ab, um sicherzustellen, dass Sie die richtigen Lizenzen in Ihrer Organisation haben.",
+      "description": "shown if validation fails"
+    },
+    "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit https://install.salesforce.org/products/outbound-funds/ to install it and try again.": {
+      "message": "Die Outbound Funds Module Fundseeker-Startportal-Vorlage erfordert, dass Outbound Funds Module zuerst installiert wird. Besuchen Sie https://install.salesforce.org/products/outbound-funds/, um es zu installieren, und versuchen Sie es dann erneut.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that Chatter is enabled. Enable Chatter in your org and try again.": {
+      "message": "Für die Fundseeker-Startportal-Vorlage muss Chatter aktiviert sein. Aktivieren Sie Chatter in Ihrer Organisation, und versuchen Sie es noch einmal.",
+      "description": "shown if validation fails"
+    },
+    "An Experience Cloud site with the name 'Fundseeker Portal' already exists.": {
+      "message": "Es ist bereits eine Experience Cloud-Website mit dem Namen 'Fundseeker Portal' vorhanden.",
+      "description": "shown if validation fails"
+    }
+  },
+  "steps": {
+    "Install {product} {version}": {
+      "message": "{product} {version} installieren",
+      "description": "title of installation step"
+    },
+    "Deploy Visual Assets": {
+      "message": "Visuelle Ressourcen bereitstellen",
+      "description": "title of installation step"
+    },
+    "Deploy unpackaged/post/Submit_Requirement_flow": {
+      "message": "unpackaged/post/Submit_Requirement_flow bereitstellen",
+      "description": "title of installation step"
+    },
+    "Deploy Create Application Flow And Quick Action": {
+      "message": "Flow \"Antrag erstellen\" und Schnellaktion bereitstellen",
+      "description": "title of installation step"
+    },
+    "Deploy Submit Application Flow And Quick Action": {
+      "message": "Flow \"Antrag einreichen\" und Schnellaktion bereitstellen",
+      "description": "title of installation step"
+    },
+    "Deploy Fundseeker Plus Login Profile": {
+      "message": "Fundseeker Plus-Anmeldeprofil bereitstellen",
+      "description": "title of installation step"
+    },
+    "Create the Fundseeker Portal": {
+      "message": "Fundseeker-Portal erstellen",
+      "description": "title of installation step"
+    },
+    "Publish the Fundseeker Portal": {
+      "message": "Fundseeker-Portal veröffentlichen",
+      "description": "title of installation step"
+    },
+    "Add 'Fundseeker Plus Login' Profile to Fundseeker Portal": {
+      "message": "Profil 'Fundseeker Plus Login' zum Fundseeker-Portal hinzufügen",
+      "description": "title of installation step"
+    },
+    "Update 'Fundseeker Portal Profile' (Guest User) profile": {
+      "message": "Profil 'Fundseeker Portal Profile' (Gastbenutzer) aktualisieren",
+      "description": "title of installation step"
+    },
+    "Grant Visibility to Site Users": {
+      "message": "Website-Benutzern Sichtbarkeit erteilen",
+      "description": "title of installation step"
+    },
+    "Deploy Submit Requirement Flow And Quick Action": {
+      "message": "Flow \"Anforderung einreichen\" und Schnellaktion bereitstellen",
+      "description": "title of installation step"
+    }
+  },
+  "plan:customer_enablement_install": {
+    "title": {
+      "message": "OFM Fundseeker-Startportal-Vorlage und Build Site installieren",
+      "description": "title of installation plan"
+    },
+    "preflight_message": {
+      "message": "Hierdurch wird die Outbound Funds Module Fundseeker-Startportal-Vorlage in Ihrer Organisation installiert und das Fundseeker-Portal mit den von uns empfohlenen Konfigurationen erstellt.",
+      "description": "shown before user starts installation (markdown)"
+    },
+    "post_install_message": {
+      "message": "Danke, dass Sie die Outbound Funds Module Fundseeker-Startportal-Vorlage installieren. Bitte besuchen Sie die Community-Gruppe [Outbound Funds Module Fundseeker Starter Portal Template] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) auf dem Power of Us-Hub, wenn Sie Fragen zum Outbound Funds Module oder der Outbound Funds Module Fundseeker-Startportal-Vorlage haben.",
+      "description": "shown after successful installation (markdown)"
+    },
+    "error_message": {
+      "message": "Um Hilfe zu diesem Fehler zu erhalten, navigieren Sie zu [help.salesforce.com](https://help.salesforce.com/), suchen Sie \"Support und Services\"; und öffnen Sie ein Ticket beim Support von Salesforce. Geben Sie \"Outbound Funds Module Fundseeker Starter Portal Template\" in die Betreffzeile ein; und schließen Sie in Ihren Kommentar den hier abgebildeten Installationslink ein.",
+      "description": "shown after failed installation (markdown)"
+    }
+  }
+}

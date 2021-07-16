@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>IsAddFilesVisible__c</name>
+    <help>有効化されていれば、ユーザは [ファイルを追加] コンポーネントを使用して添付ファイルを助成金の提出書類要件にアップロードできます。助成金の提出書類要件が送信されると、[ファイルを追加] コンポーネントは自動的に非表示になります。</help>
+    <label>[ファイルを追加] は表示されていますか?</label>
+</CustomFieldTranslation>

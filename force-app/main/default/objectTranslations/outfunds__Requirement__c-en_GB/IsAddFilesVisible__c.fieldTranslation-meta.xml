@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>IsAddFilesVisible__c</name>
+    <help>When enabled, a user is able to upload attachments to a Requirement using the Add Files component. The Add Files component is automatically hidden from the user after they submit a Requirement.</help>
+    <label>Is Add Files Visible?</label>
+</CustomFieldTranslation>

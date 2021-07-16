@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <name>Cancel</name>
+        <label>Annuleren</label>
+    </customLabels>
+    <customLabels>
+        <name>Close</name>
+        <label>Sluiten</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoDeleteAccessException</name>
+        <label>U hebt geen verwijdertoegang voor dit object. Vraag uw Salesforce-beheerder om hulp.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoInsertFlsException</name>
+        <label>U hebt niet op veldniveau toegang om deze record te maken. Vraag uw Salesforce-beheerder om hulp.</label>
+    </customLabels>
+    <customLabels>
+        <name>DatabaseService_NoUpdateFlsException</name>
+        <label>U hebt niet op veldniveau toegang om deze record te bewerken. Vraag uw Salesforce-beheerder om hulp.</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Action</name>
+        <label>Bestand verwijderen</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Action</name>
+        <label>Verwijderen bevestigen</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Confirmation_Body</name>
+        <label>Weet u zeker dat u dit bestand wilt verwijderen?</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Header</name>
+        <label>Kan bestand niet verwijderen</label>
+    </customLabels>
+    <customLabels>
+        <name>Delete_File_Error_Message</name>
+        <label>Dit bestand kan niet worden verwijderd. Neem voor hulp contact op met de systeembeheerder.</label>
+    </customLabels>
+    <customLabels>
+        <name>Error</name>
+        <label>Fout</label>
+    </customLabels>
+    <customLabels>
+        <name>File_Retrieval_Error</name>
+        <label>Er is een fout opgetreden en we kunnen de gerelateerde records niet ophalen. Neem voor hulp contact op met de systeembeheerder.</label>
+    </customLabels>
+    <customLabels>
+        <name>Loading</name>
+        <label>Bezig met laden</label>
+    </customLabels>
+    <customLabels>
+        <name>No_Files_Attached</name>
+        <label>Geen bestanden bijgevoegd</label>
+    </customLabels>
+    <customLabels>
+        <name>Requirement_Attachments</name>
+        <label>Bijlagen bij vereiste</label>
+    </customLabels>
+</Translations>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>IsAddFilesVisible__c</name>
+    <help>Cuando está activado, un usuario puede cargar datos adjuntos a un requisito empleando el componente Agregar archivos. El componente Agregar archivos queda oculto automáticamente al usuario después de que envíe un requisito.</help>
+    <label>¿Está visible Agregar archivos?</label>
+</CustomFieldTranslation>
