@@ -1,0 +1,140 @@
+{
+  "product": {
+    "title": {
+      "message": "Fondsenwerversportalsjabloon voor OFM",
+      "description": "name of product"
+    },
+    "short_description": {
+      "message": "Gebruik een Experience Cloud-sitesjabloon om Outbound Funds Module met een fondsenwerversportal uit te breiden.",
+      "description": "tagline of product"
+    },
+    "description": {
+      "message": "Welkom bij het installatieprogramma voor de fondsenwerversportalsjabloon voor Outbound Funds Module!\r\n\r\nDe fondsenwerversportalsjabloon voor Outbound Funds Module stroomlijnt het financieringsproces en helpt kredietverschaffers relaties met hun begunstigden op te bouwen en te beheren. De fondsenwerversportalsjabloon voor Outbound Funds Module is gebaseerd op Salesforce Experience Cloud en maakt financiering veel makkelijker met een intuïtieve, gebruiksvriendelijke interface en back-endautomatisering.\r\n\r\nGaat u Outbound Funds Module voor het eerst gebruiken? Zorg er dan voor dat [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) in uw organisatie is geïnstalleerd voordat u de fondsenwerversportalsjabloon voor Outbound Funds Module installeert.\r\n\r\n*BELANGRIJK*: Salesforce raadt niet aan om upgrades rechtstreeks in productieorganisaties te installeren. Installeer de fondsenwerversportalsjabloon voor Outbound Funds Module in plaats daarvan in een van uw gratis sandboxomgevingen of in een ontwikkelorganisatie.\r\n\r\nBekijk na de installatie onze documentatie met resources die u op weg helpen:\r\n\r\n* [Documentatie voor Outbound Funds Module](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nVragen? Word lid van de klantengroep voor [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS/outbound-funds-module-sfdo-product) in de Power of Us Hub.",
+      "description": "shown on product detail page (markdown)"
+    },
+    "click_through_agreement": {
+      "message": "*Voorwaarden voor het installatieprogramma voor de fondsenwerversportalsjabloon voor\r\nOutbound Funds Module*\r\n\r\nDe fondsenwerversportalsjabloon voor Outbound Funds Module-technologie (“OFM-\r\nportal”) is een open-source pakket dat is gelicentieerd door salesforce.com, Inc.\r\nof een van haar gelieerde ondernemingen (“SFDC”) volgens de BSD-3-\r\nclausulelicentie, die men aantreft op\r\n[*https://opensource.org/licenses/BSD-3-Clause*](https://opensource.org/licenses/BSD-3-Clause).\r\nHet OFM-portalpakket kan alleen worden gebruikt na installatie van de Outbound\r\nFunds Module, een open-source pakket dat is gelicentieerd door SFDC volgens de\r\nBSD-3-licentie.\r\n\r\nDOOR OFM-PORTAL TE INSTALLEREN, GAAT U AKKOORD MET DE BIJBEHORENDE LICENTIE\r\n([*https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE*](https://github.com/SalesforceFoundation/OutboundFunds/blob/master/LICENSE)).\r\n\r\nBelangrijk: De OFM-portal mag niet worden gebruikt voor het genereren, verzenden of\r\nfaciliteren van berichten aan derden (“Berichten”) waar niet om is gevraagd.\r\nDe volledige verantwoordelijkheid voor het maken, initiëren en verzenden van berichten\r\nligt bij de klanten en omvat, zonder beperking, het naleven van alle wetten, regels en\r\nregelgevingen die van toepassing zijn op het verzenden van berichten (waaronder\r\nhet verkrijgen van toestemming om die berichten te verzenden) en op de inhoud\r\nvan berichten. De OFM-portal mag niet worden gebruikt voor enig doel dat is gerelateerd\r\naan het vaststellen van de geschiktheid van een individu voor krediet, dienstbetrekkingen\r\nof verzekeringen, of voor enige door de consument geïnitieerde transactie, zoals\r\ngedefinieerd in de Amerikaanse Fair Credit Reporting Act of een vergelijkbare\r\nwet.\r\n\r\nDe OFM-portal mag worden gebruikt om berichten te verzenden aan enkel die\r\nontvangers die klanten toestemming hebben gegeven om hen dergelijke berichten te\r\nsturen volgens de wettelijke vereisten voor het verkrijgen van deze toestemming, of,\r\nvoor e-mailberichten die onderhevig zijn aan de Amerikaanse CAN-SPAM Act, wanneer\r\nhet bericht kan worden gekenmerkt als een 'transactie- of relatiebericht', zoals\r\nvoorzien door de Amerikaanse CAN-SPAM Act. Klanten dragen ook de volledige\r\nverantwoordelijkheid voor naleving van de Amerikaanse CAN-SPAM Act.\r\n\r\nAls een provider, aggregator, industriegroep, overheidsgroep of andere\r\norganisatie een lijst met e-mailadressen, telefoonnummers of andere adressen\r\nmaakt waarvan de status is gewijzigd (zoals e-mailadressen die zijn toegevoegd\r\naan een lijst 'Geen contact opnemen' of telefoonnummers die aan een nieuwe\r\ngebruiker zijn toegewezen), behoudt SFDC zich het recht voor om berichten die aan\r\ndie ontvangers worden verzonden te blokkeren. De verantwoordelijkheid voor het\r\nrespecteren van dergelijke lijsten ligt echter uitsluitend bij onze klant en SFDC kan\r\nniet aansprakelijk worden gesteld voor enig falen in het blokkeren van berichten\r\naan deze adressen of telefoonnummers of voor enige fout gerelateerd aan het\r\nonbedoeld afmelden van een ontvanger die aangemeld zou moeten zijn.\r\n\r\nELKE HOOFDABONNEMENTSOVEREENKOMST (\"MASTER SUBSCRIPTION AGREEMENT\") DIE U OF UW ENTITEIT MOGELIJK HEEFT MET SFDC,\r\nIS NIET VAN TOEPASSING OP UW GEBRUIK VAN OFM-PORTAL. EEN GELIEERDE ONDERNEMING WIL ZEGGEN\r\nEEN ENTITEIT DIE DIRECT OF INDIRECT ZEGGENSCHAP HEEFT OVER, ONDER ZEGGENSCHAP STAAT VAN, OF ONDER\r\nGEZAMENLIJKE ZEGGENSCHAP STAAT MET DE DESBETREFFENDE ENTITEIT. VOOR DE TOEPASSING VAN DEZE DEFINITIE\r\nBETEKENT 'ZEGGENSCHAP' HET DIRECTE OF INDIRECTE EIGENDOM VAN OF ZEGGENSCHAP OVER MEER\r\nDAN 50% VAN DE STEMGERECHTIGDE BELANGEN VAN DE DESBETREFFENDE ENTITEIT. SALESFORCE.ORG\r\nLLC IS EEN GELIEERDE ONDERNEMING VAN SALESFORCE.COM, INC.\r\n\r\nOFM-PORTAL IS EEN NIET-SFDC-TOEPASSING OF TOEPASSING VAN DERDE PARTIJEN, EN GEEN\r\nSERVICES, OP GROND VAN ENIGE HOOFDABONNEMENTSOVEREENKOMST DIE U HEBT MET SFDC.\r\nOFM-PORTAL WORDT GELEVERD \"AS IS\" EN ZOALS BESCHIKBAAR, WAARBIJ SFDC GEEN ENKELE GARANTIE\r\nOF WAARBORG GEEFT MET BETREKKING TOT OFM-PORTAL, NOCH EXPLICIET, NOCH IMPLICIET, VAN RECHTSWEGE OF\r\nANDERS, INCLUSIEF, DOCH NIET BEPERKT TOT, ALLE IMPLICIETE GARANTIES\r\nVAN VERKOOPBAARHEID, GESCHIKTHEID VOOR EEN BEPAALD DOEL, VRIJ ZIJN VAN DEFECTEN\r\nOF NIET-INBREUK, MET INACHTNEMING VAN DE MAXIMALE DOOR DE VAN TOEPASSING ZIJNDE WET TOEGESTANE OMVANG.\r\nALS U ENIGE GEVOELIGE OF GEREGULEERDE GEGEVENS INDIENT IN OFM-PORTAL, IS HET\r\nUITSLUITEND UW VERANTWOORDELIJKHEID OM TE GARANDEREN DAT UW GEBRUIK VAN OFM-PORTAL VOOR HET VERWERKEN\r\nVAN DIE INFORMATIE IN OVEREENSTEMMING IS MET ALLE TOEPASSELIJKE WETTEN EN REGELGEVING.\r\n\r\nSFDC TREFT GEEN AANSPRAKELIJKHEID VOORTVLOEIEND UIT OF GERELATEERD AAN UW GEBRUIK\r\nVAN OFM-PORTAL VOOR ENIGE DIRECTE SCHADE OF VOOR ENIGE GEDERFDE WINSTEN, OMZETTEN,\r\nGOODWILL OF INDIRECTE, SPECIALE, INCIDENTELE, VOORTVLOEIENDE, VOORBEELD-,\r\nDEKKINGS-, BEDRIJFSONDERBREKINGS- OF ALS STRAF OPGELEGDE SCHADE, ONGEACHT OF EEN ACTIE PLAATSVINDT\r\nIN CONTRACT OF ALS ONRECHTMATIGE DAAD EN ONGEACHT ENIGE AANSPRAKELIJKHEIDSTHEORIE, ZELFS INDIEN\r\nOP DE HOOGTE GEBRACHT VAN DE MOGELIJKHEID VAN DERGELIJKE SCHADE, OF ALS EEN OPLOSSING ANDERSZINS MISLUKT\r\nOF NIET SLAAGT IN ZIJN OORSPRONKELIJKE OPZET. DE VOORAFGAANDE AFWIJZING VAN AANSPRAKELIJKHEID IS NIET VAN TOEPASSING\r\nIN DE MATE ZOALS VERBODEN DOOR DE WET. SFDC WIJST ALLE AANSPRAKELIJKHEID EN\r\nVERPLICHTINGEN TOT SCHADELOOSSTELLING AF VOOR ALLE NADEEL OF SCHADE VEROORZAAKT DOOR ALLE OF ENIGE\r\nEXTERNE HOSTINGPROVIDERS.\r\n\r\nDEZE OVEREENKOMST IS UITSLUITEND ONDERWORPEN AAN EN MOET UITSLUITEND WORDEN UITGELEGD\r\nDOOR TOEPASSING VAN HET RECHT VAN DE VERENIGDE STATEN EN DE\r\nSTAAT CALIFORNIË, ONGEACHT DE DAARIN BESTAANDE BEPALINGEN AANGAANDE CONFLICTERENDE WETTEN.\r\nDE STAATS- EN FEDERALE RECHTBANKEN IN SAN FRANCISCO, CALIFORNIË\r\nHEBBEN EXCLUSIEVE BEVOEGDHEID OM UITSPRAAK TE DOEN OVER ENIG GESCHIL DAT ONTSTAAT UIT OF VERBAND HOUDT\r\nMET DEZE OVEREENKOMST. ELKE PARTIJ STEMT HIERBIJ IN MET DE\r\nJURISDICTIE VAN DERGELIJKE RECHTBANKEN EN ZIET AF VAN ENIG RECHT DAT DE PARTIJ IN ANDERE OMSTANDIGHEDEN ZOU HEBBEN\r\nOM DE TOEPASSELIJKHEID VAN DERGELIJKE FORA TE BETWISTEN.",
+      "description": "legal text shown in modal dialog"
+    },
+    "error_message": {
+      "message": "Ga voor hulp bij deze fout naar [help.salesforce.com](https://help.salesforce.com/) en maak in 'Ondersteuning en services' een ticket voor ondersteuning aan bij Salesforce. Vermeld 'Outbound Funds Module Fundseeker Starter Portal Template' (fondsenwerversportalsjabloon voor Outbound Funds Module) in de onderwerpregel en neem de installatiekoppeling op in de opmerkingen.",
+      "description": "shown after failed installation (markdown)"
+    }
+  },
+  "plan:install": {
+    "title": {
+      "message": "Fondsenwerversportalsjabloon voor OFM installeren",
+      "description": "title of installation plan"
+    },
+    "preflight_message": {
+      "message": "Hiermee installeert u de Experience Cloud-sjabloon voor de fondsenwerversportal voor Outbound Funds Module in uw organisatie.",
+      "description": "shown before user starts installation (markdown)"
+    },
+    "post_install_message": {
+      "message": "Bedankt voor het installeren van de fondsenwerversportalsjabloon voor Outbound Funds Module. Ga naar de [Outbound Funds Module]-community (https://powerofus.force.com/s/group/0F980000000CvlMCAS) in de Power of Us Hub als u vragen hebt over Outbound Funds Module of de fondsenwerversportalsjabloon voor Outbound Funds Module.",
+      "description": "shown after successful installation (markdown)"
+    },
+    "error_message": {
+      "message": "Ga voor hulp bij deze fout naar [help.salesforce.com](https://help.salesforce.com/) en maak in 'Ondersteuning en services' een ticket voor ondersteuning aan bij Salesforce. Vermeld 'Outbound Funds Module Fundseeker Starter Portal Template' (fondsenwerversportalsjabloon voor Outbound Funds Module) in de onderwerpregel en neem de installatiekoppeling op in de opmerkingen.",
+      "description": "shown after failed installation (markdown)"
+    }
+  },
+  "checks": {
+    "Outbound Funds Module Fundseeker Starter Portal Template requires Chatter. Please enable Chatter in your org and try again.": {
+      "message": "De fondsenwerversportalsjabloon voor Outbound Funds Module vereist Chatter. Schakel Chatter in voor uw organisatie en probeer het opnieuw.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that My Domain is enabled. Enable My Domain in your org and try again.": {
+      "message": "De fondsenwerversportalsjabloon vereist dat Mijn domein is ingeschakeld. Schakel Mijn domein in uw organisatie in en probeer het opnieuw.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that Digital Experiences is enabled. Enable Digital Experience in your org and try again.": {
+      "message": "De fondsenwerversportalsjabloon vereist dat Digitale ervaringen zijn ingeschakeld. Schakel Digitale ervaringen in uw organisatie in en probeer het opnieuw.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template is an Experience Cloud site template and requires Customer Community Plus Login licenses. Coordinate with your Salesforce account executive to be sure you have the correct licenses in your org.": {
+      "message": "De fondsenwerversportalsjabloon is een Experience Cloud-sitesjabloon en vereist Customer Community Plus-inloglicenties. Overleg met uw Salesforce-accountmanager om er zeker van te zijn dat u in uw organisatie over de juiste licenties beschikt.",
+      "description": "shown if validation fails"
+    },
+    "The Outbound Funds Module Fundseeker Starter Portal Template requires Outbound Funds Module is installed first. Visit https://install.salesforce.org/products/outbound-funds/ to install it and try again.": {
+      "message": "De fondsenwerversportalsjabloon voor Outbound Funds Module vereist de voorafgaande installatie van Outbound Funds Module. Ga naar https://install.salesforce.org/products/outbound-funds/ om deze te installeren en probeer het daarna opnieuw.",
+      "description": "shown if validation fails"
+    },
+    "The Fundseeker Starter Portal Template requires that Chatter is enabled. Enable Chatter in your org and try again.": {
+      "message": "De fondsenwerversportalsjabloon vereist dat Chatter is ingeschakeld. Schakel Chatter in uw organisatie in en probeer het opnieuw.",
+      "description": "shown if validation fails"
+    },
+    "An Experience Cloud site with the name 'Fundseeker Portal' already exists.": {
+      "message": "Er bestaat al een Experience Cloud-site met de naam 'Fondsenwerversportal'.",
+      "description": "shown if validation fails"
+    }
+  },
+  "steps": {
+    "Install {product} {version}": {
+      "message": "{product} {version} installeren",
+      "description": "title of installation step"
+    },
+    "Deploy Visual Assets": {
+      "message": "Visuele assets implementeren",
+      "description": "title of installation step"
+    },
+    "Deploy unpackaged/post/Submit_Requirement_flow": {
+      "message": "unpackaged/post/Submit_Requirement_flow implementeren",
+      "description": "title of installation step"
+    },
+    "Deploy Create Application Flow And Quick Action": {
+      "message": "Stroom en snelle actie voor het maken van aanmeldingen implementeren",
+      "description": "title of installation step"
+    },
+    "Deploy Submit Application Flow And Quick Action": {
+      "message": "Stroom en snelle actie voor het indienen van aanmeldingen implementeren",
+      "description": "title of installation step"
+    },
+    "Deploy Fundseeker Plus Login Profile": {
+      "message": "Profiel 'Fondsenwerver Plus met inloggen' implementeren",
+      "description": "title of installation step"
+    },
+    "Create the Fundseeker Portal": {
+      "message": "De fondsenwerversportal maken",
+      "description": "title of installation step"
+    },
+    "Publish the Fundseeker Portal": {
+      "message": "De fondsenwerversportal publiceren",
+      "description": "title of installation step"
+    },
+    "Add 'Fundseeker Plus Login' Profile to Fundseeker Portal": {
+      "message": "Het profiel 'Fondsenwerver Plus met inloggen' toevoegen aan de fondsenwerversportal",
+      "description": "title of installation step"
+    },
+    "Update 'Fundseeker Portal Profile' (Guest User) profile": {
+      "message": "Het profiel 'Fondsenwerversportalprofiel' (gastgebruiker) bijwerken",
+      "description": "title of installation step"
+    },
+    "Grant Visibility to Site Users": {
+      "message": "Inzicht bieden aan sitegebruikers",
+      "description": "title of installation step"
+    },
+    "Deploy Submit Requirement Flow And Quick Action": {
+      "message": "Stroom en snelle actie voor het indienen van vereisten implementeren",
+      "description": "title of installation step"
+    }
+  },
+  "plan:customer_enablement_install": {
+    "title": {
+      "message": "OFM-fondsenwerversportalsjabloon installeren en site samenstellen",
+      "description": "title of installation plan"
+    },
+    "preflight_message": {
+      "message": "Hiermee wordt de fondsenwerversportalsjabloon voor Outbound Funds Module in uw organisatie geïnstalleerd en wordt de fondsenwerversportal gemaakt met onze aanbevolen configuraties.",
+      "description": "shown before user starts installation (markdown)"
+    },
+    "post_install_message": {
+      "message": "Bedankt voor het installeren van de fondsenwerversportalsjabloon voor Outbound Funds Module. Ga naar de community voor de [fondsenwerversportalsjabloon voor Outbound Funds Module] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) in de Power of Us Hub als u vragen hebt over Outbound Funds Module of de fondsenwerversportalsjabloon voor Outbound Funds Module.",
+      "description": "shown after successful installation (markdown)"
+    },
+    "error_message": {
+      "message": "Ga voor hulp bij deze fout naar [help.salesforce.com](https://help.salesforce.com/) en maak in 'Ondersteuning en services' een ticket voor ondersteuning aan bij Salesforce. Vermeld 'Outbound Funds Module Fundseeker Starter Portal Template' (fondsenwerversportalsjabloon voor Outbound Funds Module) in de onderwerpregel en neem de installatiekoppeling op in de opmerkingen.",
+      "description": "shown after failed installation (markdown)"
+    }
+  }
+}
