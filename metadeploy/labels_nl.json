@@ -9,7 +9,7 @@
       "description": "tagline of product"
     },
     "description": {
-      "message": "Welkom bij het installatieprogramma voor de fondsenwerversportalsjabloon voor Outbound Funds Module!\r\n\r\nDe fondsenwerversportalsjabloon voor Outbound Funds Module stroomlijnt het financieringsproces en helpt kredietverschaffers relaties met hun begunstigden op te bouwen en te beheren. De fondsenwerversportalsjabloon voor Outbound Funds Module is gebaseerd op Salesforce Experience Cloud en maakt financiering veel makkelijker met een intuïtieve, gebruiksvriendelijke interface en back-endautomatisering.\r\n\r\nGaat u Outbound Funds Module voor het eerst gebruiken? Zorg er dan voor dat [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) in uw organisatie is geïnstalleerd voordat u de fondsenwerversportalsjabloon voor Outbound Funds Module installeert.\r\n\r\n*BELANGRIJK*: Salesforce raadt niet aan om upgrades rechtstreeks in productieorganisaties te installeren. Installeer de fondsenwerversportalsjabloon voor Outbound Funds Module in plaats daarvan in een van uw gratis sandboxomgevingen of in een ontwikkelorganisatie.\r\n\r\nBekijk na de installatie onze documentatie met resources die u op weg helpen:\r\n\r\n* [Documentatie voor Outbound Funds Module](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nVragen? Word lid van de klantengroep voor [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS/outbound-funds-module-sfdo-product) in de Power of Us Hub.",
+      "message": "Welkom bij het installatieprogramma voor de fondsenwerversportalsjabloon voor Outbound Funds Module!\r\n\r\nDe fondsenwerversportalsjabloon voor Outbound Funds Module stroomlijnt het financieringsproces en helpt kredietverschaffers relaties met hun begunstigden op te bouwen en te beheren. De fondsenwerversportalsjabloon voor Outbound Funds Module is gebaseerd op Salesforce Experience Cloud en maakt financiering veel makkelijker met een intuïtieve, gebruiksvriendelijke interface en back-endautomatisering.\r\n\r\nGaat u Outbound Funds Module voor het eerst gebruiken? Zorg er dan voor dat [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) in uw organisatie is geïnstalleerd voordat u de fondsenwerversportalsjabloon voor Outbound Funds Module installeert.\r\n\r\n*BELANGRIJK*: Salesforce raadt niet aan om upgrades rechtstreeks in productieorganisaties te installeren. Installeer de fondsenwerversportalsjabloon voor Outbound Funds Module in plaats daarvan in een van uw gratis sandboxomgevingen of in een ontwikkelorganisatie.\r\n\r\nBekijk na de installatie onze documentatie met resources die u op weg helpen:\r\n\r\n* [Documentatie voor Outbound Funds Module](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nVragen? Word lid van de klantengroep voor [Outbound Funds Module](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) in de Power of Us Hub.",
       "description": "shown on product detail page (markdown)"
     },
     "click_through_agreement": {
@@ -31,7 +31,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Bedankt voor het installeren van de fondsenwerversportalsjabloon voor Outbound Funds Module. Ga naar de [Outbound Funds Module]-community (https://powerofus.force.com/s/group/0F980000000CvlMCAS) in de Power of Us Hub als u vragen hebt over Outbound Funds Module of de fondsenwerversportalsjabloon voor Outbound Funds Module.",
+      "message": "Bedankt voor het installeren van de fondsenwerversportalsjabloon voor Outbound Funds Module. Ga naar de [Outbound Funds Module]-community (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) in de Power of Us Hub als u vragen hebt over Outbound Funds Module of de fondsenwerversportalsjabloon voor Outbound Funds Module.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
@@ -129,7 +129,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Bedankt voor het installeren van de fondsenwerversportalsjabloon voor Outbound Funds Module. Ga naar de community voor de [fondsenwerversportalsjabloon voor Outbound Funds Module] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) in de Power of Us Hub als u vragen hebt over Outbound Funds Module of de fondsenwerversportalsjabloon voor Outbound Funds Module.",
+      "message": "Bedankt voor het installeren van de fondsenwerversportalsjabloon voor Outbound Funds Module. Ga naar de community voor de [fondsenwerversportalsjabloon voor Outbound Funds Module] (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) in de Power of Us Hub als u vragen hebt over Outbound Funds Module of de fondsenwerversportalsjabloon voor Outbound Funds Module.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {

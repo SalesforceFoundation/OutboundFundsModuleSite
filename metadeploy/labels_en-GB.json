@@ -9,7 +9,7 @@
       "description": "tagline of product"
     },
     "description": {
-      "message": "Welcome to the Outbound Funds Module Fundseeker Starter Portal Template installer!\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template streamlines the funding process and helps fund providers cultivate and manage relationships with their fundees. Leveraging Salesforce Experience Cloud, Outbound Funds Module Fundseeker Starter Portal Template makes funding a breeze through an intuitive, easy-to-use interface and backend automation.\r\n\r\nNew to Outbound Funds Module? Before installing the Outbound Funds Module Fundseeker Starter Portal Template, make sure you have [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) installed in your org first.\r\n\r\n*IMPORTANT*: Salesforce does not recommend installing upgrades directly in production organisations. Instead, install Outbound Funds Module Fundseeker Starter Portal Template in one of your free sandbox environments or a developer organisation first\r\n\r\nOnce you have installed it, check out resources on getting started in our documentation:\r\n\r\n* [Outbound Funds Module Documentation](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nQuestions?  Become a member of the [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS/outbound-funds-module-sfdo-product) customer group in the Power of Us Hub.",
+      "message": "Welcome to the Outbound Funds Module Fundseeker Starter Portal Template installer!\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template streamlines the funding process and helps fund providers cultivate and manage relationships with their fundees. Leveraging Salesforce Experience Cloud, Outbound Funds Module Fundseeker Starter Portal Template makes funding a breeze through an intuitive, easy-to-use interface and backend automation.\r\n\r\nNew to Outbound Funds Module? Before installing the Outbound Funds Module Fundseeker Starter Portal Template, make sure you have [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) installed in your org first.\r\n\r\n*IMPORTANT*: Salesforce does not recommend installing upgrades directly in production organisations. Instead, install Outbound Funds Module Fundseeker Starter Portal Template in one of your free sandbox environments or a developer organisation first\r\n\r\nOnce you have installed it, check out resources on getting started in our documentation:\r\n\r\n* [Outbound Funds Module Documentation](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nQuestions?  Become a member of the [Outbound Funds Module](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) customer group in the Power of Us Hub.",
       "description": "shown on product detail page (markdown)"
     },
     "click_through_agreement": {
@@ -31,7 +31,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template.",
+      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
@@ -129,7 +129,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module Fundseeker Starter Portal Template](https://powerofus.force.com/s/group/0F980000000CvlMCAS) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template.",
+      "message": "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module Fundseeker Starter Portal Template](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) community group on the Power of Us Hub for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
