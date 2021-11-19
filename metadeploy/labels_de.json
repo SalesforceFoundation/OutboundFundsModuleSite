@@ -9,7 +9,7 @@
       "description": "tagline of product"
     },
     "description": {
-      "message": "Willkommen beim Installationsprogramm für die Outbound Funds Module Fundseeker-Startportal-Vorlage!\r\n\r\nDie Fundseeker-Startportal-Vorlage für das Outbound Funds Module optimiert den Finanzierungsprozess und hilft Finanzierungsanbietern bei der Pflege und Verwaltung der Beziehungen zu ihren Geldgebern. Die Fundseeker-Startportal-Vorlage für das Outbound Funds Module stützt sich auf die Salesforce Experience Cloud und macht Finanzierung durch eine intuitive, benutzerfreundliche Oberfläche und Backend-Automatisierung zu einem Kinderspiel.\r\n\r\nSteigen Sie erst in das Outbound Funds Module ein? Achten Sie darauf, vor der Installation der Fundseeker-Startportal-Vorlage für das Outbound Funds Module zunächst das [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) in Ihrer Organisation zu installieren.\r\n\r\n*WICHTIG*: Salesforce rät von der direkten Installation von Upgrades in Produktionsorganisationen ab. Installieren Sie stattdessen die Outbound Funds Module Fundseeker-Startportal-Vorlage zunächst in einer Ihrer kostenlosen Sandbox-Umgebungen oder einer Entwicklerorganisation\r\n\r\nSehen Sie sich nach der Installation die Ressourcen zum Einstieg in unserer Dokumentation an:\r\n\r\n* [Outbound Funds Module Documentation](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nFragen? Werden Sie Mitglied bei der [Outbound Funds Module]-Kundengruppe (https://powerofus.force.com/s/group/0F980000000CvlMCAS/outbound-funds-module-sfdo-product) im Power of Us-Hub.",
+      "message": "Willkommen beim Installationsprogramm für die Outbound Funds Module Fundseeker-Startportal-Vorlage!\r\n\r\nDie Fundseeker-Startportal-Vorlage für das Outbound Funds Module optimiert den Finanzierungsprozess und hilft Finanzierungsanbietern bei der Pflege und Verwaltung der Beziehungen zu ihren Geldgebern. Die Fundseeker-Startportal-Vorlage für das Outbound Funds Module stützt sich auf die Salesforce Experience Cloud und macht Finanzierung durch eine intuitive, benutzerfreundliche Oberfläche und Backend-Automatisierung zu einem Kinderspiel.\r\n\r\nSteigen Sie erst in das Outbound Funds Module ein? Achten Sie darauf, vor der Installation der Fundseeker-Startportal-Vorlage für das Outbound Funds Module zunächst das [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) in Ihrer Organisation zu installieren.\r\n\r\n*WICHTIG*: Salesforce rät von der direkten Installation von Upgrades in Produktionsorganisationen ab. Installieren Sie stattdessen die Outbound Funds Module Fundseeker-Startportal-Vorlage zunächst in einer Ihrer kostenlosen Sandbox-Umgebungen oder einer Entwicklerorganisation\r\n\r\nSehen Sie sich nach der Installation die Ressourcen zum Einstieg in unserer Dokumentation an:\r\n\r\n* [Outbound Funds Module Documentation](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nFragen? Werden Sie Mitglied bei der [Outbound Funds Module]-Kundengruppe (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) im Power of Us-Hub.",
       "description": "shown on product detail page (markdown)"
     },
     "click_through_agreement": {
@@ -31,7 +31,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Danke, dass Sie die Outbound Funds Modul Fundseeker-Startportal-Vorlage installieren. Bitte besuchen Sie die Community-Gruppe [Outbound Funds Module] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) auf dem Power of Us-Hub, wenn Sie Fragen zum Outbound Funds Module oder der Outbound Funds Module Fundseeker-Startportal-Vorlage haben.",
+      "message": "Danke, dass Sie die Outbound Funds Modul Fundseeker-Startportal-Vorlage installieren. Bitte besuchen Sie die Community-Gruppe [Outbound Funds Module] (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) auf dem Power of Us-Hub, wenn Sie Fragen zum Outbound Funds Module oder der Outbound Funds Module Fundseeker-Startportal-Vorlage haben.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
@@ -129,7 +129,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Danke, dass Sie die Outbound Funds Module Fundseeker-Startportal-Vorlage installieren. Bitte besuchen Sie die Community-Gruppe [Outbound Funds Module Fundseeker Starter Portal Template] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) auf dem Power of Us-Hub, wenn Sie Fragen zum Outbound Funds Module oder der Outbound Funds Module Fundseeker-Startportal-Vorlage haben.",
+      "message": "Danke, dass Sie die Outbound Funds Module Fundseeker-Startportal-Vorlage installieren. Bitte besuchen Sie die Community-Gruppe [Outbound Funds Module Fundseeker Starter Portal Template] (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) auf dem Power of Us-Hub, wenn Sie Fragen zum Outbound Funds Module oder der Outbound Funds Module Fundseeker-Startportal-Vorlage haben.",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {

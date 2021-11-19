@@ -1,6 +1,6 @@
 # LWC Jest tests
-**/__mocks__/**
-**/__tests__/**
+**/__mocks__
+**/__tests__
 
 # eslint config for Lightning Web Components
 **/jsconfig.json
