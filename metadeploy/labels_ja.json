@@ -9,7 +9,7 @@
       "description": "tagline of product"
     },
     "description": {
-      "message": "Outbound Funds Module Fundseeker Starter Portal Template インストーラをご利用いただきありがとうございます。\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template は、資金調達プロセスを合理化し、資金提供者が資金受領者との関係を育み、管理するのに役立ちます。Salesforce Experience Cloud を活用する Outbound Funds Module Fundseeker Starter Portal Template では、直感的で使いやすいインターフェースとバックエンドオートメーションを通じて、簡単に資金調達を処理することができます。\r\n\r\nOutbound Funds Module を初めて使用する場合、Outbound Funds Module Fundseeker Starter Portal Template をインストールする前に、組織に [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) をインストールしていることを確認してください。\r\n\r\n*重要*: Salesforce は、本番組織にアップグレードを直接インストールすることを推奨しません。まず、Outbound Funds Module Fundseeker Starter Portal Template を無料の Sandbox 環境または Developer Edition 組織にインストールしてください。\r\n\r\nインストールが完了したら、使用を開始するための各種資料を参照してください。\r\n\r\n* [Outbound Funds Module ドキュメント](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nご質問がある場合は、Power of Us Hub の [Outbound Funds Module](https://powerofus.force.com/s/group/0F980000000CvlMCAS/outbound-funds-module-sfdo-product)  カスタマーグループにご参加ください。",
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template インストーラをご利用いただきありがとうございます。\r\n\r\nOutbound Funds Module Fundseeker Starter Portal Template は、資金調達プロセスを合理化し、資金提供者が資金受領者との関係を育み、管理するのに役立ちます。Salesforce Experience Cloud を活用する Outbound Funds Module Fundseeker Starter Portal Template では、直感的で使いやすいインターフェースとバックエンドオートメーションを通じて、簡単に資金調達を処理することができます。\r\n\r\nOutbound Funds Module を初めて使用する場合、Outbound Funds Module Fundseeker Starter Portal Template をインストールする前に、組織に [Outbound Funds Module](https://install.salesforce.org/products/outbound-funds) をインストールしていることを確認してください。\r\n\r\n*重要*: Salesforce は、本番組織にアップグレードを直接インストールすることを推奨しません。まず、Outbound Funds Module Fundseeker Starter Portal Template を無料の Sandbox 環境または Developer Edition 組織にインストールしてください。\r\n\r\nインストールが完了したら、使用を開始するための各種資料を参照してください。\r\n\r\n* [Outbound Funds Module ドキュメント](https://powerofus.force.com/s/article/OFM-Documentation)\r\n\r\nご質問がある場合は、Power of Us Hub の [Outbound Funds Module](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE)  カスタマーグループにご参加ください。",
       "description": "shown on product detail page (markdown)"
     },
     "click_through_agreement": {
@@ -31,7 +31,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Outbound Funds Module Fundseeker Starter Portal Template をインストールしていただきありがとうございます。Outbound Funds Module または Outbound Funds Module Fundseeker Starter Portal Template に関するあらゆる質問については、Power of Us Hub の [Outbound Funds Module] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) コミュニティグループにアクセスしてさい。",
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template をインストールしていただきありがとうございます。Outbound Funds Module または Outbound Funds Module Fundseeker Starter Portal Template に関するあらゆる質問については、Power of Us Hub の [Outbound Funds Module] (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) コミュニティグループにアクセスしてさい。",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
@@ -129,7 +129,7 @@
       "description": "shown before user starts installation (markdown)"
     },
     "post_install_message": {
-      "message": "Outbound Funds Module Fundseeker Starter Portal Template をインストールしていただきありがとうございます。Outbound Funds Module または Outbound Funds Module Fundseeker Starter Portal Template に関するあらゆる質問については、Power of Us Hub の [Outbound Funds Module Fundseeker Starter Portal Template] (https://powerofus.force.com/s/group/0F980000000CvlMCAS) コミュニティグループにアクセスしてさい。",
+      "message": "Outbound Funds Module Fundseeker Starter Portal Template をインストールしていただきありがとうございます。Outbound Funds Module または Outbound Funds Module Fundseeker Starter Portal Template に関するあらゆる質問については、Power of Us Hub の [Outbound Funds Module Fundseeker Starter Portal Template] (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) コミュニティグループにアクセスしてさい。",
       "description": "shown after successful installation (markdown)"
     },
     "error_message": {
