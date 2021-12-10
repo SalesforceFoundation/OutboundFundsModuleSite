@@ -22,7 +22,7 @@ describe("c-flow-navigate-to-records", () => {
         component.recordId = "recordId";
         document.body.appendChild(component);
 
-        return global.flushPromises().then(async () => {
+        return Promise.resolve().then(() => {
             const { pageReference } = getNavigateCalledWith();
             expect(pageReference.type).toBe("standard__recordPage");
             expect(pageReference.attributes.recordId).toBe(component.recordId);
