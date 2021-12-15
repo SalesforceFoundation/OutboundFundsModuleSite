@@ -148,7 +148,8 @@ class ReplaceThemeLayoutNavigationMenuTask(ExperienceBundleTask):
         self._log_title("Set navigation menu")
         self.logger.info(
             'Setting the navigation menu as "{}" for all "{}" ExperienceBundle themes:'.format(
-                self.options["navigation_menu"], self._experience_bundle_name,
+                self.options["navigation_menu"],
+                self._experience_bundle_name,
             )
         )
 
