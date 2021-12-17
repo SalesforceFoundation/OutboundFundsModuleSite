@@ -9,7 +9,7 @@ project:
     package:
         name: Outbound Funds Community
         namespace: outfunds_comm
-        api_version: "50.0"
+        api_version: "52.0"
     dependencies:
         - namespace: sfdobase
           version: 1.0
