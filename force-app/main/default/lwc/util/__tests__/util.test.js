@@ -63,7 +63,7 @@ describe("formatLabel", () => {
             );
         });
 
-        it("should inject values for keys referenced in the label if keys and label references case-insensitively match ", () => {
+        it("should inject values for keys referenced in the label if keys and label references case-insensitively match", () => {
             let label = "Hello, {firstname} {lastname}!  Welcome to the {communityName}!";
             let replacements = {
                 firstName: "Aileen",
