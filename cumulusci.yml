@@ -512,7 +512,7 @@ plans:
         is_listed: True
         preflight_message: "This installs the Outbound Funds Module Fundseeker Starter Portal Template into your org and creates the Fundseeker Portal with our recommended configurations."
         post_install_message: "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) community group on the Trailblazer Community for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template."
-        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find Support & Services, and log a support ticket with Salesforce. Include “Outbound Funds Module Fundseeker Starter Portal Template” in the subject line and the installation link in the comments."
+        error_message: "To get help with this error, go to help.salesforce.com, find Support & Services, and log a support ticket with Salesforce. Include “Outbound Funds Module Fundseeker Starter Portal Template” in the subject line and the installation link in the comments."
         checks:
             - when: "not tasks.check_chatter_enabled()"
               action: error
@@ -544,7 +544,7 @@ plans:
         is_listed: True
         preflight_message: "This installs the Outbound Funds Module Fundseeker Starter Portal Experience Cloud template in your org."
         post_install_message: "Thanks for installing Outbound Funds Module Fundseeker Starter Portal Template. Visit the [Outbound Funds Module](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) community group on the Trailblazer Community for any questions about Outbound Funds Module or Outbound Funds Module Fundseeker Starter Portal Template."
-        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find Support & Services, and log a support ticket with Salesforce. Include “Outbound Funds Module Fundseeker Starter Portal Template” in the subject line and the installation link in the comments."
+        error_message: "To get help with this error, go to help.salesforce.com, find Support & Services, and log a support ticket with Salesforce. Include “Outbound Funds Module Fundseeker Starter Portal Template” in the subject line and the installation link in the comments."
         checks:
             - when: "not tasks.check_chatter_enabled()"
               action: error
