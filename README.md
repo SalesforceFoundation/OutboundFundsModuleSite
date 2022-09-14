@@ -10,6 +10,5 @@ Summer '21 🌞 ⛵ 🌊
 
 -   Ask questions or get help in Outbound Funds Module (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) customer group
 -   Log a confirmed Issue (https://github.com/SalesforceFoundation/OutboundFunds/issues/new) or Feature Request (https://trailblazer.salesforce.com/ideaSearch)
--   View User Documentation (https://powerofus.force.com/s/article/OFM-Documentation)
 -   Check out existing bugs (https://github.com/SalesforceFoundation/OutboundFunds/issues)
 -   Review Release Notes (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHOXSA2)##
