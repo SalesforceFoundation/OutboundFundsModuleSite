@@ -12,7 +12,8 @@ import { refreshApex } from "@salesforce/apex";
 import { showToast } from "c/util";
 import RUNNING_USER_ID from "@salesforce/user/Id";
 import COMMUNITY_BASE_URL from "@salesforce/community/basePath";
-
+import customProgressBar from "@salesforce/resourceUrl/customProgressBar";
+import { loadStyle } from "lightning/platformResourceLoader"; 
 import FILEUPLOAD_VISIBILITY_FIELD from "@salesforce/schema/outfunds__Requirement__c.IsAddFilesVisible__c";
 
 // LABELS
@@ -47,6 +48,10 @@ export default class CommunityFileManager extends LightningElement {
         deleteFileConfirmationAction: deleteFileConfirmationAction,
         noFilesAttached: noFilesAttached,
     };
+    connectedCallback() {
+        loadStyle(this,customProgressBar);
+        
+    }
 
     /* Wired Apex so we can refresh on upload / delete */
     wiredFilesResult;
