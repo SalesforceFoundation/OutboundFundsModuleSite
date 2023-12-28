@@ -7,7 +7,7 @@ from cumulusci.robotframework.utils import selenium_retry
 from OutboundFundsCommunity import outboundfundscommunity_lex_locators
 
 
-***REMOVED***
+endpoint = "https://api.testmail.app/api/json?apikey=cc5a1174-6d74-46d4-9ee9-409cc1da75d1&namespace=gms"
 
 
 @selenium_retry
