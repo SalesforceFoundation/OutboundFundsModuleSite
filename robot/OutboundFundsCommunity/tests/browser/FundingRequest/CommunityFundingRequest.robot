@@ -93,12 +93,6 @@ Submit a New Funding Request
     Click Button                                Finish
     Current Page Should be                      Details       Funding Request
 
-#Verify Submit Application Email is Received
-#    [Documentation]                             Verify if user receives email after
-#    ...                                         submitting application
-#    [tags]                                      feature:Funding Request
-#    Verify Submit Application Email Received    ${tag}
-
 Edit a Submitted Request
     Go To Community As Robot Test User                ${contact_id}
     Wait Until Element Is Visible               text:Find Funding Opportunities
