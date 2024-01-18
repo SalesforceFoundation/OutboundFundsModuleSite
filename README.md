@@ -4,7 +4,7 @@ For Outbound Funds Module customers, you can enhance your fundseeker experience 
 
 ## Latest Release
 
-Summer '21 🌞 ⛵ 🌊
+Winter '23 🌞 ⛵ 🌊
 
 ## For Users
 
