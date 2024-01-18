@@ -1,10 +1,10 @@
 import random
-import requests
 import re
 import string
 from BaseObjects import BaseOutboundFundsCommunityPage
 from cumulusci.robotframework.utils import selenium_retry
 from OutboundFundsCommunity import outboundfundscommunity_lex_locators
+
 
 @selenium_retry
 class Email(BaseOutboundFundsCommunityPage):
