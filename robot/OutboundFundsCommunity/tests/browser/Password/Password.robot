@@ -46,12 +46,3 @@ Forgot Password
     Click Reset Password
     Current Page Should Be                      CheckPasswordResetEmail     Community
 
-Set Passsword
-    [Documentation]                             Set new password for user
-    [tags]                                      feature:Password
-    ${reset_password_url} =                     Get Reset Password Url
-    ...                                         ${tag}
-    Set Suite Variable                          ${reset_password_url}
-    Go To                                       ${reset_password_url}
-    Set New Password                            ${random_password}
-    Current Page Should Be                      Home        Community
