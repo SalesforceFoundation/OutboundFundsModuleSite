@@ -5,7 +5,7 @@ jobs:
     runs-on: SalesforceFoundation-ubuntu
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v4-beta
+      - uses: actions/setup-node@v4
         with:
           node-version: '14'
       - name: Determine Node Version
