@@ -18,7 +18,7 @@ project:
         preproduction: include_beta
     git:
         default_branch: "main"
-        repo_url: "https://github.com/SalesforceFoundation/OutboundFundsModuleSite"
+        repo_url: "https://github.com/SalesforceFoundation-emu/OutboundFundsModuleSite"
     source_format: sfdx
 
 orgs:
