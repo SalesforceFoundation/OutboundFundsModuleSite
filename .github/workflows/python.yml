@@ -5,14 +5,14 @@ jobs:
     runs-on: SalesforceFoundation-ubuntu
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-python@v1
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.8'
       - name: Determine Python Version
         id: python-version
         run: |
           echo "::set-output name=ver::$(python --version)"
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: venv
           key: ${{ runner.os }}-${{ steps.python-version.outputs.ver }}_${{ hashFiles('requirements.txt') }}
