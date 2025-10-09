@@ -10,6 +10,6 @@ Summer '21 🌞 ⛵ 🌊
 
 -   Ask questions or get help in Outbound Funds Module (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHi0SAE) customer group
 -   Log a confirmed Issue (https://github.com/SalesforceFoundation/OutboundFunds/issues/new) or Feature Request (https://trailblazer.salesforce.com/ideaSearch)
--   View User Documentation (https://help.salesforce.com/s/articleView?language=en_US&id=sfdo.outbound_funds_module.htm&type=5)
+-   View User Documentation (https://help.salesforce.com/s/articleView?id=sfdo.outbound_funds_module.htm&type=5)
 -   Check out existing bugs (https://github.com/SalesforceFoundation/OutboundFunds/issues)
 -   Review Release Notes (https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000kHOXSA2)##
