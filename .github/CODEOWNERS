@@ -7,13 +7,13 @@
 # For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 #
 # Python
-*.py                  @SalesforceFoundation/release-engineering-reviewers
-requirements.txt      @SalesforceFoundation/release-engineering-reviewers
+*.py                  @SalesforceFoundation-emu/release-engineering-reviewers
+requirements.txt      @SalesforceFoundation-emu/release-engineering-reviewers
 
 # CumulusCI
-/cumulusci.yml        @SalesforceFoundation/release-engineering-reviewers
-**/tasks/             @SalesforceFoundation/release-engineering-reviewers
+/cumulusci.yml        @SalesforceFoundation-emu/release-engineering-reviewers
+**/tasks/             @SalesforceFoundation-emu/release-engineering-reviewers
 
 # GitHub Actions
-.github/workflows/**  @SalesforceFoundation/release-engineering-reviewers
-package.json          @SalesforceFoundation/release-engineering-reviewers
+.github/workflows/**  @SalesforceFoundation-emu/release-engineering-reviewers
+package.json          @SalesforceFoundation-emu/release-engineering-reviewers
